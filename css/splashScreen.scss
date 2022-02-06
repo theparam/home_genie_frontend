@@ -1,0 +1,27 @@
+.progress_bar_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 10px;
+  width: 100px;
+  background-color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 3px -3px black;
+}
+
+.progressbar {
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+  animation: animate_progressbar 3s normal;
+}
+
+@keyframes animate_progressbar {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}

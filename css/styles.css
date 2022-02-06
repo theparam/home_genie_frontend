@@ -53,6 +53,46 @@ header h1 {
   padding: 0.5rem 0;
 }
 
+.progress_bar_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 10px;
+  width: 100px;
+  background-color: black;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 3px -3px black;
+          box-shadow: 0 4px 3px -3px black;
+}
+
+.progressbar {
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-animation: animate_progressbar 3s normal;
+          animation: animate_progressbar 3s normal;
+}
+
+@-webkit-keyframes animate_progressbar {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@keyframes animate_progressbar {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -221,4 +261,24 @@ textarea {
   margin-top: -20px;
   text-align: right; 
 }*/
+.splash_screen_wrapper {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.progressBar {
+  background-color: black;
+  width: 100px;
+  height: 10px;
+  border-radius: 20px;
+}
 /*# sourceMappingURL=styles.css.map */

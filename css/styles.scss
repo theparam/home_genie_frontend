@@ -3,6 +3,7 @@
 @import "./variables";
 @import "./header";
 @import "./MobileNav";
+@import "./splashScreen.scss";
 
 html {
   scroll-behavior: smooth;
@@ -171,3 +172,18 @@ textarea {
   margin-top: -20px;
   text-align: right; 
 }*/
+
+.splash_screen_wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressBar {
+  background-color: black;
+  width: 100px;
+  height: 10px;
+  border-radius: 20px;
+}
