@@ -1,3 +1,3 @@
-# Tip Calculator
+# Home Genie Application
 
-A simple tip calculator web application.
+A bidding platform design to provide competitive home services
