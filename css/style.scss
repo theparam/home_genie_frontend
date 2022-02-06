@@ -1,0 +1,41 @@
+
+/*
+Theme Name: HomeGenie
+Author: Team1
+Description: Starter theme for theme building classes. 
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:portfoliolakshita
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+ 
+
+@import "partials/variables/variables";
+ 
+ @import "partials/reset"; 
+
+ @import "partials/typography"; 
+ 
+ @import"partials/navigation"; 
+ 
+ @import"partials/media"; 
+ 
+ @import"partials/forms"; 
+ 
+ 
+ @import"partials/accessibility"; 
+ 
+ @import"partials/elements"; 
+ 
+ @import"partials/socialicons"; 
+ 
+ 
+ 
+ 
+  @import"partials/mobileview"; 
+   
+   @import"partials/tabletview"; 
+   @import"partials/frontpage"; 
+   @import "partials/desktopview";
