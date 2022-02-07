@@ -47,6 +47,16 @@ body {
   padding: 0.5rem 0;
 }
 
+.ProgressBarWrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.SplashImage {
+  width: 100%;
+  height: 100%;
+}
+
 .progress_bar_container {
   position: absolute;
   left: 50%;
@@ -65,8 +75,8 @@ body {
   height: 100%;
   background-color: white;
   border-radius: 10px;
-  -webkit-animation: animate_progressbar 3s normal;
-          animation: animate_progressbar 3s normal;
+  -webkit-animation: animate_progressbar 5s normal;
+          animation: animate_progressbar 5s normal;
 }
 
 @-webkit-keyframes animate_progressbar {
@@ -84,6 +94,12 @@ body {
   }
   100% {
     width: 100px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .SplashImage {
+    display: none;
   }
 }
 
@@ -232,6 +248,9 @@ body {
   padding: 1rem;
   border: 2px solid darkgray;
   display: none;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 15px black;
+          box-shadow: 0 0 15px black;
 }
 
 .NotificationPopUpContainer.popUPActive {
@@ -250,7 +269,7 @@ body {
   right: 2rem;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid darkgray;
+  border-bottom: 10px solid white;
 }
 
 @media screen and (min-width: 600px) {

@@ -1,3 +1,13 @@
+.ProgressBarWrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.SplashImage {
+  width: 100%;
+  height: 100%;
+}
+
 .progress_bar_container {
   position: absolute;
   left: 50%;
@@ -14,7 +24,7 @@
   height: 100%;
   background-color: white;
   border-radius: 10px;
-  animation: animate_progressbar 3s normal;
+  animation: animate_progressbar 5s normal;
 }
 
 @keyframes animate_progressbar {
@@ -23,5 +33,11 @@
   }
   100% {
     width: 100px;
+  }
+}
+
+@media screen and(min-width:600px) {
+  .SplashImage {
+    display: none;
   }
 }
