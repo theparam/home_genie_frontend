@@ -4,11 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
+    integrity='sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=='
+    crossorigin='anonymous' />
+    
+    <link rel="stylesheet" href="styles.css">
     <title>Home Genie - Sign Up</title>
 </head>
 <body>
-    <header></header>
-    <main></main>
+    
+    <div class="form-popup" id="myForm2">
+        <form class="form-container">
+            <h1 class="heading-text">SIGN UP</h1>
+            <br />
+            <div id="formFields">
+               <div class="row">
+                <div class="col">
+                    <i class="fa-solid fa-user"></i>
+                    <input class="input-text" type="text" id="uname" placeholder="Username*" name="uname" required>
+                </div>
+                <div class="col">
+                    <i style='font-size:16px' class='fas'>&#xf023;</i>
+                    <input class="input-text" type="password" id="password" placeholder="Password*" name="password" required>
+                </div>
+                <div class="col">
+                    <i style='font-size:16px' class='fas'>&#xf502;</i>
+                    <input class="input-text" type="password" id="password" placeholder="Confirm Password*" name="password" required>
+                </div>
+               </div>
+
+               <div>
+                <i class="fa-regular fa-envelope"></i>
+                <input class="input-text" type="text" id="email" placeholder="Email*" name="email" required>
+                </div>
+                <div>
+                    <i style="font-size:16px" class="fa">&#xf095;</i>
+                <input class="input-text" type="number" id="phone" placeholder="Phone Number*" name="phone" required>
+            </div>
+            <div>
+                <i class="fa-regular fa-address-book"></i>
+                <input class="input-text" type="address" id="address" placeholder="Address*" name="address" required>
+            </div>
+            </div>
+            <button type="submit" class="signup" id="signup">SIGN UP</button><br>
+            <button type="submit" class="login" id="login">Log in</button>
+        </form>
+    </div>
     <footer></footer>
 </body>
 </html>

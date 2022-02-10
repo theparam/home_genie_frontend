@@ -1,0 +1,82 @@
+input[type=text], input[type=password],input[type=number], input[type=address] {
+    
+    padding: 15px;
+    width: 90%;
+    display: inline-block;
+   
+    color: lightgray;
+    border:none;
+    border-bottom: 1px solid darkcyan;
+   
+  }
+  .form-popup{
+    display: block;
+    margin-top: 50%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 30px;
+  
+    
+
+
+
+    display: block;
+    text-align: center;
+   
+    background-color: white;
+    box-shadow:  6px 6px 8px gray, -6px -6px 8px lightgray;
+      
+  }
+
+  form{
+      display: inline-block;
+      
+  }
+  html {
+    height: 100%;
+    background: url("https://picsum.photos/1200/500?random=89");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.heading-text{
+    
+    padding-top: 1rem;
+    margin: 0px;
+    text-align: center;
+}
+
+.login {
+    border: none;
+    background-color: white;
+}
+.signup{
+    background-color: darkcyan;
+    color: white;
+    border: none;
+    padding: 5%;
+    margin-bottom: 5%;
+    margin-top: 10%;
+    border-radius: 10%;
+    width: 60%;
+    box-shadow: 1px 1px 9px grey, -1px -1px 9px lightgrey;
+}
+.login{
+    text-decoration: underline;
+    margin-bottom: 10%;
+}
+i{
+    color:darkcyan ;
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    position: absolute;
+    margin-top: 3%;
+}
+.input-text{
+    width: 100%;
+    padding: 10px;
+            text-align: center;
+}
+.col{
+    width: 100%;
+    margin-bottom: 10px;
+}
