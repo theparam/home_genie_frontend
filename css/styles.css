@@ -299,36 +299,109 @@ a {
 /* ************************************************************************************ */
 
 /*#region Login*/
-.login_wrapper {
-  width: 100%;
+
+.login-parent {
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  background: url("https://picsum.photos/1200/500?random=11");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
-.login_wrapper form {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (max-content) [4];
-  grid-template-rows: repeat(4, -webkit-max-content);
-  grid-template-rows: repeat(4, max-content);
-  border: 2px solid darkgrey;
+.icon_input_wrapper {
+  display: flex;
 }
 
-.login_wrapper label {
-  margin: 0.5rem 1rem;
+.icon_input_wrapper input {
+  padding-left: 2%;
 }
 
-.login_wrapper input {
-  margin: 0.5rem 1rem;
-  padding: 0.5rem;
+/* Style and horizontally align the wrapper div */
+.login-wrapper {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: 6px 6px 8px gray, -6px -6px 8px lightgray;
+}
+
+/*Style the input fields*/
+.login-wrapper input {
+  border: none;
+  border-bottom: 1px solid darkcyan;
+  outline: none;
+}
+
+/* Style the icons*/
+.login-wrapper i {
+  border-bottom: 1px solid darkcyan;
+  padding: 2px;
+  color: darkcyan;
+}
+
+/*Style the links like forgot password and signup*/
+.login-wrapper a {
+  color: darkcyan;
+}
+
+/*Center align elements inside the form*/
+.login-email,
+.login-password,
+.login-wrapper h1 {
+  text-align: center;
+}
+
+/* Aligning main heading*/
+.login-wrapper h1 {
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+/*Aligning email input field*/
+.login-email,
+.login-password {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/*Align the login button and links*/
+.login-buttons {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+/*Aligning content inside the button*/
+.login-buttons button {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Aligns forgot password link to right*/
+.login-buttons span:first-of-type {
+  align-self: flex-end;
+  padding-right: 1rem;
+}
+
+/*Styling login button*/
+.login-buttons button:nth-of-type(1) {
+  background-color: darkcyan;
+  color: white;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+
+/*Center align sign up link*/
+.login-buttons span:nth-of-type(2) {
+  align-self: center;
+  margin-bottom: 1rem;
 }
 /*#endregion Login*/
 

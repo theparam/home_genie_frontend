@@ -20,31 +20,8 @@
 </head>
 
 <body>
-    <!-- <header class="HomePage_header">
-        <h1>Home Genie</h1>
-        <div class="Menu_BellIconContainer">
-            <a href="#" id="ShowNotificationPopUp">
-                <i class="fas fa-bell"></i>
-            </a>
-            <a href="#" id="ShowMenu">
-                <i class="fas fa-bars"></i>
-            </a>
-        </div>
-    </header> -->
-
-    <!-- <nav class="mb-menu" id="showHideMenu">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Browse Listings</a></li>
-            <li><a href="#"> Create New Listing</a></li>
-            <li><a href="#">View Your Listing</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#"><strong>Logout?</strong></a></li>
-        </ul>
-    </nav> -->
     <main>
-        <div class="login_wrapper">
+        <!-- <div class="login_wrapper">
             <form action="">
                 <label for="email">First Name</label>
                 <input type="Email" id="email" name="email" placeholder="Email">
@@ -52,10 +29,42 @@
                 <input type="password" id="password" name="password" placeholder="Password">
                 <input type="submit" id="LoginBtn" value="Login">
             </form>
+        </div> -->
+
+        <div class="login-parent">
+            <div class="login-wrapper">
+                <header>
+                    <h1>LOG IN</h1>
+                </header>
+                <main>
+                    <form>
+                        <div class="login-email">
+                            <label for="login-email"></label>
+                            <div class="icon_input_wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="login-email" name="login-email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="login-password">
+                            <label for="login-password"></label>
+                            <div class="icon_input_wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="login-password" name="login-password" placeholder="Password"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="login-buttons">
+                            <span><a href="ForgetPassword.html">Forgot Password?</a></span><br>
+                            <button type="submit" id="LoginBtn">Log In</button><br>
+                            <span><a href="Signup.html">Sign Up</a></span>
+                        </div>
+                    </form>
+                </main>
+            </div>
         </div>
     </main>
     <footer></footer>
 </body>
-<script src="../js/script.js" defer></script>
+<script src="../js/login.js" defer></script>
 
 </html>
