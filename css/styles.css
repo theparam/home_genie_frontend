@@ -1,0 +1,409 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Roboto&display=swap");
+
+/* :root {
+  declare the color varibales
+  --primary_Color: #1e90ff;
+  --secondary_Color: #1e90ff;
+  --tertiary_Color: #1e90ff;
+}
+
+This is how you use the variable in the css
+body { background-color: var(--primary_Color); } */
+
+/*#region Elements Style*/
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background: #f3f3f3;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fira Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+/*#endregion HomePage*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/*#region HomePage*/
+
+.HomePage_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: black;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 1rem;
+}
+
+.HomePage_header h1 {
+  text-align: center;
+}
+
+/*#endregion HomePage*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/*#region Navigation*/
+.mb-menu ul {
+  padding: 0;
+  list-style: none;
+}
+
+.mb-menu ul li {
+  margin: 1rem;
+  padding: 1rem 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0 4px 2px -2px gray;
+  box-shadow: 0 4px 2px -2px gray;
+  border-bottom: 2px solid lightgray;
+}
+
+.mb-menu li a {
+  text-decoration: none;
+  color: white;
+}
+
+.mb-menu {
+  background-color: black;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  height: 0;
+  display: none;
+  padding: 0;
+}
+
+.menu_active {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  padding: 0.5rem 0;
+}
+
+.NotificationPopUp {
+  width: 100%;
+  background-color: #eee;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.Notification_id1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.5rem;
+  border-left: 5px solid darkgray;
+  border-bottom: 5px solid darkgray;
+  border-top: 5px solid darkgray;
+}
+
+.NotificationPopUp div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.NotificationPopUp h3 {
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+.NotificationPopUp button {
+  color: #050505;
+  font-style: italic;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 2px -2px gray;
+  box-shadow: 0 4px 2px -2px gray;
+  padding: 0.2rem 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.NotificationPopUpContainer {
+  position: relative;
+  margin: 0 1rem;
+  padding: 1rem;
+  border: 2px solid darkgray;
+  display: none;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px black;
+}
+
+.NotificationPopUpContainer.popUPActive {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+}
+
+.triangle {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -10px;
+  right: 2rem;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+}
+
+.Menu_BellIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Menu_BellIconContainer a {
+  margin: 0 0.5rem;
+  color: black;
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .NotificationPopUpContainer {
+    width: 500px;
+    position: absolute;
+    top: 15%;
+    right: 0;
+  }
+  .mb-menu {
+    width: 300px;
+    position: absolute;
+    right: 16px;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+}
+
+/*#endregion Navigation*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/*#region Splash Screen*/
+.ProgressBarWrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.SplashImage {
+  width: 100%;
+  height: 100%;
+}
+
+.progress_bar_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 10px;
+  width: 100px;
+  background-color: black;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 3px -3px black;
+  box-shadow: 0 4px 3px -3px black;
+}
+
+.progressbar {
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-animation: animate_progressbar 5s normal;
+  animation: animate_progressbar 5s normal;
+}
+
+.splash_screen_wrapper {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.progressBar {
+  background-color: black;
+  width: 100px;
+  height: 10px;
+  border-radius: 20px;
+}
+
+@-webkit-keyframes animate_progressbar {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@keyframes animate_progressbar {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .SplashImage {
+    display: none;
+  }
+}
+/*#endregion Splash Screen*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/*#region Login*/
+
+.login-parent {
+  height: 100vh;
+  background: url("https://picsum.photos/1200/500?random=11");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon_input_wrapper {
+  display: flex;
+}
+
+.icon_input_wrapper input {
+  padding-left: 2%;
+}
+
+/* Style and horizontally align the wrapper div */
+.login-wrapper {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: 6px 6px 8px gray, -6px -6px 8px lightgray;
+}
+
+/*Style the input fields*/
+.login-wrapper input {
+  border: none;
+  border-bottom: 1px solid darkcyan;
+  outline: none;
+}
+
+/* Style the icons*/
+.login-wrapper i {
+  border-bottom: 1px solid darkcyan;
+  padding: 2px;
+  color: darkcyan;
+}
+
+/*Style the links like forgot password and signup*/
+.login-wrapper a {
+  color: darkcyan;
+}
+
+/*Center align elements inside the form*/
+.login-email,
+.login-password,
+.login-wrapper h1 {
+  text-align: center;
+}
+
+/* Aligning main heading*/
+.login-wrapper h1 {
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+/*Aligning email input field*/
+.login-email,
+.login-password {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/*Align the login button and links*/
+.login-buttons {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+/*Aligning content inside the button*/
+.login-buttons button {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Aligns forgot password link to right*/
+.login-buttons span:first-of-type {
+  align-self: flex-end;
+  padding-right: 1rem;
+}
+
+/*Styling login button*/
+.login-buttons button:nth-of-type(1) {
+  background-color: darkcyan;
+  color: white;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+
+/*Center align sign up link*/
+.login-buttons span:nth-of-type(2) {
+  align-self: center;
+  margin-bottom: 1rem;
+}
+/*#endregion Login*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
