@@ -1,4 +1,5 @@
 let bellIcon = document.getElementById("ShowNotificationPopUp");
+let dk_bellIcom = document.getElementById("dk-ShowNotificationPopUp");
 
 document.addEventListener("keydown", (e) => {
   if (!e.repeat) {
@@ -19,8 +20,16 @@ document.getElementById("ShowMenu").addEventListener("click", () => {
 });
 
 bellIcon.addEventListener("click", () => {
+  toggleNotification();
+});
+
+dk_bellIcom.addEventListener("click", () => {
+  toggleNotification();
+});
+
+const toggleNotification = () => {
   document
     .querySelector(".NotificationPopUpContainer")
     .classList.toggle("popUPActive");
   document.getElementById("showHideMenu").classList.remove("menu_active");
-});
+};
