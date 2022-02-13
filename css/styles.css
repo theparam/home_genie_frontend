@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Roboto&display=swap");
 
 /* :root {
-  declare the color varibales
+  declare the color variable
   --primary_Color: #1e90ff;
   --secondary_Color: #1e90ff;
   --tertiary_Color: #1e90ff;
@@ -92,9 +92,6 @@ a {
 .mb-menu li a {
   text-decoration: none;
   color: white;
-}
-.mb-nav_wrapper {
-  position: relative;
 }
 
 .mb-menu {
@@ -261,6 +258,128 @@ a {
 }
 
 /*#endregion Navigation*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/* #region ForgetPassowrd */
+.fg-Password-parent {
+  display: flex;
+  height: 100vh;
+  background: url("https://picsum.photos/1200/500?random=11");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.fg-Password-wrapper,
+.generate_passwordDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+}
+.generate_passwordDiv {
+  display: none;
+  padding: 1rem;
+}
+.generate_passwordDiv.activeState {
+  display: flex;
+}
+
+.fg-Password-wrapper.nonactiveState {
+  display: none;
+}
+
+.fg-Password-parent input {
+  border: none;
+  border-bottom: 1px solid darkcyan;
+  outline: none;
+  margin: 0;
+}
+.icon_input_wrapper {
+  margin: 1rem 0 0 0;
+}
+/* 1rem 0 0 0 */
+.fg-Password-parent i {
+  border-bottom: 1px solid darkcyan;
+  padding: 2px;
+  color: darkcyan;
+}
+
+.fg-Password-wrapper h1 {
+  color: black;
+  padding: 1rem;
+  margin: 0;
+}
+.fg-Password-buttons,
+.fg-GeneratePassword-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SendOTPBtn {
+  margin: 0 auto;
+}
+
+.fg-Password-buttons.hiddenBtn {
+  display: none;
+}
+.SendOTPBtn.SendOTPhidden {
+  display: none;
+}
+
+.OTP-wrapper input,
+.OTP-wrapper span {
+  width: 20px;
+  margin: 0 0 0.5rem 0;
+}
+
+.OTP-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  display: none;
+}
+
+.OTP-wrapper div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.OTP-wrapper.otpdiv_active {
+  opacity: 1;
+  display: flex;
+}
+
+.fg-Password-wrapper button,
+.fg-GeneratePassword-buttons button {
+  background-color: darkcyan;
+  color: white;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 1rem;
+}
+#field_1,
+#field_2,
+#field_3,
+#field_4
+{
+  text-align: center;
+}
+
+/* #endregion ForgetPassword */
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
