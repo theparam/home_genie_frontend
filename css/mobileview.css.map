@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "partials/mobileview.scss"
-    ],
-    "names": [],
-    "file": "mobileview.css"
-}

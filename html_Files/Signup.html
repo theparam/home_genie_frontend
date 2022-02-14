@@ -1,56 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
-    integrity='sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=='
-    crossorigin='anonymous' />
-    
-    <link rel="stylesheet" href="styles.css">
     <title>Home Genie - Sign Up</title>
-</head>
-<body>
-    
-    <div class="form-popup" id="myForm2">
-        <form class="form-container">
-            <h1 class="heading-text">SIGN UP</h1>
-            <br />
-            <div id="formFields">
-               <div class="row">
-                <div class="col">
-                    <i class="fa-solid fa-user"></i>
-                    <input class="input-text" type="text" id="uname" placeholder="Username*" name="uname" required>
-                </div>
-                <div class="col">
-                    <i style='font-size:16px' class='fas'>&#xf023;</i>
-                    <input class="input-text" type="password" id="password" placeholder="Password*" name="password" required>
-                </div>
-                <div class="col">
-                    <i style='font-size:16px' class='fas'>&#xf502;</i>
-                    <input class="input-text" type="password" id="password" placeholder="Confirm Password*" name="password" required>
-                </div>
-               </div>
 
-               <div>
-                <i class="fa-regular fa-envelope"></i>
-                <input class="input-text" type="text" id="email" placeholder="Email*" name="email" required>
-                </div>
-                <div>
-                    <i style="font-size:16px" class="fa">&#xf095;</i>
-                <input class="input-text" type="number" id="phone" placeholder="Phone Number*" name="phone" required>
+    <meta name="description" content="A Bidding platform for the people to bid on the home services of other people">
+    <link rel="manifest" href="../app.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
+        integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <main>
+        <div class="SignUp-parent">
+            <div class="SignUp-wrapper">
+                <header>
+                    <h1>Sign Up</h1>
+                </header>
+                <main>
+                    <form>
+                        <div class="First_Name">
+                            <label for="SignUp_fName"></label>
+                            <div class="icon_input_wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="SignUp_fName" name="SignUp_fName" placeholder="First Name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="Last_Name">
+                            <label for="SignUp_lName"></label>
+                            <div class="icon_input_wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="SignUp_lName" name="SignUp_lName" placeholder="Last Name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="Email">
+                            <label for="SignUp_email"></label>
+                            <div class="icon_input_wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="email" id="SignUp_email" name="SignUp_email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="Password">
+                            <label for="SignUp_password"></label>
+                            <div class="icon_input_wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="password" id="SignUp_password" name="SignUp_password"
+                                    placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="Confirm_Password">
+                            <label for="SignUp_cPassword"></label>
+                            <div class="icon_input_wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="SignUp_cPassword" name="SignUp_cPassword"
+                                    placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+                        <div class="SignUp-buttons">
+                            <button type="submit" id="SignUpBtn">Sign Up</button><br>
+                            <span class="LoginLink">
+                                <p>Already user </p><a href="Login.html"> Login</a>
+                            </span>
+                        </div>
+                    </form>
+                </main>
             </div>
-            <div>
-                <i class="fa-regular fa-address-book"></i>
-                <input class="input-text" type="address" id="address" placeholder="Address*" name="address" required>
-            </div>
-            </div>
-       
-        </form>
-        <button type="submit" class="signup" id="signup">SIGN UP</button><br>
-        <button type="submit" class="login" id="login">Log in</button>
-    </div>
+        </div>
+    </main>
     <footer></footer>
+    <script src="../js/script.js" defer></script>
 </body>
+
 </html>

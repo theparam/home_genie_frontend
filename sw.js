@@ -2,10 +2,16 @@ const cacheName = "v1";
 const urlsToCache = [
   "/",
   "/html_Files/index.html",
-  "/html_Files/about.html",
+  "/html_Files/SplashScreen.html",
+  "/html_Files/UpdateProfile.html",
+  "/html_Files/Signup.html",
+  "/html_Files/Login.html",
+  "/html_Files/BrowseListings.html",
+  "/html_Files/AboutUs.html",
   "/html_Files/fallback.html",
   "/css/styles.css",
   "/js/script.js",
+  "/js/splash_screen.js",
 ];
 self.addEventListener("install", (event) => {
   // it is invoked when the browser installs the service worker

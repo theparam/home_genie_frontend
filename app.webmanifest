@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/html_Files/index.html",
+  "start_url": "/html_Files/SplashScreen.html",
   "display": "fullscreen",
   "background_color": "#FF6F6F",
   "theme_color": "#FF6F6F"
