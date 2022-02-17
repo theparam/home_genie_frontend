@@ -37,7 +37,12 @@ a {
   text-decoration: none;
   color: black;
 }
-/*#endregion HomePage*/
+
+img {
+  width: 100%;
+  height:auto;
+}
+/*#endregion Elements Style*/
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
@@ -404,6 +409,111 @@ a {
   margin-bottom: 1rem;
 }
 /*#endregion Login*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/*#region About Us*/
+
+.about-wrapper {
+  max-width: 100%;
+}
+
+.about-menu {
+  list-style-type: none;
+  padding:0;
+}
+
+.about-team {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.about-content1, .about-content2, .about-choose-item1, .about-choose-item2, .about-choose-item3, .about-choose-item4 {
+  background-color: lightgray;
+  padding:1rem;
+}
+
+.about-menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.about-menu i {
+  padding:0.5rem;
+}
+
+.about-content1 {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 2rem 1rem;
+  place-items: center;
+}
+
+.about-content1 p, .about-content2 p {
+  text-align: center;
+}
+
+.about-content1 img {
+  width:60%;
+  height:80%;
+  border-radius: 10px;
+  place-self:center;
+}
+
+.about-wrapper h2{
+  text-align: center;
+}
+
+.about-choose-item2,  .about-choose-item4 {
+  float:right;
+}
+
+.about-choose-item1,  .about-choose-item3, .about-team, .about-wrapper h2:last-of-type {
+  clear:both;
+}
+
+.about-content2 {
+  padding: 3rem 1rem;
+}
+
+.about-choose-item1, .about-choose-item2, .about-choose-item3, .about-choose-item4 {
+  border-radius:10px;
+  margin:2rem 2rem;
+  width: max-content;
+}
+
+.about-wrapper h2 {
+  padding-top: 2rem;
+}
+
+.about-team {
+  padding:1rem;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 1rem;
+}
+
+.about-team-image1 {
+  grid-column: 1/-1;
+  justify-self: center;
+}
+
+.about-team p{
+  text-align: center;
+}
+
+.about-team img {
+  border-radius: 50%;
+  justify-self: center;
+}
+
+
+
+
+
+/*#endregion About Us*/
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
