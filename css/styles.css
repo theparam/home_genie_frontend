@@ -579,26 +579,30 @@ img {
 
   .about-content2 p {
     place-self: center;
+    text-align: left;
   }
 
 .about-team {
   grid-template-columns: repeat(4, 1fr);
   padding-top: 4rem;
   padding-bottom: 4rem;
-  grid-gap:3rem;
+  grid-gap:2rem;
 }
 
 .about-team-image1 {
   grid-row:1/3;
   grid-column: 1/2;
   place-self: center;
+  width:100%;
+}
+
+.about-team-image1, .about-team-image2, .about-team-image3, .about-team-image4, .about-team-image5, .about-team-image6, .about-team-image7 {
+  padding: 1rem;
 }
 
 .about-wrapper h2 {
   font-size: 3rem;
 }
-
-
 
 }
 
