@@ -38,10 +38,6 @@ a {
   color: black;
 }
 
-img {
-  width: 100%;
-  height:auto;
-}
 /*#endregion Elements Style*/
 
 /* ************************************************************************************ */
@@ -328,9 +324,10 @@ img {
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 25px;
+
+  border-radius: 1.5rem;
   background-color: white;
-  box-shadow: 6px 6px 8px gray, -6px -6px 8px lightgray;
+  box-shadow: 3px 3px 4px gray, -3px -3px 4px lightgray;
 }
 
 /*Style the input fields*/
@@ -558,6 +555,88 @@ img {
 
 
 /*#endregion About Us*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/* #region SignUP */
+.SignUp-parent {
+  height: 100vh;
+  background: url("https://picsum.photos/1200/500?random=11");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon_input_wrapper {
+  display: flex;
+}
+
+.icon_input_wrapper input {
+  padding-left: 2%;
+}
+
+/* Style and horizontally align the wrapper div */
+.SignUp-wrapper {
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 3px 3px 4px gray, -3px -3px 4px lightgray;
+}
+
+.SignUp-wrapper h1 {
+  text-align: center;
+}
+
+/*Style the input fields*/
+.SignUp-wrapper input {
+  border: none;
+  border-bottom: 1px solid darkcyan;
+  outline: none;
+}
+
+/* Style the icons*/
+.SignUp-wrapper i {
+  border-bottom: 1px solid darkcyan;
+  padding: 2px;
+  color: darkcyan;
+}
+
+/*Style the links like forgot password and signup*/
+.SignUp-wrapper a {
+  color: darkcyan;
+}
+
+.icon_input_wrapper input,
+.icon_input_wrapper i {
+  margin-bottom: 1rem;
+}
+
+.SignUp-buttons {
+  text-align: center;
+}
+
+#SignUpBtn {
+  background-color: darkcyan;
+  color: white;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+
+.LoginLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoginLink a {
+  margin-left: 5px;
+}
+/* #endregion SignUP */
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
