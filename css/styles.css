@@ -20,7 +20,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: #f3f3f3;
+  background: #fdfdfd;
   font-family: "Roboto", sans-serif;
 }
 
@@ -64,9 +64,135 @@ a {
   margin: 0.5rem;
 }
 .HomePage_header {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #ededed;
   margin-bottom: 0.5rem;
 }
+#PersonalCategory,
+#IndoorCategory,
+#OutdoorServices,
+#PremiumServices {
+  cursor: pointer;
+}
+
+/*#region For Lakshita*/
+/* For Lakshita */
+.homepage_main_container {
+  padding: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero_Image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.img_info_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.img_info_container img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.main-category {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+.img_info_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+}
+.info_wrapper {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: rgba(240, 240, 240, 0.8);
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid darkgrey;
+  border-bottom: 1px solid darkgrey;
+}
+.Search_field_Icon_Container input {
+  border: 0;
+  outline: 0;
+  height: 20px;
+  padding: 0.5rem;
+  width: 80px;
+  margin-right: 0.2rem;
+  background-color: #fdfdfd;
+}
+
+.Search_field_Icon_Container input:focus {
+  border-bottom: 2px solid darkgrey;
+}
+
+#categories {
+  height: 40px;
+  padding: 0.5rem;
+  outline: none;
+  border-radius: 5px;
+}
+
+.feature-img p {
+  text-align: center;
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .img_info_container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .navigation-menu {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 10rem;
+    background-color: pink;
+  }
+  .main-category {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    text-align: center;
+    gap: 1rem;
+    margin-top: 0;
+    padding: 1rem;
+  }
+}
+
+/*#endregion Lakshita*/
 
 /*#endregion HomePage*/
 
@@ -98,7 +224,6 @@ a {
   background-color: rgba(47, 47, 47, 0.9);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  height: 100%;
   display: grid;
   position: absolute;
   padding: 0;
@@ -106,6 +231,9 @@ a {
   border-radius: 0.5rem;
   transition: all 0.5s ease-in-out;
   transform: translateY(0%);
+  width: 300px;
+  right: 16px;
+  z-index: -1;
 }
 .mb-menu nav {
   padding: 0;
@@ -115,6 +243,7 @@ a {
 .menu_active {
   padding: 0.5rem 0;
   opacity: 1;
+  z-index: 2;
   transform: translateY(1%);
 }
 
@@ -175,17 +304,22 @@ a {
   border: 2px solid darkgray;
   display: flex;
   opacity: 0;
+  z-index: -1;
   top: 0;
   border-radius: 10px;
   -webkit-box-shadow: 0 0 15px black;
   box-shadow: 0 0 15px black;
   transition: all 0.5s ease-in-out;
   transform: translateY(0%);
+  background-color: rgba(256, 256, 256, 0.3);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .NotificationPopUpContainer.popUPActive {
   opacity: 1;
   transform: translateY(1%);
+  z-index: 2;
 }
 
 .triangle {
@@ -216,6 +350,36 @@ a {
 .dk-menu {
   display: none;
 }
+.ProfileIcon {
+  font-size: 1.5rem;
+}
+
+.subProfileMenu {
+  position: absolute;
+  right: 5px;
+  top: 40px;
+  margin-top: 1.5rem;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-align: center;
+  padding: 1rem 0.2rem;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+}
+.subProfileMenu.activeProfileMenu {
+  opacity: 1;
+  z-index: 2;
+}
+
+.subProfileMenu ul {
+  display: flex;
+  flex-direction: column;
+}
+.subProfileMenu ul li {
+  border-bottom: 1px solid grey;
+}
 
 @media screen and (min-width: 600px) {
   .NotificationPopUpContainer {
@@ -223,14 +387,13 @@ a {
     position: absolute;
     top: 15%;
     right: 0;
+    z-index: -1;
   }
   .mb-menu {
-    width: 300px;
-    position: absolute;
-    right: 16px;
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
+    z-index: -1;
   }
 }
 
@@ -239,7 +402,8 @@ a {
     display: none;
   }
   .NotificationPopUpContainer {
-    right: 415px;
+    right: 380px;
+    z-index: -1;
   }
   .dk-menu {
     display: flex;
@@ -250,10 +414,27 @@ a {
     display: flex;
     list-style: none;
     padding: 0;
+    height: 100%;
   }
 
   .dk-menu ul li {
     margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .subProfileMenu ul li {
+    margin-left: 0;
+    text-align: center;
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .triangle {
+    right: 33px;
+  }
+  .mb-menu {
+    z-index: -1;
+    opacity: 0;
   }
 }
 
@@ -374,8 +555,7 @@ a {
 #field_1,
 #field_2,
 #field_3,
-#field_4
-{
+#field_4 {
   text-align: center;
 }
 
@@ -669,3 +849,103 @@ a {
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
+
+/*  #region Update Profile */
+.upd_parent_wrapper {
+  height: 100vh;
+  background: url("https://picsum.photos/1200/500?random=11");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upd_profile_wrapper {
+  text-align: center;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1.5rem;
+  background-color: white;
+  padding: 1rem 3rem;
+  z-index: 1;
+  box-shadow: 3px 3px 4px gray, -3px -3px 4px lightgray;
+}
+
+/*Style the input fields*/
+.upd_profile_wrapper input {
+  border: none;
+  border-bottom: 1px solid darkcyan;
+  outline: none;
+}
+
+.upd_profile_wrapper i {
+  border-bottom: 1px solid darkcyan;
+  padding: 2px;
+  color: darkcyan;
+}
+#updBtn {
+  background-color: darkcyan;
+  color: white;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+
+/* #endregion Update Profile */
+
+/* #region Listing Page */
+.Category_Listing_Container h2 {
+  text-align: center;
+  grid-column: 1/-1;
+}
+
+.Category_Listing_Container {
+  display: grid;
+  max-width: 1000px;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #c4c4c4;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.browseBtn_Container {
+  margin: 1rem 0 0 0;
+  text-align: right;
+}
+.card a {
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: black;
+  background-color: lightgrey;
+}
+.card h3 {
+  text-transform: uppercase;
+}
+
+.card p {
+  font-weight: bold;
+}
+.card p span {
+  font-weight: normal;
+}
+
+@media screen and (min-width: 600px) {
+  .Category_Listing_Container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*  #endregion Listing*/

@@ -21,11 +21,149 @@
 </head>
 
 <body>
-    <header>
-        <h1>Update Profile</h1>
+    <header class="HomePage_header">
+        <h1>Home Genie</h1>
+        <div class="Menu_BellIconContainer">
+            <a href="#" id="ShowNotificationPopUp">
+                <i title="Show Notifications" class="fas fa-bell"></i>
+            </a>
+            <a href="#" id="ShowMenu">
+                <i title="Show Menu" class="fas fa-bars"></i>
+            </a>
+        </div>
+        <div class="dk-menu">
+            <a href="#" id="dk-ShowNotificationPopUp">
+                <i title="Show Notifications" class="fas fa-bell"></i>
+            </a>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="BrowseListings.html">Browse</a>
+                </li>
+                <li>
+                    <a href="#">Create</a>
+                </li>
+                <li>
+                    <a href="#">Your Listings</a>
+                </li>
+                <li>
+                    <a href="AboutUs.html">About Us</a>
+                </li>
+            </ul>
+        </div>
     </header>
-    <main></main>
+    <nav class="mb-menu" id="showHideMenu">
+        <ul>
+            <!-- Add Links to the Pages when created -->
+            <li>
+                <a href="BrowseListings.html">Browse Listings</a>
+            </li>
+            <li>
+                <a href="#"> Create New Listing</a>
+            </li>
+            <li>
+                <a href="#">View Your Listing</a>
+            </li>
+            <li>
+                <a href="AboutUs.html">About Us</a>
+            </li>
+            <li>
+                <a href="UpdateProfile.html">
+                    Profile</a>
+            </li>
+            <li>
+                <a href="Login.html"><strong>Logout?</strong></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="Notification_wrapper">
+        <div class="NotificationPopUpContainer">
+            <div class="NotificationPopUp">
+                <div class="Notification_id1">
+                    <h3>Listing Name</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+                    <div>
+                        <button>View Listing</button>
+                    </div>
+                </div>
+                <div class="Notification_id1">
+                    <h3>Listing Name</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+                    <div>
+                        <button>View Listing</button>
+                    </div>
+                </div>
+            </div>
+            <div class="triangle"></div>
+        </div>
+    </div>
+    <main>
+        <div class="upd_parent_wrapper">
+            <div class="upd_profile_wrapper">
+                <h1>Update Profile</h1>
+                <form>
+                    <div class="upd-fName">
+                        <label for="upd-fName"></label>
+                        <div class="icon_input_wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="upd-fName" name="upd-fName" placeholder="First Name" required>
+                        </div>
+                    </div>
+                    <div class="upd-lName">
+                        <label for="upd-lName"></label>
+                        <div class="icon_input_wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="upd-lName" name="upd-lName" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="upd-email">
+                        <label for="upd-email"></label>
+                        <div class="icon_input_wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="email" id="upd-email" name="upd-email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="upd-pNumber">
+                        <label for="upd-pNumber"></label>
+                        <div class="icon_input_wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="upd-pNumber" name="upd-pNumber" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <div class="upd-Address">
+                        <label for="upd-Address"></label>
+                        <div class="icon_input_wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="upd-Address" name="upd-Address" placeholder="Address" required>
+                        </div>
+                    </div>
+                    <div class="upd-Bio">
+                        <label for="upd-Bio"></label>
+                        <div class="icon_input_wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="upd-Bio" name="upd-Bio" placeholder="Bio" required>
+                        </div>
+                    </div>
+                    <div class="upd-password">
+                        <label for="upd-password"></label>
+                        <div class="icon_input_wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="upd-password" name="upd-password" placeholder="Password"
+                                required>
+                        </div>
+                    </div>
+                    <div class="upd-buttons">
+                        <button type="submit" id="updBtn">Sign Up</button><br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
     <footer></footer>
+    <script src="../js/updateProfile.js" defer></script>
 </body>
 
 </html>
