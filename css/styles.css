@@ -38,7 +38,7 @@ a {
   color: black;
 }
 
-/*#endregion Elements*/
+/*#endregion Elements Style*/
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
@@ -74,8 +74,6 @@ a {
   cursor: pointer;
 }
 
-/*#region For Lakshita*/
-/* For Lakshita */
 .homepage_main_container {
   padding: 0.5rem;
   max-width: 1000px;
@@ -163,6 +161,9 @@ a {
 .feature-img p {
   text-align: center;
   display: none;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px black;
 }
 
 @media screen and (min-width: 600px) {
@@ -191,9 +192,6 @@ a {
     padding: 1rem;
   }
 }
-
-/*#endregion Lakshita*/
-
 /*#endregion HomePage*/
 
 /* ************************************************************************************ */
@@ -293,6 +291,7 @@ a {
   padding: 0.2rem 0.5rem;
   margin: 0.5rem 0;
 }
+
 .Notification_wrapper {
   position: relative;
 }
@@ -395,6 +394,9 @@ a {
     height: max-content;
     z-index: -1;
   }
+  .menu_active {
+    z-index: 2;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -435,6 +437,9 @@ a {
   .mb-menu {
     z-index: -1;
     opacity: 0;
+  }
+  .menu_active {
+    z-index: 2;
   }
 }
 
@@ -671,6 +676,7 @@ a {
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
+
   border-radius: 1.5rem;
   background-color: white;
   box-shadow: 3px 3px 4px gray, -3px -3px 4px lightgray;
@@ -756,7 +762,172 @@ a {
 /* ************************************************************************************ */
 /* ************************************************************************************ */
 
-/* #region Sign Up */
+/*#region About Us*/
+
+.about-wrapper {
+  max-width: 100%;
+}
+
+.about-wrapper header ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.about-content1,
+.about-content2,
+.about-choose-item1,
+.about-choose-item2,
+.about-choose-item3,
+.about-choose-item4 {
+  background-color: lightgray;
+  padding: 1rem;
+}
+
+.about-content1 {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 2rem 1rem;
+  place-items: center;
+}
+
+.about-content1 p,
+.about-content2 p {
+  text-align: center;
+}
+
+.about-content1 img {
+  width: 60%;
+  height: 80%;
+  border-radius: 10px;
+  place-self: center;
+}
+
+.about-wrapper h2 {
+  text-align: center;
+}
+
+.about-choose-item2,
+.about-choose-item4 {
+  float: right;
+}
+
+.about-choose-item1,
+.about-choose-item3,
+.about-team,
+.about-wrapper h2:last-of-type {
+  clear: both;
+}
+
+.about-content2 {
+  padding: 3rem 1rem;
+}
+
+.about-choose-item1,
+.about-choose-item2,
+.about-choose-item3,
+.about-choose-item4 {
+  border-radius: 10px;
+  margin: 2rem 2rem;
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  place-items: center;
+}
+
+.about-choose-item1 span i,
+.about-choose-item2 span i,
+.about-choose-item3 span i,
+.about-choose-item4 span i {
+  margin-right: 1rem;
+}
+
+.about-wrapper h2 {
+  padding-top: 2rem;
+}
+
+.about-team {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.about-team-image1 {
+  grid-column: 1/-1;
+  justify-self: center;
+}
+
+.about-team p {
+  text-align: center;
+}
+
+.about-team img {
+  border-radius: 50%;
+  justify-self: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .about-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .desktop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-content2 {
+    height: 60%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .about-content2 p {
+    place-self: center;
+    text-align: left;
+  }
+
+  .about-team {
+    grid-template-columns: repeat(4, 1fr);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    grid-gap: 2rem;
+  }
+
+  .about-team-image1 {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    place-self: center;
+    width: 100%;
+  }
+
+  .about-team-image1,
+  .about-team-image2,
+  .about-team-image3,
+  .about-team-image4,
+  .about-team-image5,
+  .about-team-image6,
+  .about-team-image7 {
+    padding: 1rem;
+  }
+
+  .about-wrapper h2 {
+    font-size: 3rem;
+  }
+}
+
+/*#endregion About Us*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/* #region SignUP */
 .SignUp-parent {
   height: 100vh;
   background: url("https://picsum.photos/1200/500?random=11");
@@ -833,6 +1004,7 @@ a {
 .LoginLink a {
   margin-left: 5px;
 }
+
 .errorContainr {
   display: none;
 }
@@ -849,7 +1021,6 @@ a {
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
-
 /*  #region Update Profile */
 .upd_parent_wrapper {
   height: 100vh;
