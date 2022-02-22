@@ -1120,3 +1120,20 @@ a {
 }
 
 /*  #endregion Listing*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+/* #region Search */
+#searchTitle {
+  font-weight: normal;
+}
+
+.Search_Listing_Container {
+  display: grid;
+  max-width: 1000px;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+}
+
+/* #endregion Search */
