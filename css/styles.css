@@ -1,12 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Roboto&display=swap");
 
-/* :root {
-  declare the color variable
-  --primary_Color: #1e90ff;
-  --secondary_Color: #1e90ff;
-  --tertiary_Color: #1e90ff;
+:root {
+  /* declare the color variable */
+  /* Dark Blue */
+  --primary_BlueShade_1: #006c84;
+  /* Light Blue */
+  --primary_BlueShade_2: #6eb5c0;
+  /* semi  Blue */
+  --primary_BlueShade_3: #c6d0d5;
+  /* Dark Pink */
+  --secondary_PinkShade_1: #ebbec0;
+  /* Light Pink */
+  --secondary_PinkShade_2: #f7e9e9;
+
+  --tertiary_ColorShade_1: #f9e0c8;
+
+  --primary_box_shadow: 0px 0px 8px -1px;
 }
 
+/* 
 This is how you use the variable in the css
 body { background-color: var(--primary_Color); } */
 
