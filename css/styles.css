@@ -16,6 +16,8 @@
   --tertiary_ColorShade_1: #f9e0c8;
 
   --primary_box_shadow: 0px 0px 8px -1px;
+
+  --box_shadow_Bottom: 0 3px 5px -2px;
 }
 
 /* 
@@ -204,6 +206,28 @@ a {
     padding: 1rem;
   }
 }
+
+.footer_Area {
+  display: flex;
+  padding: 1rem 1rem 0 1rem;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--primary_BlueShade_1);
+  color: white;
+}
+
+.footer_Area div nav ul {
+  list-style: none;
+}
+.footer_Area div nav ul li {
+  margin-bottom: 1rem;
+}
+
+.footer_Area div nav ul li a {
+  color: white;
+}
+
 /*#endregion HomePage*/
 
 /* ************************************************************************************ */
