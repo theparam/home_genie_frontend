@@ -44,134 +44,175 @@
 </head>
 
 <body>
-
-  <!-- <header>
+ <!-- <header>
     <h1>Home Genie</h1>
   </header>
   <main> <a href="about.html">About</a></main>
   <footer></footer> -->
+
+  <!-- For the Developer Copy Start from here  line 148-->
   <header class="HomePage_header">
     <h1>Home Genie</h1>
     <div class="Menu_BellIconContainer">
       <a href="#" id="ShowNotificationPopUp">
-        <i class="fas fa-bell"></i>
+        <i title="Show Notifications" class="fas fa-bell"></i>
       </a>
       <a href="#" id="ShowMenu">
-        <i class="fas fa-bars"></i>
+        <i title="Show Menu" class="fas fa-bars"></i>
       </a>
+    </div>
+    <div class="dk-menu">
+      <a href="#" id="dk-ShowNotificationPopUp">
+        <i title="Show Notifications" class="fas fa-bell"></i>
+      </a>
+      <ul>
+        <li>
+          <a href="BrowseListings.html">Browse</a>
+        </li>
+        <li>
+          <a href="">Create new</a>
+        </li>
+        <li>
+          <a href="">Personal listings</a>
+        </li>
+        <li>
+          <a href="AboutUs.html">About Us</a>
+        </li>
+        <li>
+          <a href="#" class="ProfileIcon">
+            <i title="Profile" class="far fa-user-circle"></i>
+          </a>
+          <div class="subProfileMenu">
+            <ul>
+              <li>
+                <a href="UpdateProfile.html">Update Profile</a>
+              </li>
+              <li>
+                <a href="Login.html">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </div>
   </header>
 
+  <!-- <div class="mb-nav_wrapper"></div> -->
   <nav class="mb-menu" id="showHideMenu">
     <ul>
       <!-- Add Links to the Pages when created -->
-      <li><a href="#">Home</a></li>
-      <li><a href="BrowseListings.html">Browse Listings</a></li>
-      <li><a href="#"> Create New Listing</a></li>
-      <li><a href="#">View Your Listing</a></li>
-      <li><a href="AboutUs.html">About Us</a></li>
-      <li><a href="UpdateProfile.html">Profile</a></li>
-      <li><a href="Login.html"><strong>Logout?</strong></a></li>
+      <li>
+        <a href="BrowseListings.html">Browse Listings</a>
+      </li>
+      <li>
+        <a href="#"> Create New Listing</a>
+      </li>
+      <li>
+        <a href="#">View Your Listing</a>
+      </li>
+      <li>
+        <a href="AboutUs.html">About Us</a>
+      </li>
+      <li>
+        <a href="UpdateProfile.html">
+          Profile</a>
+      </li>
+      <li>
+        <a href="Login.html"><strong>Logout?</strong></a>
+      </li>
     </ul>
   </nav>
 
-  <div class="NotificationPopUpContainer">
-    <div class="NotificationPopUp">
-      <div class="Notification_id1">
-        <h3>Listing Name</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
-        <div>
-          <button>View Listing</button>
+  <div class="Notification_wrapper">
+    <div class="NotificationPopUpContainer">
+      <div class="NotificationPopUp">
+        <div class="Notification_id1">
+          <h3>Listing Name</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+          <div>
+            <button>View Listing</button>
+          </div>
+        </div>
+        <div class="Notification_id1">
+          <h3>Listing Name</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+          <div>
+            <button>View Listing</button>
+          </div>
         </div>
       </div>
-      <div class="Notification_id1">
-        <h3>Listing Name</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
-        <div>
-          <button>View Listing</button>
-        </div>
-      </div>
+      <div class="triangle"></div>
     </div>
-    <div class="triangle"></div>
   </div>
+  <!-- Till here -->
 
-  <!-- <div class="form">
-    <ul class="top-area">
-      <li class="tab active"><a href="#signup">Sign Up</a></li>
-      <li class="tab"><a href="#login">Log In</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <div id="signup">
-        <h1>Sign Up for Free</h1>
-
-        <form id="form" action="" method="post">
-
-          <div class="top-row">
-            <div class="label-field">
-              <label>
-                First Name<span class="req">*</span>
-              </label>
-              <input type="text" required autocomplete="off" id="firstname" />
-            </div>
-
-            <div class="label-field">
-              <label>
-                Last Name<span class="req">*</span>
-              </label>
-              <input type="text" required autocomplete="off" id="lastname" />
-            </div>
-          </div>
-
-          <div class="label-field">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email" required autocomplete="off" id="email" />
-          </div>
-
-          <div class="label-field">
-            <label>
-              Set A Password<span class="req">*</span>
-            </label>
-            <input type="password" required autocomplete="off" id="password" />
-          </div>
-
-          <button type="button" class="button button-block" onclick="UserAction()">Get Started</button>
-
-        </form>
-
+  <main>
+    <div class="search-bar-container">
+      <div class="Search_field_Icon_Container">
+        <span class="fas fa-search "></span>
+        <input type="text" id="SearchInputField" placeholder="Search">
       </div>
-
-      <div id="login">
-        <h1>Welcome Back!</h1>
-
-        <form action="/" method="post">
-
-          <div class="label-field">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email" required autocomplete="off" id="email" />
-          </div>
-
-          <div class="label-field">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password" required autocomplete="off" id="password" />
-          </div>
-
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
-
-          <button class="button button-block">Log In</button>
-
-        </form>
-
-      </div>
-
+      <p>in</p>
+      <select name="categories" id="categories">
+        <option value="personal-care-services">Personal Care Services</option>
+        <option value="indoor-services">Indoor Services</option>
+        <option value="outdoor-services">Outdoor Services</option>
+        <option value="premium-services">Premium Services</option>
+      </select>
     </div>
-  </div> -->
+    <!-- <div class="heroImageContainer">
+      <img class="hero_Image" src="../img/Man_Fixing_Bulb.jpg" alt="Hero_Image">
+    </div> -->
+    <div class="homepage_main_container">
+      <div class="main-category">
+        <div class="img_info_container">
+          <img
+            src="https://images.pexels.com/photos/7262387/pexels-photo-7262387.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="random image 1">
+          <div class="info_wrapper">
+            <h3>
+              <a id="PersonalCategory">Personal Care Services</a>
+            </h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div class="img_info_container">
+          <img
+            src="https://images.pexels.com/photos/4239128/pexels-photo-4239128.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="random image 2">
+          <div class="info_wrapper">
+            <h3>
+              <a id="IndoorCategory">Indoor Services</a>
+            </h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div class="img_info_container">
+          <img
+            src="https://images.pexels.com/photos/2987081/pexels-photo-2987081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="random image 3">
+          <div class="info_wrapper">
+            <h3>
+              <a id="OutdoorServices"> Outdoor Services</a>
+            </h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div class="img_info_container">
+          <img
+            src="https://images.pexels.com/photos/634007/pexels-photo-634007.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="random image 4">
+          <div class="info_wrapper">
+            <h3>
+              <a id="PremiumServices"> Premium Services</a>
+            </h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <script src="../js/script.js" defer></script>
 </body>
 
