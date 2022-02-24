@@ -1,12 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Roboto&display=swap");
 
-/* :root {
-  declare the color variable
-  --primary_Color: #1e90ff;
-  --secondary_Color: #1e90ff;
-  --tertiary_Color: #1e90ff;
+:root {
+  /* declare the color variable */
+  /* Dark Blue */
+  --primary_BlueShade_1: #006c84;
+  /* Light Blue */
+  --primary_BlueShade_2: #6eb5c0;
+  /* semi  Blue */
+  --primary_BlueShade_3: #c6d0d5;
+  /* Dark Pink */
+  --secondary_PinkShade_1: #ebbec0;
+  /* Light Pink */
+  --secondary_PinkShade_2: #f7e9e9;
+
+  --tertiary_ColorShade_1: #f9e0c8;
+
+  --primary_box_shadow: 0px 0px 8px -1px;
+
+  --box_shadow_Bottom: 0 3px 5px -2px;
 }
 
+/* 
 This is how you use the variable in the css
 body { background-color: var(--primary_Color); } */
 
@@ -678,26 +692,26 @@ a {
 
   border-radius: 1.5rem;
   background-color: white;
-  box-shadow: 3px 3px 4px gray, -3px -3px 4px lightgray;
+  box-shadow: var(--primary_box_shadow);
 }
 
 /*Style the input fields*/
 .login-wrapper input {
   border: none;
-  border-bottom: 1px solid darkcyan;
+  border-bottom: 1px solid var(--primary_BlueShade_3);
   outline: none;
 }
 
 /* Style the icons*/
 .login-wrapper i {
-  border-bottom: 1px solid darkcyan;
+  border-bottom: 1px solid var(--primary_BlueShade_3);
   padding: 2px;
-  color: darkcyan;
+  color: var(--primary_BlueShade_1);
 }
 
 /*Style the links like forgot password and signup*/
 .login-wrapper a {
-  color: darkcyan;
+  color: var(--primary_BlueShade_1);
 }
 
 /*Center align elements inside the form*/
@@ -744,9 +758,9 @@ a {
 
 /*Styling login button*/
 .login-buttons button:nth-of-type(1) {
-  background-color: darkcyan;
+  background-color: var(--primary_BlueShade_1);
   color: white;
-  border: 1px solid darkcyan;
+  border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
   padding: 0.25rem 0.5rem;
 }
@@ -767,6 +781,15 @@ a {
   max-width: 100%;
 }
 
+.about-wrapper h1 {
+  font-size:4rem;
+  color: var(--primary_BlueShade_1);
+}
+
+.about-wrapper h2 {
+  color:var(--primary_BlueShade_1);
+}
+
 .about-wrapper header ul {
   list-style-type: none;
   padding: 0;
@@ -777,13 +800,17 @@ a {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.about-content1,
+.about-content1-wrapper {
+  padding: 1rem;
+  background-color: var( --tertiary_ColorShade_1);
+}
+
 .about-content2,
 .about-choose-item1,
 .about-choose-item2,
 .about-choose-item3,
 .about-choose-item4 {
-  background-color: lightgray;
+  background-color: var(--primary_BlueShade_3);
   padding: 1rem;
 }
 
@@ -794,7 +821,6 @@ a {
   place-items: center;
 }
 
-.about-content1 p,
 .about-content2 p {
   text-align: center;
 }
@@ -808,6 +834,23 @@ a {
 
 .about-wrapper h2 {
   text-align: center;
+}
+
+.about-content1 h2{
+  margin-bottom: 0;
+  text-align: left;
+  font-size:2rem !important;
+  color: black;
+}
+
+.about-content1 button {
+   margin-top: 2rem;
+   padding: 0.5rem 2rem;
+   color: white;
+   background-color: var(--primary_BlueShade_1);
+   border: none;
+   border-radius: 5px;
+   box-shadow: var(--box_shadow_Bottom);
 }
 
 .about-choose-item2,
@@ -845,7 +888,7 @@ a {
   margin-right: 1rem;
 }
 
-.about-wrapper h2 {
+.about-wrapper h2:not(:first-of-type) {
   padding-top: 2rem;
 }
 
@@ -867,11 +910,20 @@ a {
 
 .about-team img {
   border-radius: 50%;
-  justify-self: center;
+}
+
+.about-team {
+  justify-items: center;
+}
+
+.about-team-wrapper h2 {
+  padding-top: 2rem;
 }
 
 @media screen and (min-width: 1200px) {
-  .about-wrapper {
+  .about-content1,
+  .desktop-grid,
+  .about-team {
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -918,6 +970,10 @@ a {
 
   .about-wrapper h2 {
     font-size: 3rem;
+  }
+
+  .about-team-wrapper {
+    background-color: var(--secondary_PinkShade_2);
   }
 }
 
@@ -1143,7 +1199,7 @@ a {
 /* #region Specific Listing Page*/
 
 .specific-wrapper {
-  max-width: 100%;
+  width: 100%;
 }
 
 .specific-wrapper img {
@@ -1156,21 +1212,22 @@ a {
 }
 
 .specific-heading h1 {
-  color: blue;
+  color: var(--primary_BlueShade_1);
 }
 
 .specific-heading p {
-  background-color: powderblue;
-  padding: 1rem 3rem;
+  background-color: var(--primary_BlueShade_2);
+  padding: 1rem 5rem;
+  box-shadow: var(--box_shadow_Bottom);
 }
 
 .specific-image {
-  text-align: left;
+  padding-left:3rem;
+  padding-right:3rem;
+  padding-top: 2rem;
 }
 
 .specific-image img {
-  width: 80%;
-  margin: 1rem 3rem;
   border-radius: 20px;
 }
 
@@ -1180,18 +1237,22 @@ a {
 }
 
 .specific-bids {
-  background-color: lightpink;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.specific-color-bottom {
+  background-color: var(--secondary_PinkShade_2);
 }
 
 .specific-bid1,
 .specific-bid2,
 .specific-bid3 {
-  background-color: lightblue;
+  background-color: var(--primary_BlueShade_3);
   margin: 3rem;
   padding: 2rem;
   border-radius: 20px;
+  box-shadow: var(--box_shadow_Bottom);
 }
 
 .specific-desc {
@@ -1215,12 +1276,13 @@ a {
 }
 
 .specific-bid-info {
-  padding-left: 1rem;
+  padding-left: 2rem;
 }
 
 .specific-button-grid {
   text-align: center;
   margin-top: 1rem;
+  position: relative;
 }
 
 .specific-button-grid button {
@@ -1228,60 +1290,71 @@ a {
   margin:0.5rem;
   border: none;
   border-radius: 5px;
+  box-shadow: var(--box_shadow_Bottom);
+  position: absolute;
+  z-index: 10;
 }
 
 .specific-button-grid button:nth-of-type(1) {
-  background-color: rgb(30, 67, 80);
+  background-color: var(--primary_BlueShade_1);
   color: white;
+  left: 255px;
 }
 
 .specific-button-grid button:nth-of-type(2) {
-  background-color: lightpink;
+  background-color: var(--secondary_PinkShade_1);
+  left: 405px;
 }
 
 .specific-red {
   color:red;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 1200px) {
   
-  .specific-wrapper {
+   .specific-bids, 
+   .specific-grid,
+   .specific-desc {
     max-width: 1200px;
     margin: 0 auto;
-  }
+  } 
 
   .specific-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-content: center;
     align-items: center;
-    background-color: lightpink;
+    
   }
 
-  .specific-grid img {
-    width: 90%;
-    margin: 2rem;
-    margin-left: 2rem;
+  .specific-color-top {
+    background-color: var(--secondary_PinkShade_2);
+    margin-bottom: 3rem;
   }
 
   .specific-contact-info {
     padding: 0;
-    padding-left: 2rem;
+    padding-left: 3rem;
   }
 
   .specific-desc p {
     margin-top: 0;
-    width: 80%;
+    padding-top: 2rem;
+    padding-left: 2.5rem;
   }
 
   .specific-desc {
     margin: 0 auto;
-    background-color: lightpink;
-    margin-bottom: 3rem;
   }
 
   .specific-heading {
     margin-bottom: 2rem;
+  }
+
+  .specific-heading p {
+    max-width: fit-content;
+    margin: 0 auto;
   }
 
   .specific-bid1,
@@ -1302,6 +1375,13 @@ a {
     padding-left: 4rem;
   }
 
+  .specific-button-grid button:nth-of-type(1) {
+    left: 120px;
+  }
+
+  .specific-button-grid button:nth-of-type(2) {
+    left: 265px;
+  }
 }
 
 /* #endregion Specific Listing Page*/
