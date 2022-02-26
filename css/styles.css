@@ -757,18 +757,58 @@ a {
 }
 
 /*Styling login button*/
-.login-buttons button:nth-of-type(1) {
+.login-buttons button:nth-of-type(1), .login-desktop button {
   background-color: var(--primary_BlueShade_1);
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 2rem;
 }
 
 /*Center align sign up link*/
 .login-buttons span:nth-of-type(2) {
   align-self: center;
   margin-bottom: 1rem;
+}
+
+.login-desktop h1, .login-desktop h2 {
+  color: var(--primary_BlueShade_1);
+}
+
+@media screen and (max-width: 1200px) {
+  .login-desktop {
+   display: none;
+  }
+} 
+
+@media screen and (min-width: 1200px) { 
+
+.login-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.login-desktop {
+  place-self: center;
+  text-align: center;
+}
+
+.login-desktop img {
+  padding: 4rem 2rem;
+}
+
+.login-parent {
+  background-image: none;
+  background-color: var(--primary_BlueShade_1);
+}
+
+.login-wrapper {
+  max-width: 100%;
+  width: 100%;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
 }
 /*#endregion Login*/
 
@@ -790,15 +830,24 @@ a {
   color:var(--primary_BlueShade_1);
 }
 
+.about-team h3 {
+  color:var(--primary_BlueShade_1);
+  font-size: 2rem !important;
+}
+
+.about-content1 h1, .about-content1 h2, .about-content1 p {
+  font-style: italic !important;
+}
+
 .about-wrapper header ul {
   list-style-type: none;
   padding: 0;
 }
 
-.about-team {
+/* .about-team {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-}
+} */
 
 .about-content1-wrapper {
   padding: 1rem;
@@ -892,7 +941,7 @@ a {
   padding-top: 2rem;
 }
 
-.about-team {
+/* .about-team {
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -901,16 +950,16 @@ a {
 
 .about-team-image1 {
   grid-column: 1/-1;
-  justify-self: center;
-}
+} */
 
 .about-team p {
-  text-align: center;
+  /* text-align: center; */
+  font-weight: bold;
 }
 
-.about-team img {
+/* .about-team img {
   border-radius: 50%;
-}
+} */
 
 .about-team {
   justify-items: center;
@@ -918,6 +967,20 @@ a {
 
 .about-team-wrapper h2 {
   padding-top: 2rem;
+}
+
+.about-manager, .about-designers p, .about-developers p {
+  text-align: center;
+}
+
+.about-designers, .about-developers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.about-designers h3, .about-developers h3 {
+  grid-column: 1/-1;
 }
 
 @media screen and (min-width: 1200px) {
@@ -944,19 +1007,19 @@ a {
     text-align: left;
   }
 
-  .about-team {
+  /* .about-team {
     grid-template-columns: repeat(4, 1fr);
     padding-top: 4rem;
     padding-bottom: 4rem;
     grid-gap: 2rem;
-  }
+  } */
 
-  .about-team-image1 {
+  /* .about-team-image1 {
     grid-row: 1/3;
     grid-column: 1/2;
     place-self: center;
-    width: 100%;
-  }
+     width: 100%; 
+  } */
 
   .about-team-image1,
   .about-team-image2,
@@ -974,6 +1037,15 @@ a {
 
   .about-team-wrapper {
     background-color: var(--secondary_PinkShade_2);
+  }
+
+  .about-team {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-manager {
+   place-self: center;
   }
 }
 
@@ -1253,6 +1325,7 @@ a {
   padding: 2rem;
   border-radius: 20px;
   box-shadow: var(--box_shadow_Bottom);
+  position: relative;
 }
 
 .specific-desc {
@@ -1280,9 +1353,14 @@ a {
 }
 
 .specific-button-grid {
-  text-align: center;
-  margin-top: 1rem;
-  position: relative;
+   position: absolute;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  bottom: -25px;
+  left: 0;
 }
 
 .specific-button-grid button {
@@ -1361,6 +1439,8 @@ a {
   .specific-bid2,
   .specific-bid3 {
     margin: 0;  
+    
+    position: relative;
   }
 
   .specific-bids {

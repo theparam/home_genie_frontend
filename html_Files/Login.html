@@ -20,39 +20,47 @@
 </head>
 
 <body>
-    <main>
-        <div class="login-parent">
-            <div class="login-wrapper">
-                <header>
-                    <h1>LOG IN</h1>
-                </header>
-                <main>
-                    <form>
-                        <div class="login-email">
-                            <label for="login-email"></label>
-                            <div class="icon_input_wrapper">
-                                <i class="fas fa-user"></i>
-                                <input type="text" id="login-email" name="login-email" placeholder="Email" required>
+    <div class="login-grid">
+        <div class="login-desktop">
+            <img src="https://picsum.photos/600/400?random=11" alt="">
+            <h1>HOME GENIE</h1>
+            <h2>New Here ?</h2>
+            <button type="submit" id="LoginBtn">Sign Up</button>
+        </div>
+        <div class="login-mobile">
+            <div class="login-parent">
+                <div class="login-wrapper">
+                    <header>
+                        <h1>LOG IN</h1>
+                    </header>
+                    <main>
+                        <form>
+                            <div class="login-email">
+                                <label for="login-email"></label>
+                                <div class="icon_input_wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="login-email" name="login-email" placeholder="Email" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="login-password">
-                            <label for="login-password"></label>
-                            <div class="icon_input_wrapper">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" id="login-password" name="login-password" placeholder="Password"
-                                    required>
+                            <div class="login-password">
+                                <label for="login-password"></label>
+                                <div class="icon_input_wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="login-password" name="login-password" placeholder="Password"
+                                        required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="login-buttons">
-                            <span><a href="ForgetPassword.html">Forgot Password?</a></span><br>
-                            <button type="submit" id="LoginBtn">Log In</button><br>
-                            <span><a href="Signup.html">Sign Up</a></span>
-                        </div>
-                    </form>
-                </main>
+                            <div class="login-buttons">
+                                <span><a href="ForgetPassword.html">Forgot Password?</a></span><br>
+                                <button type="submit" id="LoginBtn">Log In</button><br>
+                                <span><a href="Signup.html">Sign Up</a></span>
+                            </div>
+                        </form>
+                    </main>
+                </div>
             </div>
         </div>
-    </main>
+    </div>
     <footer></footer>
 </body>
 <script src="../js/login.js" defer></script>
