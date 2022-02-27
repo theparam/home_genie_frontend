@@ -981,6 +981,7 @@ a {
 
 .about-team-wrapper img {
   filter: grayscale(100%);
+  border-radius: 50%;
 }
 
 .about-designers h3, .about-developers h3 {
