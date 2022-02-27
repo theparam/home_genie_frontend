@@ -979,6 +979,10 @@ a {
   justify-items: center;
 }
 
+.about-team-wrapper img {
+  filter: grayscale(100%);
+}
+
 .about-designers h3, .about-developers h3 {
   grid-column: 1/-1;
 }
