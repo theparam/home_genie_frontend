@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Home Genie</title>
+    <meta name="description" content="A Bidding platform for the people to bid on the home services of other people">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../app.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
+        integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="create-one-body">
+    <div id="page-body">
+        <header class="HomePage_header">
+            <h1>Home Genie</h1>
+            <div class="Menu_BellIconContainer">
+                <a href="#" id="ShowNotificationPopUp">
+                    <i title="Show Notifications" class="fas fa-bell"></i>
+                </a>
+                <a href="#" id="ShowMenu">
+                    <i title="Show Menu" class="fas fa-bars"></i>
+                </a>
+            </div>
+            <div class="dk-menu">
+                <a href="#" id="dk-ShowNotificationPopUp">
+                    <i title="Show Notifications" class="fas fa-bell"></i>
+                </a>
+                <ul>
+                    <li>
+                        <a href="BrowseListings.html">Browse</a>
+                    </li>
+                    <li>
+                        <a href="">Create new</a>
+                    </li>
+                    <li>
+                        <a href="">Personal listings</a>
+                    </li>
+                    <li>
+                        <a href="AboutUs.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#" class="ProfileIcon">
+                            <i title="Profile" class="far fa-user-circle"></i>
+                        </a>
+                        <div class="subProfileMenu">
+                            <ul>
+                                <li>
+                                    <a href="UpdateProfile.html">Update Profile</a>
+                                </li>
+                                <li>
+                                    <a href="Login.html">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- <div class="mb-nav_wrapper"></div> -->
+        <nav class="mb-menu" id="showHideMenu">
+            <ul>
+                <!-- Add Links to the Pages when created -->
+                <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="BrowseListings.html"><i class="fas fa-browser"></i><i class="fa fa-list"
+                            aria-hidden="true"></i> Browse Listings</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fa fa-list" aria-hidden="true"></i> Create New Listing</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-eye"></i> View Your Listing</a>
+                </li>
+                <li>
+                    <a href="AboutUs.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a>
+                </li>
+                <li>
+                    <a href="UpdateProfile.html">
+                        <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="Login.html"><strong><i class="fas fa-eye"></i> Logout?</strong></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="Notification_wrapper">
+            <div class="NotificationPopUpContainer">
+                <div class="NotificationPopUp">
+                    <div class="Notification_id1">
+                        <h3>Listing Name</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+                        <div>
+                            <button>View Listing</button>
+                        </div>
+                    </div>
+                    <div class="Notification_id1">
+                        <h3>Listing Name</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+                        <div>
+                            <button>View Listing</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="triangle"></div>
+            </div>
+        </div>
+        <!-- Till here -->
+        <main class="ListingSite-main">
+            <form class="create-user-form">
+                <div class="heading">
+                    <h1>Add Your Listing</h1>
+                </div>
+                <div class="section-one">
+                    <div class="form-class">
+                        <label for="listing-title">Listing Title<span class="requiredSymbol">*</span></label>
+                        <input required type="text" id="listing-title" placeholder="eg. Hair Spa" name="listing-title">
+                        <label for="category">Category<span class="requiredSymbol">*</span></label>
+                        <select name="category" id="category">
+                            <option value="a" selected>select category</option>
+                            <option value="a">Personal</option>
+                            <option value="b">Indoor</option>
+                            <option value="c">Outdoor</option>
+                            <option value="d">Premium</option>
+                        </select>
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description"
+                            placeholder="Add details about any other specific service you would like to opt for"
+                            cols="30" rows="10"></textarea>
+                        <label for="conditions">Specific Conditions (If any)</label>
+                        <input type="text" id="conditions" placeholder="Add any requirements or details."
+                            name="conditions">
+                    </div>
+                    <div class="img-payment">
+                        <div class="img-info">
+                            <div class="img-clicked-info">
+                                <img src="https://picsum.photos/1200/600?random=1" alt="random image">
+                                <span class="img-title">Lorem</span>
+                            </div>
+                            <div class="button-div">
+                                <input type="file" id="myFile" name="myFile" accept="image/*" aria-hidden="false">
+                                <!-- <span aria-hidden="false">No file chosen</span> -->
+                            </div>
+
+                        </div>
+                        <div class="payment">
+                            <label for="fixed-price" id="price">Fixed Price<span class="requiredSymbol">*</span></label>
+                            <input required type="text" id="fixed-price" name="fixed-price" placeholder="$ 0.00">
+                            <div class="payment-heading">
+                                <label for="payment-method">Accepted Payment method<span>*</span></label>
+                            </div>
+                            <div class="checkbox-buttons">
+                                <div class="label_checkbox_wrapper">
+                                    <label for="cash" class="paymentOptionLabel">Cash</label>
+                                    <input class="paymentOptioninput" type="checkbox" id="cash" name="cash">
+                                </div>
+                                <div class="label_checkbox_wrapper">
+                                    <label for="transfer" class="paymentOptionLabel">Bank Transfer</label>
+                                    <input class="paymentOptioninput" type="checkbox" id="transfer" name="transfer">
+                                </div>
+                                <div class="label_checkbox_wrapper">
+                                    <label for="cheque" class="paymentOptionLabel">Cheque</label>
+                                    <input class="paymentOptioninput" type="checkbox" id="cheque" name="cheque">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-two">
+                    <div class="form1-class">
+                        <label for="name">Name<span class="requiredSymbol">*</span></label>
+                        <input required type="text" placeholder="First n Last Name" id="name" name="name">
+                        <label for="contact">Contact Number<span class="requiredSymbol">*</span></label>
+                        <input required type="number" id="contact" name="contact" placeholder="+1">
+                        <label required for="email">Email<span class="requiredSymbol">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com">
+                        <div class="half-form">
+                            <div class="address-class">
+                                <label for="address">Address</label>
+                                <p>Street, Apt. Unit Number</p>
+                                <input placeholder="eg: 11 XX Ave XX Street" type="text" id="address" name="address">
+                            </div>
+                            <div class="area">
+                                <div class="area-city">
+                                    <label for="city">City<span class="requiredSymbol">*</span></label>
+                                    <input required placeholder="eg. Surrey" type="text" id="city" name="city">
+                                </div>
+                                <div class="area-province">
+                                    <label for="province">Provinces<span class="requiredSymbol">*</span></label>
+                                    <input required placeholder="eg. BC" type="text" id="province" name="province">
+                                </div>
+                            </div>
+                            <div class="postal">
+                                <label for="code">Postal Code<span class="requiredSymbol">*</span></label>
+                                <input placeholder="eg. VXX XXX" required type="text" id="code" name="code">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="MapsContainer">
+                        <iframe id="inlineFrameExample" title="Inline Frame Example" width="100%" height="100%"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="button">
+                    <button type="submit" id="create-btn">Create Listing</button>
+                </div>
+            </form>
+        </main>
+        <footer class="footer_Area">
+            <div class="mb_footer">
+                <p> &copy; Geniques 2022 </p>
+            </div>
+            <div class="dk_footer">
+                <div class="about-logo">
+                    <img src="https://picsum.photos/200/200?random=11" alt="Home Genie logo">
+                </div>
+                <div class="about-footer-nav1">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Create New Listing</a></li>
+                            <li><a href="#">View Your Listing</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="about-footer-nav2">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="about-footer-nav3">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Let's Get Connected !!</a></li>
+                            <li><a href="#">+1 1234567890</a></li>
+                            <li><a href="#">abc@homegenie.ca</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/script.js"></script>
+    <script src="../js/createListing.js"></script>
+</body>
+
+</html>
