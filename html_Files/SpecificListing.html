@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,108 +18,190 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
-    <header></header>
+    <header class="HomePage_header">
+        <div class="LogoContainer">
+            <img src="../img/Home_Genie_DK_Logo.png" alt="Home Genie Logo">
+        </div>
+        <div class="Menu_BellIconContainer">
+            <a href="#" id="ShowNotificationPopUp">
+                <i title="Show Notifications" class="fas fa-bell"></i>
+            </a>
+            <a href="#" id="ShowMenu">
+                <i title="Show Menu" class="fas fa-bars"></i>
+            </a>
+        </div>
+        <div class="dk-menu">
+            <ul>
+                <li>
+                    <a href="#" id="dk-ShowNotificationPopUp">
+                        <i title="Show Notifications" class="fas fa-bell"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="BrowseListings.html">Browse</a>
+                </li>
+                <li>
+                    <a href="CreateListing.html">Create</a>
+                </li>
+                <li>
+                    <a href="">View listings</a>
+                </li>
+                <li>
+                    <a href="AboutUs.html">About Us</a>
+                </li>
+                <li>
+                    <a href="#" class="ProfileIcon">
+                        <i title="Profile" class="far fa-user-circle"></i>
+                    </a>
+                    <div class="subProfileMenu">
+                        <ul>
+                            <li>
+                                <a href="UpdateProfile.html">Profile</a>
+                            </li>
+                            <li>
+                                <a href="Login.html">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- <div class="mb-nav_wrapper"></div> -->
+    <nav class="mb-menu" id="showHideMenu">
+        <ul>
+            <!-- Add Links to the Pages when created -->
+            <li>
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="BrowseListings.html"><i class="fas fa-browser"></i><i class="fa fa-list"
+                        aria-hidden="true"></i> Browse
+                    Listings</a>
+            </li>
+            <li>
+                <a href="CreateListing.html"> <i class="fa fa-list" aria-hidden="true"></i> Create New Listing</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-eye"></i> View Your Listing</a>
+            </li>
+            <li>
+                <a href="AboutUs.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a>
+            </li>
+            <li>
+                <a href="UpdateProfile.html">
+                    <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+            </li>
+            <li>
+                <a href="Login.html"><strong><i class="fas fa-eye"></i> Logout?</strong></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="Notification_wrapper">
+        <div class="NotificationPopUpContainer">
+            <div class="NotificationPopUp">
+                <div class="Notification_id1">
+                    <h3>Listing Name</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+                    <div>
+                        <button>View Listing</button>
+                    </div>
+                </div>
+                <div class="Notification_id1">
+                    <h3>Listing Name</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+                    <div>
+                        <button>View Listing</button>
+                    </div>
+                </div>
+            </div>
+            <div class="triangle"></div>
+        </div>
+    </div>
+    <!-- Till here -->
     <main>
         <div class="specific-wrapper">
             <div class="specific-heading">
-                <h1>Hair Styling</h1>
-                <p><strong>Price: $45.00</strong></p>
+                <h1 id="Listing_Title">Hair Styling</h1>
+                <p id="Listing_Price"><strong>Price: $45.00</strong></p>
             </div>
 
             <div class="specific-color-top">
                 <div class="specific-grid">
                     <div class="specific-image">
-                        <img src="https://picsum.photos/400/200?random=11" alt="">
+                        <img id="Listing_Image" src="https://picsum.photos/400/200?random=11" alt="">
                     </div>
                     <div class="specific-contact-info">
                         <h2>Contact Information</h2>
-                        <p><strong>Name: </strong>Jack Smith</p>
-                        <p><strong>Email: </strong>jacksmith@gmail.com</p>
-                        <p><strong>Contact Number: </strong>+1 604-112-2211</p>
-                        <p><strong>Condition</strong>(if applicable): Use Loreal products only</p>
+                        <p id="Listing_Owner"><strong>Name: </strong>Jack Smith</p>
+                        <p id="Listing_OwnerEmail"><strong>Email: </strong>jacksmith@gmail.com</p>
+                        <p id="Listing_OwnerNumber"><strong>Contact Number: </strong>+1 604-112-2211</p>
+                        <p id="Listing_OwnerCondition"><strong>Condition</strong>(if applicable): Use Loreal products
+                            only</p>
                     </div>
                 </div>
                 <div class="specific-desc">
-                    <p>I am looking for a Hair Stylist to help me try different looks for a photoshoot coming this Sunday. Looking for professionals with some experience in Hair Styles for Editorial Purposes and photo ready look. Serious Enquires only can Email or Contact at above provided details.</p>
+                    <p id="Listing_OwnerDescription">I am looking for a Hair Stylist to help me try different looks for
+                        a photoshoot coming this
+                        Sunday. Looking for professionals with some experience in Hair Styles for Editorial Purposes and
+                        photo ready look. Serious Enquires only can Email or Contact at above provided details.</p>
+                </div>
+            </div>
+            <div class="specific-color-bottom">
+                <div class="specific-bids">
+
                 </div>
             </div>
 
-           
+            <div class="placeBidContainer">
 
-            <div class="specific-color-bottom">
-                <div class="specific-bids">
-                    <div class="specific-bid1">
-                        <div class="specific-bid-grid">
-                            <img src="https://picsum.photos/300/200?random=11" alt="">
-                            <div class="specific-bid-info">
-                                <p><strong>Bidded Price: </strong><span class="specific-red">$ 35.00</span></p>
-                                <p><strong>Name: </strong>Nikkie Watson</p>
-                                <p><strong>Email: </strong>nikki@gmail.com</p>
-                                <p><strong>Phone Number: </strong>+1 111-111-1111</p>   
-                            </div>
-                            <p><strong>Description: </strong>6 years eperience as a Professional Hairstylist. Working Currently at Poco Beauty Salon.</p>
-                        </div>
-                        <div class="specific-button-grid">
-                            <button type="button">Accept</button>
-                            <button type="button">Decline</button>
-                        </div>
-                    </div>
-                    <div class="specific-bid2">
-                        <div class="specific-bid-grid">
-                            <img src="https://picsum.photos/300/200?random=11" alt="">
-                            <div class="specific-bid-info">
-                                <p><strong>Bidded Price: </strong><span class="specific-red">$ 38.00</span></p>
-                                <p><strong>Name: </strong>Anna Johnson</p>
-                                <p><strong>Email: </strong>anna@gmail.com</p>
-                                <p><strong>Phone Number: </strong>+1 111-111-1111</p>
-                            </div>
-                            <p><strong>Description: </strong>7 years eperience as a Professional Hairstylist. Working Currently as Hair Stylist for Dream Editorials.</p>
-                        </div>
-                        <div class="specific-button-grid">
-                            <button type="button">Accept</button>
-                            <button type="button">Decline</button>
-                        </div>
-                    </div>
-                    <div class="specific-bid3">
-                        <div class="specific-bid-grid">
-                            <img src="https://picsum.photos/300/200?random=11" alt="">
-                            <div class="specific-bid-info">
-                                <p><strong>Bidded Price: </strong><span class="specific-red">$ 40.00</span></p>
-                                <p><strong>Name: </strong>Troy Smith</p>
-                                <p><strong>Email: </strong>troy@gmail.com</p>
-                                <p><strong>Phone Number: </strong>+1 111-111-1111</p>
-                            </div>
-                            <p><strong>Description: </strong>10 years eperience as a Professional Hairstylist. Working Currently as Hair Stylist professional photographers.</p>
-                        </div>
-                        <div class="specific-button-grid">
-                            <button type="button">Accept</button>
-                            <button type="button">Decline</button>
-                        </div>
-                    </div>
-                    <div class="specific-bid3">
-                        <div class="specific-bid-grid">
-                            <img src="https://picsum.photos/300/200?random=11" alt="">
-                            <div class="specific-bid-info">
-                                <p><strong>Bidded Price: </strong><span class="specific-red">$ 40.00</span></p>
-                                <p><strong>Name: </strong>Troy Smith</p>
-                                <p><strong>Email: </strong>troy@gmail.com</p>
-                                <p><strong>Phone Number: </strong>+1 111-111-1111</p>
-                            </div>
-                            <p><strong>Description: </strong>10 years eperience as a Professional Hairstylist. Working Currently as Hair Stylist professional photographers.</p>
-                        </div>
-                        <div class="specific-button-grid">
-                            <button type="button">Accept</button>
-                            <button type="button">Decline</button>
-                        </div>
-                    </div>
-                </div> 
             </div>
         </div>
     </main>
-    <footer></footer>
 
-
+    <footer class="footer_Area">
+        <div class="mb_footer">
+            <p> &copy; Geniques 2022 </p>
+        </div>
+        <div class="dk_footer">
+            <div class="about-logo">
+                <img src="../img/Home_Genie_Logo_Footer.png" alt="Home Genie logo">
+            </div>
+            <div class="about-footer-nav1">
+                <nav>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Create New Listing</a></li>
+                        <li><a href="#">View Your Listing</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav2">
+                <nav>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav3">
+                <nav>
+                    <ul>
+                        <li><a href="#">Let's Get Connected !!</a></li>
+                        <li><a href="#">+1 1234567890</a></li>
+                        <li><a href="#">abc@homegenie.ca</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
     <script src="../js/script.js" defer></script>
+    <script src="../js/specificListing.js"></script>
 </body>
+
 </html>

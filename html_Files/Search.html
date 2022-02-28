@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,74 +11,186 @@
 </head>
 
 <body>
-<main>
-<h1>5 Results for-'Lorem, ipsum.'</h1>
-<h2>Category:XXXX</h2>
-<div class="main-parent">
-    <div class="listing-container">
-            <img src="https://picsum.photos/seed/picsum/400/400" alt="">
-        
-        
-        <div class="image-info">
-            <h2 class="heading">Lorem, ipsum.</h2>
-            <h3>Posted By:</h3><p>Lorem, ipsum.</p>
-           
+    <!-- For the Developer Copy Start from here  line 148-->
+    <header class="HomePage_header">
+        <h1>Home Genie</h1>
+        <div class="Menu_BellIconContainer">
+            <a href="#" id="ShowNotificationPopUp">
+                <i title="Show Notifications" class="fas fa-bell"></i>
+            </a>
+            <a href="#" id="ShowMenu">
+                <i title="Show Menu" class="fas fa-bars"></i>
+            </a>
         </div>
-   
-        <button class="button">View Listing</button>
-
-    </div>
-  
-    <div class="listing-container">
-        
-            <img src="https://picsum.photos/seed/picsum/400/400" alt="">
-        
-      
-        <div class="image-info">
-            <h2 class="heading">Lorem, ipsum.</h2>
-            <h3>Posted By:</h3><p>Lorem, ipsum.</p>
-           
+        <div class="dk-menu">
+            <a href="#" id="dk-ShowNotificationPopUp">
+                <i title="Show Notifications" class="fas fa-bell"></i>
+            </a>
+            <ul>
+                <li>
+                    <a href="BrowseListings.html">Browse</a>
+                </li>
+                <li>
+                    <a href="">Create new</a>
+                </li>
+                <li>
+                    <a href="">Personal listings</a>
+                </li>
+                <li>
+                    <a href="AboutUs.html">About Us</a>
+                </li>
+                <li>
+                    <a href="#" class="ProfileIcon">
+                        <i title="Profile" class="far fa-user-circle"></i>
+                    </a>
+                    <div class="subProfileMenu">
+                        <ul>
+                            <li>
+                                <a href="UpdateProfile.html">Update Profile</a>
+                            </li>
+                            <li>
+                                <a href="Login.html">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
-   
-        <button class="button">View Listing</button>
+    </header>
 
+    <!-- <div class="mb-nav_wrapper"></div> -->
+    <nav class="mb-menu" id="showHideMenu">
+        <ul>
+            <!-- Add Links to the Pages when created -->
+            <li>
+                <a href="BrowseListings.html">Browse Listings</a>
+            </li>
+            <li>
+                <a href="#"> Create New Listing</a>
+            </li>
+            <li>
+                <a href="#">View Your Listing</a>
+            </li>
+            <li>
+                <a href="AboutUs.html">About Us</a>
+            </li>
+            <li>
+                <a href="UpdateProfile.html">
+                    Profile</a>
+            </li>
+            <li>
+                <a href="Login.html"><strong>Logout?</strong></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="Notification_wrapper">
+        <div class="NotificationPopUpContainer">
+            <div class="NotificationPopUp">
+                <div class="Notification_id1">
+                    <h3>Listing Name</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+                    <div>
+                        <button>View Listing</button>
+                    </div>
+                </div>
+                <div class="Notification_id1">
+                    <h3>Listing Name</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
+                    <div>
+                        <button>View Listing</button>
+                    </div>
+                </div>
+            </div>
+            <div class="triangle"></div>
+        </div>
     </div>
-    <div class="listing-container">
-        
-        <img src="https://picsum.photos/seed/picsum/400/400" alt="">
-    
-  
-    <div class="image-info">
-        <h2 class="heading">Lorem, ipsum.</h2>
-        <h3>Posted By:</h3><p>Lorem, ipsum.</p>
-       
-    </div>
+    <!-- Till here -->
+    <main>
 
-    <button class="button">View Listing</button>
-
-</div>
-<div class="listing-container">
-        
-    <img src="https://picsum.photos/seed/picsum/400/400" alt="">
-
-
-<div class="image-info">
-   <b><h2 class="heading">Lorem, ipsum.</h2></b>
-    <h3>Posted By:</h3><p>Lorem, ipsum.</p>
-   
-</div>
-
-<button class="button">View Listing</button>
-
-</div>
-    </div>
-
-    
-        
-        
-        
-
-
+        <div class="main-parent">
+            <h1><span id="searchCount"></span> Results for-'<span id="searchTitle"></span>'</h1>
+            <h2>Category: <span id="category_title"></span></h2>
+        </div>
+        <div class="Search_Listing_Container">
+            <!-- <div class="listing-container">
+                <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+                <div class="image-info">
+                    <h2 class="heading">Lorem, ipsum.</h2>
+                    <h3>Posted By:</h3>
+                    <p>Lorem, ipsum.</p>
+                </div>
+                <button class="button">View Listing</button>
+            </div>
+            <div class="listing-container">
+                <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+                <div class="image-info">
+                    <h2 class="heading">Lorem, ipsum.</h2>
+                    <h3>Posted By:</h3>
+                    <p>Lorem, ipsum.</p>
+                </div>
+                <button class="button">View Listing</button>
+            </div>
+            <div class="listing-container">
+                <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+                <div class="image-info">
+                    <h2 class="heading">Lorem, ipsum.</h2>
+                    <h3>Posted By:</h3>
+                    <p>Lorem, ipsum.</p>
+                </div>
+                <button class="button">View Listing</button>
+            </div>
+            <div class="listing-container">
+                <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+                <div class="image-info">
+                    <b>
+                        <h2 class="heading">Lorem, ipsum.</h2>
+                    </b>
+                    <h3>Posted By:</h3>
+                    <p>Lorem, ipsum.</p>
+                </div>
+                <button class="button">View Listing</button>
+            </div> -->
+        </div>
+    </main>
+    <footer class="footer_Area">
+        <div class="mb_footer">
+            <p> &copy; Geniques 2022 </p>
+        </div>
+        <div class="dk_footer">
+            <div class="about-logo">
+                <img src="../img/Home_Genie_Logo_Footer.png" alt="Home Genie logo">
+            </div>
+            <div class="about-footer-nav1">
+                <nav>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Create New Listing</a></li>
+                        <li><a href="#">View Your Listing</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav2">
+                <nav>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav3">
+                <nav>
+                    <ul>
+                        <li><a href="#">Let's Get Connected !!</a></li>
+                        <li><a href="#">+1 1234567890</a></li>
+                        <li><a href="#">abc@homegenie.ca</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/Search.js"></script>
 </body>
 
 </div>

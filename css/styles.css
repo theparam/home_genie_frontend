@@ -192,9 +192,6 @@ a {
   background-color: #fdfdfd;
 }
 
-.Search_field_Icon_Container input:focus {
-  border-bottom: 2px solid darkgrey;
-}
 
 #categories {
   height: 40px;
@@ -382,19 +379,6 @@ a {
   border-top: 1px solid darkgrey;
   border-bottom: 1px solid darkgrey;
 }
-.Search_field_Icon_Container input {
-  border: 0;
-  outline: 0;
-  height: 20px;
-  padding: 0.5rem;
-  width: 80px;
-  margin-right: 0.2rem;
-  background-color: #fdfdfd;
-}
-
-.Search_field_Icon_Container input:focus {
-  border-bottom: 2px solid darkgrey;
-}
 
 #categories {
   height: 40px;
@@ -443,10 +427,6 @@ a {
   #categories {
     background-color: var(--primary_BlueShade_1);
     color: white;
-  }
-  ::placeholder {
-    color: white;
-    opacity: 1;
   }
   .heroImageContainer {
     display: flex;
@@ -1054,7 +1034,8 @@ a {
 
 /*Styling login button*/
 .login-buttons button:nth-of-type(1),
-.login-desktop button {
+.login-desktop button,
+#signUpBtn {
   background-color: var(--primary_BlueShade_1);
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
@@ -1589,7 +1570,7 @@ a {
 img {
   border-radius: 5%;
 }
-.main-parent {
+.Search_Listing_Container {
   display: grid;
   gap: 1rem;
   text-align: center;
@@ -1618,7 +1599,7 @@ h3 {
 }
 
 @media screen and (min-width: 600px) {
-  .main-parent {
+  .Search_Listing_Container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     min-width: fit-content;
@@ -1637,7 +1618,6 @@ h3 {
 /* ************************************************************************************ */
 
 /* #region Specific Listing Page*/
-
 .specific-wrapper {
   width: 100%;
 }
@@ -1683,6 +1663,7 @@ h3 {
 
 .specific-color-bottom {
   background-color: var(--secondary_PinkShade_2);
+  display: block;
 }
 
 .specific-bid1,
@@ -1692,8 +1673,8 @@ h3 {
   margin: 3rem;
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: var(--box_shadow_Bottom);
   position: relative;
+  box-shadow: var(--box_shadow_Bottom);
 }
 
 .specific-desc {
@@ -1737,24 +1718,80 @@ h3 {
   border: none;
   border-radius: 5px;
   box-shadow: var(--box_shadow_Bottom);
-  position: absolute;
   z-index: 10;
 }
 
 .specific-button-grid button:nth-of-type(1) {
   background-color: var(--primary_BlueShade_1);
   color: white;
-  left: 255px;
 }
 
 .specific-button-grid button:nth-of-type(2) {
   background-color: var(--secondary_PinkShade_1);
-  left: 405px;
 }
 
 .specific-red {
   color: red;
   font-weight: bold;
+}
+
+.placeBidContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+.bidLabelInputContainer {
+  display: flex;
+  box-shadow: var(--box_shadow_Bottom);
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 3rem;
+  border-radius: 5px;
+  background-color: var(--primary_BlueShade_2);
+}
+.IconContainer {
+  background-color: var(--primary_BlueShade_1);
+  padding: 0.4rem;
+  border-radius: 50%;
+}
+
+.bidLabelInputContainer label {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.bidLabelInputContainer input {
+  width: 100px;
+  color: #d17b1e;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.placeBidBtnSubmit {
+  background-color: var(--primary_BlueShade_1);
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: var(--box_shadow_Bottom);
+  outline: none;
+}
+
+.specific-color-bottom.ShowOffers {
+  display: block;
+}
+
+.placeBidContainer.ShowBidContainer {
+  display: flex;
 }
 
 @media screen and (min-width: 1200px) {
@@ -1805,7 +1842,6 @@ h3 {
   .specific-bid2,
   .specific-bid3 {
     margin: 0;
-
     position: relative;
   }
 
@@ -1820,17 +1856,13 @@ h3 {
   .specific-desc {
     padding-left: 4rem;
   }
-
-  .specific-button-grid button:nth-of-type(1) {
-    left: 120px;
-  }
-
-  .specific-button-grid button:nth-of-type(2) {
-    left: 265px;
-  }
 }
 
 /* #endregion Specific Listing Page*/
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
 /* #region CreateListing */
 .ListingSite-main {
   padding: 1rem;

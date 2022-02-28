@@ -2,6 +2,9 @@ let url = "http://localhost:8080/home/genie/listing/searchlisting/";
 let Search_Listing_Container = document.querySelector(
   ".Search_Listing_Container"
 );
+let searchResultCount = document.getElementById("searchCount");
+let SearchQueryTitle = document.getElementById("searchTitle");
+let categoryQueryTitle = document.getElementById("category_title");
 
 window.addEventListener("load", (e) => {
   const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -21,10 +24,6 @@ window.addEventListener("load", (e) => {
   if (_categoryStatus != -1) {
     categoryValue = params.category;
   }
-
-  document.getElementById(
-    "main_Title"
-  ).innerHTML = `You Searched for: <span id='searchTitle'>${searchValue}</span>`;
   searchValue = encodeURIComponent(searchValue.trim());
   let searchQuery = searchValue + "/" + categoryValue;
 
@@ -33,14 +32,16 @@ window.addEventListener("load", (e) => {
     category: categoryValue,
   };
 
-  let jsonObj = JSON.stringify(searchparam);
-
   url = url + `?title=${searchValue}` + `&category=${categoryValue}`;
+  alert
+  SearchQueryTitle.innerHTML = searchValue;
+  categoryQueryTitle.innerHTML = categoryValue;
   postData(url)
     .then((searchedData) => {
       let SearchArray = JSON.stringify(searchedData);
       console.log("respnos " + SearchArray);
       for (let i = 0; i < searchedData.length; i++) {
+        searchResultCount.innerHTML = searchedData.length;
         let searchedListing = searchedData[i];
         console.log("Data: " + JSON.stringify(searchedListing));
         let searchCardResult = `<div class="card">
