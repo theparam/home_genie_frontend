@@ -1,192 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Home Genie</title>
-    <meta name="description" content="A Bidding platform for the people to bid on the home services of other people">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="../app.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
-        integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <script>
-        // does the browser support service workers?
-        if ('serviceWorker' in navigator) {
-            // fires when the service worker is ready
-            navigator.serviceWorker.ready.then(reg => {
-                // we have an active service worker working for us
-                console.log(`Service Worker ready (Scope: ${reg.scope})`);
-                // do something interesting, if you want...
-
-            });
-            // then register our service worker
-            navigator.serviceWorker.register('.././sw.js', { scope: '/' })
-                .then(function (reg) {
-                    // display a success message
-                    console.log(`Service Worker Registration (Scope: ${reg.scope})`);
-                })
-                .catch(function (error) {
-                    // display an error message
-                    console.log(`Service Worker Error (${error})`);
-                });
-        } else {
-            // happens when the app isn't served over a TLS connection (HTTPS)
-            console.warn('Service Worker not available');
-        }
-    </script>
 </head>
 
 <body>
-
-    <!-- <header>
-    <h1>Home Genie</h1>
-  </header>
-  <main> <a href="about.html">About</a></main>
-  <footer></footer> -->
-
-    <!-- For the Developer Copy Start from here  line 148-->
-    <header class="HomePage_header">
-        <h1>Home Genie</h1>
-        <div class="Menu_BellIconContainer">
-            <a href="#" id="ShowNotificationPopUp">
-                <i title="Show Notifications" class="fas fa-bell"></i>
-            </a>
-            <a href="#" id="ShowMenu">
-                <i title="Show Menu" class="fas fa-bars"></i>
-            </a>
+<main>
+<h1>5 Results for-'Lorem, ipsum.'</h1>
+<h2>Category:XXXX</h2>
+<div class="main-parent">
+    <div class="listing-container">
+            <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+        
+        
+        <div class="image-info">
+            <h2 class="heading">Lorem, ipsum.</h2>
+            <h3>Posted By:</h3><p>Lorem, ipsum.</p>
+           
         </div>
-        <div class="dk-menu">
-            <a href="#" id="dk-ShowNotificationPopUp">
-                <i title="Show Notifications" class="fas fa-bell"></i>
-            </a>
-            <ul>
-                <li>
-                    <a href="BrowseListings.html">Browse</a>
-                </li>
-                <li>
-                    <a href="">Create new</a>
-                </li>
-                <li>
-                    <a href="">Personal listings</a>
-                </li>
-                <li>
-                    <a href="AboutUs.html">About Us</a>
-                </li>
-                <li>
-                    <a href="#" class="ProfileIcon">
-                        <i title="Profile" class="far fa-user-circle"></i>
-                    </a>
-                    <div class="subProfileMenu">
-                        <ul>
-                            <li>
-                                <a href="UpdateProfile.html">Update Profile</a>
-                            </li>
-                            <li>
-                                <a href="Login.html">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </header>
+   
+        <button class="button">View Listing</button>
 
-    <!-- <div class="mb-nav_wrapper"></div> -->
-    <nav class="mb-menu" id="showHideMenu">
-        <ul>
-            <!-- Add Links to the Pages when created -->
-            <li>
-                <a href="BrowseListings.html">Browse Listings</a>
-            </li>
-            <li>
-                <a href="#"> Create New Listing</a>
-            </li>
-            <li>
-                <a href="#">View Your Listing</a>
-            </li>
-            <li>
-                <a href="AboutUs.html">About Us</a>
-            </li>
-            <li>
-                <a href="UpdateProfile.html">
-                    Profile</a>
-            </li>
-            <li>
-                <a href="Login.html"><strong>Logout?</strong></a>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="Notification_wrapper">
-        <div class="NotificationPopUpContainer">
-            <div class="NotificationPopUp">
-                <div class="Notification_id1">
-                    <h3>Listing Name</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
-                    <div>
-                        <button>View Listing</button>
-                    </div>
-                </div>
-                <div class="Notification_id1">
-                    <h3>Listing Name</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
-                    <div>
-                        <button>View Listing</button>
-                    </div>
-                </div>
-            </div>
-            <div class="triangle"></div>
-        </div>
     </div>
-    <!-- Till here -->
-
-    <main id="SearchMainContainer">
-        <div class="Search_Listing_Container">
-            <h2 id="main_Title"></h2>
-            <!-- <div class="card">
-                <img src="https://picsum.photos/500/250?random=11" alt="random image">
-                <h3>Listing Title</h3>
-                <p>Posted By <span>Lorem Ipsum</span></p>
-                <div class="browseBtn_Container">
-                    <a href="#" class="browseBtn">View Listing</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://picsum.photos/500/250?random=13" alt="random image">
-                <h3>Listing Title</h3>
-                <p>Posted By <span>Lorem Ipsum</span></p>
-                <div class="browseBtn_Container">
-                    <a href="#" class="browseBtn">View Listing</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://picsum.photos/500/250?random=12" alt="random image">
-                <h3>Listing Title</h3>
-                <p>Posted By <span>Lorem Ipsum</span></p>
-                <div class="browseBtn_Container">
-                    <a href="#" class="browseBtn">View Listing</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://picsum.photos/500/250?random=14" alt="random image">
-                <h3>Listing Title</h3>
-                <p>Posted By <span>Lorem Ipsum</span></p>
-                <div class="browseBtn_Container">
-                    <a href="#" class="browseBtn">View Listing</a>
-                </div>
-            </div> -->
+  
+    <div class="listing-container">
+        
+            <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+        
+      
+        <div class="image-info">
+            <h2 class="heading">Lorem, ipsum.</h2>
+            <h3>Posted By:</h3><p>Lorem, ipsum.</p>
+           
         </div>
-    </main>
+   
+        <button class="button">View Listing</button>
 
-    <script src="../js/script.js" defer></script>
-    <script src="../js/Search.js"></script>
+    </div>
+    <div class="listing-container">
+        
+        <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+    
+  
+    <div class="image-info">
+        <h2 class="heading">Lorem, ipsum.</h2>
+        <h3>Posted By:</h3><p>Lorem, ipsum.</p>
+       
+    </div>
+
+    <button class="button">View Listing</button>
+
+</div>
+<div class="listing-container">
+        
+    <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+
+
+<div class="image-info">
+   <b><h2 class="heading">Lorem, ipsum.</h2></b>
+    <h3>Posted By:</h3><p>Lorem, ipsum.</p>
+   
+</div>
+
+<button class="button">View Listing</button>
+
+</div>
+    </div>
+
+    
+        
+        
+        
+
+
 </body>
 
-</html>
+</div>
+</main>
