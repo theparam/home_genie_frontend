@@ -33,7 +33,7 @@ window.addEventListener("load", (e) => {
   };
 
   url = url + `?title=${searchValue}` + `&category=${categoryValue}`;
-  alert
+  alert;
   SearchQueryTitle.innerHTML = searchValue;
   categoryQueryTitle.innerHTML = categoryValue;
   postData(url)
@@ -45,11 +45,15 @@ window.addEventListener("load", (e) => {
         let searchedListing = searchedData[i];
         console.log("Data: " + JSON.stringify(searchedListing));
         let searchCardResult = `<div class="card">
-         <img src="https://picsum.photos/500/250?random=11" alt="random image">
+         <img src="https://picsum.photos/500/250?random=${
+           i + 10
+         }" alt="random image">
          <h3>${searchedListing.title}</h3>
-         <p>Posted By <span>${searchedListing.listingOwner}</span></p>
+         <p>Posted By: <span>${searchedListing.listingOwner}</span></p>
          <div class="browseBtn_Container">
-             <a href="#" class="browseBtn" id="${searchedListing.id}" onclick="ViewListing(this);">View Listing</a>
+             <a href="#" class="browseBtn" id="${
+               searchedListing.id
+             }" onclick="ViewListing(this);">View Listing</a>
          </div>`;
         Search_Listing_Container.innerHTML += searchCardResult;
       }

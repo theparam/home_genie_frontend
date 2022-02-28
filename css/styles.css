@@ -192,7 +192,6 @@ a {
   background-color: #fdfdfd;
 }
 
-
 #categories {
   height: 40px;
   padding: 0.5rem;
@@ -249,6 +248,12 @@ a {
 }
 .dk_footer {
   display: none;
+}
+
+.about-footer-nav1 nav ul,
+.about-footer-nav2 nav ul,
+.about-footer-nav3 nav ul {
+  margin: 0;
 }
 
 .mb_footer {
@@ -1436,6 +1441,7 @@ a {
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
+
 /*  #region Update Profile */
 .upd_parent_wrapper {
   height: 100vh;
@@ -1480,6 +1486,9 @@ a {
 
 /* #endregion Update Profile */
 
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
 /* #region Listing Page */
 .Category_Listing_Container h2 {
   text-align: center;
@@ -1496,26 +1505,28 @@ a {
 .card {
   margin: 1rem;
   padding: 1rem;
-  background-color: #c4c4c4;
-  border-radius: 5px;
+  background-color: var(--secondary_PinkShade_2);
   text-align: center;
 }
 
 .card img {
   width: 100%;
   border-radius: 5px;
+  height: 250px;
 }
 
 .browseBtn_Container {
   margin: 1rem 0 0 0;
   text-align: right;
 }
+
 .card a {
   text-decoration: none;
   padding: 0.5rem;
   border-radius: 5px;
-  color: black;
-  background-color: lightgrey;
+  color: white;
+  box-shadow: var(--primary_box_shadow);
+  background-color: var(--primary_BlueShade_1);
 }
 .card h3 {
   text-transform: uppercase;
@@ -1563,13 +1574,26 @@ a {
   float: right;
   background-color: #006c84;
 }
+.main-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+.main-parent h1 {
+  margin: 0.5rem 0 0 0;
+  color: var(--primary_BlueShade_1);
+}
+
+.main-parent h2 {
+  margin: 0.5rem 0 0 0;
+  color: var(--primary_BlueShade_1);
+}
 .image-info {
   margin-bottom: 2rem;
 }
-img {
-  border-radius: 5%;
-}
+
 .Search_Listing_Container {
   display: grid;
   gap: 1rem;
@@ -1581,9 +1605,7 @@ img {
   font-weight: bolder;
   font-size: x-large;
 }
-h3 {
-  font-size: x-large;
-}
+
 .image-info p {
   font-size: large;
 }
@@ -1593,15 +1615,14 @@ h3 {
   padding: 2rem;
   width: fit-content;
 }
-.image-info p,
-h3 {
+.image-info p {
   display: inline;
 }
 
 @media screen and (min-width: 600px) {
   .Search_Listing_Container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     min-width: fit-content;
     justify-items: center;
     padding: 1rem;
