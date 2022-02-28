@@ -52,7 +52,9 @@
 
   <!-- For the Developer Copy Start from here  line 148-->
   <header class="HomePage_header">
-    <h1>Home Genie</h1>
+    <div class="LogoContainer">
+      <img src="../img/Home_Genie_DK_Logo.png" alt="Home Genie Logo">
+    </div>
     <div class="Menu_BellIconContainer">
       <a href="#" id="ShowNotificationPopUp">
         <i title="Show Notifications" class="fas fa-bell"></i>
@@ -102,32 +104,32 @@
   <!-- <div class="mb-nav_wrapper"></div> -->
   <nav class="mb-menu" id="showHideMenu">
     <ul>
-        <!-- Add Links to the Pages when created -->
-        <li>
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-        </li>
-        <li>
-            <a href="BrowseListings.html"><i class="fas fa-browser"></i><i class="fa fa-list"
-                    aria-hidden="true"></i> Browse Listings</a>
-        </li>
-        <li>
-            <a href="CreateListing.html"> <i class="fa fa-list" aria-hidden="true"></i> Create New Listing</a>
-        </li>
-        <li>
-            <a href="#"><i class="fas fa-eye"></i> View Your Listing</a>
-        </li>
-        <li>
-            <a href="AboutUs.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a>
-        </li>
-        <li>
-            <a href="UpdateProfile.html">
-                <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-        </li>
-        <li>
-            <a href="Login.html"><strong><i class="fas fa-eye"></i> Logout?</strong></a>
-        </li>
+      <!-- Add Links to the Pages when created -->
+      <li>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      </li>
+      <li>
+        <a href="BrowseListings.html"><i class="fas fa-browser"></i><i class="fa fa-list" aria-hidden="true"></i> Browse
+          Listings</a>
+      </li>
+      <li>
+        <a href="CreateListing.html"> <i class="fa fa-list" aria-hidden="true"></i> Create New Listing</a>
+      </li>
+      <li>
+        <a href="#"><i class="fas fa-eye"></i> View Your Listing</a>
+      </li>
+      <li>
+        <a href="AboutUs.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a>
+      </li>
+      <li>
+        <a href="UpdateProfile.html">
+          <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+      </li>
+      <li>
+        <a href="Login.html"><strong><i class="fas fa-eye"></i> Logout?</strong></a>
+      </li>
     </ul>
-</nav>
+  </nav>
 
   <div class="Notification_wrapper">
     <div class="NotificationPopUpContainer">
@@ -152,13 +154,19 @@
   </div>
   <!-- Till here -->
 
+
   <main>
+    <div class="mb-UserGreetingContainer">
+      <h1>Welcome, <span id="user_Name">Shubham</span></h1>
+    </div>
+    <div class="heroImageContainer">
+      <img class="hero_Image" src="../img/HERO IMAGE-02.png" alt="Hero_Image">
+    </div>
     <div class="search-bar-container">
       <div class="Search_field_Icon_Container">
-        <span class="fas fa-search "></span>
         <input type="text" id="SearchInputField" placeholder="Search">
       </div>
-      <p>in</p>
+      <p><i class="fas fa-link"></i></p>
       <select name="categories" id="categories">
         <option value="personal-care-services">Personal Care Services</option>
         <option value="indoor-services">Indoor Services</option>
@@ -166,15 +174,10 @@
         <option value="premium-services">Premium Services</option>
       </select>
     </div>
-     <div class="heroImageContainer">
-      <img class="hero_Image" src="../img/HERO IMAGE-02.png" alt="Hero_Image">
-    </div> 
     <div class="homepage_main_container">
       <div class="main-category">
         <div class="img_info_container">
-          <img
-            src="../img/painter-3009887.jpg"
-            alt="random image 1">
+          <img src="../img/Personal_Service_Image.jpg" alt="Presonal service image">
           <div class="info_wrapper">
             <h3>
               <a id="PersonalCategory">Personal Care Services</a>
@@ -183,9 +186,13 @@
           </div>
         </div>
         <div class="img_info_container">
+<<<<<<< Updated upstream
           <img
             src="../img/vacuum-cleaner-268179.jpg"
             alt="random image 2">
+=======
+          <img src="../img/Indoor_Service_Image.jpg" alt="Indoor service image">
+>>>>>>> Stashed changes
           <div class="info_wrapper">
             <h3>
               <a id="IndoorCategory">Indoor Services</a>
@@ -194,9 +201,13 @@
           </div>
         </div>
         <div class="img_info_container">
+<<<<<<< Updated upstream
           <img
             src="../img/painter-5956469.jpg"
             alt="random image 3">
+=======
+          <img src="../img/Outdoor_Service_Image.jpg" alt="outdoor service image">
+>>>>>>> Stashed changes
           <div class="info_wrapper">
             <h3>
               <a id="OutdoorServices"> Outdoor Services</a>
@@ -205,9 +216,13 @@
           </div>
         </div>
         <div class="img_info_container">
+<<<<<<< Updated upstream
           <img
             src="../img/painter-3009887.jpg"
             alt="random image 4">
+=======
+          <img src="../img/Premium_Service_Image.jpg" alt="premium service image">
+>>>>>>> Stashed changes
           <div class="info_wrapper">
             <h3>
               <a id="PremiumServices"> Premium Services</a>
@@ -218,13 +233,14 @@
       </div>
     </div>
   </main>
+
   <footer class="footer_Area">
     <div class="mb_footer">
       <p> &copy; Geniques 2022 </p>
     </div>
     <div class="dk_footer">
       <div class="about-logo">
-        <img src="https://picsum.photos/200/200?random=11" alt="Home Genie logo">
+        <img src="../img/Home_Genie_Logo_Footer.png" alt="Home Genie logo">
       </div>
       <div class="about-footer-nav1">
         <nav>
