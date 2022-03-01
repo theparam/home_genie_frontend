@@ -15,11 +15,13 @@
 
   --tertiary_ColorShade_1: #f9e0c8;
 
+  --tertiary_Border_bottom: #e6ab6b;
+
   --primary_box_shadow: 0px 0px 8px -4px;
 
   --box_shadow_Bottom: 0 3px 8px -5px;
 
-  --text-color-primary: #898989;
+  --text-color-primary: #535353;
 }
 
 /* 
@@ -103,7 +105,7 @@ a {
 }
 
 .HomePage_header {
-  border-bottom: 2px solid var(--tertiary_ColorShade_1);
+  border-bottom: 2px solid var(--tertiary_Border_bottom);
   box-shadow: var(--box_shadow_Bottom);
   margin-bottom: 0.5rem;
 }
@@ -1078,7 +1080,7 @@ a {
   }
 
   .login-desktop img {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
   }
 
   .login-parent {
@@ -1575,6 +1577,38 @@ a {
   float: right;
   background-color: #006c84;
 }
+
+.backBtn {
+  padding: 1rem 2rem;
+  background-color: var(--secondary_PinkShade_1);
+  border-radius: 5px;
+  box-shadow: var(--primary_box_shadow);
+}
+
+.Create_Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Create_Button a {
+  margin: 0 1rem;
+}
+
+.Create_Button button {
+  border: none;
+  box-shadow: var(--primary_box_shadow);
+  margin: 0 1rem;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #006c84;
+}
+
 .main-parent {
   display: flex;
   justify-content: center;
