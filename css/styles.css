@@ -1610,9 +1610,8 @@ a {
 /* ************************************************************************************ */
 
 /* #region Listing Page */
-.Category_Listing_Container h2 {
+.main-parent-title h2{
   text-align: center;
-  grid-column: 1/-1;
 }
 
 .Category_Listing_Container {

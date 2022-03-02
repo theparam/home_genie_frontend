@@ -70,22 +70,22 @@ document.querySelector(".ProfileIcon").addEventListener("click", (e) => {
 
 document.getElementById("PersonalCategory").addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "Listing.html?Category=" + "Personal";
+  window.location.href = "Listing.html?Category=" + personalCategory;
 });
 
 document.getElementById("IndoorCategory").addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "Listing.html?Category=" + "Indoor";
+  window.location.href = "Listing.html?Category=" + IndoorCategory;
 });
 
 document.getElementById("OutdoorServices").addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "Listing.html?Category=" + "Outdoor";
+  window.location.href = "Listing.html?Category=" + OutdoorCategory;
 });
 
 document.getElementById("PremiumServices").addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "Listing.html?Category=" + "Premium";
+  window.location.href = "Listing.html?Category=" + PremiumCategory;
 });
 
 document
