@@ -1563,15 +1563,21 @@ a {
 /* ************************************************************************************ */
 
 /*  #region Update Profile */
+.UpdateProfilePageWrapper {
+  display: grid;
+}
 .upd_parent_wrapper {
   height: 100vh;
-  background: url("https://picsum.photos/1200/500?random=11");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  gap: 1rem;
   align-items: center;
+  padding: 1rem;
+  position: relative;
 }
+
 .upd_profile_wrapper {
   text-align: center;
   max-width: fit-content;
@@ -1579,29 +1585,125 @@ a {
   margin-right: auto;
   border-radius: 1.5rem;
   background-color: white;
-  padding: 1rem 3rem;
+  padding: 2rem 1rem 1rem 1rem;
   z-index: 1;
-  box-shadow: 3px 3px 4px gray, -3px -3px 4px lightgray;
+  position: absolute;
+  bottom: 100px;
+  box-shadow: var(--primary_box_shadow);
+}
+.dk_layoutWrapper {
+  display: none;
+  height: 100vh;
+  text-align: center;
+}
+.dk_layoutWrapper h1 {
+  margin-bottom: 0;
+}
+
+#Home_GenieDKLogo {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.text_logoWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#homeGenieBigLogo {
+  width: 250px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+#Text_Logo {
+  margin: 0 auto;
+  width: 500px;
+}
+
+.profile_photo_Wrapper {
+  background-color: var(--primary_BlueShade_2);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.profileImage {
+  background-color: white;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+.Camera_Icon_Container {
+  position: absolute;
+  bottom: -5px;
+}
+
+.upd_profile_wrapper form {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 310px;
+}
+
+.upd_profile_wrapper form .label_input_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  text-align: left;
 }
 
 /*Style the input fields*/
 .upd_profile_wrapper input {
   border: none;
-  border-bottom: 1px solid darkcyan;
+  text-align: center;
+  border-bottom: 1px solid var(--primary_BlueShade_1);
   outline: none;
 }
 
 .upd_profile_wrapper i {
-  border-bottom: 1px solid darkcyan;
+  border-bottom: 1px solid var(--primary_BlueShade_1);
   padding: 2px;
-  color: darkcyan;
+  color: var(--primary_BlueShade_1);
 }
+.profileImage {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profileImage a {
+  font-size: 2rem;
+}
+
 #updBtn {
-  background-color: darkcyan;
+  background-color: var(--primary_BlueShade_1);
   color: white;
-  border: 1px solid darkcyan;
+  border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .dk_layoutWrapper {
+    display: flex;
+  }
+  .UpdateProfilePageWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .upd_parent_wrapper {
+    background-color: var(--primary_BlueShade_1);
+  }
 }
 
 /* #endregion Update Profile */
