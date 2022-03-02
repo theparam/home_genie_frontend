@@ -97,11 +97,17 @@ a {
 }
 
 .LogoContainer {
-  width: 300px;
+  display: flex;
+  justify-content: start;
 }
 
 .LogoContainer img {
   width: 70px;
+}
+
+#ShowNotificationPopUp img,
+#dk-ShowNotificationPopUp img {
+  width: 30px;
 }
 
 .HomePage_header {
@@ -269,7 +275,7 @@ a {
 }
 
 .about-logo img {
-  width: 160px;
+  width: 140px;
 }
 
 @media screen and (min-width: 600px) {
@@ -1579,7 +1585,7 @@ a {
 }
 
 .backBtn {
-  padding: 1rem 2rem;
+  padding: 0.8rem 2rem;
   background-color: var(--secondary_PinkShade_1);
   border-radius: 5px;
   box-shadow: var(--primary_box_shadow);
@@ -1589,6 +1595,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1rem 0;
 }
 .Create_Button a {
   margin: 0 1rem;
@@ -1599,7 +1606,7 @@ a {
   box-shadow: var(--primary_box_shadow);
   margin: 0 1rem;
   color: white;
-  padding: 10px 20px;
+  padding: 0.5rem 20px;
   text-align: center;
   text-decoration: none;
 
@@ -2090,9 +2097,7 @@ form label span {
   font-size: 22;
   border-radius: 5px;
   border: 0;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding: 1rem 2rem;
+  padding: 0.8rem 2rem;
   color: white;
   background-color: var(--primary_BlueShade_1);
 }
