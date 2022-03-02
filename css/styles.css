@@ -113,7 +113,7 @@ a {
 .HomePage_header {
   border-bottom: 2px solid var(--tertiary_Border_bottom);
   box-shadow: var(--box_shadow_Bottom);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 #PersonalCategory,
 #IndoorCategory,
@@ -272,6 +272,7 @@ a {
 
 .mb_footer p {
   margin: 0;
+  padding: 1rem;
 }
 
 .about-logo img {
@@ -580,7 +581,7 @@ a {
   height: 0;
   position: absolute;
   top: -10px;
-  right: 87px;
+  right: 50px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid white;
@@ -1366,11 +1367,17 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 .signup-wrapper h1 {
   margin-bottom: 3rem;
   text-align: center;
   padding-top: 1rem;
 }
+
+.signup-wrapper .fa-phone {
+  transform: rotateY(180deg);
+}
+
 .First_Name,
 .login-password,
 .login-wrapper h1 {
@@ -1383,6 +1390,7 @@ a {
   width: 100%;
 }
 .First_Name,
+.Last_Name,
 .Email,
 .Password,
 .Confirm_Password,
@@ -1392,15 +1400,24 @@ a {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+.mb-LoginLink {
+  display: block;
+}
+
+.SignUPLoginBtn {
+  color: var(--primary_BlueShade_1);
+  text-decoration: underline;
+}
 @media screen and (max-width: 1200px) {
   .signup-desktop {
     display: none;
   }
 }
 .signup-wrapper {
-  max-width: fit-content;
+  width: 300px;
   margin-left: auto;
   margin-right: auto;
+  padding: 1rem 0;
   border-radius: 1.5rem;
   background-color: white;
   box-shadow: var(--primary_box_shadow);
@@ -1434,6 +1451,10 @@ a {
   .signup-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mb-LoginLink {
+    display: none;
   }
 
   .signup-desktop {

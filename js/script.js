@@ -4,8 +4,18 @@ const IndoorCategory = "Indoor";
 const OutdoorCategory = "Outdoor";
 const PremiumCategory = "Premium";
 
+let loggdInUser = "";
 let bellIcon = document.getElementById("ShowNotificationPopUp");
 let dk_bellIcom = document.getElementById("dk-ShowNotificationPopUp");
+
+let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
+if (loggedInUser != null) {
+  loggdInUser = JSON.parse(loggedInUser);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("user_Name").innerHTML = loggdInUser.fullName;
+});
 
 document.addEventListener("keydown", (e) => {
   if (!e.repeat) {
