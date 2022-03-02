@@ -987,14 +987,14 @@ a {
 /*Style the input fields*/
 .login-wrapper input {
   border: none;
-  border-bottom: 1px solid var(--primary_BlueShade_3);
+  border-bottom: 1px solid var(--primary_BlueShade_2);
   outline: none;
   width: 100%;
 }
 
 /* Style the icons*/
 .login-wrapper i {
-  border-bottom: 1px solid var(--primary_BlueShade_3);
+  border-bottom: 1px solid var(--primary_BlueShade_2);
   padding: 2px;
   color: var(--primary_BlueShade_1);
 }
@@ -1096,7 +1096,7 @@ a {
 
   .login-wrapper {
     max-width: 1200px;
-    width: 500px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1371,31 +1371,40 @@ a {
   text-align: center;
   padding-top: 1rem;
 }
-.First_Name, .login-password, .login-wrapper h1 {
+.First_Name,
+.login-password,
+.login-wrapper h1 {
   text-align: center;
 }
 .signup-wrapper input {
   border: none;
-  border-bottom: 1px solid var(--primary_BlueShade_3);
+  border-bottom: 1px solid var(--primary_BlueShade_2);
   outline: none;
   width: 100%;
 }
-.First_Name,.Email,.Password,.Confirm_Password,.Phone_Number,.Address{
-margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;}
+.First_Name,
+.Email,
+.Password,
+.Confirm_Password,
+.Phone_Number,
+.Address {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 @media screen and (max-width: 1200px) {
-   .signup-desktop 
-   { display: none; 
-  } 
+  .signup-desktop {
+    display: none;
   }
-   .signup-wrapper { 
-     max-width: fit-content; 
-    margin-left: auto; margin-right: auto; 
-    border-radius: 1.5rem;
-     background-color: white; 
-  box-shadow: var(--primary_box_shadow); }
-
+}
+.signup-wrapper {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1.5rem;
+  background-color: white;
+  box-shadow: var(--primary_box_shadow);
+}
 
 #SignupBtn {
   background-color: var(--primary_BlueShade_1);
@@ -1412,12 +1421,13 @@ margin-bottom: 1rem;
 .icon_input_wrapper input {
   padding-left: 2%;
 }
-#SignUpBtn,#LoginBtn{
+#SignUpBtn,
+#LoginBtn {
   background-color: var(--primary_BlueShade_1);
-    color: white;
-    border: 1px solid var(--primary_BlueShade_1);
-    border-radius: 5px;
-    padding: 0.25rem 2rem;
+  color: white;
+  border: 1px solid var(--primary_BlueShade_1);
+  border-radius: 5px;
+  padding: 0.25rem 2rem;
 }
 
 @media screen and (min-width: 1200px) {
@@ -1432,7 +1442,7 @@ margin-bottom: 1rem;
   }
 
   .signup-desktop img {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
   }
 
   .signup-parent {
@@ -1442,9 +1452,10 @@ margin-bottom: 1rem;
 
   .signup-wrapper {
     max-width: 1200px;
-    width: 500px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
+    padding: 1rem;
   }
 }
 
@@ -1484,14 +1495,20 @@ margin-bottom: 1rem;
   margin-bottom: 1rem;
 }
 
+.icon_input_wrapper i {
+  color: var(--primary_BlueShade_1);
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--primary_BlueShade_2);
+}
+
 .SignUp-buttons {
   text-align: center;
 }
 
 #SignUpBtn {
-  background-color: darkcyan;
+  background-color: var(--primary_BlueShade_1);
   color: white;
-  border: 1px solid darkcyan;
+  border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
   padding: 0.25rem 0.5rem;
 }
@@ -1518,7 +1535,6 @@ margin-bottom: 1rem;
 .errorContainr.active {
   display: block;
 }
-
 
 /* #endregion SignUP */
 
