@@ -102,6 +102,7 @@ a {
 }
 
 .LogoContainer img {
+  height: 100%;
   width: 70px;
 }
 
@@ -134,8 +135,7 @@ a {
   margin: 0 1rem;
   object-fit: cover;
 }
-.ViewListing
-{
+.ViewListing {
   cursor: pointer;
 }
 
