@@ -134,6 +134,10 @@ a {
   margin: 0 1rem;
   object-fit: cover;
 }
+.ViewListing
+{
+  cursor: pointer;
+}
 
 .img_info_container {
   display: flex;
@@ -501,9 +505,11 @@ a {
 
 .NotificationPopUp {
   width: 100%;
-  background-color: #eee;
+  background-color: var(--secondary_PinkShade_2);
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .Notification_id1 {
@@ -516,9 +522,7 @@ a {
   flex-direction: column;
   margin-bottom: 1rem;
   padding: 0.2rem 0.5rem;
-  border-left: 5px solid darkgray;
-  border-bottom: 5px solid darkgray;
-  border-top: 5px solid darkgray;
+  border-bottom: 5px solid var(--primary_BlueShade_1);
 }
 
 .NotificationPopUp div {
@@ -536,12 +540,12 @@ a {
 }
 
 .NotificationPopUp button {
-  color: #050505;
+  color: white;
   font-style: italic;
-  background-color: white;
+  background-color: var(--primary_BlueShade_1);
   border-radius: 5px;
-  -webkit-box-shadow: 0 4px 2px -2px gray;
-  box-shadow: 0 4px 2px -2px gray;
+  /* -webkit-box-shadow: 0 4px 2px -2px gray; */
+  box-shadow: var(--primary_box_shadow);
   padding: 0.2rem 0.5rem;
   margin: 0.5rem 0;
 }
@@ -554,7 +558,7 @@ a {
   position: absolute;
   margin: 0 1rem;
   padding: 1rem;
-  border: 2px solid darkgray;
+  border: 2px solid var(--primary_BlueShade_1);
   display: flex;
   opacity: 0;
   z-index: -1;
@@ -584,7 +588,7 @@ a {
   right: 50px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid white;
+  border-bottom: 10px solid var(--primary_BlueShade_1);
 }
 
 .Menu_BellIconContainer {
@@ -677,7 +681,7 @@ a {
 
 @media screen and (min-width: 600px) {
   .NotificationPopUpContainer {
-    width: 500px;
+    width: 450px;
     position: absolute;
     top: 15%;
     right: 0;
@@ -699,7 +703,7 @@ a {
     display: none;
   }
   .NotificationPopUpContainer {
-    right: 460px;
+    right: 370px;
     z-index: -1;
   }
   .dk-menu {
@@ -1566,6 +1570,10 @@ a {
 .UpdateProfilePageWrapper {
   display: grid;
 }
+.videoContainer {
+  height: 96px;
+  border-radius: 50%;
+}
 .upd_parent_wrapper {
   height: 100vh;
   background-repeat: no-repeat;
@@ -1635,16 +1643,24 @@ a {
   position: relative;
 }
 
+.profile_photo_Wrapper i {
+  font-size: 2rem;
+}
+
 .profileImage {
   background-color: white;
-  width: 110px;
-  height: 110px;
+  /* width: 110px;
+  height: 110px; */
   border-radius: 50%;
 }
 .Camera_Icon_Container {
   position: absolute;
   bottom: -5px;
 }
+/* 
+#canvas {
+  display: none;
+} */
 
 .upd_profile_wrapper form {
   display: flex;

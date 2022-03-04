@@ -1,9 +1,12 @@
-let bellIcon = document.getElementById("ShowNotificationPopUp");
-let dk_bellIcom = document.getElementById("dk-ShowNotificationPopUp");
 let updateBtn = document.getElementById("updBtn");
 let url = "http://localhost:8080/home/genie/user/update/";
 const UserSessionStorageKey = "LoggedInUser";
+const video = document.getElementById("video");
 
+// Elements for taking the snapshot
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
+//// context.scale(0.5, 0.5);
 class User {
   constructor(firstName, lastName, phoneNumber, email, address, bio, paswd) {
     this.firstName = firstName;
@@ -15,45 +18,6 @@ class User {
     this.password = paswd;
   }
 }
-
-document.addEventListener("keydown", (e) => {
-  if (!e.repeat) {
-    if (e.key === "Escape") {
-      document.getElementById("showHideMenu").classList.remove("menu_active");
-      document
-        .querySelector(".NotificationPopUpContainer")
-        .classList.remove("popUPActive");
-      document
-        .querySelector(".subProfileMenu")
-        .classList.remove("activeProfileMenu");
-    }
-  }
-});
-
-document.getElementById("ShowMenu").addEventListener("click", () => {
-  document.getElementById("showHideMenu").classList.toggle("menu_active");
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.remove("popUPActive");
-});
-
-bellIcon.addEventListener("click", () => {
-  toggleNotification();
-});
-
-dk_bellIcom.addEventListener("click", () => {
-  toggleNotification();
-  document
-    .querySelector(".subProfileMenu")
-    .classList.remove("activeProfileMenu");
-});
-
-const toggleNotification = () => {
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.toggle("popUPActive");
-  document.getElementById("showHideMenu").classList.remove("menu_active");
-};
 
 updateBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -127,3 +91,55 @@ const UpdateStorageSessions = (key, value) => {
     myStorage.setItem(key, value);
   }
 };
+
+document.getElementById("Open_Camera").addEventListener("click", (e) => {
+  e.preventDefault();
+  // canvas.style.display = "none";
+  // video.style.display = "flex";
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+      //video.src = window.URL.createObjectURL(stream);
+      video.srcObject = stream;
+      // video.play();  // or autplay
+    });
+  } else {
+    console.log("media devices not available in this browser");
+  }
+});
+
+document.getElementById("Stop_Camera").addEventListener("click", (e) => {
+  e.preventDefault();
+  //canvas.width = video.videoWidth;
+  //canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0);
+
+  const imageBlob = canvas.toBlob(handleBlob, "image/jpeg");
+  const tracks = video.srcObject.getTracks();
+  tracks.forEach((track) => track.stop());
+
+  // canvas.style.display = "flex";
+  // video.style.display = "none";
+});
+
+function handleBlob(blob) {
+  // we can turn the blob into DOMString
+  const objectURL = window.URL.createObjectURL(blob);
+  const copyImg = document.createElement("img");
+  //(objectURL is only contains the address of image object in browser memory)
+  //it is vaid for current browser session
+  copyImg.src = objectURL;
+  document.body.appendChild(copyImg);
+  console.log(objectURL);
+
+  //if we want to store the image into server, one way is to
+  //create base64 rendition of the the blob using FileReader
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    console.log(reader.result);
+  });
+  // if you want to deal with it as base64 string (e.g. img src)
+  reader.readAsDataURL(blob);
+  //if you want to read it binary
+  //reader.readAsArrayBuffer(blob);
+}

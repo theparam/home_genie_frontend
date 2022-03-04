@@ -1,7 +1,6 @@
 // URL to get the specific listing;
 let url = "http://localhost:8080/home/genie/listing/";
-
-
+let bidOfferUrl = "http://localhost:8080/home/genie/user/bid/create";
 
 let Search_Listing_Container = document.querySelector(
   ".Search_Listing_Container"
@@ -14,6 +13,15 @@ if (loggedInUser != null) {
 }
 // Object which will contain all information on the listing
 let listingInfo;
+
+class BiddingOffer {
+  constructor(listingId, bidderUserId, biddingOffer, isofferAccepted) {
+    this.ListingId = listingId;
+    this.BidderUserId = bidderUserId;
+    this.BiddingOffer = biddingOffer;
+    this.isOfferAccepted = isofferAccepted;
+  }
+}
 
 window.addEventListener("load", (e) => {
   const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -30,6 +38,7 @@ window.addEventListener("load", (e) => {
   postData(url)
     .then((listing) => {
       listingInfo = listing;
+      // console.log("Listing: " + JSON.stringify(listing));
       document.getElementById("Listing_Title").innerHTML = listing.title;
       document.getElementById(
         "Listing_Price"
@@ -50,9 +59,9 @@ window.addEventListener("load", (e) => {
 
       document.getElementById("Listing_OwnerDescription").innerHTML =
         listing.description;
-      document.getElementById("Listing_Image").src = btoa(
-        `${listing.image.data}`
-      );
+      document.getElementById(
+        "Listing_Image"
+      ).src = `data:image/jpeg;base64,${listing.image.data}`;
 
       //Generate Offers if Owner
       if (loggdUserId !== "" && listing.ownerUserId === loggdUserId) {
@@ -71,23 +80,6 @@ window.addEventListener("load", (e) => {
       alert(err);
     });
 });
-
-async function postData(url = "") {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "*",
-      "Access-Control-Allow-Credentials": "true",
-      "Access-Control-Allow-Methods": "GET",
-      "Access-Control-Allow-Origin": "*",
-    },
-    method: "GET",
-  }).catch((err) => {
-    return err;
-  });
-  return response.json(); // parses JSON response into native JavaScript objects
-}
 
 let getBiddingOfferForOwner = () => {
   return ` <div class="specific-bid1">
@@ -196,9 +188,67 @@ let DecreaseAmount = (btnObj) => {
 };
 
 let PlaceBidFn = () => {
-  let userOffer = parseInt(
+  let biddingOffer = parseInt(
     document.getElementById("bidOffer").value.replace("$", "")
   );
   let listingID = listingInfo.id;
   alert(listingID);
+
+  let biddingOfferObj = new BiddingOffer(
+    listingID,
+    loggdUserId,
+    biddingOffer,
+    "false"
+  );
+
+  const bidJsonData = JSON.stringify(biddingOfferObj);
+  console.log("JSON: " + bidJsonData);
+  postBidData(bidOfferUrl, bidJsonData)
+    .then((bidData) => {
+      // User Data from DB
+      let bidOffer = JSON.stringify(bidData);
+      console.log("Data: " + bidOffer);
+
+      // alert("Ofer Sent");
+      // // window.location.href = "/html_Files/index.html";
+      // //UpdateStorageSessions(UserSessionStorageKey, logInUser);
+      // //   Navigate to specific listing page.
+      // //window.location.href = "/html_Files/index.html";
+    })
+    .catch((err) => {
+      alert(err);
+    });
 };
+
+async function postBidData(url = "", data) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "POST",
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: data,
+    method: "POST",
+  });
+  return response.json();
+}
+
+async function postData(url = "") {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "GET",
+      "Access-Control-Allow-Origin": "*",
+    },
+    method: "GET",
+  }).catch((err) => {
+    return err;
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
