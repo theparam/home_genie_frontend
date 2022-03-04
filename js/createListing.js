@@ -102,7 +102,6 @@ submitBtn.addEventListener("click", (e) => {
     return;
   }
 
-  alert(loggdUserId);
   let listingObj = new Listing(
     listingTitle,
     description,
@@ -135,7 +134,7 @@ submitBtn.addEventListener("click", (e) => {
       console.log("Data: " + logInUser);
 
       alert("Listing Created", userData);
-
+      window.location.href = "/html_Files/index.html";
       //UpdateStorageSessions(UserSessionStorageKey, logInUser);
       //   Navigate to specific listing page.
       //window.location.href = "/html_Files/index.html";

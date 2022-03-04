@@ -41,7 +41,7 @@ signUpBtn.addEventListener("click", (e) => {
         let logInUser = JSON.stringify(userData);
         console.log("Data: " + logInUser);
 
-        alert("Login Successful");
+        alert("Signed up Successfully");
         UpdateStorageSessions(UserSessionStorageKey, logInUser);
         window.location.href = "/html_Files/index.html";
       })

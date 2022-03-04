@@ -4,8 +4,18 @@ const IndoorCategory = "Indoor";
 const OutdoorCategory = "Outdoor";
 const PremiumCategory = "Premium";
 
+let loggdInUser = "";
 let bellIcon = document.getElementById("ShowNotificationPopUp");
 let dk_bellIcom = document.getElementById("dk-ShowNotificationPopUp");
+
+let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
+if (loggedInUser != null) {
+  loggdInUser = JSON.parse(loggedInUser);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("user_Name").innerHTML = loggdInUser.fullName;
+});
 
 document.addEventListener("keydown", (e) => {
   if (!e.repeat) {
@@ -60,22 +70,28 @@ document.querySelector(".ProfileIcon").addEventListener("click", (e) => {
 
 document.getElementById("PersonalCategory").addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "Listing.html?Category=" + "Personal";
+  window.location.href = "Listing.html?Category=" + personalCategory;
 });
 
 document.getElementById("IndoorCategory").addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "Listing.html?Category=" + "Indoor";
+  window.location.href = "Listing.html?Category=" + IndoorCategory;
 });
 
 document.getElementById("OutdoorServices").addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "Listing.html?Category=" + "Outdoor";
+  window.location.href = "Listing.html?Category=" + OutdoorCategory;
 });
 
 document.getElementById("PremiumServices").addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "Listing.html?Category=" + "Premium";
+  window.location.href = "Listing.html?Category=" + PremiumCategory;
+});
+
+document.getElementById("ViewListing").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  window.location.href = "Listing.html?view=getListings";
 });
 
 document

@@ -15,11 +15,13 @@
 
   --tertiary_ColorShade_1: #f9e0c8;
 
+  --tertiary_Border_bottom: #e6ab6b;
+
   --primary_box_shadow: 0px 0px 8px -4px;
 
   --box_shadow_Bottom: 0 3px 8px -5px;
 
-  --text-color-primary: #898989;
+  --text-color-primary: #535353;
 }
 
 /* 
@@ -95,17 +97,23 @@ a {
 }
 
 .LogoContainer {
-  width: 300px;
+  display: flex;
+  justify-content: start;
 }
 
 .LogoContainer img {
   width: 70px;
 }
 
+#ShowNotificationPopUp img,
+#dk-ShowNotificationPopUp img {
+  width: 30px;
+}
+
 .HomePage_header {
-  border-bottom: 2px solid var(--tertiary_ColorShade_1);
+  border-bottom: 2px solid var(--tertiary_Border_bottom);
   box-shadow: var(--box_shadow_Bottom);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 #PersonalCategory,
 #IndoorCategory,
@@ -264,10 +272,11 @@ a {
 
 .mb_footer p {
   margin: 0;
+  padding: 1rem;
 }
 
 .about-logo img {
-  width: 160px;
+  width: 140px;
 }
 
 @media screen and (min-width: 600px) {
@@ -572,7 +581,7 @@ a {
   height: 0;
   position: absolute;
   top: -10px;
-  right: 87px;
+  right: 50px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid white;
@@ -979,14 +988,14 @@ a {
 /*Style the input fields*/
 .login-wrapper input {
   border: none;
-  border-bottom: 1px solid var(--primary_BlueShade_3);
+  border-bottom: 1px solid var(--primary_BlueShade_2);
   outline: none;
   width: 100%;
 }
 
 /* Style the icons*/
 .login-wrapper i {
-  border-bottom: 1px solid var(--primary_BlueShade_3);
+  border-bottom: 1px solid var(--primary_BlueShade_2);
   padding: 2px;
   color: var(--primary_BlueShade_1);
 }
@@ -1078,7 +1087,7 @@ a {
   }
 
   .login-desktop img {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
   }
 
   .login-parent {
@@ -1088,7 +1097,7 @@ a {
 
   .login-wrapper {
     max-width: 1200px;
-    width: 500px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1348,14 +1357,77 @@ a {
 /* ************************************************************************************ */
 
 /* #region SignUP */
-.SignUp-parent {
+.signup-parent {
   height: 100vh;
-  background: url("https://picsum.photos/1200/500?random=11");
+  background: url(https://picsum.photos/1200/500?random=11);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.signup-wrapper h1 {
+  margin-bottom: 3rem;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.signup-wrapper .fa-phone {
+  transform: rotateY(180deg);
+}
+
+.First_Name,
+.login-password,
+.login-wrapper h1 {
+  text-align: center;
+}
+.signup-wrapper input {
+  border: none;
+  border-bottom: 1px solid var(--primary_BlueShade_2);
+  outline: none;
+  width: 100%;
+}
+.First_Name,
+.Last_Name,
+.Email,
+.Password,
+.Confirm_Password,
+.Phone_Number,
+.Address {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.mb-LoginLink {
+  display: block;
+}
+
+.SignUPLoginBtn {
+  color: var(--primary_BlueShade_1);
+  text-decoration: underline;
+}
+@media screen and (max-width: 1200px) {
+  .signup-desktop {
+    display: none;
+  }
+}
+.signup-wrapper {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0;
+  border-radius: 1.5rem;
+  background-color: white;
+  box-shadow: var(--primary_box_shadow);
+}
+
+#SignupBtn {
+  background-color: var(--primary_BlueShade_1);
+  color: white;
+  border: 1px solid var(--primary_BlueShade_1);
+  border-radius: 5px;
+  padding: 0.25rem 2rem;
 }
 
 .icon_input_wrapper {
@@ -1364,6 +1436,47 @@ a {
 
 .icon_input_wrapper input {
   padding-left: 2%;
+}
+#SignUpBtn,
+#LoginBtn {
+  background-color: var(--primary_BlueShade_1);
+  color: white;
+  border: 1px solid var(--primary_BlueShade_1);
+  border-radius: 5px;
+  padding: 0.25rem 2rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .signup-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mb-LoginLink {
+    display: none;
+  }
+
+  .signup-desktop {
+    place-self: center;
+    text-align: center;
+  }
+
+  .signup-desktop img {
+    padding: 3rem 2rem;
+  }
+
+  .signup-parent {
+    background-image: none;
+    background-color: var(--primary_BlueShade_1);
+  }
+
+  .signup-wrapper {
+    max-width: 1200px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+  }
 }
 
 /* Style and horizontally align the wrapper div */
@@ -1374,7 +1487,6 @@ a {
   padding: 1rem;
   box-shadow: 3px 3px 4px gray, -3px -3px 4px lightgray;
 }
-
 .SignUp-wrapper h1 {
   text-align: center;
 }
@@ -1403,14 +1515,20 @@ a {
   margin-bottom: 1rem;
 }
 
+.icon_input_wrapper i {
+  color: var(--primary_BlueShade_1);
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--primary_BlueShade_2);
+}
+
 .SignUp-buttons {
   text-align: center;
 }
 
 #SignUpBtn {
-  background-color: darkcyan;
+  background-color: var(--primary_BlueShade_1);
   color: white;
-  border: 1px solid darkcyan;
+  border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
   padding: 0.25rem 0.5rem;
 }
@@ -1437,21 +1555,28 @@ a {
 .errorContainr.active {
   display: block;
 }
+
 /* #endregion SignUP */
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
 
 /*  #region Update Profile */
+.UpdateProfilePageWrapper {
+  display: grid;
+}
 .upd_parent_wrapper {
   height: 100vh;
-  background: url("https://picsum.photos/1200/500?random=11");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  gap: 1rem;
   align-items: center;
+  padding: 1rem;
+  position: relative;
 }
+
 .upd_profile_wrapper {
   text-align: center;
   max-width: fit-content;
@@ -1459,29 +1584,125 @@ a {
   margin-right: auto;
   border-radius: 1.5rem;
   background-color: white;
-  padding: 1rem 3rem;
+  padding: 2rem 1rem 1rem 1rem;
   z-index: 1;
-  box-shadow: 3px 3px 4px gray, -3px -3px 4px lightgray;
+  position: absolute;
+  bottom: 100px;
+  box-shadow: var(--primary_box_shadow);
+}
+.dk_layoutWrapper {
+  display: none;
+  height: 100vh;
+  text-align: center;
+}
+.dk_layoutWrapper h1 {
+  margin-bottom: 0;
+}
+
+#Home_GenieDKLogo {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.text_logoWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#homeGenieBigLogo {
+  width: 250px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+#Text_Logo {
+  margin: 0 auto;
+  width: 500px;
+}
+
+.profile_photo_Wrapper {
+  background-color: var(--primary_BlueShade_2);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.profileImage {
+  background-color: white;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+.Camera_Icon_Container {
+  position: absolute;
+  bottom: -5px;
+}
+
+.upd_profile_wrapper form {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 310px;
+}
+
+.upd_profile_wrapper form .label_input_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  text-align: left;
 }
 
 /*Style the input fields*/
 .upd_profile_wrapper input {
   border: none;
-  border-bottom: 1px solid darkcyan;
+  text-align: center;
+  border-bottom: 1px solid var(--primary_BlueShade_1);
   outline: none;
 }
 
 .upd_profile_wrapper i {
-  border-bottom: 1px solid darkcyan;
+  border-bottom: 1px solid var(--primary_BlueShade_1);
   padding: 2px;
-  color: darkcyan;
+  color: var(--primary_BlueShade_1);
 }
+.profileImage {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profileImage a {
+  font-size: 2rem;
+}
+
 #updBtn {
-  background-color: darkcyan;
+  background-color: var(--primary_BlueShade_1);
   color: white;
-  border: 1px solid darkcyan;
+  border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .dk_layoutWrapper {
+    display: flex;
+  }
+  .UpdateProfilePageWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .upd_parent_wrapper {
+    background-color: var(--primary_BlueShade_1);
+  }
 }
 
 /* #endregion Update Profile */
@@ -1490,14 +1711,12 @@ a {
 /* ************************************************************************************ */
 
 /* #region Listing Page */
-.Category_Listing_Container h2 {
+.main-parent-title h2 {
   text-align: center;
-  grid-column: 1/-1;
 }
 
 .Category_Listing_Container {
   display: grid;
-  max-width: 1000px;
   margin: 0 auto;
   grid-template-columns: 1fr;
 }
@@ -1541,7 +1760,7 @@ a {
 
 @media screen and (min-width: 600px) {
   .Category_Listing_Container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1574,6 +1793,39 @@ a {
   float: right;
   background-color: #006c84;
 }
+
+.backBtn {
+  padding: 0.8rem 2rem;
+  background-color: var(--secondary_PinkShade_1);
+  border-radius: 5px;
+  box-shadow: var(--primary_box_shadow);
+}
+
+.Create_Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+.Create_Button a {
+  margin: 0 1rem;
+}
+
+.Create_Button button {
+  border: none;
+  box-shadow: var(--primary_box_shadow);
+  margin: 0 1rem;
+  color: white;
+  padding: 0.5rem 20px;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #006c84;
+}
+
 .main-parent {
   display: flex;
   justify-content: center;
@@ -2055,9 +2307,7 @@ form label span {
   font-size: 22;
   border-radius: 5px;
   border: 0;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding: 1rem 2rem;
+  padding: 0.8rem 2rem;
   color: white;
   background-color: var(--primary_BlueShade_1);
 }
@@ -2132,3 +2382,6 @@ form label span {
 }
 
 /* #endregion CreateListing */
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */

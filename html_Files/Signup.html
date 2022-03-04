@@ -21,7 +21,95 @@
 </head>
 
 <body>
-    <main>
+    <div class="signup-grid">
+        <div class="signup-desktop">
+            <img src="https://picsum.photos/600/400?random=11" alt="">
+            <h1>HOME GENIE</h1>
+            <h2>Welcome Back</h2>
+            <a href="login.html" id="LoginBtn">Login</a>
+        </div>
+        <div class="signup-mobile">
+            <div class="signup-parent">
+                <div class="signup-wrapper">
+                    <header>
+                        <h1>SIGN UP</h1>
+                    </header>
+                    <main>
+                        <form>
+                            <div class="First_Name">
+                                <label for="SignUp_fName"></label>
+                                <div class="icon_input_wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="SignUp_fName" name="SignUp_fName" placeholder="UserName"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="Last_Name">
+                                <label for="SignUp_lName"></label>
+                                <div class="icon_input_wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="SignUp_lName" name="SignUp_lName" placeholder="Last Name"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="Email">
+                                <label for="SignUp_email"></label>
+                                <div class="icon_input_wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="SignUp_email" name="SignUp_email" placeholder="Email"
+                                        required>
+                                </div>
+                            </div>
+
+
+                            <div class="Password">
+                                <label for="SignUp_password"></label>
+                                <div class="icon_input_wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="SignUp_password" name="SignUp_password"
+                                        placeholder="Password" required>
+                                </div>
+                            </div>
+                            <div class="Confirm_Password">
+                                <label for="SignUp_cPassword"></label>
+                                <div class="icon_input_wrapper">
+                                    <!-- <i class="fas fa-user"></i> -->
+                                    <i class="fas fa-check"></i>
+                                    <input type="text" id="SignUp_cPassword" name="SignUp_cPassword"
+                                        placeholder="Confirm Password" required>
+                                </div>
+                            </div>
+                            <div class="Phone_Number">
+                                <label for="SignUp_phoneNumber"></label>
+                                <div class="icon_input_wrapper">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="text" id="SignUp_phoneNumber" name="SignUp_phoneNumber"
+                                        placeholder="Phone Number" required>
+                                </div>
+                            </div>
+                            <div class="Address">
+                                <label for="SignUp_address"></label>
+                                <div class="icon_input_wrapper">
+                                    <i class="fas fa-address-book"></i>
+                                    <input type="text" id="SignUp_address" name="SignUp_address" placeholder="Address"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="SignUp-buttons">
+                                <button type="submit" id="SignUpBtn">Sign Up</button><br>
+                                <p class="mb-LoginLink">Already User? <a href="Login.html" class="SignUPLoginBtn"> Login</a></p>
+                            </div>
+                            <div class="errorContainr">
+                                <p>**Password does not match</p>
+                            </div>
+                        </form>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <main>
         <div class="SignUp-parent">
             <div class="SignUp-wrapper">
                 <header>
@@ -89,7 +177,7 @@
                 </div>
             </div>
         </div>
-    </main>
+    </main> -->
     <footer></footer>
     <script src="../js/signup.js" defer></script>
 </body>
