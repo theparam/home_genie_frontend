@@ -2,6 +2,8 @@
 let url = "http://localhost:8080/home/genie/listing/";
 let bidOfferUrl = "http://localhost:8080/home/genie/user/bid/create";
 
+let fetchBidOfferUrl = "http://localhost:8080/home/genie/user/bid/";
+
 let Search_Listing_Container = document.querySelector(
   ".Search_Listing_Container"
 );
@@ -15,11 +17,24 @@ if (logInUser != null) {
 let listingInfo;
 
 class BiddingOffer {
-  constructor(listingId, bidderUserId, biddingOffer, isofferAccepted) {
+  constructor(
+    listingId,
+    bidderUserId,
+    biddingOffer,
+    isofferAccepted,
+    username,
+    userEmail,
+    userPhone,
+    userBio
+  ) {
+    this.listingId = listingId;
     this.bidderUserId = bidderUserId;
     this.biddingOffer = biddingOffer;
     this.isOfferAccepted = isofferAccepted;
-    this.listingId = listingId;
+    this.bidUserName = username;
+    this.bidUserEmail = userEmail;
+    this.bidUserPhone = userPhone;
+    this.bidUserBio = userBio;
   }
 }
 
@@ -41,7 +56,7 @@ window.addEventListener("load", (e) => {
     listingId = params.ListingId;
   }
   url = url + listingId;
-  postData(url)
+  fetchData(url)
     .then((listing) => {
       listingInfo = listing;
       // console.log("Listing: " + JSON.stringify(listing));
@@ -73,8 +88,13 @@ window.addEventListener("load", (e) => {
       if (loggdUserId !== "" && listing.ownerUserId === loggdUserId) {
         document.querySelector(".specific-bids").style.display = "grid";
         document.querySelector(".placeBidContainer").style.display = "none";
-        document.querySelector(".specific-bids").innerHTML =
-          getBiddingOfferForOwner();
+        for (let u = 0; u < listing.biddingOffers.length; u++) {
+          let biddingOffer = listing.biddingOffers[u];
+          getBidOfferData(biddingOffer).then((data) => {
+            document.querySelector(".specific-bids").innerHTML +=
+              getBiddingOfferForOwner(data);
+          });
+        }
       } else {
         document.querySelector(".placeBidContainer").style.display = "flex";
         document.querySelector(".specific-bids").style.display = "none";
@@ -87,75 +107,35 @@ window.addEventListener("load", (e) => {
     });
 });
 
-let getBiddingOfferForOwner = () => {
-  return ` <div class="specific-bid1">
-  <div class="specific-bid-grid">
-      <img src="https://picsum.photos/300/200?random=11" alt="">
-      <div class="specific-bid-info">
-          <p><strong>Bidded Price: </strong><span class="specific-red">$ 35.00</span></p>
-          <p><strong>Name: </strong>Nikkie Watson</p>
-          <p><strong>Email: </strong>nikki@gmail.com</p>
-          <p><strong>Phone Number: </strong>+1 111-111-1111</p>
-      </div>
-      <p><strong>Description: </strong>6 years eperience as a Professional Hairstylist. Working
-          Currently at Poco Beauty Salon.</p>
-  </div>
-  <div class="specific-button-grid">
-      <button type="button">Accept</button>
-      <button type="button">Decline</button>
-  </div>
-</div>
-<div class="specific-bid2">
-  <div class="specific-bid-grid">
-      <img src="https://picsum.photos/300/200?random=11" alt="">
-      <div class="specific-bid-info">
-          <p><strong>Bidded Price: </strong><span class="specific-red">$ 38.00</span></p>
-          <p><strong>Name: </strong>Anna Johnson</p>
-          <p><strong>Email: </strong>anna@gmail.com</p>
-          <p><strong>Phone Number: </strong>+1 111-111-1111</p>
-      </div>
-      <p><strong>Description: </strong>7 years eperience as a Professional Hairstylist. Working
-          Currently as Hair Stylist for Dream Editorials.</p>
-  </div>
-  <div class="specific-button-grid">
-      <button type="button">Accept</button>
-      <button type="button">Decline</button>
-  </div>
-</div>
-<div class="specific-bid3">
-  <div class="specific-bid-grid">
-      <img src="https://picsum.photos/300/200?random=11" alt="">
-      <div class="specific-bid-info">
-          <p><strong>Bidded Price: </strong><span class="specific-red">$ 40.00</span></p>
-          <p><strong>Name: </strong>Troy Smith</p>
-          <p><strong>Email: </strong>troy@gmail.com</p>
-          <p><strong>Phone Number: </strong>+1 111-111-1111</p>
-      </div>
-      <p><strong>Description: </strong>10 years eperience as a Professional Hairstylist. Working
-          Currently as Hair Stylist professional photographers.</p>
-  </div>
-  <div class="specific-button-grid">
-      <button type="button">Accept</button>
-      <button type="button">Decline</button>
-  </div>
-</div>
-<div class="specific-bid3">
-  <div class="specific-bid-grid">
-      <img src="https://picsum.photos/300/200?random=11" alt="">
-      <div class="specific-bid-info">
-          <p><strong>Bidded Price: </strong><span class="specific-red">$ 40.00</span></p>
-          <p><strong>Name: </strong>Troy Smith</p>
-          <p><strong>Email: </strong>troy@gmail.com</p>
-          <p><strong>Phone Number: </strong>+1 111-111-1111</p>
-      </div>
-      <p><strong>Description: </strong>10 years eperience as a Professional Hairstylist. Working
-          Currently as Hair Stylist professional photographers.</p>
-  </div>
-  <div class="specific-button-grid">
-      <button type="button">Accept</button>
-      <button type="button">Decline</button>
-  </div>
-</div>`;
+async function getBidOfferData(bidOfferId) {
+  let url = fetchBidOfferUrl + bidOfferId;
+  return await fetchData(url)
+    .then((bidOffer) => {
+      console.log("Bid Offer: " + JSON.stringify(bidOffer));
+      return bidOffer;
+    })
+    .catch((err) => {
+      alert("Error: " + err);
+    });
+}
+
+let getBiddingOfferForOwner = (bidOffer) => {
+  return `<div class="specific-bid3">
+   <div class="specific-bid-grid">
+       <img src="https://picsum.photos/300/200?random=11" alt="">
+       <div class="specific-bid-info">
+           <p><strong>Bidded Price: </strong><span class="specific-red">$${bidOffer.biddingOffer}</span></p>
+           <p><strong>Name: </strong>${bidOffer.bidUserName}</p>
+           <p><strong>Email: </strong>${bidOffer.bidUserEmail}</p>
+           <p><strong>Phone Number: </strong>${bidOffer.bidUserPhone}</p>
+       </div>
+       <p><strong>Description: </strong>${bidOffer.bidUserBio}</p>
+   </div>
+   <div class="specific-button-grid">
+       <button type="button">Decline</button>
+       <button type="button">Accept</button>
+   </div>
+ </div>`;
 };
 
 let placeBidContainer = (listing) => {
@@ -199,17 +179,21 @@ let PlaceBidFn = () => {
   );
   let listingID = listingInfo.id;
   alert(listingID);
-
+  let parsedUser = JSON.parse(logInUser);
   let biddingOfferObj = new BiddingOffer(
     listingID,
     loggdUserId,
     biddingOffer,
-    "false"
+    "false",
+    parsedUser.fullName,
+    parsedUser.email,
+    parsedUser.phoneNumber,
+    parsedUser.bio
   );
 
-  const bidJsonData = JSON.stringify(biddingOfferObj);
-  console.log("JSON: " + bidJsonData);
-  postBidData(bidOfferUrl, bidJsonData)
+  let bidOfferJSON = JSON.stringify(biddingOfferObj);
+  console.log("JSON: " + bidOfferJSON);
+  postBidData(bidOfferUrl, bidOfferJSON)
     .then((bidData) => {
       // User Data from DB
       let bidOffer = JSON.stringify(bidData);
@@ -242,7 +226,7 @@ async function postBidData(url = "", data) {
   return response.json();
 }
 
-async function postData(url = "") {
+async function fetchData(url = "") {
   // Default options are marked with *
   const response = await fetch(url, {
     headers: {
