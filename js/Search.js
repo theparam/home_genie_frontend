@@ -33,7 +33,6 @@ window.addEventListener("load", (e) => {
   };
 
   url = url + `?title=${searchValue}` + `&category=${categoryValue}`;
-  alert;
   SearchQueryTitle.innerHTML = searchValue;
   categoryQueryTitle.innerHTML = categoryValue;
   postData(url)
@@ -43,23 +42,25 @@ window.addEventListener("load", (e) => {
       for (let i = 0; i < searchedData.length; i++) {
         searchResultCount.innerHTML = searchedData.length;
         let searchedListing = searchedData[i];
-        console.log("Data: " + JSON.stringify(searchedListing));
+
+        let imageSource = "";
+        if (searchedListing.image != null) {
+          imageSource = `data:image/jpeg;base64,${searchedListing.image.data}`;
+        } else {
+          imageSource = `https://picsum.photos/500/250?random=${i + 10}`;
+        }
         let searchCardResult = `<div class="card">
-         <img src="https://picsum.photos/500/250?random=${
-           i + 10
-         }" alt="random image">
+         <img src="${imageSource}" alt="random image">
          <h3>${searchedListing.title}</h3>
          <p>Posted By: <span>${searchedListing.listingOwner}</span></p>
          <div class="browseBtn_Container">
-             <a href="#" class="browseBtn" id="${
-               searchedListing.id
-             }" onclick="ViewListing(this);">View Listing</a>
+             <a href="#" class="browseBtn" id="${searchedListing.id}" onclick="ViewListing(this);">View Listing</a>
          </div>`;
         Search_Listing_Container.innerHTML += searchCardResult;
       }
     })
     .catch((err) => {
-      alert(err);
+      alert("Error: " + err);
     });
 });
 
@@ -84,3 +85,10 @@ async function postData(url = "") {
   });
   return response.json(); // parses JSON response into native JavaScript objects
 }
+
+document.querySelectorAll(".ViewListing").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?view=getListings";
+  });
+});

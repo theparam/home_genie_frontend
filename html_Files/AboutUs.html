@@ -240,7 +240,14 @@
             </div>
         </div>
     </footer>
-    <script src="../js/script.js" defer></script>
+    <script>
+        document.querySelectorAll(".ViewListing").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.location.href = "Listing.html?view=getListings";
+            });
+        });
+    </script>
 </body>
 
 </html>

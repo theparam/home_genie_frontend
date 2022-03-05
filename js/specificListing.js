@@ -7,22 +7,28 @@ let Search_Listing_Container = document.querySelector(
 );
 // Getting LoggedInUser
 let loggdUserId = "";
-let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
-if (loggedInUser != null) {
-  loggdUserId = JSON.parse(loggedInUser).id;
+let logInUser = window.sessionStorage.getItem("LoggedInUser");
+if (logInUser != null) {
+  loggdUserId = JSON.parse(logInUser).id;
 }
 // Object which will contain all information on the listing
 let listingInfo;
 
 class BiddingOffer {
   constructor(listingId, bidderUserId, biddingOffer, isofferAccepted) {
-    this.ListingId = listingId;
-    this.BidderUserId = bidderUserId;
-    this.BiddingOffer = biddingOffer;
+    this.bidderUserId = bidderUserId;
+    this.biddingOffer = biddingOffer;
     this.isOfferAccepted = isofferAccepted;
+    this.listingId = listingId;
   }
 }
 
+document.querySelectorAll(".ViewListing").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?view=getListings";
+  });
+});
 window.addEventListener("load", (e) => {
   const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),

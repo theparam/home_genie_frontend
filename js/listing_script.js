@@ -32,6 +32,13 @@ window.addEventListener("load", (e) => {
 
 category_Listing_Container.innerHTML = "";
 
+document.querySelectorAll(".ViewListing").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?view=getListings";
+  });
+});
+
 let getListingOfUser = () => {
   getUserListingUrl = getUserListingUrl + `${loggdInUser.id}`;
   postData(getUserListingUrl)
