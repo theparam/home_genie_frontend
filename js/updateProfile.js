@@ -2,11 +2,8 @@ let updateBtn = document.getElementById("updBtn");
 let url = "http://localhost:8080/home/genie/user/update/";
 const UserSessionStorageKey = "LoggedInUser";
 const video = document.getElementById("video");
-
 // Elements for taking the snapshot
 const canvas = document.getElementById("canvas");
-const context = canvas.getContext("2d");
-//// context.scale(0.5, 0.5);
 class User {
   constructor(firstName, lastName, phoneNumber, email, address, bio, paswd) {
     this.firstName = firstName;
@@ -93,9 +90,13 @@ const UpdateStorageSessions = (key, value) => {
 };
 
 document.getElementById("Open_Camera").addEventListener("click", (e) => {
-  e.preventDefault();
-  // canvas.style.display = "none";
-  // video.style.display = "flex";
+  canvas.style.display = "none";
+  video.style.display = "grid";
+  video.style.width = "320px";
+  video.style.height = "240px";
+
+  canvas.style.width = "0";
+  canvas.style.height = "0";
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
     navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
@@ -110,36 +111,18 @@ document.getElementById("Open_Camera").addEventListener("click", (e) => {
 
 document.getElementById("Stop_Camera").addEventListener("click", (e) => {
   e.preventDefault();
-  //canvas.width = video.videoWidth;
-  //canvas.height = video.videoHeight;
-  context.drawImage(video, 0, 0);
+  canvas.style.width = "320px";
+  canvas.style.height = "240px";
 
-  const imageBlob = canvas.toBlob(handleBlob, "image/jpeg");
+  canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+  let image_data_url = canvas.toDataURL("image/jpeg");
+
   const tracks = video.srcObject.getTracks();
   tracks.forEach((track) => track.stop());
-
-  // canvas.style.display = "flex";
-  // video.style.display = "none";
+  video.style.width = "0";
+  video.style.height = "0";
+  video.style.display = "none";
+  console.log(image_data_url);
+  canvas.style.display = "grid";
+  document.getElementById("CameraImg").src = image_data_url;
 });
-
-function handleBlob(blob) {
-  // we can turn the blob into DOMString
-  const objectURL = window.URL.createObjectURL(blob);
-  const copyImg = document.createElement("img");
-  //(objectURL is only contains the address of image object in browser memory)
-  //it is vaid for current browser session
-  copyImg.src = objectURL;
-  document.body.appendChild(copyImg);
-  console.log(objectURL);
-
-  //if we want to store the image into server, one way is to
-  //create base64 rendition of the the blob using FileReader
-  const reader = new FileReader();
-  reader.addEventListener("load", () => {
-    console.log(reader.result);
-  });
-  // if you want to deal with it as base64 string (e.g. img src)
-  reader.readAsDataURL(blob);
-  //if you want to read it binary
-  //reader.readAsArrayBuffer(blob);
-}

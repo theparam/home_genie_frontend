@@ -1572,10 +1572,7 @@ a {
 .UpdateProfilePageWrapper {
   display: grid;
 }
-.videoContainer {
-  height: 96px;
-  border-radius: 50%;
-}
+
 .upd_parent_wrapper {
   height: 100vh;
   background-repeat: no-repeat;
@@ -1633,36 +1630,23 @@ a {
   width: 500px;
 }
 
-.profile_photo_Wrapper {
-  background-color: var(--primary_BlueShade_2);
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-}
-
 .profile_photo_Wrapper i {
   font-size: 2rem;
 }
 
-.profileImage {
-  background-color: white;
-  /* width: 110px;
-  height: 110px; */
-  border-radius: 50%;
-}
 .Camera_Icon_Container {
   position: absolute;
   bottom: -5px;
 }
-/* 
+
+#video,
 #canvas {
-  display: none;
-} */
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+}
 
 .upd_profile_wrapper form {
   display: flex;
@@ -1694,9 +1678,8 @@ a {
   color: var(--primary_BlueShade_1);
 }
 .profileImage {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  border: none;
+  outline: none;
 }
 
 .profileImage a {
@@ -2126,7 +2109,7 @@ a {
   margin-bottom: 1rem;
 }
 
-#OfferAcceptedText{
+#OfferAcceptedText {
   font-weight: bold;
   font-style: italic;
 }
