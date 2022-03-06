@@ -6,6 +6,8 @@
   --primary_BlueShade_1: #006c84;
   /* Light Blue */
   --primary_BlueShade_2: #6eb5c0;
+  /* Light Blue with less opacity */
+  --primary_BlueShade_3: #c6d0d5;
   /* semi  Blue */
   --primary_BlueShade_3: #c6d0d5;
   /* Dark Pink */
@@ -2082,6 +2084,51 @@ a {
 
 .placeBidContainer.ShowBidContainer {
   display: flex;
+}
+
+.CustomerBidAcceptContainer {
+  background-color: var(--secondary_PinkShade_2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  padding: 2rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.AceeptedOfferDetailContainer {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: var(--secondary_PinkShade_2);
+}
+
+.userInfoContainer {
+  background-color: var(--primary_BlueShade_3);
+  padding: 1rem;
+  border-radius: 5px;
+}
+.CongratulationTextContainer p {
+  font-weight: bold;
+}
+.userInfoContainer label {
+  font-weight: bold;
+  display: inline;
+}
+.userInfoContainer p {
+  display: inline;
+}
+.UserLabel_P_Wrapper {
+  margin-bottom: 1rem;
+}
+
+#OfferAcceptedText{
+  font-weight: bold;
+  font-style: italic;
 }
 
 @media screen and (min-width: 1200px) {

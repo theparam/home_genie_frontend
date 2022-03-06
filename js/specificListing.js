@@ -1,8 +1,15 @@
 // URL to get the specific listing;
 let url = "http://localhost:8080/home/genie/listing/";
+
 let bidOfferUrl = "http://localhost:8080/home/genie/user/bid/create";
 
 let fetchBidOfferUrl = "http://localhost:8080/home/genie/user/bid/";
+
+let acceptBidUrl = "http://localhost:8080/home/genie/user/bid/offer-update";
+
+let declineBidUrl = "http://localhost:8080/home/genie/user/bid/offer-decline";
+
+let getUserUrl = "http://localhost:8080/home/genie/user/";
 
 let Search_Listing_Container = document.querySelector(
   ".Search_Listing_Container"
@@ -86,20 +93,82 @@ window.addEventListener("load", (e) => {
 
       //Generate Offers if Owner
       if (loggdUserId !== "" && listing.ownerUserId === loggdUserId) {
-        document.querySelector(".specific-bids").style.display = "grid";
+        document.querySelector(".specific-bids").style.display = "none";
+
         document.querySelector(".placeBidContainer").style.display = "none";
-        for (let u = 0; u < listing.biddingOffers.length; u++) {
-          let biddingOffer = listing.biddingOffers[u];
-          getBidOfferData(biddingOffer).then((data) => {
-            document.querySelector(".specific-bids").innerHTML +=
-              getBiddingOfferForOwner(data);
-          });
+        if (document.querySelector(".CustomerBidAcceptContainer") !== null) {
+          document.querySelector(".CustomerBidAcceptContainer").style.display =
+            "none";
+        }
+        // document.querySelector(".CustomerBidAcceptContainer").style.display =
+        ("none");
+        if (listing.isOfferAccepted) {
+          document.querySelector(
+            ".AceeptedOfferDetailContainer"
+          ).style.display = "grid";
+
+          // **************
+          // Here if bid is accepted then we are showing the Info that bid is accepted contact the person.
+          // **************
+
+          GetAcceptedBidOfferContainer(listing.acceptedBiddingOffer);
+        } else {
+          // **************
+          // Here we are showing the offers on the particular bidding.
+          // **************
+
+          document.querySelector(".specific-bids").style.display = "grid";
+
+          for (let u = 0; u < listing.biddingOffers.length; u++) {
+            let biddingOffer = listing.biddingOffers[u];
+            getBidOfferData(biddingOffer).then((data) => {
+              document.querySelector(".specific-bids").innerHTML +=
+                getBiddingOfferForOwner(data);
+            });
+          }
         }
       } else {
-        document.querySelector(".placeBidContainer").style.display = "flex";
         document.querySelector(".specific-bids").style.display = "none";
-        document.querySelector(".placeBidContainer").innerHTML =
-          placeBidContainer(listing);
+        document.querySelector(".placeBidContainer").style.display = "none";
+        document.querySelector(".CustomerBidAcceptContainer").style.display =
+          "none";
+
+        if (listing.isOfferAccepted) {
+          // **************
+          // This is customer Side
+          // **************
+
+          getBidOfferData(listing.acceptedBiddingOffer).then((data) => {
+            if (data.bidderUserId == loggdUserId) {
+              // **************
+              // If logged User offer got accepted
+              // **************
+
+              document.querySelector(
+                ".CustomerBidAcceptContainer"
+              ).style.display = "grid";
+              CustomerBidAcceptedOfferInfoGenerator(listing.ownerUserId);
+            } else {
+              // **************
+              // If logged User's is not one who's offer got accepted.
+              // **************
+              document.querySelector(
+                ".CustomerBidAcceptContainer"
+              ).style.display = "grid";
+
+              document.querySelector(".CustomerBidAcceptContainer").innerHTML +=
+                `<p id="OfferAcceptedText">Hmm!!!... Looks Like Owner accepted someone else bid. Best of luck on another Bid.</p>`;
+            }
+          });
+        } else {
+          // **************
+          // If Listing is open still for bidding then place the bid.
+          // **************
+
+          document.querySelector(".placeBidContainer").style.display = "flex";
+          document.querySelector(".placeBidContainer").innerHTML =
+            placeBidContainer(listing);
+        }
       }
     })
     .catch((err) => {
@@ -107,11 +176,71 @@ window.addEventListener("load", (e) => {
     });
 });
 
+let GetAcceptedBidOfferContainer = (biddingOfferId) => {
+  getBidOfferData(biddingOfferId)
+    .then((data) => {
+      document.querySelector(
+        ".AceeptedOfferDetailContainer"
+      ).innerHTML += `<div class="CongratulationTextContainer">
+               <p>Congratulation on accepting the bidding.</p>
+               <p>Home Genie advises you to contact the person with the following details</p>
+           </div>
+           <div class="userInfoContainer">
+              <div class="UserLabel_P_Wrapper">
+                <label for="AcceptedOfferUserName">Name: </label>
+                <p id="AcceptedOfferUserName">${data.bidUserName}</p>
+              </div>
+              <div class="UserLabel_P_Wrapper">
+                <label for="AcceptedOfferPhone">Phone: </label>
+                <p id="AcceptedOfferPhone">${data.bidUserPhone}</p>
+              </div>
+              <div class="UserLabel_P_Wrapper">
+                <label for="AcceptedOfferUserEmail">Email: </label>
+                <p id="AcceptedOfferUserEmail">${data.bidUserEmail}</p>
+              </div>
+           </div>`;
+    })
+    .catch((err) => {
+      alert("Error: " + err);
+    });
+};
+
+function CustomerBidAcceptedOfferInfoGenerator(listingOwnerId) {
+  getUserUrl = getUserUrl + listingOwnerId;
+
+  fetchUser(getUserUrl)
+    .then((user) => {
+      console.log("User Detail: " + user);
+      document.querySelector(
+        ".CustomerBidAcceptContainer"
+      ).innerHTML += `<div class="CongratulationTextContainer">
+                  <p>Congratulation your offer is accepted by the owner</p>
+                  <p>Home Genie advises you to contact the Owner with the following details</p>
+              </div>
+              <div class="userInfoContainer">
+                  <div class="UserLabel_P_Wrapper">
+                      <label for="AcceptedOfferUserName">Name: </label>
+                      <p id="AcceptedOfferUserName">${user.firstName}</p>
+                  </div>
+                  <div class="UserLabel_P_Wrapper">
+                      <label for="AcceptedOfferPhone">Phone: </label>
+                      <p id="AcceptedOfferPhone">${user.phoneNumber}</p>
+                  </div>
+                  <div class="UserLabel_P_Wrapper">
+                      <label for="AcceptedOfferUserEmail">Email: </label>
+                      <p id="AcceptedOfferUserEmail">${user.email}</p>
+                  </div>
+              </div>`;
+    })
+    .catch((err) => {
+      alert("Unable to get user: " + err);
+    });
+}
+
 async function getBidOfferData(bidOfferId) {
   let url = fetchBidOfferUrl + bidOfferId;
   return await fetchData(url)
     .then((bidOffer) => {
-      console.log("Bid Offer: " + JSON.stringify(bidOffer));
       return bidOffer;
     })
     .catch((err) => {
@@ -132,11 +261,39 @@ let getBiddingOfferForOwner = (bidOffer) => {
        <p><strong>Description: </strong>${bidOffer.bidUserBio}</p>
    </div>
    <div class="specific-button-grid">
-       <button type="button">Decline</button>
-       <button type="button">Accept</button>
+       <button type="button" id=${bidOffer.id} onclick="DeclineOfferFn(this)">Decline</button>
+       <button type="button" id=${bidOffer.id} onclick="AcceptOfferFn(this)">Accept</button>
    </div>
  </div>`;
 };
+
+function AcceptOfferFn(acceptBtn) {
+  getBidOfferData(acceptBtn.id).then((bidOffer) => {
+    postBidData(acceptBidUrl, JSON.stringify(bidOffer))
+      .then((response) => {
+        let res = JSON.stringify(response);
+        console.log("res Data: " + res);
+        alert("Congratulation on accepting the offer.");
+        location.reload();
+      })
+      .catch((error) => {
+        alert("Error: " + error);
+      });
+  });
+}
+
+function DeclineOfferFn(declineBtn) {
+  getBidOfferData(declineBtn.id).then((bidOffer) => {
+    postBidData(declineBidUrl, JSON.stringify(bidOffer))
+      .then((response) => {
+        alert("Offer Deleted");
+        location.reload();
+      })
+      .catch((error) => {
+        alert("Error: " + error);
+      });
+  });
+}
 
 let placeBidContainer = (listing) => {
   return `<div class="bidLabelInputContainer">
@@ -227,6 +384,24 @@ async function postBidData(url = "", data) {
 }
 
 async function fetchData(url = "") {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "GET",
+      "Access-Control-Allow-Origin": "*",
+    },
+    method: "GET",
+  }).catch((err) => {
+    return err;
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
+
+// fetch the user
+async function fetchUser(url = "") {
   // Default options are marked with *
   const response = await fetch(url, {
     headers: {
