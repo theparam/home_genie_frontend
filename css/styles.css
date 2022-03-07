@@ -1170,9 +1170,8 @@ a {
 }
 
 .about-content1 img {
-  width: 60%;
-  height: 80%;
-  border-radius: 10px;
+  width: 100%;
+  height: auto;
   place-self: center;
 }
 
@@ -1326,6 +1325,10 @@ a {
   .about-team {
     max-width: 1400px;
     margin: 0 auto;
+  }
+
+  .about-content1-wrapper, .about-content1 {
+    padding-bottom: 0;
   }
 
   .desktop-grid {
