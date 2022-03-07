@@ -1,9 +1,9 @@
-let bellIcon = document.getElementById("ShowNotificationPopUp");
-let dk_bellIcom = document.getElementById("dk-ShowNotificationPopUp");
 let updateBtn = document.getElementById("updBtn");
 let url = "http://localhost:8080/home/genie/user/update/";
 const UserSessionStorageKey = "LoggedInUser";
-
+const video = document.getElementById("video");
+// Elements for taking the snapshot
+const canvas = document.getElementById("canvas");
 class User {
   constructor(firstName, lastName, phoneNumber, email, address, bio, paswd) {
     this.firstName = firstName;
@@ -15,45 +15,6 @@ class User {
     this.password = paswd;
   }
 }
-
-document.addEventListener("keydown", (e) => {
-  if (!e.repeat) {
-    if (e.key === "Escape") {
-      document.getElementById("showHideMenu").classList.remove("menu_active");
-      document
-        .querySelector(".NotificationPopUpContainer")
-        .classList.remove("popUPActive");
-      document
-        .querySelector(".subProfileMenu")
-        .classList.remove("activeProfileMenu");
-    }
-  }
-});
-
-document.getElementById("ShowMenu").addEventListener("click", () => {
-  document.getElementById("showHideMenu").classList.toggle("menu_active");
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.remove("popUPActive");
-});
-
-bellIcon.addEventListener("click", () => {
-  toggleNotification();
-});
-
-dk_bellIcom.addEventListener("click", () => {
-  toggleNotification();
-  document
-    .querySelector(".subProfileMenu")
-    .classList.remove("activeProfileMenu");
-});
-
-const toggleNotification = () => {
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.toggle("popUPActive");
-  document.getElementById("showHideMenu").classList.remove("menu_active");
-};
 
 updateBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -127,3 +88,41 @@ const UpdateStorageSessions = (key, value) => {
     myStorage.setItem(key, value);
   }
 };
+
+document.getElementById("Open_Camera").addEventListener("click", (e) => {
+  canvas.style.display = "none";
+  video.style.display = "grid";
+  video.style.width = "320px";
+  video.style.height = "240px";
+
+  canvas.style.width = "0";
+  canvas.style.height = "0";
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+      //video.src = window.URL.createObjectURL(stream);
+      video.srcObject = stream;
+      // video.play();  // or autplay
+    });
+  } else {
+    console.log("media devices not available in this browser");
+  }
+});
+
+document.getElementById("Stop_Camera").addEventListener("click", (e) => {
+  e.preventDefault();
+  canvas.style.width = "320px";
+  canvas.style.height = "240px";
+
+  canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+  let image_data_url = canvas.toDataURL("image/jpeg");
+
+  const tracks = video.srcObject.getTracks();
+  tracks.forEach((track) => track.stop());
+  video.style.width = "0";
+  video.style.height = "0";
+  video.style.display = "none";
+  console.log(image_data_url);
+  canvas.style.display = "grid";
+  document.getElementById("CameraImg").src = image_data_url;
+});

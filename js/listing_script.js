@@ -32,6 +32,13 @@ window.addEventListener("load", (e) => {
 
 category_Listing_Container.innerHTML = "";
 
+document.querySelectorAll(".ViewListing").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?view=getListings";
+  });
+});
+
 let getListingOfUser = () => {
   getUserListingUrl = getUserListingUrl + `${loggdInUser.id}`;
   postData(getUserListingUrl)
@@ -39,22 +46,23 @@ let getListingOfUser = () => {
       let categoryArray = JSON.stringify(categoryData);
 
       if (categoryData.length == 0) {
-        category_Listing_Container.innerHTML += `No Listing Try Creating One!! <a href="CreateListing.html">Create Listing</a>`;
+        category_Listing_Container.innerHTML += `<p>No Listing Try Creating One!!</p> <a href="CreateListing.html">Create Listing</a>`;
       } else {
         for (let i = 0; i < categoryData.length; i++) {
-          console.log(categoryData);
           // searchResultCount.innerHTML = categoryData.length;
           let categoryListing = categoryData[i];
+          let imageSource = "";
+          if (categoryListing.image != null) {
+            imageSource = `data:image/jpeg;base64,${categoryListing.image.data}`;
+          } else {
+            imageSource = `https://picsum.photos/500/250?random=${i + 10}`;
+          }
           let categoryCardResult = `<div class="card">
-         <img src="https://picsum.photos/500/250?random=${
-           i + 10
-         }" alt="random image">
+         <img src="${imageSource}" alt="random image">
          <h3>${categoryListing.title}</h3>
          <p>Posted By: <span>${categoryListing.listingOwner}</span></p>
          <div class="browseBtn_Container">
-             <a href="#" class="browseBtn" id="${
-               categoryListing.id
-             }" onclick="ViewListing(this);">View Listing</a>
+             <a href="#" class="browseBtn" id="${categoryListing.id}" onclick="ViewListing(this);">View Listing</a>
          </div>`;
           category_Listing_Container.innerHTML += categoryCardResult;
         }
@@ -77,16 +85,18 @@ let getListingForCategory = (CategoryValue) => {
         for (let i = 0; i < categoryData.length; i++) {
           // searchResultCount.innerHTML = categoryData.length;
           let categoryListing = categoryData[i];
+          let imageSource = "";
+          if (categoryListing.image != null) {
+            imageSource = `data:image/jpeg;base64,${categoryListing.image.data}`;
+          } else {
+            imageSource = `https://picsum.photos/500/250?random=${i + 10}`;
+          }
           let categoryCardResult = `<div class="card">
-         <img src="https://picsum.photos/500/250?random=${
-           i + 10
-         }" alt="random image">
+          <img src="${imageSource}" alt="random image">
          <h3>${categoryListing.title}</h3>
          <p>Posted By: <span>${categoryListing.listingOwner}</span></p>
          <div class="browseBtn_Container">
-             <a href="#" class="browseBtn" id="${
-               categoryListing.id
-             }" onclick="ViewListing(this);">View Listing</a>
+             <a href="#" class="browseBtn" id="${categoryListing.id}" onclick="ViewListing(this);">View Listing</a>
          </div>`;
           category_Listing_Container.innerHTML += categoryCardResult;
         }

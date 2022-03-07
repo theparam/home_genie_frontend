@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Page</title>
+    <meta name="description" content="A Bidding platform for the people to bid on the home services of other people">
+    <link rel="manifest" href="../app.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
+        integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -13,28 +22,31 @@
 <body>
     <!-- For the Developer Copy Start from here  line 148-->
     <header class="HomePage_header">
-        <h1>Home Genie</h1>
+        <div class="LogoContainer">
+            <a href="index.html">
+                <img src="../img/Home_Genie_DK_Logo.png" alt="Home Genie Logo">
+            </a>
+        </div>
         <div class="Menu_BellIconContainer">
             <a href="#" id="ShowNotificationPopUp">
-                <i title="Show Notifications" class="fas fa-bell"></i>
+                <img src="../img/Notification_Genie.png" alt="Notification Genie">
             </a>
             <a href="#" id="ShowMenu">
                 <i title="Show Menu" class="fas fa-bars"></i>
             </a>
         </div>
         <div class="dk-menu">
-            <a href="#" id="dk-ShowNotificationPopUp">
-                <i title="Show Notifications" class="fas fa-bell"></i>
-            </a>
             <ul>
                 <li>
-                    <a href="BrowseListings.html">Browse</a>
+                    <a href="#" id="dk-ShowNotificationPopUp">
+                        <img src="../img/Notification_Genie.png" alt="Notification Genie">
+                    </a>
                 </li>
                 <li>
-                    <a href="CreateListing.html">Create new</a>
+                    <a href="CreateListing.html">Create</a>
                 </li>
                 <li>
-                    <a href="SpecificListing.html">Personal listings</a>
+                    <a class="ViewListing">View listings</a>
                 </li>
                 <li>
                     <a href="AboutUs.html">About Us</a>
@@ -46,7 +58,7 @@
                     <div class="subProfileMenu">
                         <ul>
                             <li>
-                                <a href="UpdateProfile.html">Update Profile</a>
+                                <a href="UpdateProfile.html">Profile</a>
                             </li>
                             <li>
                                 <a href="Login.html">Logout</a>
@@ -63,37 +75,29 @@
         <ul>
             <!-- Add Links to the Pages when created -->
             <li>
-                <a href="BrowseListings.html">Browse Listings</a>
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
             </li>
             <li>
-                <a href="CreateListing.html"> Create New Listing</a>
+                <a href="CreateListing.html"> <i class="fa fa-list" aria-hidden="true"></i> Create</a>
             </li>
             <li>
-                <a href="SpecificListing.html">View Your Listing</a>
+                <a class="ViewListing"><i class="fas fa-eye"></i> View Listing</a>
             </li>
             <li>
-                <a href="AboutUs.html">About Us</a>
+                <a href="AboutUs.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a>
             </li>
             <li>
                 <a href="UpdateProfile.html">
-                    Profile</a>
+                    <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
             </li>
             <li>
-                <a href="Login.html"><strong>Logout?</strong></a>
+                <a href="Login.html"><strong><i class="fas fa-eye"></i> Logout?</strong></a>
             </li>
         </ul>
     </nav>
-
     <div class="Notification_wrapper">
         <div class="NotificationPopUpContainer">
             <div class="NotificationPopUp">
-                <div class="Notification_id1">
-                    <h3>Listing Name</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
-                    <div>
-                        <button>View Listing</button>
-                    </div>
-                </div>
                 <div class="Notification_id1">
                     <h3>Listing Name</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
@@ -165,8 +169,8 @@
                 <nav>
                     <ul>
                         <li><a href="#">Contact Us</a></li>
-                        <li><a href="CreateListing.html">Create New Listing</a></li>
-                        <li><a href="SpecificListing.html">View Your Listing</a></li>
+                        <li><a href="CreateListing.html">Create</a></li>
+                        <li><a class="ViewListing">View Listings</a></li>
                     </ul>
                 </nav>
             </div>
@@ -190,7 +194,8 @@
             </div>
         </div>
     </footer>
-    <script src="../js/Search.js"></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/Search.js" defer></script>
 </body>
 
 </div>

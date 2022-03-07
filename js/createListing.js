@@ -36,6 +36,12 @@ class Listing {
   }
 }
 
+document.querySelector(".ViewListing").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  window.location.href = "Listing.html?view=getListings";
+});
+
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let loggedInUser = window.sessionStorage.getItem("LoggedInUser");

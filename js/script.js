@@ -88,10 +88,11 @@ document.getElementById("PremiumServices").addEventListener("click", (e) => {
   window.location.href = "Listing.html?Category=" + PremiumCategory;
 });
 
-document.getElementById("ViewListing").addEventListener("click", (e) => {
-  e.preventDefault();
-
-  window.location.href = "Listing.html?view=getListings";
+document.querySelectorAll(".ViewListing").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?view=getListings";
+  });
 });
 
 document

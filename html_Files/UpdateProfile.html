@@ -35,12 +35,17 @@
             <div class="upd_parent_wrapper">
                 <div class="profile_photo_Wrapper">
                     <div class="profileImage">
-                        <a>
-                            <i class="fas fa-camera"></i>
-                        </a>
+                        <video id="video" width="320" height="240" autoplay></video>
+                        <canvas id="canvas" width="320" height="240"></canvas>
                     </div>
                 </div>
                 <div class="upd_profile_wrapper">
+                    <a id="Open_Camera">
+                        <i class="fas fa-camera"></i>
+                    </a>
+                    <a href="SnapPicture" id="Stop_Camera">
+                        Stop
+                    </a>
                     <form>
                         <div class="label_input_wrapper upd-fName">
                             <label for="upd-fName">User Name </label>
@@ -70,6 +75,7 @@
                             <button type="submit" id="updBtn">UPDATE PROFILE</button><br>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

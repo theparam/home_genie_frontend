@@ -36,18 +36,17 @@
             </a>
         </div>
         <div class="dk-menu">
-            <a href="#" id="dk-ShowNotificationPopUp">
-                <img src="../img/Notification_Genie.png" alt="Notification Genie">
-            </a>
             <ul>
                 <li>
-                    <a href="BrowseListings.html">Browse</a>
+                    <a href="#" id="dk-ShowNotificationPopUp">
+                        <img src="../img/Notification_Genie.png" alt="Notification Genie">
+                    </a>
                 </li>
                 <li>
-                    <a href="CreateListing.html">Create new</a>
+                    <a href="CreateListing.html">Create</a>
                 </li>
                 <li>
-                    <a href="SpecificListing.html">Personal listings</a>
+                    <a class="ViewListing">View listings</a>
                 </li>
                 <li>
                     <a href="AboutUs.html">About Us</a>
@@ -59,7 +58,7 @@
                     <div class="subProfileMenu">
                         <ul>
                             <li>
-                                <a href="UpdateProfile.html">Update Profile</a>
+                                <a href="UpdateProfile.html">Profile</a>
                             </li>
                             <li>
                                 <a href="Login.html">Logout</a>
@@ -79,14 +78,10 @@
                 <a href="index.html"><i class="fas fa-home"></i> Home</a>
             </li>
             <li>
-                <a href="BrowseListings.html"><i class="fas fa-browser"></i><i class="fa fa-list"
-                        aria-hidden="true"></i> Browse Listings</a>
+                <a href="CreateListing.html"> <i class="fa fa-list" aria-hidden="true"></i> Create</a>
             </li>
             <li>
-                <a href="CreateListing.html"> <i class="fa fa-list" aria-hidden="true"></i> Create New Listing</a>
-            </li>
-            <li>
-                <a href="SpecificListing.html"><i class="fas fa-eye"></i> View Your Listing</a>
+                <a class="ViewListing"><i class="fas fa-eye"></i> View Listing</a>
             </li>
             <li>
                 <a href="AboutUs.html"><i class="fa fa-users" aria-hidden="true"></i> About Us</a>
@@ -110,13 +105,6 @@
                         <button>View Listing</button>
                     </div>
                 </div>
-                <div class="Notification_id1">
-                    <h3>Listing Name</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
-                    <div>
-                        <button>View Listing</button>
-                    </div>
-                </div>
             </div>
             <div class="triangle"></div>
         </div>
@@ -133,7 +121,7 @@
                         <p>Your Wishes, our Command !!</p>
                         <button type="button">Explore More</button>
                     </div>
-                    <img src="../img/LOGO_tranparent-02.png" alt="Home Genie Logo">
+                    <img src="../img/LOGO_tranparent-03.png" alt="Home Genie Logo">
                 </div>
             </div>
             <div class="desktop-grid">
@@ -217,42 +205,49 @@
     </div>
     <footer class="footer_Area">
         <div class="mb_footer">
-          <p> &copy; Geniques 2022 </p>
+            <p> &copy; Geniques 2022 </p>
         </div>
         <div class="dk_footer">
-          <div class="about-logo">
-            <img src="../img/Home_Genie_Logo_Footer.png" alt="Home Genie logo">
-          </div>
-          <div class="about-footer-nav1">
-            <nav>
-              <ul>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="CreateListing.html">Create New Listing</a></li>
-                <li><a href="SpecificListing.html">View Your Listing</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="about-footer-nav2">
-            <nav>
-              <ul>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Cookie Policy</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="about-footer-nav3">
-            <nav>
-              <ul>
-                <li><a href="#">Let's Get Connected !!</a></li>
-                <li><a href="tel:+1123-456-7890">+1 1234567890</a></li>
-                <li><a href="mailto:abc@homegenie.ca">abc@homegenie.ca</a></li>
-              </ul>
-            </nav>
-          </div>
+            <div class="about-logo">
+                <img src="../img/Home_Genie_Logo_Footer.png" alt="Home Genie logo">
+            </div>
+            <div class="about-footer-nav1">
+                <nav>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="CreateListing.html">Create </a></li>
+                        <li><a class="ViewListing">View Listings</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav2">
+                <nav>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav3">
+                <nav>
+                    <ul>
+                        <li><a href="#">Let's Get Connected !!</a></li>
+                        <li><a href="tel:+1123-456-7890">+1 1234567890</a></li>
+                        <li><a href="mailto:abc@homegenie.ca">abc@homegenie.ca</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-      </footer>
-    <script src="../js/script.js" defer></script>
+    </footer>
+    <script>
+        document.querySelectorAll(".ViewListing").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.location.href = "Listing.html?view=getListings";
+            });
+        });
+    </script>
 </body>
 
 </html>
