@@ -150,6 +150,14 @@ submitBtn.addEventListener("click", (e) => {
     });
 });
 
+document.getElementById("myFile").addEventListener("change", (e) => {
+  let imgElement = document.getElementById("UploadedImage");
+  console.log(imgElement);
+  imgElement.src = URL.createObjectURL(
+    document.getElementById("myFile").files[0]
+  );
+});
+
 async function postData(url = "", data) {
   // Default options are marked with *
   const response = await fetch(url, {
