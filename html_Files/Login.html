@@ -8,9 +8,9 @@
     <title>Home Genie - Login</title>
     <meta name="description" content="A Bidding platform for the people to bid on the home services of other people">
     <link rel="manifest" href="../app.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
         integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body>
+<body class="login-body">
     <div class="login-grid">
         <div class="login-desktop">
-            <img src="../img/Home_Genie_Logo_Profile.png" alt="Home Genie Logo">
+            <img src="../img/Home_Genie_Logo_Profile2.png" alt="Home Genie Logo">
             <img src="../img/Home_Genie_Text_UpdateProfile.png" alt="Home Genie">
             <h2>New Here ?</h2>
             <a href="Signup.html" id="signUpBtn">Sign Up</a>
@@ -38,20 +38,22 @@
                             <div class="login-email">
                                 <label for="login-email"></label>
                                 <div class="icon_input_wrapper">
-                                    <i class="fas fa-user"></i>
+                                    <!-- <i class="fas fa-user"></i> -->
+                                    <span class="iconify" data-icon="ant-design:user-outlined"></span>
                                     <input type="text" id="login-email" name="login-email" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="login-password">
                                 <label for="login-password"></label>
                                 <div class="icon_input_wrapper">
-                                    <i class="fas fa-lock"></i>
+                                    <!-- <i class="fas fa-lock"></i> -->
+                                    <span class="iconify" data-icon="bx:lock"></span>
                                     <input type="password" id="login-password" name="login-password"
                                         placeholder="Password" required>
                                 </div>
                             </div>
                             <div class="login-buttons">
-                                <span><a href="ForgetPassword.html">Forgot Password?</a></span><br>
+                                <span class="login-forgot"><a href="ForgetPassword.html">Forgot Password?</a></span><br>
                                 <button type="submit" id="LoginBtn">Log In</button><br>
                                 <span><a href="Signup.html">Sign Up</a></span>
                             </div>
@@ -62,6 +64,7 @@
         </div>
     </div>
     <script src="../js/login.js"></script>
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 </body>
 
 </html>

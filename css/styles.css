@@ -959,6 +959,14 @@ a {
 
 /*#region Login*/
 
+.login-body {
+  overflow: hidden;
+}
+
+.login-body::-webkit-scrollbar {
+  display: none;
+}
+
 .login-parent {
   height: 100vh;
   background: url("https://picsum.photos/1200/500?random=11");
@@ -997,8 +1005,8 @@ a {
 }
 
 /* Style the icons*/
-.login-wrapper i {
-  border-bottom: 1px solid var(--primary_BlueShade_2);
+.icon_input_wrapper .iconify {
+  /* border-bottom: 1px solid var(--primary_BlueShade_2); */
   padding: 2px;
   color: var(--primary_BlueShade_1);
 }
@@ -1059,6 +1067,9 @@ a {
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
   padding: 0.25rem 2rem;
+  width:max-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*Center align sign up link*/
@@ -1072,6 +1083,10 @@ a {
   color: var(--primary_BlueShade_1);
 }
 
+.login-forgot {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1200px) {
   .login-desktop {
     display: none;
@@ -1081,12 +1096,18 @@ a {
 @media screen and (min-width: 1200px) {
   .login-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 60% 40%;
   }
 
   .login-desktop {
+    display: flex;
+    flex-flow: column wrap;
     place-self: center;
     text-align: center;
+  }
+
+  .login-grid img:nth-of-type(2) {
+    margin-top: 2rem;
   }
 
   .login-parent {
@@ -1280,6 +1301,7 @@ a {
 .about-developers {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
   justify-items: center;
 }
 
@@ -1290,6 +1312,10 @@ a {
 .about-designers h3,
 .about-developers h3 {
   grid-column: 1/-1;
+}
+
+.about-choose .iconify {
+  padding-right: 1rem;
 }
 
 @media screen and (min-width: 740px) {
