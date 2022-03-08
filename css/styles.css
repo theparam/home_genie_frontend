@@ -1319,14 +1319,13 @@ a {
 }
 
 @media screen and (min-width: 740px) {
-
   .about-content1 {
     display: grid;
     grid-template-columns: 40% 60%;
     padding: 2rem 1rem;
     place-items: center;
   }
-  
+
   .about-content1-content {
     justify-self: flex-end;
     text-align: left;
@@ -1348,7 +1347,6 @@ a {
   .about-content1-content p {
     margin-bottom: 0.5rem;
   }
-
 }
 
 @media screen and (min-width: 1200px) {
@@ -1359,7 +1357,8 @@ a {
     margin: 0 auto;
   }
 
-  .about-content1-wrapper, .about-content1 {
+  .about-content1-wrapper,
+  .about-content1 {
     padding-bottom: 0;
   }
 
@@ -1823,7 +1822,7 @@ a {
   font-weight: normal;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   .Category_Listing_Container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1973,6 +1972,11 @@ a {
   color: var(--primary_BlueShade_1);
 }
 
+.dynamic_info_Container {
+  display: flex;
+  flex-direction: column;
+}
+
 .specific-heading p {
   background-color: var(--primary_BlueShade_2);
   padding: 1rem 5rem;
@@ -2004,11 +2008,16 @@ a {
   display: block;
 }
 
+.specific-color-bottom-dk-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .specific-bid1,
 .specific-bid2,
 .specific-bid3 {
   background-color: var(--primary_BlueShade_3);
-  margin: 3rem;
+  margin: 2rem;
   padding: 2rem;
   border-radius: 20px;
   position: relative;
@@ -2177,7 +2186,18 @@ a {
   font-style: italic;
 }
 
+@media screen and (min-width: 1000px) {
+  .specific-color-bottom-dk-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media screen and (min-width: 1200px) {
+  .specific-color-bottom-dk-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   .specific-bids,
   .specific-grid,
   .specific-desc {
@@ -2187,7 +2207,6 @@ a {
 
   .specific-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     align-content: center;
     align-items: center;
   }
@@ -2211,8 +2230,8 @@ a {
 
   .specific-desc {
     margin: 0 auto;
-    width:50%;
-    max-width:1200px;
+    width: 50%;
+    max-width: 1200px;
   }
 
   .specific-heading {
@@ -2233,7 +2252,6 @@ a {
 
   .specific-bids {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-gap: 4rem;
     justify-content: space-around;
     padding: 4rem;

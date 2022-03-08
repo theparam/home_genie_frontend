@@ -156,8 +156,9 @@ window.addEventListener("load", (e) => {
                 ".CustomerBidAcceptContainer"
               ).style.display = "grid";
 
-              document.querySelector(".CustomerBidAcceptContainer").innerHTML +=
-                `<p id="OfferAcceptedText">Hmm!!!... Looks Like Owner accepted someone else bid. Best of luck on another Bid.</p>`;
+              document.querySelector(
+                ".CustomerBidAcceptContainer"
+              ).innerHTML += `<p id="OfferAcceptedText">Hmm!!!... Looks Like Owner accepted someone else bid. Best of luck on another Bid.</p>`;
             }
           });
         } else {
@@ -168,6 +169,22 @@ window.addEventListener("load", (e) => {
           document.querySelector(".placeBidContainer").style.display = "flex";
           document.querySelector(".placeBidContainer").innerHTML =
             placeBidContainer(listing);
+
+          //Get bid Offers for the listing.
+          console.log("Offers : " + listing.biddingOffers.length);
+          if (listing.biddingOffers.length > 0) {
+            document.querySelector(".placeBidContainer").style.order = "1";
+
+            document.querySelector(".specific-color-bottom").style.order = "2";
+            document.querySelector(".specific-bids").style.display = "grid";
+            for (let u = 0; u < listing.biddingOffers.length; u++) {
+              let biddingOffer = listing.biddingOffers[u];
+              getBidOfferData(biddingOffer).then((data) => {
+                document.querySelector(".specific-bids").innerHTML +=
+                  getBiddingOfferForOwner(data, false);
+              });
+            }
+          }
         }
       }
     })
@@ -248,8 +265,8 @@ async function getBidOfferData(bidOfferId) {
     });
 }
 
-let getBiddingOfferForOwner = (bidOffer) => {
-  return `<div class="specific-bid3">
+let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
+  let ownerContainer = `<div class="specific-bid3">
    <div class="specific-bid-grid">
        <img src="https://picsum.photos/300/200?random=11" alt="">
        <div class="specific-bid-info">
@@ -260,11 +277,31 @@ let getBiddingOfferForOwner = (bidOffer) => {
        </div>
        <p><strong>Description: </strong>${bidOffer.bidUserBio}</p>
    </div>
-   <div class="specific-button-grid">
+    <div class="specific-button-grid">
+   
        <button type="button" id=${bidOffer.id} onclick="DeclineOfferFn(this)">Decline</button>
        <button type="button" id=${bidOffer.id} onclick="AcceptOfferFn(this)">Accept</button>
    </div>
  </div>`;
+
+  let customerContainer = `<div class="specific-bid3">
+   <div class="specific-bid-grid">
+       <img src="https://picsum.photos/300/200?random=11" alt="">
+       <div class="specific-bid-info">
+           <p><strong>Bidded Price: </strong><span class="specific-red">$${bidOffer.biddingOffer}</span></p>
+           <p><strong>Name: </strong>${bidOffer.bidUserName}</p>
+           <p><strong>Email: </strong>${bidOffer.bidUserEmail}</p>
+           <p><strong>Phone Number: </strong>${bidOffer.bidUserPhone}</p>
+       </div>
+       <p><strong>Description: </strong>${bidOffer.bidUserBio}</p>
+   </div>
+ </div>`;
+
+  if (isOwner) {
+    return ownerContainer;
+  } else {
+    return customerContainer;
+  }
 };
 
 function AcceptOfferFn(acceptBtn) {
@@ -355,6 +392,9 @@ let PlaceBidFn = () => {
       // User Data from DB
       let bidOffer = JSON.stringify(bidData);
       console.log("Data: " + bidOffer);
+      alert("Offer Sent");
+
+      window.location.href = "SpecificListing.html?ListingId=" + listingID;
 
       // alert("Ofer Sent");
       // // window.location.href = "/html_Files/index.html";
