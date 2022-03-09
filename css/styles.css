@@ -1496,7 +1496,7 @@ a {
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  padding: 0.25rem 2rem;
+ 
 }
 
 .icon_input_wrapper {
@@ -1512,13 +1512,14 @@ a {
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  padding: 0.25rem 2rem;
+  padding: 0.5rem 1rem;
 }
 
 @media screen and (min-width: 1200px) {
   .signup-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 60% 40%;
+    gap: 1rem;
   }
 
   .mb-LoginLink {
@@ -1528,10 +1529,21 @@ a {
   .signup-desktop {
     place-self: center;
     text-align: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .signup-desktop img {
     padding: 3rem 2rem;
+  }
+  #LoginBtn{
+    width: 100px;
+    margin: 0 auto;
+  }
+  #SignUpBtn{
+    width: 100px;
+    margin: 0 auto;
+    
   }
 
   .signup-parent {
@@ -1599,7 +1611,7 @@ a {
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  padding: 0.25rem 0.5rem;
+  
 }
 
 .LoginLink {
