@@ -1071,7 +1071,14 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
-
+.visually-hidden{
+clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;}
 /*Center align sign up link*/
 .login-buttons span:nth-of-type(2) {
   align-self: center;
@@ -1471,6 +1478,12 @@ a {
 .mb-LoginLink {
   display: block;
 }
+.signup-desktop h1,.signup-desktop h2{
+color: var(--primary_BlueShade_1);
+}
+.signup-grid img:nth-of-type(2) {
+  margin-top: 2rem;
+}
 
 .SignUPLoginBtn {
   color: var(--primary_BlueShade_1);
@@ -1482,13 +1495,12 @@ a {
   }
 }
 .signup-wrapper {
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem 0;
-  border-radius: 1.5rem;
-  background-color: white;
-  box-shadow: var(--primary_box_shadow);
+  max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1.5rem;
+    background-color: white;
+    box-shadow: var(--primary_box_shadow);
 }
 
 #SignupBtn {
@@ -1514,7 +1526,9 @@ a {
   border-radius: 5px;
   padding: 0.5rem 1rem;
 }
-
+.icon-size{
+  font-size: 22px;
+}
 @media screen and (min-width: 1200px) {
   .signup-grid {
     display: grid;
@@ -1533,9 +1547,9 @@ a {
     flex-direction: column;
   }
 
-  .signup-desktop img {
+  /* .signup-desktop img {
     padding: 3rem 2rem;
-  }
+  } */
   #LoginBtn{
     width: 100px;
     margin: 0 auto;
@@ -1591,10 +1605,10 @@ a {
   color: darkcyan;
 }
 
-.icon_input_wrapper input,
+/* .icon_input_wrapper input,
 .icon_input_wrapper i {
   margin-bottom: 1rem;
-}
+} */
 
 .icon_input_wrapper i {
   color: var(--primary_BlueShade_1);
