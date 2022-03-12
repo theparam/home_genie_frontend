@@ -16,6 +16,26 @@ class User {
   }
 }
 
+window.addEventListener("load", (e) => {
+  let loggedInUser = JSON.parse(window.sessionStorage.getItem("LoggedInUser"));
+  if (loggedInUser != null) {
+    document.getElementById("upd-fName").value =
+      loggedInUser.firstName != null ? loggedInUser.firstName : "";
+    document.getElementById("upd-lName").value =
+      loggedInUser.lastName != null ? loggedInUser.lastName : "";
+    document.getElementById("upd-pNumber").value =
+      loggedInUser.phoneNumber != null ? loggedInUser.phoneNumber : "";
+    document.getElementById("upd-email").value =
+      loggedInUser.email != null ? loggedInUser.email : "";
+    document.getElementById("upd-Address").value =
+      loggedInUser.address != null ? loggedInUser.address : "";
+    document.getElementById("upd-Bio").value =
+      loggedInUser.bio != null ? loggedInUser.bio : "";
+    document.getElementById("upd-password").value =
+      loggdUserId.password != null ? loggedInUser.password : "";
+  }
+});
+
 updateBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let fName = document.getElementById("upd-fName").value;
@@ -42,7 +62,7 @@ updateBtn.addEventListener("click", (e) => {
   if (loggedInUser != null) {
     var loggdUserId = JSON.parse(loggedInUser).id;
     url = url + loggdUserId;
-    postData(url, json)
+    postUserData(url, json)
       .then((userData) => {
         //User Data from DB
         let updatedUser = JSON.stringify(userData);
@@ -60,7 +80,7 @@ updateBtn.addEventListener("click", (e) => {
   }
 });
 
-async function postData(url = "", data) {
+async function postUserData(url = "", data) {
   // Default options are marked with *
   const response = await fetch(url, {
     headers: {
