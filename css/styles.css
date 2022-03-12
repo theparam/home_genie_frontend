@@ -1455,6 +1455,7 @@ clip: rect(0 0 0 0);
   margin-top: 1rem;
     text-align: center;
     padding-top: 0rem;
+    margin-bottom: 1rem;
 
 }
 
@@ -1480,7 +1481,7 @@ clip: rect(0 0 0 0);
 .Confirm_Password,
 .Phone_Number,
 .Address {
-  margin-bottom: 1.7rem;
+  margin-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -1548,7 +1549,7 @@ color: var(--primary_BlueShade_1);
 @media screen and (min-width: 1200px) {
   .signup-grid {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
@@ -1634,8 +1635,8 @@ color: var(--primary_BlueShade_1);
 
 .SignUp-buttons {
   text-align: center;
- 
-  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
   padding: .5rem;
 }
 
