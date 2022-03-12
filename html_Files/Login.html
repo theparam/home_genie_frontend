@@ -8,15 +8,36 @@
     <title>Home Genie - Login</title>
     <meta name="description" content="A Bidding platform for the people to bid on the home services of other people">
     <link rel="manifest" href="../app.webmanifest">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
-        integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        // does the browser support service workers?
+        if ('serviceWorker' in navigator) {
+            // fires when the service worker is ready
+            navigator.serviceWorker.ready.then(reg => {
+                // we have an active service worker working for us
+                console.log(`Service Worker ready (Scope: ${reg.scope})`);
+                // do something interesting, if you want...
+
+            });
+            // then register our service worker
+            navigator.serviceWorker.register('.././sw.js', { scope: '/' })
+                .then(function (reg) {
+                    // display a success message
+                    console.log(`Service Worker Registration (Scope: ${reg.scope})`);
+                })
+                .catch(function (error) {
+                    // display an error message
+                    console.log(`Service Worker Error (${error})`);
+                });
+        } else {
+            // happens when the app isn't served over a TLS connection (HTTPS)
+            console.warn('Service Worker not available');
+        }
+    </script>
 </head>
 
 <body class="login-body">
@@ -65,7 +86,7 @@
     </div>
     <script src="../js/login.js"></script>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
-    
+
 </body>
 
 </html>

@@ -35,7 +35,12 @@ category_Listing_Container.innerHTML = "";
 document.querySelectorAll(".ViewListing").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href = "Listing.html?view=getListings";
+
+    if (!AuthenticateLogin()) {
+      ShowMessageAndRedirect();
+    } else {
+      window.location.href = "Listing.html?view=getListings";
+    }
   });
 });
 
@@ -108,8 +113,12 @@ let getListingForCategory = (CategoryValue) => {
 };
 
 let ViewListing = (btnObject) => {
-  console.log("SpecificListing.html?ListingId=" + btnObject.id);
-  window.location.href = "SpecificListing.html?ListingId=" + btnObject.id;
+  if (!AuthenticateLogin()) {
+    ShowMessageAndRedirect();
+  } else {
+    console.log("SpecificListing.html?ListingId=" + btnObject.id);
+    window.location.href = "SpecificListing.html?ListingId=" + btnObject.id;
+  }
 };
 
 async function postData(url = "") {

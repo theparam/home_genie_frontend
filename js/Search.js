@@ -65,8 +65,12 @@ window.addEventListener("load", (e) => {
 });
 
 let ViewListing = (btnObject) => {
-  console.log("SpecificListing.html?ListingId=" + btnObject.id);
-  window.location.href = "SpecificListing.html?ListingId=" + btnObject.id;
+  if (!AuthenticateLogin()) {
+    ShowMessageAndRedirect();
+  } else {
+    console.log("SpecificListing.html?ListingId=" + btnObject.id);
+    window.location.href = "SpecificListing.html?ListingId=" + btnObject.id;
+  }
 };
 
 async function postData(url = "") {
@@ -89,6 +93,10 @@ async function postData(url = "") {
 document.querySelectorAll(".ViewListing").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href = "Listing.html?view=getListings";
+    if (!AuthenticateLogin()) {
+      ShowMessageLoginAndRedirect();
+    } else {
+      window.location.href = "Listing.html?view=getListings";
+    }
   });
 });
