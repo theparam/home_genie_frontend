@@ -58,9 +58,13 @@ const toggleNotification = () => {
 
 document.querySelector(".ProfileIcon").addEventListener("click", (e) => {
   e.preventDefault();
-  document
-    .querySelector(".subProfileMenu")
-    .classList.toggle("activeProfileMenu");
+  let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
+  if (loggedInUser != null) {
+    document
+      .querySelector(".subProfileMenu")
+      .classList.toggle("activeProfileMenu");
+  }
+
   document
     .querySelector(".NotificationPopUpContainer")
     .classList.remove("popUPActive");
@@ -91,7 +95,12 @@ document.getElementById("PremiumServices").addEventListener("click", (e) => {
 document.querySelectorAll(".ViewListing").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href = "Listing.html?view=getListings";
+
+    if (AuthenticateLogin()) {
+      window.location.href = "Listing.html?view=getListings";
+    } else {
+      ShowMessageAndRedirect();
+    }
   });
 });
 
@@ -118,3 +127,23 @@ document
         "Search.html?SearchKey=" + searchText + "&category=" + categoryValue;
     }
   });
+
+// Logout Btn Code
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  sessionStorage.removeItem("LoggedInUser");
+  window.location.href = "Login.html";
+});
+
+function AuthenticateLogin() {
+  let isLoggedIn = true;
+  let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
+  if (loggedInUser == null) {
+    isLoggedIn = false;
+  }
+  return isLoggedIn;
+}
+
+function ShowMessageAndRedirect() {
+  alert("Kindly login first.");
+  window.location.href = "Login.html";
+}

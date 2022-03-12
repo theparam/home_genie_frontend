@@ -48,6 +48,7 @@ class BiddingOffer {
 document.querySelectorAll(".ViewListing").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
+    AuthenticateLogin();
     window.location.href = "Listing.html?view=getListings";
   });
 });
@@ -476,3 +477,9 @@ async function fetchUser(url = "") {
   });
   return response.json(); // parses JSON response into native JavaScript objects
 }
+
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  alert("heas");
+  sessionStorage.removeItem("LoggedInUser");
+  window.location.href = "Login.html";
+});
