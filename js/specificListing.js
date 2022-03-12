@@ -119,12 +119,17 @@ window.addEventListener("load", (e) => {
 
           document.querySelector(".specific-bids").style.display = "grid";
 
-          for (let u = 0; u < listing.biddingOffers.length; u++) {
-            let biddingOffer = listing.biddingOffers[u];
-            getBidOfferData(biddingOffer).then((data) => {
-              document.querySelector(".specific-bids").innerHTML +=
-                getBiddingOfferForOwner(data);
-            });
+          if (listing.biddingOffers != null) {
+            for (let u = 0; u < listing.biddingOffers.length; u++) {
+              let biddingOffer = listing.biddingOffers[u];
+              getBidOfferData(biddingOffer).then((data) => {
+                document.querySelector(".specific-bids").innerHTML +=
+                  getBiddingOfferForOwner(data);
+              });
+            }
+          } else {
+            document.querySelector(".specific-bids").innerHTML +=
+              "<p>No offers Yet. Dont worry, hold your horses soon someone will be bidding on it!! </p>";
           }
         }
       } else {
@@ -170,20 +175,30 @@ window.addEventListener("load", (e) => {
           document.querySelector(".placeBidContainer").innerHTML =
             placeBidContainer(listing);
 
-          //Get bid Offers for the listing.
-          console.log("Offers : " + listing.biddingOffers.length);
-          if (listing.biddingOffers.length > 0) {
-            document.querySelector(".placeBidContainer").style.order = "1";
+          document.querySelector(".placeBidContainer").style.order = "1";
 
-            document.querySelector(".specific-color-bottom").style.order = "2";
-            document.querySelector(".specific-bids").style.display = "grid";
-            for (let u = 0; u < listing.biddingOffers.length; u++) {
-              let biddingOffer = listing.biddingOffers[u];
-              getBidOfferData(biddingOffer).then((data) => {
-                document.querySelector(".specific-bids").innerHTML +=
-                  getBiddingOfferForOwner(data, false);
-              });
+          document.querySelector(".specific-color-bottom").style.order = "2";
+          document.querySelector(".specific-bids").style.display = "grid";
+          //Get bid Offers for the listing.
+          if (listing.biddingOffers != null) {
+            console.log("Offers : " + listing.biddingOffers.length);
+            if (listing.biddingOffers.length > 0) {
+              for (let u = 0; u < listing.biddingOffers.length; u++) {
+                let biddingOffer = listing.biddingOffers[u];
+                getBidOfferData(biddingOffer).then((data) => {
+                  document.querySelector(".specific-bids").innerHTML +=
+                    getBiddingOfferForOwner(data, false);
+                });
+              }
+            } else {
+              document.querySelector(
+                ".specific-bids"
+              ).innerHTML += `<p> No bid placed yet </p>`;
             }
+          } else {
+            document.querySelector(
+              ".specific-bids"
+            ).innerHTML += `<p> No bid placed yet </p>`;
           }
         }
       }
@@ -321,8 +336,12 @@ function AcceptOfferFn(acceptBtn) {
 
 function DeclineOfferFn(declineBtn) {
   getBidOfferData(declineBtn.id).then((bidOffer) => {
+    console.log("bid Offer JSON" + JSON.stringify(bidOffer));
+
     postBidData(declineBidUrl, JSON.stringify(bidOffer))
       .then((response) => {
+        console.log("response Offer:" + response);
+        console.log(response.status);
         alert("Offer Deleted");
         location.reload();
       })
