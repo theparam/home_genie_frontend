@@ -180,7 +180,7 @@ a {
   width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: rgba(240, 240, 240, 0.8);
+  background-color: rgba(240, 240, 240, 0.5);
 }
 
 .search-bar-container {
@@ -391,7 +391,7 @@ a {
   width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: rgba(240, 240, 240, 0.8);
+  background-color: rgba(240, 240, 240, 0.5);
 }
 
 .search-bar-container {
@@ -1074,18 +1074,19 @@ a {
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
   padding: 0.25rem 2rem;
-  width:max-content;
+  width: max-content;
   margin-left: auto;
   margin-right: auto;
 }
-.visually-hidden{
-clip: rect(0 0 0 0); 
+.visually-hidden {
+  clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
-  white-space: nowrap; 
-  width: 1px;}
+  white-space: nowrap;
+  width: 1px;
+}
 /*Center align sign up link*/
 .login-buttons span:nth-of-type(2) {
   align-self: center;
@@ -1489,8 +1490,9 @@ clip: rect(0 0 0 0);
 .mb-LoginLink {
   display: block;
 }
-.signup-desktop h1,.signup-desktop h2{
-color: var(--primary_BlueShade_1);
+.signup-desktop h1,
+.signup-desktop h2 {
+  color: var(--primary_BlueShade_1);
 }
 .signup-grid img:nth-of-type(2) {
   margin-top: 2rem;
@@ -1507,11 +1509,11 @@ color: var(--primary_BlueShade_1);
 }
 .signup-wrapper {
   max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 1.5rem;
-    background-color: white;
-    box-shadow: var(--primary_box_shadow);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1.5rem;
+  background-color: white;
+  box-shadow: var(--primary_box_shadow);
 }
 .signup-grid h2{
   font-family: "Fira Sans", sans-serif;
@@ -1525,7 +1527,6 @@ color: var(--primary_BlueShade_1);
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
- 
 }
 
 .icon_input_wrapper {
@@ -1543,7 +1544,7 @@ color: var(--primary_BlueShade_1);
   border-radius: 5px;
   padding: 0.5rem 1rem;
 }
-.icon-size{
+.icon-size {
   font-size: 22px;
 }
 @media screen and (min-width: 1200px) {
@@ -1567,14 +1568,13 @@ color: var(--primary_BlueShade_1);
   /* .signup-desktop img {
     padding: 3rem 2rem;
   } */
-  #LoginBtn{
+  #LoginBtn {
     width: 100px;
     margin: 0 auto;
   }
-  #SignUpBtn{
+  #SignUpBtn {
     width: 100px;
     margin: 0 auto;
-    
   }
 
   .signup-parent {
@@ -1645,7 +1645,6 @@ color: var(--primary_BlueShade_1);
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  
 }
 
 .LoginLink {
@@ -1829,6 +1828,7 @@ color: var(--primary_BlueShade_1);
   display: grid;
   margin: 0 auto;
   grid-template-columns: 1fr;
+  height: 100%;
 }
 
 .card {
@@ -1867,10 +1867,19 @@ color: var(--primary_BlueShade_1);
 .card p span {
   font-weight: normal;
 }
+@media screen and (min-width: 600px) {
+  .Category_Listing_Container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media screen and (min-width: 750px) {
   .Category_Listing_Container {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    width: auto;
   }
 }
 
@@ -1886,9 +1895,11 @@ color: var(--primary_BlueShade_1);
 
 .Search_Listing_Container {
   display: grid;
-  max-width: 1000px;
   margin: 0 auto;
   grid-template-columns: 1fr;
+  gap: 1rem;
+  text-align: center;
+  justify-items: center;
 }
 .button {
   border: none;
@@ -1956,13 +1967,6 @@ color: var(--primary_BlueShade_1);
   margin-bottom: 2rem;
 }
 
-.Search_Listing_Container {
-  display: grid;
-  gap: 1rem;
-  text-align: center;
-  justify-items: center;
-  min-width: fit-content;
-}
 .heading {
   font-weight: bolder;
   font-size: x-large;
@@ -1984,7 +1988,7 @@ color: var(--primary_BlueShade_1);
 @media screen and (min-width: 600px) {
   .Search_Listing_Container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     min-width: fit-content;
     justify-items: center;
     padding: 1rem;
@@ -1992,6 +1996,12 @@ color: var(--primary_BlueShade_1);
   }
   .image-info {
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .Search_Listing_Container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
