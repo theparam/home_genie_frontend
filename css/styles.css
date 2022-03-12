@@ -1451,9 +1451,11 @@ clip: rect(0 0 0 0);
 }
 
 .signup-wrapper h1 {
-  margin-bottom: 3rem;
-  text-align: center;
-  padding-top: 1rem;
+  margin: 0;
+  margin-top: 1rem;
+    text-align: center;
+    padding-top: 0rem;
+
 }
 
 .signup-wrapper .fa-phone {
@@ -1478,9 +1480,10 @@ clip: rect(0 0 0 0);
 .Confirm_Password,
 .Phone_Number,
 .Address {
-  margin-bottom: 1rem;
+  margin-bottom: 1.7rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-top: 0.5rem;
 }
 .mb-LoginLink {
   display: block;
@@ -1631,6 +1634,9 @@ color: var(--primary_BlueShade_1);
 
 .SignUp-buttons {
   text-align: center;
+ 
+  margin-top: 1rem;
+  padding: .5rem;
 }
 
 #SignUpBtn {
