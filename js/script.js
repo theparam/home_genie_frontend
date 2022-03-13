@@ -4,6 +4,10 @@ const IndoorCategory = "Indoor";
 const OutdoorCategory = "Outdoor";
 const PremiumCategory = "Premium";
 
+let listingURL = "http://localhost:8080/home/genie/listing/";
+
+let fetchBidOffers = "http://localhost:8080/home/genie/user/bid/";
+
 let loggdInUser = "";
 let bellIcon = document.getElementById("ShowNotificationPopUp");
 let dk_bellIcom = document.getElementById("dk-ShowNotificationPopUp");
@@ -70,8 +74,7 @@ document.querySelector(".ProfileIcon").addEventListener("click", (e) => {
     .classList.remove("popUPActive");
 });
 
-// Homepage Coding
-
+// #region Open the Category to another page.
 document.getElementById("PersonalCategory").addEventListener("click", (e) => {
   e.preventDefault();
   window.location.href = "Listing.html?Category=" + personalCategory;
@@ -92,6 +95,8 @@ document.getElementById("PremiumServices").addEventListener("click", (e) => {
   window.location.href = "Listing.html?Category=" + PremiumCategory;
 });
 
+// #endregion
+
 document.querySelectorAll(".ViewListing").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -104,6 +109,7 @@ document.querySelectorAll(".ViewListing").forEach((btn) => {
   });
 });
 
+//#region Search input Query.
 document
   .getElementById("SearchInputField")
   .addEventListener("keyup", (event) => {
@@ -127,6 +133,7 @@ document
         "Search.html?SearchKey=" + searchText + "&category=" + categoryValue;
     }
   });
+//#endregion
 
 // Logout Btn Code
 document.getElementById("logoutBtn").addEventListener("click", () => {
@@ -147,3 +154,80 @@ function ShowMessageAndRedirect() {
   alert("Kindly login first.");
   window.location.href = "Login.html";
 }
+
+// //#region  get notification when page is opened.
+// window.addEventListener("load", (e) => {
+//   // Send the request to get the data for the notification for the logged in user.
+//   // data will be received from the array itself.
+//   let notification = JSON.parse(notiData);
+//   for (let j = 0; j < notification.length; j++) {
+//     let notificationData = notification[j];
+
+//     let ListingID = notificationData.listingId;
+//     let BiddingID = notificationData.biddingId;
+
+//     // Get the bidding user info first
+
+//     getBiddingOffers(BiddingID).then((bidData) => {
+//       let listinURLWithID = listingURL + ListingID;
+//       fetchListingData(listinURLWithID).then((listingData) => {
+//         let notification = GenerateNotification(
+//           notificationData,
+//           listingData,
+//           bidData
+//         );
+
+//         document.querySelector(".NotificationPopUp").innerHTML += notification;
+//       });
+//     });
+//     // Get the listing as well.
+
+//     console.log("Notification Data: " + notification[j].userId);
+//   }
+// });
+// //#endregion
+
+// let GenerateNotification = (notification, listing, bidData) => {
+//   let notificationContainer = `<div class="Notification_id1">
+//   <h3>${listing.title}</h3>
+//   <p>${bidData.bidUserName} sent you an offer of ${bidData.biddingOffer}</p>
+//   <div>
+//   <button class="browseBtn" id="${listing.id}" onclick="viewNotifiedListing(this);">View Listing</button>
+//   </div>
+// </div>`;
+
+//   return notificationContainer;
+// };
+
+// let viewNotifiedListing = (btnObject) => {
+//   console.log("SpecificListing.html?ListingId=" + btnObject.id);
+//   window.location.href = "SpecificListing.html?ListingId=" + btnObject.id;
+// };
+
+// async function getBiddingOffers(bidOfferId) {
+//   let url = fetchBidOffers + bidOfferId;
+//   return await fetchListingData(url)
+//     .then((bidOffer) => {
+//       return bidOffer;
+//     })
+//     .catch((err) => {
+//       alert("Error: " + err);
+//     });
+// }
+
+// async function fetchListingData(url = "") {
+//   // Default options are marked with *
+//   const response = await fetch(url, {
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "*",
+//       "Access-Control-Allow-Credentials": "true",
+//       "Access-Control-Allow-Methods": "GET",
+//       "Access-Control-Allow-Origin": "*",
+//     },
+//     method: "GET",
+//   }).catch((err) => {
+//     return err;
+//   });
+//   return response.json(); // parses JSON response into native JavaScript objects
+// }

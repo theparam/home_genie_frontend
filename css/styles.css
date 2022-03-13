@@ -201,9 +201,8 @@ a {
   outline: none;
   padding: 0.5rem;
   width: 80px;
-  border-radius: 5px;
   margin-right: 0.2rem;
-  background-color: #fdfdfd;
+  background-color: transparent;
 }
 
 #categories {
@@ -572,6 +571,8 @@ a {
   opacity: 0;
   z-index: -1;
   top: 0;
+  right: 0;
+  width: 300px;
   border-radius: 10px;
   -webkit-box-shadow: 0 0 15px black;
   box-shadow: 0 0 15px black;

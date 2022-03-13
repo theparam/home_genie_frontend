@@ -52,6 +52,7 @@ document.querySelectorAll(".ViewListing").forEach((btn) => {
     window.location.href = "Listing.html?view=getListings";
   });
 });
+
 window.addEventListener("load", (e) => {
   const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
@@ -87,7 +88,7 @@ window.addEventListener("load", (e) => {
       ).innerHTML = `<strong>Conditions (If Applicable): </strong>${listing.condition}`;
 
       document.getElementById("Listing_OwnerDescription").innerHTML =
-        listing.description;
+      `<strong>Description: </strong>`+  listing.description;
       document.getElementById(
         "Listing_Image"
       ).src = `data:image/jpeg;base64,${listing.image.data}`;
@@ -101,8 +102,9 @@ window.addEventListener("load", (e) => {
           document.querySelector(".CustomerBidAcceptContainer").style.display =
             "none";
         }
+
         // document.querySelector(".CustomerBidAcceptContainer").style.display =
-        ("none");
+        // ("none");
         if (listing.isOfferAccepted) {
           document.querySelector(
             ".AceeptedOfferDetailContainer"
