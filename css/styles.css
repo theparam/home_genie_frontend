@@ -237,8 +237,7 @@ a {
 #SearchInputField::placeholder {
   color: black;
   opacity: 1;
-  color: white;
-  letter-spacing: 1px;
+  font-weight: bold;
 }
 
 #categories {
