@@ -237,6 +237,8 @@ a {
 #SearchInputField::placeholder {
   color: black;
   opacity: 1;
+  color: white;
+  letter-spacing: 1px;
 }
 
 #categories {
@@ -1076,7 +1078,7 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
-.link-icon{
+.link-icon {
   color: white;
 }
 .visually-hidden {
