@@ -1507,6 +1507,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   padding: 1rem;
+  min-width: 300px;
   border-radius: 1.5rem;
   background-color: white;
   box-shadow: var(--primary_box_shadow);
@@ -1546,6 +1547,7 @@ a {
 /* Style and horizontally align the wrapper div */
 .SignUp-wrapper {
   margin: 0 auto;
+  min-width: 300px;
   border-radius: 1.5rem;
   background-color: white;
   padding: 1rem;
