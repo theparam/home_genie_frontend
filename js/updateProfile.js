@@ -191,7 +191,7 @@ document.getElementById("Stop_Camera").addEventListener("click", (e) => {
 
         console.log("Data: " + updatedUser);
 
-        alert("User update Successful");
+        alert("Image Uploaded Successfully.");
         UpdateStorageSessions(UserSessionStorageKey, updatedUser);
       })
       .catch((err) => {
