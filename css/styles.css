@@ -2065,23 +2065,21 @@ a {
 }
 
 .specific-image {
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 2rem;
+  margin: 1rem;
 }
 
 .specific-image img {
   border-radius: 20px;
 }
 
-.specific-contact-info,
-.specific-desc {
-  padding: 1rem 3rem;
+.specific-contact-info {
+  margin: 1rem;
 }
 
 .specific-bids {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  margin: 0 1rem;
 }
 
 .specific-color-bottom {
@@ -2108,6 +2106,7 @@ a {
 .specific-desc {
   padding-top: 0;
   margin-top: 0;
+  margin: 1rem;
 }
 
 .specific-contact-info {
@@ -2269,20 +2268,18 @@ a {
 
 @media screen and (min-width: 1000px) {
   .specific-color-bottom-dk-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
     grid-template-columns: 1fr 1fr;
   }
-}
 
-@media screen and (min-width: 1200px) {
-  .specific-color-bottom-dk-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+  .specific-image {
+    margin: 1rem 0;
   }
-
   .specific-bids,
   .specific-grid,
   .specific-desc {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
@@ -2290,6 +2287,8 @@ a {
     display: grid;
     align-content: center;
     align-items: center;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .specific-color-top {
@@ -2299,20 +2298,20 @@ a {
 
   .specific-contact-info {
     padding: 0;
-    padding-left: 3rem;
+    margin: 1rem 0 0 0;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
   }
 
   .specific-desc p {
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 2rem;
     padding-bottom: 1.5rem;
   }
 
   .specific-desc {
-    margin: 0 auto;
-    width: 50%;
-    max-width: 1200px;
+    max-width: 1000px;
   }
 
   .specific-heading {
@@ -2336,10 +2335,7 @@ a {
     grid-gap: 4rem;
     justify-content: space-around;
     padding: 4rem;
-  }
-
-  .specific-desc {
-    padding-left: 4rem;
+    padding-left: 0;
   }
 }
 
