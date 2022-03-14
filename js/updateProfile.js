@@ -1,6 +1,6 @@
 let updateBtn = document.getElementById("updBtn");
 let url = "http://localhost:8080/home/genie/user/update/";
-let urlImg = "http://localhost:8080/home/genie/user/update-image/"
+let urlImg = "http://localhost:8080/home/genie/user/update-image/";
 const UserSessionStorageKey = "LoggedInUser";
 const video = document.getElementById("video");
 // Elements for taking the snapshot
@@ -33,7 +33,25 @@ window.addEventListener("load", (e) => {
     document.getElementById("upd-Bio").value =
       loggedInUser.bio != null ? loggedInUser.bio : "";
     document.getElementById("upd-password").value =
-      loggdUserId.password != null ? loggedInUser.password : "";
+      loggedInUser.password != null ? loggedInUser.password : "";
+    console.log("User" + loggedInUser.image);
+    if (loggedInUser.image != null || loggedInUser.image != undefined) {
+      video.style.display = "none";
+      canvas.style.width = "220px";
+      canvas.style.height = "180px";
+      var img = new Image();
+      img.onload = function () {
+        /// draw image to canvas
+        canvas
+          .getContext("2d")
+          .drawImage(this, 0, 0, canvas.width, canvas.height);
+      };
+      img.src = `data:image/jpeg;base64,${loggedInUser.image.data}`;
+      canvas.style.display = "grid";
+    } else {
+      video.style.display = "none";
+      canvas.style.display = "none";
+    }
   }
 });
 
@@ -114,8 +132,8 @@ const UpdateStorageSessions = (key, value) => {
 document.getElementById("Open_Camera").addEventListener("click", (e) => {
   canvas.style.display = "none";
   video.style.display = "grid";
-  video.style.width = "320px";
-  video.style.height = "240px";
+  video.style.width = "240px";
+  video.style.height = "180px";
 
   canvas.style.width = "0";
   canvas.style.height = "0";
@@ -132,10 +150,10 @@ document.getElementById("Open_Camera").addEventListener("click", (e) => {
 });
 
 document.getElementById("Stop_Camera").addEventListener("click", (e) => {
-  console.log("stop_camera")
+  console.log("stop_camera");
   e.preventDefault();
-  canvas.style.width = "320px";
-  canvas.style.height = "240px";
+  canvas.style.width = "220px";
+  canvas.style.height = "180px";
 
   canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
   let image_data_url = canvas.toDataURL("image/jpeg");
@@ -145,14 +163,14 @@ document.getElementById("Stop_Camera").addEventListener("click", (e) => {
   video.style.width = "0";
   video.style.height = "0";
   video.style.display = "none";
-  console.log("image_data_url   ",image_data_url);
+  console.log("image_data_url   ", image_data_url);
   canvas.style.display = "grid";
   // document.getElementById("CameraImg").src = image_data_url;
   var blob = dataURItoBlob(image_data_url);
-  console.log("blob  ",blob);
+  console.log("blob  ", blob);
   // console.log("blob forms   ",blob.forms[0]);
   var file = new File([blob], "image.png");
-  console.log("file  ",file);
+  console.log("file  ", file);
 
   // var fd = new FormData(document.forms[0]);
   const formData = new FormData();
@@ -160,14 +178,14 @@ document.getElementById("Stop_Camera").addEventListener("click", (e) => {
   let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
   // console.log("window.sessionStorage ",loggedInUser);
   // console.log(myFile.files[0]);
-  console.log("loggedInUser   ", loggedInUser)
+  console.log("loggedInUser   ", loggedInUser);
   if (loggedInUser != null) {
     var loggdUserId = JSON.parse(loggedInUser).id;
-    console.log("loggdUserId  ",loggdUserId);
+    console.log("loggdUserId  ", loggdUserId);
     urlImg = urlImg + loggdUserId;
-    console.log("urlImg   ",  urlImg.toString());
-    postImageData(urlImg,formData)
-    .then((userData) => {
+    console.log("urlImg   ", urlImg.toString());
+    postImageData(urlImg, formData)
+      .then((userData) => {
         //User Data from DB
         let updatedUser = JSON.stringify(userData);
 
@@ -183,7 +201,6 @@ document.getElementById("Stop_Camera").addEventListener("click", (e) => {
     alert("Error.. Not a logged in user");
   }
 });
-
 
 async function postImageData(url = "", data) {
   // Default options are marked with *
@@ -202,23 +219,21 @@ async function postImageData(url = "", data) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-
 function dataURItoBlob(dataURI) {
   // convert base64/URLEncoded data component to raw binary data held in a string
   var byteString;
-  if (dataURI.split(',')[0].indexOf('base64') >= 0)
-      byteString = atob(dataURI.split(',')[1]);
-  else
-      byteString = unescape(dataURI.split(',')[1]);
+  if (dataURI.split(",")[0].indexOf("base64") >= 0)
+    byteString = atob(dataURI.split(",")[1]);
+  else byteString = unescape(dataURI.split(",")[1]);
 
   // separate out the mime component
-  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+  var mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
 
   // write the bytes of the string to a typed array
   var ia = new Uint8Array(byteString.length);
   for (var i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
+    ia[i] = byteString.charCodeAt(i);
   }
 
-  return new Blob([ia], {type:mimeString});
+  return new Blob([ia], { type: mimeString });
 }

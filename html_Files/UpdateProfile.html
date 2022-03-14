@@ -29,17 +29,17 @@
                     <img id="Text_Logo" src="../img/Home_Genie_Text_UpdateProfile.png" alt="Home Genie Text logo">
                     <h1>Add More to you profile?</h1>
                     <img id="Home_GenieDKLogo" src="../img/Home_Genie_DK_Logo.png" alt="Home Genie dk Logo">
-                    <a href="index.html">Back to home</a>
+                    <a id="homeLink" href="index.html">Back to home</a>
                 </div>
             </div>
             <div class="upd_parent_wrapper">
-                <div class="profile_photo_Wrapper">
-                    <div class="profileImage">
-                        <video id="video"  autoplay></video>
-                        <canvas id="canvas" ></canvas>
-                    </div>
-                </div>
                 <div class="upd_profile_wrapper">
+                    <div class="profile_photo_Wrapper">
+                        <div class="profileImage">
+                            <video id="video" autoplay></video>
+                            <canvas id="canvas"></canvas>
+                        </div>
+                    </div>
                     <a id="Open_Camera">
                         <i class="fas fa-camera"></i>
                     </a>
@@ -71,12 +71,12 @@
                             <label for="upd-fName"> Professional <br> Information</label>
                             <input type="text" id="upd-Bio" name="upd-Bio" placeholder="About yourself" required>
                         </div>
-                        <div class="login-password">
-                            <label for="upd-password"></label>
+                        <div class="login-password-wrapper">
+                            <label for="upd-password">Password</label>
                             <div class="icon_input_wrapper">
-                                <!-- <i class="fas fa-lock"></i> -->
                                 <span class="iconify" data-icon="bx:lock"></span>
-                                <input class="upd-password" type="password" id="upd-password" name="login-password" placeholder="Password" required>
+                                <input class="upd-password" type="password" id="upd-password" name="login-password"
+                                    placeholder="Password" required>
                             </div>
                         </div>
                         <div class="upd-buttons">

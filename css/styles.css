@@ -1680,15 +1680,12 @@ a {
 }
 
 .upd_parent_wrapper {
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
   align-items: center;
   padding: 1rem;
-  position: relative;
+  justify-content: center;
 }
 
 .upd_profile_wrapper {
@@ -1698,10 +1695,7 @@ a {
   margin-right: auto;
   border-radius: 1.5rem;
   background-color: white;
-  padding: 2rem 1rem 1rem 1rem;
-  z-index: 1;
-  position: absolute;
-  bottom: 100px;
+  padding: 1rem;
   box-shadow: var(--primary_box_shadow);
 }
 .dk_layoutWrapper {
@@ -1768,12 +1762,13 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   text-align: left;
+  margin-top: 0.5rem;
 }
 
 /*Style the input fields*/
 .upd_profile_wrapper input {
   border: none;
-  text-align: center;
+  text-align: left;
   border-bottom: 1px solid var(--primary_BlueShade_1);
   outline: none;
 }
@@ -1786,6 +1781,13 @@ a {
 .profileImage {
   border: none;
   outline: none;
+  display: flex;
+  justify-content: center;
+}
+
+#canvas,
+#video {
+  border: 2px solid var(--primary_BlueShade_1);
 }
 
 .profileImage a {
@@ -1798,12 +1800,36 @@ a {
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
   padding: 0.5rem;
-  margin-top: 2rem;
+}
+
+.login-password-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: left;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+#Open_Camera i {
+  border-bottom: none;
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 1000px) {
   .dk_layoutWrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #homeLink {
+    padding: 1rem;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: var(--box_shadow_Bottom);
+    text-transform: uppercase;
+    margin: 0 auto;
+    background-color: var(--primary_BlueShade_1);
+    color: white;
   }
   .UpdateProfilePageWrapper {
     grid-template-columns: repeat(2, 1fr);
