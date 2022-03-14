@@ -290,6 +290,14 @@ a {
   .mb-UserGreetingContainer {
     display: none;
   }
+  .dk-WelcomeUser {
+    color: var(--primary_BlueShade_1);
+    margin: 0;
+  }
+
+  #user_Name {
+    padding: 0;
+  }
 
   .img_info_container img {
     width: 100%;
@@ -635,7 +643,7 @@ a {
   border: 1px solid grey;
   border-radius: 5px;
   text-align: center;
-  padding: 1rem 0.2rem;
+  padding: 1rem 0.2rem 0 0.2rem;
   opacity: 0;
   z-index: -1;
   transition: all 0.5s ease-in-out;
@@ -666,10 +674,10 @@ a {
   top: 40px;
   margin-top: 1.5rem;
   background-color: white;
-  border: 1px solid grey;
+  border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
   text-align: center;
-  padding: 1rem 0.2rem;
+  padding: 1rem 0.2rem 0 0.2rem;
   opacity: 0;
   z-index: -1;
   transition: all 0.5s ease-in-out;
@@ -684,7 +692,7 @@ a {
   flex-direction: column;
 }
 .subProfileMenu ul li {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid var(--primary_BlueShade_1);
 }
 
 @media screen and (min-width: 600px) {
