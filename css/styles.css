@@ -991,6 +991,10 @@ a {
   align-items: center;
 }
 
+.login-grid h2 {
+  font-size: 2.25rem;
+}
+
 .icon_input_wrapper {
   display: flex;
 }
@@ -1023,6 +1027,7 @@ a {
   /* border-bottom: 1px solid var(--primary_BlueShade_2); */
   padding: 2px;
   color: var(--primary_BlueShade_1);
+  font-size: 1.5rem;
 }
 
 /*Style the links like forgot password and signup*/
@@ -1049,6 +1054,14 @@ a {
   margin-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.login-password {
+  margin-top: 2rem;
+}
+
+.login-forgot {
+  margin-top: 1rem;
 }
 
 /*Align the login button and links*/
@@ -1101,6 +1114,7 @@ a {
 .login-buttons span:nth-of-type(2) {
   align-self: center;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .login-desktop h1,
@@ -1121,7 +1135,7 @@ a {
 @media screen and (min-width: 1200px) {
   .login-grid {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .login-desktop {
@@ -1142,10 +1156,11 @@ a {
 
   .login-wrapper {
     max-width: 1200px;
-    width: 400px;
+    width: 370px;
     margin-left: auto;
     margin-right: auto;
   }
+
 }
 /*#endregion Login*/
 
@@ -1225,6 +1240,7 @@ a {
   width: 100%;
   height: auto;
   place-self: center;
+  padding-left: 2rem;
 }
 
 .about-wrapper h2 {
@@ -1239,7 +1255,6 @@ a {
 }
 
 .about-content1 button {
-  margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 0.5rem 2rem;
   color: white;
@@ -1247,6 +1262,10 @@ a {
   border: none;
   border-radius: 5px;
   box-shadow: var(--box_shadow_Bottom);
+}
+
+.about-content1-content p {
+   margin-bottom: 2rem;
 }
 
 .about-choose-item2,
@@ -1332,6 +1351,7 @@ a {
 
 .about-team-wrapper img {
   filter: grayscale(100%);
+  border-radius: 50%;
 }
 
 .about-designers h3,
@@ -1374,6 +1394,29 @@ a {
   }
 }
 
+.about-content1-content {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.about-content1-content h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.about-content1-content p {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.about-content1-content h2 {
+  margin-bottom: 1rem;
+}
+
+/* .about-content1-content a {
+  place-self: center;
+} */
+
 @media screen and (min-width: 1200px) {
   .about-content1,
   .desktop-grid,
@@ -1382,9 +1425,15 @@ a {
     margin: 0 auto;
   }
 
+  .about-content1 img {
+    width: 80%;
+    height: auto;
+    padding-left:0;
+  }
+
   .about-content1-wrapper,
   .about-content1 {
-    padding-bottom: 0;
+    padding: 0;
   }
 
   .desktop-grid {
@@ -1437,7 +1486,7 @@ a {
 
   .about-team {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 30% 70%;
   }
 
   .about-manager {
