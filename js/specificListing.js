@@ -184,7 +184,6 @@ window.addEventListener("load", (e) => {
           document.querySelector(".specific-bids").style.display = "grid";
           //Get bid Offers for the listing.
           if (listing.biddingOffers != null) {
-            console.log("Offers : " + listing.biddingOffers.length);
             if (listing.biddingOffers.length > 0) {
               for (let u = 0; u < listing.biddingOffers.length; u++) {
                 let biddingOffer = listing.biddingOffers[u];
@@ -394,7 +393,6 @@ let PlaceBidFn = () => {
     document.getElementById("bidOffer").value.replace("$", "")
   );
   let listingID = listingInfo.id;
-  alert(listingID);
   let parsedUser = JSON.parse(logInUser);
   let biddingOfferObj = new BiddingOffer(
     listingID,
@@ -417,12 +415,6 @@ let PlaceBidFn = () => {
       alert("Offer Sent");
 
       window.location.href = "SpecificListing.html?ListingId=" + listingID;
-
-      // alert("Ofer Sent");
-      // // window.location.href = "/html_Files/index.html";
-      // //UpdateStorageSessions(UserSessionStorageKey, logInUser);
-      // //   Navigate to specific listing page.
-      // //window.location.href = "/html_Files/index.html";
     })
     .catch((err) => {
       alert(err);
