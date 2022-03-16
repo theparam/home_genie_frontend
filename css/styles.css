@@ -564,6 +564,23 @@ a {
   border-bottom: 1px solid grey;
 }
 
+.viewbtnWrapper {
+  text-align: right;
+}
+
+.viewbtnWrapper a {
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  background-color: var(--primary_BlueShade_1);
+  color: white;
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+}
+
+.viewbtnWrapper a:hover{
+  box-shadow: var(--primary_box_shadow);
+}
+
 .ownerNotification:hover,
 .customerNotification:hover {
   background-color: var(--secondary_PinkShade_2);
