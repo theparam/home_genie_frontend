@@ -8,6 +8,8 @@ let listingURL = "http://localhost:8080/home/genie/listing/";
 
 let fetchBidOffers = "http://localhost:8080/home/genie/user/bid/";
 
+let fetchNotificationUrl = "http://localhost:8080/home/genie/user/";
+
 let loggdInUser = "";
 let bellIcon = document.getElementById("ShowNotificationPopUp");
 let dk_bellIcom = document.getElementById("dk-ShowNotificationPopUp");
@@ -21,8 +23,37 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("mb_user_Name").innerHTML = document.getElementById(
     "dk_user_Name"
   ).innerHTML = loggdInUser.fullName;
+
+  GetNotification("Owner");
+  GetNotification("Customer");
 });
 
+function GetNotification(user) {
+  let userId = loggdInUser.id;
+
+  let url = "";
+  if (user === "Owner") {
+    url = fetchNotificationUrl + "getOwnerNotifications/" + userId;
+  } else {
+    url = fetchNotificationUrl + "getCustomerNotifications/" + userId;
+  }
+
+  fetchNotificationForUser(url)
+    .then((data) => {
+      console.log("Data: " + JSON.stringify(data));
+
+      // GenerateNotificationContainer();
+    })
+    .catch((err) => {
+      console.log("error: " + err);
+    });
+}
+
+document.getElementById("CrossIcon").addEventListener("click", () => {
+  document
+    .querySelector(".NotificationPopUpContainer")
+    .classList.remove("popUPActive");
+});
 document.addEventListener("keydown", (e) => {
   if (!e.repeat) {
     if (e.key === "Escape") {
@@ -206,30 +237,29 @@ function ShowMessageAndRedirect() {
 //   window.location.href = "SpecificListing.html?ListingId=" + btnObject.id;
 // };
 
-// async function getBiddingOffers(bidOfferId) {
-//   let url = fetchBidOffers + bidOfferId;
-//   return await fetchListingData(url)
-//     .then((bidOffer) => {
-//       return bidOffer;
-//     })
-//     .catch((err) => {
-//       alert("Error: " + err);
-//     });
-// }
+async function fetchNotificationForUser(url) {
+  return await fetchNotificationData(url)
+    .then((notification) => {
+      return notification;
+    })
+    .catch((err) => {
+      alert("Error: " + err);
+    });
+}
 
-// async function fetchListingData(url = "") {
-//   // Default options are marked with *
-//   const response = await fetch(url, {
-//     headers: {
-//       "Content-Type": "application/json",
-//       Accept: "*",
-//       "Access-Control-Allow-Credentials": "true",
-//       "Access-Control-Allow-Methods": "GET",
-//       "Access-Control-Allow-Origin": "*",
-//     },
-//     method: "GET",
-//   }).catch((err) => {
-//     return err;
-//   });
-//   return response.json(); // parses JSON response into native JavaScript objects
-// }
+async function fetchNotificationData(url = "") {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "GET",
+      "Access-Control-Allow-Origin": "*",
+    },
+    method: "GET",
+  }).catch((err) => {
+    return err;
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
