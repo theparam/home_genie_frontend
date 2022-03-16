@@ -18,7 +18,9 @@ if (loggedInUser != null) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("user_Name").innerHTML = loggdInUser.fullName;
+  document.getElementById("mb_user_Name").innerHTML = document.getElementById(
+    "dk_user_Name"
+  ).innerHTML = loggdInUser.fullName;
 });
 
 document.addEventListener("keydown", (e) => {

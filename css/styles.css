@@ -91,7 +91,9 @@ a {
   display: flex;
   flex-direction: column;
 }
-#user_Name {
+
+#dk_user_Name,
+#mb_user_Name {
   padding: 0 3rem;
 }
 .heroImageContainer img {
@@ -295,7 +297,8 @@ a {
     margin: 0;
   }
 
-  #user_Name {
+  #dk_user_Name,
+  #mb_user_Name {
     padding: 0;
   }
 
