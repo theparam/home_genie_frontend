@@ -1160,7 +1160,6 @@ a {
     margin-left: auto;
     margin-right: auto;
   }
-
 }
 /*#endregion Login*/
 
@@ -1265,7 +1264,7 @@ a {
 }
 
 .about-content1-content p {
-   margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .about-choose-item2,
@@ -1429,7 +1428,7 @@ a {
   .about-content1 img {
     width: 80%;
     height: auto;
-    padding-left:0;
+    padding-left: 0;
   }
 
   .about-content1-wrapper,
@@ -2146,7 +2145,6 @@ a {
 
 .specific-color-bottom-dk-wrapper {
   display: grid;
-  grid-template-columns: 1fr;
 }
 
 .specific-bid1,
@@ -2327,7 +2325,6 @@ a {
   .specific-color-bottom-dk-wrapper {
     max-width: 1000px;
     margin: 0 auto;
-    grid-template-columns: 1fr 1fr;
   }
 
   .specific-image {
@@ -2336,6 +2333,7 @@ a {
   .specific-bids,
   .specific-grid,
   .specific-desc {
+    grid-template-columns: 1fr 1fr;
     max-width: 1000px;
     margin: 0 auto;
   }
@@ -2388,8 +2386,8 @@ a {
   }
 
   .specific-bids {
-    display: grid;
     grid-gap: 4rem;
+    grid-template-columns: 1fr 1fr;
     justify-content: space-around;
     padding: 4rem;
     padding-left: 0;
