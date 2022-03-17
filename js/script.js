@@ -369,7 +369,7 @@ async function fetchNotificationForUser(url) {
       return notification;
     })
     .catch((err) => {
-      alert("Error: " + err);
+      console.log("Error: " + err);
     });
 }
 
@@ -399,7 +399,7 @@ async function getBidOfferDataForUser(bidOfferId) {
       return bidOffer;
     })
     .catch((err) => {
-      alert("Error: " + err);
+      console.log("Error: " + err);
     });
 }
 
