@@ -120,12 +120,8 @@ a {
   font-weight: normal;
 }
 
-#CrossIcon {
-  font-size: 1rem;
-  font-weight: normal;
-  border: 1px solid white;
-  border-radius: 50%;
-  padding: 0.3rem;
+#CrossIcon i{
+  font-size: 1.3rem;
   margin: 0 0.3rem;
   color: white;
 }
