@@ -59,6 +59,7 @@ function GetNotification(user) {
 
   fetchNotificationForUser(url)
     .then((data) => {
+      console.log("Data: " + JSON.stringify(data));
       for (let n = 0; n < data.length; n++) {
         if (data[n].status == "unread") {
           iconFlag = true;
@@ -114,13 +115,11 @@ function GenerateNoticationforUserAsOwner(notificationData) {
 function GenerateNoticationforUserAsCustomer(notificationData) {
   let urlListing = listingURL + notificationData.listingId;
 
-  console.log("url customer " + urlListing);
   getData(urlListing)
     .then((listingRes) => {
       console.log("listingRes: " + listingRes.ownerUserId);
       getData(fetchNotificationUrl + listingRes.ownerUserId)
         .then((owner) => {
-          console.log("Owner: " + owner);
           let customerNotification = getCustomerNotificationContainer(
             notificationData,
             listingRes,
@@ -150,7 +149,7 @@ function getOwnerNotificationContainer(
          biddingOffer.bidUserName
        }</span></p>
        <div class="viewbtnWrapper">
-         <a class="viewlisting" id="${
+         <a class="viewlisting" onclick="UpdateOwnerNotifationViewListing(this)" id="${
            listing.id + "_" + notificationData.id
          }">View Listing</a>
        </div>
@@ -164,12 +163,61 @@ function getCustomerNotificationContainer(notificationData, listing, owner) {
       owner.firstName
     }</span> accepted your offer</p>
     <div class="viewbtnWrapper">
-    <a class="viewlisting" id="${
+    <a class="viewlisting" onclick="UpdateCustomerNotifationViewListing(this)" id="${
       listing.id + "_" + notificationData.id
     }">View Listing</a>
     </div>
 </div>`;
   return container;
+}
+
+async function UpdateOwnerNotifationViewListing(btn) {
+  let idArr = btn.id.split("_");
+  let listingID = idArr[0];
+  let notificationID = idArr[1];
+
+  // Update the Noftification First wait for response and open the new listing
+  let updateOwnerURL =
+    fetchNotificationUrl + `owner-notification/${notificationID}?status="read"`;
+
+  await UpdateNotificationTable(updateOwnerURL);
+  // AuthenticateAndRedirect(listingID);
+}
+
+async function UpdateCustomerNotifationViewListing(btn) {
+  let idArr = btn.id.split("_");
+  let listingID = idArr[0];
+  let notificationID = idArr[1];
+
+  // Update the Noftification First wait for response and open the new listing
+  let updateOwnerURL =
+    fetchNotificationUrl +
+    `customer-notification/${notificationID}?status="read"`;
+
+  await UpdateNotificationTable(updateOwnerURL);
+  // AuthenticateAndRedirect(listingID);
+}
+
+async function UpdateNotificationTable(url) {
+  const response = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "POST",
+      "Access-Control-Allow-Origin": "*",
+    },
+    method: "POST",
+  });
+  return response.json();
+}
+
+function AuthenticateAndRedirect(listingID) {
+  if (!AuthenticateLogin()) {
+    ShowMessageAndRedirect();
+  } else {
+    window.location.href = "SpecificListing.html?ListingId=" + listingID;
+  }
 }
 
 // Close the notification on cross click
