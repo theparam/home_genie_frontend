@@ -22,9 +22,11 @@ if (loggedInUser != null) {
 
 // When index page is loaded.
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("mb_user_Name").innerHTML = document.getElementById(
-    "dk_user_Name"
-  ).innerHTML = loggdInUser.fullName;
+  let mb_userName = document.getElementById("mb_user_Name");
+  let dk_userName = document.getElementById("dk_user_Name");
+  if (mb_userName != null && dk_userName != null) {
+    mb_userName = dk_userName = loggdInUser.fullName;
+  }
 
   GetNotification("Owner");
   GetNotification("Customer");
@@ -156,6 +158,7 @@ function getOwnerNotificationContainer(
    </div>`;
   return container;
 }
+
 function getCustomerNotificationContainer(notificationData, listing, owner) {
   let container = `<div class="customerNotification">
   <h3 class="listingTitle">${listing.title}</h1>
@@ -221,11 +224,15 @@ function AuthenticateAndRedirect(listingID) {
 }
 
 // Close the notification on cross click
-document.getElementById("CrossIcon").addEventListener("click", () => {
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.remove("popUPActive");
-});
+let crossIconElement = document.getElementById("CrossIcon");
+
+if (crossIconElement != null) {
+  crossIconElement.addEventListener("click", () => {
+    document
+      .querySelector(".NotificationPopUpContainer")
+      .classList.remove("popUPActive");
+  });
+}
 
 // Clase all open divs on escape button
 document.addEventListener("keydown", (e) => {
@@ -282,25 +289,36 @@ document.querySelector(".ProfileIcon").addEventListener("click", (e) => {
 });
 
 // #region Open the Category to another page.
-document.getElementById("PersonalCategory").addEventListener("click", (e) => {
-  e.preventDefault();
-  window.location.href = "Listing.html?Category=" + personalCategory;
-});
 
-document.getElementById("IndoorCategory").addEventListener("click", (e) => {
-  e.preventDefault();
-  window.location.href = "Listing.html?Category=" + IndoorCategory;
-});
+let personalCategoryElement = document.getElementById("PersonalCategory");
+let indoorCategoryElement = document.getElementById("IndoorCategory");
+let outdoorServicesElement = document.getElementById("OutdoorServices");
+let premiumServicesElement = document.getElementById("PremiumServices");
 
-document.getElementById("OutdoorServices").addEventListener("click", (e) => {
-  e.preventDefault();
-  window.location.href = "Listing.html?Category=" + OutdoorCategory;
-});
-
-document.getElementById("PremiumServices").addEventListener("click", (e) => {
-  e.preventDefault();
-  window.location.href = "Listing.html?Category=" + PremiumCategory;
-});
+if (personalCategoryElement != null) {
+  personalCategoryElement.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?Category=" + personalCategory;
+  });
+}
+if (indoorCategoryElement != null) {
+  indoorCategoryElement.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?Category=" + IndoorCategory;
+  });
+}
+if (outdoorServicesElement != null) {
+  outdoorServicesElement.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?Category=" + OutdoorCategory;
+  });
+}
+if (premiumServicesElement != null) {
+  premiumServicesElement.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Listing.html?Category=" + PremiumCategory;
+  });
+}
 
 // #endregion
 
@@ -317,9 +335,9 @@ document.querySelectorAll(".ViewListing").forEach((btn) => {
 });
 
 //#region Search input Query.
-document
-  .getElementById("SearchInputField")
-  .addEventListener("keyup", (event) => {
+let searchElement = document.getElementById("SearchInputField");
+if (searchElement != null) {
+  searchElement.addEventListener("keyup", (event) => {
     if (event.keyCode === 13) {
       event.preventDefault();
 
@@ -340,13 +358,18 @@ document
         "Search.html?SearchKey=" + searchText + "&category=" + categoryValue;
     }
   });
+}
 //#endregion
 
 // Logout Btn Code
-document.getElementById("logoutBtn").addEventListener("click", () => {
-  sessionStorage.removeItem("LoggedInUser");
-  window.location.href = "Login.html";
-});
+
+let logoutElement = document.getElementById("logoutBtn");
+if (logoutElement != null) {
+  logoutElement.addEventListener("click", () => {
+    sessionStorage.removeItem("LoggedInUser");
+    window.location.href = "Login.html";
+  });
+}
 
 function AuthenticateLogin() {
   let isLoggedIn = true;
