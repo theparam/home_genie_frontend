@@ -120,15 +120,20 @@ a {
   font-weight: normal;
 }
 
-#CrossIcon i{
+#CrossIcon i,
+#CloseMsgBox i {
   font-size: 1.3rem;
   margin: 0 0.3rem;
   color: white;
 }
 
+#CloseMsgBox i {
+  color: var(--primary_BlueShade_1);
+}
+
 .LogoContainer img {
-  height: 100%;
-  width: 70px;
+  height: auto;
+  width: 110px;
 }
 
 #ShowNotificationPopUp img,
@@ -141,6 +146,34 @@ a {
   box-shadow: var(--box_shadow_Bottom);
   margin-bottom: 0.2rem;
 }
+
+.messageboxWrapper {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border: 1px solid var(--primary_BlueShade_1);
+  background-color: var(--secondary_PinkShade_2);
+  padding: 0.5rem;
+  width: 300px;
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  transition: all 0.5s ease-in-out;
+  transform-origin: left top;
+  transform: scaleY(0);
+}
+
+.messageboxWrapper.showMsgbox {
+  opacity: 1;
+  z-index: 3;
+  transform: scaleY(1);
+}
+.crossIconContainer {
+  text-align: right;
+}
+
 #PersonalCategory,
 #IndoorCategory,
 #OutdoorServices,
@@ -269,7 +302,7 @@ a {
 }
 
 .footer_Area {
-  padding: 0 1rem 0 0;
+  padding: 1rem 1rem 0 1rem;
   background-color: var(--primary_BlueShade_1);
   color: white;
 }
@@ -574,7 +607,7 @@ a {
   border-radius: 0.25rem;
 }
 
-.viewbtnWrapper a:hover{
+.viewbtnWrapper a:hover {
   box-shadow: var(--primary_box_shadow);
 }
 

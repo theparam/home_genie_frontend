@@ -358,8 +358,12 @@ function AuthenticateLogin() {
 }
 
 function ShowMessageAndRedirect() {
-  alert("Kindly login first.");
-  window.location.href = "Login.html";
+  // ShowMessagePopUp("Unable to view the listing. Kindly login first");
+
+  document.getElementById("CloseMsgBox").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "Login.html";
+  });
 }
 
 // This method is used to get the notification for the User
@@ -418,4 +422,10 @@ async function getData(url = "") {
     return err;
   });
   return response.json(); // parses JSON response into native JavaScript objects
+}
+
+function ShowMessagePopUp(msg) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.toggle("showMsgbox");
 }

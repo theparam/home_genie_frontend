@@ -88,7 +88,7 @@ window.addEventListener("load", (e) => {
       ).innerHTML = `<strong>Conditions (If Applicable): </strong>${listing.condition}`;
 
       document.getElementById("Listing_OwnerDescription").innerHTML =
-      `<strong>Description: </strong>`+  listing.description;
+        `<strong>Description: </strong>` + listing.description;
       document.getElementById(
         "Listing_Image"
       ).src = `data:image/jpeg;base64,${listing.image.data}`;
@@ -356,13 +356,13 @@ function DeclineOfferFn(declineBtn) {
 let placeBidContainer = (listing) => {
   return `<div class="bidLabelInputContainer">
   <label for="bidOffer">Price :</label>
-  <div class="IconContainer id="plusAmount" onclick="IncreaseAmount(this)">
-      <i class="fa fa-plus" aria-hidden="true"></i>
+  <div class="IconContainer id="minusAmount" onclick="DecreaseAmount(this)">
+    <i class="fa fa-minus" aria-hidden="true"></i>
   </div>
   <input type="text" value=${listing.price} id="bidOffer" class="bidAmountField" placeholder="$xx.xx">
-  <div class="IconContainer id="minusAmount" onclick="DecreaseAmount(this)">
-      <i class="fa fa-minus" aria-hidden="true"></i>
-  </div>
+  <div class="IconContainer id="plusAmount" onclick="IncreaseAmount(this)">
+  <i class="fa fa-plus" aria-hidden="true"></i>
+</div>
 </div>
 <button class="placeBidBtnSubmit" id="bitSubmitBtn" onclick="PlaceBidFn()">Place bid</button>`;
 };
