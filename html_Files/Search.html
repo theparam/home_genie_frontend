@@ -61,7 +61,7 @@
                                 <a href="UpdateProfile.html">Profile</a>
                             </li>
                             <li>
-                                <a href="Login.html">Logout</a>
+                                <a id="logoutBtn">Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -97,14 +97,13 @@
     </nav>
     <div class="Notification_wrapper">
         <div class="NotificationPopUpContainer">
+            <div class="text_btn_wrapper">
+                <h3>Notifications </h3>
+                <a id="CrossIcon">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
             <div class="NotificationPopUp">
-                <div class="Notification_id1">
-                    <h3>Listing Name</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
-                    <div>
-                        <button>View Listing</button>
-                    </div>
-                </div>
             </div>
             <div class="triangle"></div>
         </div>
@@ -117,44 +116,6 @@
             <h2>Category: <span id="category_title"></span></h2>
         </div>
         <div class="Search_Listing_Container">
-            <!-- <div class="listing-container">
-                <img src="https://picsum.photos/seed/picsum/400/400" alt="">
-                <div class="image-info">
-                    <h2 class="heading">Lorem, ipsum.</h2>
-                    <h3>Posted By:</h3>
-                    <p>Lorem, ipsum.</p>
-                </div>
-                <button class="button">View Listing</button>
-            </div>
-            <div class="listing-container">
-                <img src="https://picsum.photos/seed/picsum/400/400" alt="">
-                <div class="image-info">
-                    <h2 class="heading">Lorem, ipsum.</h2>
-                    <h3>Posted By:</h3>
-                    <p>Lorem, ipsum.</p>
-                </div>
-                <button class="button">View Listing</button>
-            </div>
-            <div class="listing-container">
-                <img src="https://picsum.photos/seed/picsum/400/400" alt="">
-                <div class="image-info">
-                    <h2 class="heading">Lorem, ipsum.</h2>
-                    <h3>Posted By:</h3>
-                    <p>Lorem, ipsum.</p>
-                </div>
-                <button class="button">View Listing</button>
-            </div>
-            <div class="listing-container">
-                <img src="https://picsum.photos/seed/picsum/400/400" alt="">
-                <div class="image-info">
-                    <b>
-                        <h2 class="heading">Lorem, ipsum.</h2>
-                    </b>
-                    <h3>Posted By:</h3>
-                    <p>Lorem, ipsum.</p>
-                </div>
-                <button class="button">View Listing</button>
-            </div> -->
         </div>
     </main>
     <footer class="footer_Area">
@@ -194,8 +155,8 @@
             </div>
         </div>
     </footer>
-    <script src="../js/script.js" defer></script>
-    <script src="../js/Search.js" defer></script>
+    <script type="text/javascript" src="../js/script.js" defer></script>
+    <script type="text/javascript" src="../js/Search.js" defer></script>
 </body>
 
 </div>
