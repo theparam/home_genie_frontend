@@ -1403,6 +1403,9 @@ a {
 .about-developers p {
   text-align: center;
 }
+.about-team-subdiv {
+  width: 100%;
+}
 
 .about-designers,
 .about-developers {

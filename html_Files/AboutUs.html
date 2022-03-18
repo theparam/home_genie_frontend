@@ -9,9 +9,11 @@
 
     <meta name="description" content="A Bidding platform for the people to bid on the home services of other people">
     <link rel="manifest" href="../app.webmanifest">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
         integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
@@ -61,7 +63,7 @@
                                 <a href="UpdateProfile.html">Profile</a>
                             </li>
                             <li>
-                                <a href="Login.html">Logout</a>
+                                <a id="logoutBtn">Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -95,20 +97,21 @@
             </li>
         </ul>
     </nav>
+
     <div class="Notification_wrapper">
         <div class="NotificationPopUpContainer">
+            <div class="text_btn_wrapper">
+                <h3>Notifications </h3>
+                <a id="CrossIcon">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
             <div class="NotificationPopUp">
-                <div class="Notification_id1">
-                    <h3>Listing Name</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, asperiores?</p>
-                    <div>
-                        <button>View Listing</button>
-                    </div>
-                </div>
             </div>
             <div class="triangle"></div>
         </div>
     </div>
+
     <!-- Till here -->
     <div class="about-wrapper">
 
@@ -250,7 +253,7 @@
         });
     </script>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
-    <script src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
 </body>
 
 </html>
