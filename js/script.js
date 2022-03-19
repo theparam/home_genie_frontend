@@ -363,11 +363,13 @@ if (searchElement != null) {
 
 // Logout Btn Code
 
-let logoutElement = document.getElementById("logoutBtn");
+let logoutElement = document.querySelectorAll(".logoutBtn");
 if (logoutElement != null) {
-  logoutElement.addEventListener("click", () => {
-    sessionStorage.removeItem("LoggedInUser");
-    window.location.href = "Login.html";
+  logoutElement.forEach((element) => {
+    element.addEventListener("click", () => {
+      sessionStorage.removeItem("LoggedInUser");
+      window.location.href = "Login.html";
+    });
   });
 }
 
