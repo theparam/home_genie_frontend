@@ -37,32 +37,38 @@
         <div class="dk-menu">
             <ul>
                 <li>
-                    <a href="#" id="dk-ShowNotificationPopUp">
-                        <img id="dk_NotificationGenie" src="../img/Notification_Genie.png" alt="Notification Genie">
-                    </a>
-                </li>
-                <li>
                     <a href="CreateListing.html">Create</a>
                 </li>
                 <li>
-                    <a class="ViewListing">View Listings</a>
+                    <a class="ViewListing">View listings</a>
                 </li>
                 <li>
                     <a href="AboutUs.html">About Us</a>
                 </li>
                 <li>
+                    <a href="#" id="dk-ShowNotificationPopUp">
+                        <img id="dk_NotificationGenie" src="../img/Notification_Genie.png" alt="Notification Genie">
+                    </a>
+                </li>
+                <li>
                     <a href="#" class="ProfileIcon">
                         <i title="Profile" class="far fa-user-circle"></i>
                     </a>
-                    <div class="subProfileMenu">
-                        <ul>
-                            <li>
-                                <a href="UpdateProfile.html">Profile</a>
-                            </li>
-                            <li>
-                                <a id="logoutBtn">Logout</a>
-                            </li>
-                        </ul>
+                    <div id="ProfileContainer">
+                        <div class="subProfileMenu">
+                            <ul>
+                                <li>
+                                    <p class="dk-WelcomeUser">Hello, <span class="loggedUserName"></span></p>
+                                </li>
+
+                                <li>
+                                    <a href="UpdateProfile.html">Profile</a>
+                                </li>
+                                <li>
+                                    <a id="logoutBtn">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </li>
             </ul>

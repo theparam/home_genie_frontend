@@ -22,10 +22,11 @@ if (loggedInUser != null) {
 
 // When index page is loaded.
 document.addEventListener("DOMContentLoaded", () => {
-  let mb_userName = document.getElementById("mb_user_Name");
-  let dk_userName = document.getElementById("dk_user_Name");
-  if (mb_userName != null && dk_userName != null) {
-    mb_userName = dk_userName = loggdInUser.fullName;
+  let lg_userName = document.querySelectorAll(".loggedUserName");
+  if (lg_userName != null) {
+    lg_userName.forEach((element) => {
+      element.innerHTML = loggdInUser.firstName;
+    });
   }
 
   GetNotification("Owner");
@@ -61,7 +62,6 @@ function GetNotification(user) {
 
   fetchNotificationForUser(url)
     .then((data) => {
-      console.log("Data: " + JSON.stringify(data));
       for (let n = 0; n < data.length; n++) {
         if (data[n].status == "unread") {
           iconFlag = true;

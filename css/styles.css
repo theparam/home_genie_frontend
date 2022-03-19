@@ -92,8 +92,7 @@ a {
   flex-direction: column;
 }
 
-#dk_user_Name,
-#mb_user_Name {
+.loggedUserName {
   padding: 0 3rem;
 }
 .heroImageContainer img {
@@ -351,8 +350,7 @@ a {
     margin: 0;
   }
 
-  #dk_user_Name,
-  #mb_user_Name {
+  .loggedUserName {
     padding: 0;
   }
 
@@ -783,7 +781,7 @@ a {
     display: none;
   }
   .NotificationPopUpContainer {
-    right: 370px;
+    right: 35px;
     z-index: -1;
   }
   .dk-menu {
