@@ -8,6 +8,11 @@ loginBtn.addEventListener("click", (e) => {
   let emailId = document.getElementById("login-email").value;
   let paswd = document.getElementById("login-password").value;
 
+  if (emailId === "" || paswd === "") {
+    alert("Field(s) cannot be left blank");
+    return;
+  }
+
   const response = new XMLHttpRequest();
   const json = JSON.stringify({
     email: emailId,
@@ -16,6 +21,7 @@ loginBtn.addEventListener("click", (e) => {
 
   postData(url, json)
     .then((userData) => {
+      console.log("status: " + userData.status);
       // User Data from DB
       let logInUser = JSON.stringify(userData);
       console.log("Data: " + logInUser);
@@ -30,13 +36,13 @@ loginBtn.addEventListener("click", (e) => {
       }
     })
     .catch((err) => {
-      alert(err);
+      console.log("ERROR:" + err);
     });
 });
 
 async function postData(url = "", data) {
   // Default options are marked with *
-  const response = await fetch(url, {
+  const request = await fetch(url, {
     headers: {
       "Content-Type": "application/json",
       Accept: "*",
@@ -46,10 +52,50 @@ async function postData(url = "", data) {
     },
     body: data,
     method: "POST",
-  }).catch((err) => {
-    return err;
+  }).catch((error) => {
+    console.log("Only Network Error", error);
   });
-  return response.json(); // parses JSON response into native JavaScript objects
+  return request.json(); // parses JSON response into native JavaScript objects
+  // To ask sir
+  // request
+  //   .then((res) => {
+  //     if (res.ok) {
+  //       return res.json(); // parses JSON response into native JavaScript objects
+  //     } else {
+  //       return res.text().then((data) => {
+  //         console.log();
+  //       });
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     console.log("Only Network Error", error);
+  //   });
+
+  // request
+  //   .then((response) => {
+  //     if (response.ok) {
+  //       //success case
+  //       console.log("Success!");
+  //       //example of reading response header data
+  //       console.log(response.headers.get("Content-Type"));
+  //       //we are assuming JSON
+  //       return response.json();
+  //     } else {
+  //       // error
+  //       response.text().then((text) => console.log(text));
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     console.log("Only Network Error", error);
+  //   });
+
+  // if(response.ok)
+  // {
+  //
+  // }
+  // else{
+  //   return response.text().then((data)=>{console.log()})
+  // }
 }
 
 const UpdateStorageSessions = (key, value) => {
