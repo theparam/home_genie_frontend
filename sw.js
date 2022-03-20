@@ -15,6 +15,7 @@ const urlsToCache = [
   "/html_Files/AboutUs.html",
   "/html_Files/fallback.html",
   "/css/styles.css",
+  "/css/normalize.css",
   "/js/script.js",
   "/js/createListing.js",
   "/js/forget_password.js",

@@ -15,6 +15,6 @@
   ],
   "start_url": "/html_Files/SplashScreen.html",
   "display": "fullscreen",
-  "background_color": "#FF6F6F",
-  "theme_color": "#FF6F6F"
+  "background_color": "#ebbec0",
+  "theme_color": "#006c84"
 }
