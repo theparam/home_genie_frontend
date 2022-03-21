@@ -527,9 +527,19 @@ a {
 /* ************************************************************************************ */
 
 /*#region Navigation*/
+.mb-menu-text{
+  color: var(--primary_BlueShade_1);
+}
+.mb-menu a{
+  margin-right:7px;
+}
 .mb-menu ul {
   padding: 0;
   list-style: none;
+}
+.mb-menu li{
+  display:flex;
+  align-items:center;
 }
 
 .mb-menu ul li {
@@ -2157,6 +2167,8 @@ a {
 /* ************************************************************************************ */
 
 /* #region Specific Listing Page*/
+
+
 .specific-wrapper {
   width: 100%;
 }
@@ -2707,6 +2719,8 @@ form label span {
   .payment .checkbox-buttons .label_checkbox_wrapper {
     justify-content: center;
   }
+
+  
 }
 
 /* #endregion CreateListing */
