@@ -110,29 +110,48 @@
     <ul>
       <!-- Add Links to the Pages when created -->
       <li>
-        <a  href="index.html"><span class="iconify" data-icon="ant-design:home-outlined" style="font-size: 20px;"></span>
-          </a><p class="mb-menu-text">Home</p>
+        <a class="mb-menuAnchor" href="index.html"><span class="iconify" data-icon="ant-design:home-outlined"
+            style="font-size: 20px;"></span>
+          <p class="mb-menu-text">Home</p>
+        </a>
+
       </li>
       <li>
-        <a href="CreateListing.html"><span class="iconify" data-icon="fluent:text-bullet-list-add-20-regular"
-            style="font-size: 20px;"></span></a><p class="mb-menu-text">Create</p>
+        <a class="mb-menuAnchor" href="CreateListing.html"><span class="iconify"
+            data-icon="fluent:text-bullet-list-add-20-regular" style="font-size: 20px;"></span>
+          <p class="mb-menu-text">Create</p>
+        </a>
       </li>
       <li>
-        <a class="ViewListing"> <span class="iconify" data-icon="carbon:data-view" style="font-size: 20px;"></span></a><p class="mb-menu-text">View
-          Listing</p>
+        <a class="ViewListing mb-menuAnchor"> <span class="iconify" data-icon="carbon:data-view"
+            style="font-size: 20px;"></span>
+          <p class="mb-menu-text">View
+            Listing</p>
+        </a>
+
       </li>
       <li>
-        <a href="AboutUs.html"> <span class="iconify" data-icon="clarity:users-line"
-            style="font-size: 20px;"></span></span></a><p class="mb-menu-text">About Us</p>
+        <a class="mb-menuAnchor" href="AboutUs.html"> <span class="iconify" data-icon="clarity:users-line"
+            style="font-size: 20px;"></span></span>
+          <p class="mb-menu-text">About Us</p>
+        </a>
       </li>
       <li>
-        <a href="UpdateProfile.html">
-          <span class="iconify" data-icon="carbon:user-profile" style="font-size: 20px;"></span></a>
-          <p class="mb-menu-text" >Profile</p>
+        <a class="mb-menuAnchor" href="UpdateProfile.html">
+          <span class="iconify" data-icon="carbon:user-profile" style="font-size: 20px;"></span>
+          <p class="mb-menu-text">Profile</p>
+        </a>
       </li>
       <li>
-        <a class="logoutBtn" href="Login.html"><strong><span class="iconify" data-icon="ri:logout-circle-line"
-              style="font-size: 20px;"></span> </a><p class="mb-menu-text">Logout?</p></strong>
+        <a class="logoutBtn mb-menuAnchor" href="Login.html">
+          <strong>
+            <span class="iconify" data-icon="ri:logout-circle-line" style="font-size: 20px;">
+            </span>
+          </strong>
+          <strong>
+            <p class="mb-menu-text">Logout?</p>
+          </strong>
+        </a>
       </li>
     </ul>
   </nav>
@@ -146,21 +165,6 @@
         </a>
       </div>
       <div class="NotificationPopUp">
-        <!-- <div class="ownerNotification">
-          <h3 class="listingTitle">Title</h1>
-            <p>You have received a new offer by <span id="custonerName">Temp</span></p>
-            <div class="viewbtnWrapper">
-              <a class="viewlisting">View Listing</a>
-            </div>
-        </div>
-
-        <div class="customerNotification">
-          <h3 class="listingTitle">Title</h1>
-            <p>Horray!! <span id="ownerName">Temp</span> accepted your offer</p>
-            <div class="viewbtnWrapper">
-              <a class="viewlisting">View Listing</a>
-            </div>
-        </div> -->
       </div>
       <div class="triangle"></div>
     </div>
@@ -168,6 +172,7 @@
 
 
   <div class="messageboxWrapper">
+    <div class="msgwrapper">
     <div class="crossIconContainer">
       <a id="CloseMsgBox">
         <i class="far fa-times-circle"></i>
@@ -176,6 +181,7 @@
     <div class="msgContainer">
       <p id="yourMsg">Some Message</p>
     </div>
+  </div>
   </div>
 
   <!-- Till here -->

@@ -77,6 +77,12 @@ a {
   box-sizing: border-box;
   padding: 0 1rem;
 }
+.mb-menuAnchor {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .heroImageContainer {
   display: none;
 }
@@ -147,21 +153,27 @@ a {
 }
 
 .messageboxWrapper {
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  border: 1px solid var(--primary_BlueShade_1);
-  background-color: var(--secondary_PinkShade_2);
-  padding: 0.5rem;
-  width: 300px;
   z-index: -1;
+  width: 100%;
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
   transition: all 0.5s ease-in-out;
   transform-origin: left top;
   transform: scaleY(0);
+}
+
+.msgwrapper {
+  border: 1px solid var(--primary_BlueShade_1);
+  background-color: var(--secondary_PinkShade_2);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 300px;
 }
 
 .messageboxWrapper.showMsgbox {
@@ -529,6 +541,7 @@ a {
 /*#region Navigation*/
 .mb-menu-text {
   color: var(--primary_BlueShade_1);
+  margin-top: 1.02rem;
 }
 .mb-menu a {
   margin-right: 7px;

@@ -20,12 +20,18 @@ if (loggedInUser != null) {
   loggdInUser = JSON.parse(loggedInUser);
 }
 
+//hides the message box
+document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+
 // When index page is loaded.
 document.addEventListener("DOMContentLoaded", () => {
   let lg_userName = document.querySelectorAll(".loggedUserName");
   if (lg_userName != null) {
     lg_userName.forEach((element) => {
-      element.innerHTML = loggdInUser.firstName;
+      element.innerHTML =
+        loggdInUser.firstName != null || undefined
+          ? loggdInUser.firstName
+          : "Guest";
     });
   }
 
@@ -249,24 +255,31 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-document.getElementById("ShowMenu").addEventListener("click", () => {
-  document.getElementById("showHideMenu").classList.toggle("menu_active");
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.remove("popUPActive");
-});
+let ShowMenubtn = document.getElementById("ShowMenu");
 
-bellIcon.addEventListener("click", () => {
-  toggleNotification();
-});
+if (ShowMenubtn != null) {
+  document.getElementById("ShowMenu").addEventListener("click", () => {
+    document.getElementById("showHideMenu").classList.toggle("menu_active");
+    document
+      .querySelector(".NotificationPopUpContainer")
+      .classList.remove("popUPActive");
+  });
+}
 
-dk_bellIcom.addEventListener("click", () => {
-  toggleNotification();
-  document
-    .querySelector(".subProfileMenu")
-    .classList.remove("activeProfileMenu");
-});
+if (bellIcon != null) {
+  bellIcon.addEventListener("click", () => {
+    toggleNotification();
+  });
+}
 
+if (dk_bellIcom != null) {
+  dk_bellIcom.addEventListener("click", () => {
+    toggleNotification();
+    document
+      .querySelector(".subProfileMenu")
+      .classList.remove("activeProfileMenu");
+  });
+}
 const toggleNotification = () => {
   document
     .querySelector(".NotificationPopUpContainer")
@@ -274,20 +287,22 @@ const toggleNotification = () => {
   document.getElementById("showHideMenu").classList.remove("menu_active");
 };
 
-document.querySelector(".ProfileIcon").addEventListener("click", (e) => {
-  e.preventDefault();
-  let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
-  if (loggedInUser != null) {
+let profileBtn = document.querySelector(".ProfileIcon");
+if (profileBtn != null) {
+  profileBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
+    if (loggedInUser != null) {
+      document
+        .querySelector(".subProfileMenu")
+        .classList.toggle("activeProfileMenu");
+    }
+
     document
-      .querySelector(".subProfileMenu")
-      .classList.toggle("activeProfileMenu");
-  }
-
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.remove("popUPActive");
-});
-
+      .querySelector(".NotificationPopUpContainer")
+      .classList.remove("popUPActive");
+  });
+}
 // #region Open the Category to another page.
 
 let personalCategoryElement = document.getElementById("PersonalCategory");
@@ -383,7 +398,7 @@ function AuthenticateLogin() {
 }
 
 function ShowMessageAndRedirect() {
-  // ShowMessagePopUp("Unable to view the listing. Kindly login first");
+  ShowMessagePopUp("Unable to view the listing. Kindly login first");
 
   document.getElementById("CloseMsgBox").addEventListener("click", (e) => {
     e.preventDefault();
@@ -452,5 +467,5 @@ async function getData(url = "") {
 function ShowMessagePopUp(msg) {
   document.getElementById("yourMsg").innerHTML = msg;
 
-  document.querySelector(".messageboxWrapper").classList.toggle("showMsgbox");
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
 }
