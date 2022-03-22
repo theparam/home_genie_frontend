@@ -206,6 +206,7 @@ window.addEventListener("load", (e) => {
       }
     })
     .catch((err) => {
+      document.querySelector(".msgwrapper").style.border = "1px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log("Error occured while getting requested listing: " + err);
     });
@@ -236,6 +237,7 @@ let GetAcceptedBidOfferContainer = (biddingOfferId) => {
            </div>`;
     })
     .catch((err) => {
+      document.querySelector(".msgwrapper").style.border = "1px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log(
         "In Fn (AcceptedBidOffer) Error occured while getting bid offers: " +
@@ -272,6 +274,7 @@ function CustomerBidAcceptedOfferInfoGenerator(listingOwnerId) {
               </div>`;
     })
     .catch((err) => {
+      document.querySelector(".msgwrapper").style.border = "1px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log(
         "In Fn (CustomerBidAcceptedOfferInfoGenerator) Error occured while getting user: " +
@@ -287,6 +290,7 @@ async function getBidOfferData(bidOfferId) {
       return bidOffer;
     })
     .catch((err) => {
+      document.querySelector(".msgwrapper").style.border = "1px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log(
         "In Fn (getBidOfferData) Error occured while getting bid offer data: " +
@@ -340,6 +344,7 @@ function AcceptOfferFn(acceptBtn) {
       .then((response) => {
         let res = JSON.stringify(response);
         console.log("res Data: " + res);
+        document.querySelector(".msgwrapper").style.border = "1px solid green";
         ShowMessageWithTimeout(2000, "Congratulation on accepting the offer.");
 
         setTimeout(() => {
@@ -347,6 +352,7 @@ function AcceptOfferFn(acceptBtn) {
         }, 2500);
       })
       .catch((error) => {
+        document.querySelector(".msgwrapper").style.border = "1px solid red";
         ShowMessagePopUp(`Error occured. Kindly check console.`);
         console.log(
           "In Fn (AcceptOfferFn) Error occured while accepting offer: " + err
@@ -363,6 +369,7 @@ function DeclineOfferFn(declineBtn) {
       .then((response) => {
         console.log("response Offer:" + response);
         console.log(response.status);
+        document.querySelector(".msgwrapper").style.border = "1px solid red";
         ShowMessageWithTimeout(2000, "Offer Declined.");
 
         setTimeout(() => {
@@ -370,6 +377,7 @@ function DeclineOfferFn(declineBtn) {
         }, 2500);
       })
       .catch((error) => {
+        document.querySelector(".msgwrapper").style.border = "1px solid red";
         ShowMessagePopUp(`Error occured. Kindly check console.`);
         console.log(
           "In Fn (DeclineOfferFn) Error occured while declining offer: " + err
@@ -406,6 +414,7 @@ let DecreaseAmount = (btnObj) => {
   );
 
   if (price == 0) {
+    document.querySelector(".msgwrapper").style.border = "1px solid red";
     ShowMessageWithTimeout(2000, "Price cannot be less than 0");
   } else {
     price = price - 1;
@@ -438,6 +447,7 @@ let PlaceBidFn = () => {
       let bidOffer = JSON.stringify(bidData);
       console.log("Data: " + bidOffer);
 
+      document.querySelector(".msgwrapper").style.border = "1px solid green";
       ShowMessageAndRedirectAfterTimeout(
         2000,
         "Offer sent to the owner..",
@@ -445,6 +455,7 @@ let PlaceBidFn = () => {
       );
     })
     .catch((err) => {
+      document.querySelector(".msgwrapper").style.border = "1px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log(
         "In Fn (PlaceBidFn) Error occured while placing offer: " + err

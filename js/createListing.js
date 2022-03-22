@@ -45,6 +45,7 @@ document.querySelector(".ViewListing").addEventListener("click", (e) => {
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (!AuthenticateLogin()) {
+    document.querySelector(".msgwrapper").style.border = "1px solid red";
     ShowMessageAndRedirect();
   } else {
     let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
@@ -107,6 +108,7 @@ submitBtn.addEventListener("click", (e) => {
         province == "" ||
         code == "")
     ) {
+      document.querySelector(".msgwrapper").style.border = "1px solid red";
       ShowMessagePopUp("Field(s) marked * cannot be left blank");
       setTimeout(() => {
         document
@@ -147,6 +149,7 @@ submitBtn.addEventListener("click", (e) => {
         let logInUser = JSON.stringify(userData);
         console.log("Data: " + logInUser);
 
+        document.querySelector(".msgwrapper").style.border = "1px solid green";
         ShowMessageAndRedirectAfterTimeout(
           2000,
           "Congratulation!! Listing created.",
@@ -157,6 +160,7 @@ submitBtn.addEventListener("click", (e) => {
         //window.location.href = "/html_Files/index.html";
       })
       .catch((err) => {
+        document.querySelector(".msgwrapper").style.border = "1px solid red";
         ShowMessagePopUp(`Error occured. Kindly check console.`);
         console.log("Error occured while creating listing: " + err);
       });

@@ -19,7 +19,7 @@
 
   --tertiary_Border_bottom: #e6ab6b;
 
-  --primary_box_shadow: 0px 0px 8px -4px;
+  --primary_box_shadow: 2px 1px 12px 7px rgba(0, 0, 0, 0.1);
 
   --box_shadow_Bottom: 0 3px 8px -5px;
 
@@ -168,12 +168,19 @@ a {
 }
 
 .msgwrapper {
-  border: 1px solid var(--primary_BlueShade_1);
-  background-color: var(--secondary_PinkShade_2);
+  background-color: white;
+  box-shadow: var(--primary_box_shadow);
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   padding: 0.5rem;
   width: 300px;
+}
+
+#yourMsg {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--primary_BlueShade_1);
+  font-weight: bold;
 }
 
 .messageboxWrapper.showMsgbox {
