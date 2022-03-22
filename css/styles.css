@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;900&family=Fira+Sans&family=Roboto&display=swap");
 
 :root {
   /* declare the color variable */
@@ -868,9 +868,9 @@ a {
 .fg-Password-parent {
   display: flex;
   height: 100vh;
-  background: url("https://picsum.photos/1200/500?random=11");
+  background: url("../img/Login_SignUp_BG.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -927,7 +927,11 @@ a {
 }
 
 .SendOTPBtn {
-  margin: 0 auto;
+  margin: 1rem auto;
+}
+
+.ConfirmBtn{
+  margin-top: 1rem ;
 }
 
 .fg-Password-buttons.hiddenBtn {
@@ -997,12 +1001,39 @@ a {
   top: 30%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  height: 10px;
+  height: 3px;
   width: 100px;
   background-color: black;
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 3px -3px black;
   box-shadow: 0 4px 3px -3px black;
+}
+.ProgressBarWrapper h1 {
+  margin: 0;
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  padding-top: 10rem;
+}
+
+.tagline {
+  position: absolute;
+  bottom: 3rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.tagline h3 {
+  font-family: "Cinzel Decorative", cursive;
+  color: var(--primary_BlueShade_1);
+  text-align: center;
+  margin: 0.5rem;
+  font-size: 2.1rem;
 }
 
 .progressbar {
@@ -1054,9 +1085,9 @@ a {
 
 @media screen and (max-width: 600px) {
   .ProgressBarWrapper {
-    background: url("../img/Splash_Screen.png");
+    background: url("../img/Home_Genie_Splash_Screen.png");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
   }
 }
 /*#endregion Splash Screen*/
@@ -1078,7 +1109,7 @@ a {
   height: 100vh;
   background: url("../img/Login_SignUp_BG.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1600,7 +1631,7 @@ a {
   height: 100vh;
   background: url("../img/Login_SignUp_BG.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2741,7 +2772,7 @@ form label span {
   }
 }
 
-#default-img{
+#default-img {
   width: 10rem;
 }
 
