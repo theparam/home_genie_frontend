@@ -89,14 +89,28 @@ updateBtn.addEventListener("click", (e) => {
 
         console.log("Data: " + updatedUser);
 
-        alert("User update Successful");
         UpdateStorageSessions(UserSessionStorageKey, updatedUser);
+
+        ShowMessagePopUp("Profile Updated Successfully");
+        setTimeout(() => {
+          document
+            .querySelector(".messageboxWrapper")
+            .classList.remove("showMsgbox");
+
+          window.location.reload();
+        }, 2000);
       })
       .catch((err) => {
-        alert(err);
+        ShowMessagePopUp(`Error occured. Kindly check console.`);
+        console.log("Error occured while Updating Profile: " + err);
       });
   } else {
-    alert("Error.. Not a logged in user");
+    ShowMessagePopUp("Unable to update. Not authorized");
+    setTimeout(() => {
+      document
+        .querySelector(".messageboxWrapper")
+        .classList.remove("showMsgbox");
+    }, 2000);
   }
 });
 
@@ -191,8 +205,16 @@ document.getElementById("Stop_Camera").addEventListener("click", (e) => {
 
         console.log("Data: " + updatedUser);
 
-        alert("Image Uploaded Successfully.");
         UpdateStorageSessions(UserSessionStorageKey, updatedUser);
+
+        ShowMessagePopUp("Image Updated Successfully.");
+        setTimeout(() => {
+          document
+            .querySelector(".messageboxWrapper")
+            .classList.remove("showMsgbox");
+
+          window.location.reload();
+        }, 2000);
       })
       .catch((err) => {
         alert(err);

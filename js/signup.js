@@ -27,7 +27,12 @@ signUpBtn.addEventListener("click", (e) => {
     pwd.toString() === "" ||
     cpwd.toString() === ""
   ) {
-    alert("Fields cannot be blank");
+    ShowMessagePopUp("Field(s) cannot be left blank");
+    setTimeout(() => {
+      document
+        .querySelector(".messageboxWrapper")
+        .classList.remove("showMsgbox");
+    }, 2000);
     return;
   } else if (pwd.toString() == cpwd.toString()) {
     //   creating user obj
@@ -41,12 +46,16 @@ signUpBtn.addEventListener("click", (e) => {
         let logInUser = JSON.stringify(userData);
         console.log("Data: " + logInUser);
 
-        alert("Signed up Successfully");
         UpdateStorageSessions(UserSessionStorageKey, logInUser);
-        window.location.href = "/html_Files/index.html";
+        ShowMessageAndRedirectAfterTimeout(
+          2000,
+          "Signed up Successfully",
+          "index.html"
+        );
       })
       .catch((err) => {
-        alert(err);
+        ShowMessagePopUp(`Error occured. Kindly check console.`);
+        console.log("Error occured while Sign Up: " + err);
       });
 
     // let userData = fetch(url, {
@@ -98,3 +107,28 @@ const UpdateStorageSessions = (key, value) => {
     myStorage.setItem(key, value);
   }
 };
+
+function ShowMessagePopUp(msg) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+}
+
+function ShowMessageAndRedirectAfterTimeout(time, msg, redirectPath) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+  setTimeout(function () {
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+    window.location.href = redirectPath;
+  }, time);
+}
+
+function ShowMessageWithTimeout(time, msg) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+  setTimeout(function () {
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+  }, time);
+}

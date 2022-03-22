@@ -74,7 +74,8 @@ let getListingOfUser = () => {
       }
     })
     .catch((err) => {
-      alert(err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log("Error occured while getting listing of user: " + err);
     });
 };
 
@@ -108,7 +109,10 @@ let getListingForCategory = (CategoryValue) => {
       }
     })
     .catch((err) => {
-      alert(err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log(
+        "Error occured while getting listing of specific category: " + err
+      );
     });
 };
 

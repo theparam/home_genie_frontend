@@ -10,7 +10,9 @@
     <link rel="manifest" href="../app.webmanifest">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
+        integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/styles.css">
     <script>
@@ -41,6 +43,19 @@
 </head>
 
 <body class="login-body">
+    <div class="messageboxWrapper">
+        <div class="msgwrapper">
+            <div class="crossIconContainer">
+                <a id="CloseMsgBox">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
+            <div class="msgContainer">
+                <p id="yourMsg">Some Message</p>
+            </div>
+        </div>
+    </div>
+
     <div class="login-grid">
         <div class="login-desktop">
             <img src="../img/Home_Genie_Logo_Profile2.png" alt="Home Genie Logo">

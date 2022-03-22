@@ -60,7 +60,8 @@ window.addEventListener("load", (e) => {
       }
     })
     .catch((err) => {
-      alert("Error: " + err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log("Error occured while searching the listing: " + err);
     });
 });
 

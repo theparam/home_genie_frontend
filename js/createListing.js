@@ -107,7 +107,12 @@ submitBtn.addEventListener("click", (e) => {
         province == "" ||
         code == "")
     ) {
-      alert("Field(s) marked * cannot be left blank");
+      ShowMessagePopUp("Field(s) marked * cannot be left blank");
+      setTimeout(() => {
+        document
+          .querySelector(".messageboxWrapper")
+          .classList.remove("showMsgbox");
+      }, 2000);
       return;
     }
 
@@ -142,14 +147,18 @@ submitBtn.addEventListener("click", (e) => {
         let logInUser = JSON.stringify(userData);
         console.log("Data: " + logInUser);
 
-        alert("Listing Created", userData);
-        window.location.href = "/html_Files/index.html";
+        ShowMessageAndRedirectAfterTimeout(
+          2000,
+          "Congratulation!! Listing created.",
+          "index.html"
+        );
         //UpdateStorageSessions(UserSessionStorageKey, logInUser);
         //   Navigate to specific listing page.
         //window.location.href = "/html_Files/index.html";
       })
       .catch((err) => {
-        alert(err);
+        ShowMessagePopUp(`Error occured. Kindly check console.`);
+        console.log("Error occured while creating listing: " + err);
       });
   }
 });

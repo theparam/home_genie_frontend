@@ -206,7 +206,8 @@ window.addEventListener("load", (e) => {
       }
     })
     .catch((err) => {
-      alert(err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log("Error occured while getting requested listing: " + err);
     });
 });
 
@@ -235,7 +236,11 @@ let GetAcceptedBidOfferContainer = (biddingOfferId) => {
            </div>`;
     })
     .catch((err) => {
-      alert("Error: " + err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log(
+        "In Fn (AcceptedBidOffer) Error occured while getting bid offers: " +
+          err
+      );
     });
 };
 
@@ -267,7 +272,11 @@ function CustomerBidAcceptedOfferInfoGenerator(listingOwnerId) {
               </div>`;
     })
     .catch((err) => {
-      alert("Unable to get user: " + err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log(
+        "In Fn (CustomerBidAcceptedOfferInfoGenerator) Error occured while getting user: " +
+          err
+      );
     });
 }
 
@@ -278,7 +287,11 @@ async function getBidOfferData(bidOfferId) {
       return bidOffer;
     })
     .catch((err) => {
-      alert("Error: " + err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log(
+        "In Fn (getBidOfferData) Error occured while getting bid offer data: " +
+          err
+      );
     });
 }
 
@@ -327,11 +340,17 @@ function AcceptOfferFn(acceptBtn) {
       .then((response) => {
         let res = JSON.stringify(response);
         console.log("res Data: " + res);
-        alert("Congratulation on accepting the offer.");
-        location.reload();
+        ShowMessageWithTimeout(2000, "Congratulation on accepting the offer.");
+
+        setTimeout(() => {
+          location.reload();
+        }, 2500);
       })
       .catch((error) => {
-        alert("Error: " + error);
+        ShowMessagePopUp(`Error occured. Kindly check console.`);
+        console.log(
+          "In Fn (AcceptOfferFn) Error occured while accepting offer: " + err
+        );
       });
   });
 }
@@ -344,11 +363,17 @@ function DeclineOfferFn(declineBtn) {
       .then((response) => {
         console.log("response Offer:" + response);
         console.log(response.status);
-        alert("Offer Deleted");
-        location.reload();
+        ShowMessageWithTimeout(2000, "Offer Declined.");
+
+        setTimeout(() => {
+          location.reload();
+        }, 2500);
       })
       .catch((error) => {
-        alert("Error: " + error);
+        ShowMessagePopUp(`Error occured. Kindly check console.`);
+        console.log(
+          "In Fn (DeclineOfferFn) Error occured while declining offer: " + err
+        );
       });
   });
 }
@@ -381,7 +406,7 @@ let DecreaseAmount = (btnObj) => {
   );
 
   if (price == 0) {
-    alert("Price cannot be less than 0");
+    ShowMessageWithTimeout(2000, "Price cannot be less than 0");
   } else {
     price = price - 1;
     document.getElementById("bidOffer").value = "$" + price;
@@ -412,12 +437,18 @@ let PlaceBidFn = () => {
       // User Data from DB
       let bidOffer = JSON.stringify(bidData);
       console.log("Data: " + bidOffer);
-      alert("Offer Sent");
 
-      window.location.href = "SpecificListing.html?ListingId=" + listingID;
+      ShowMessageAndRedirectAfterTimeout(
+        2000,
+        "Offer sent to the owner..",
+        `SpecificListing.html?ListingId=${listingID}`
+      );
     })
     .catch((err) => {
-      alert(err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log(
+        "In Fn (PlaceBidFn) Error occured while placing offer: " + err
+      );
     });
 };
 
@@ -471,11 +502,3 @@ async function fetchUser(url = "") {
   });
   return response.json(); // parses JSON response into native JavaScript objects
 }
-
-// let logoutElement = document.getElementById("logoutBtn");
-// if (logoutElement != null) {
-//   logoutElement.addEventListener("click", () => {
-//     sessionStorage.removeItem("LoggedInUser");
-//     window.location.href = "Login.html";
-//   });
-// }

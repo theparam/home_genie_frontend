@@ -21,7 +21,12 @@ if (loggedInUser != null) {
 }
 
 //hides the message box
-document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+
+let msgboxWrapper = document.querySelector(".messageboxWrapper");
+
+if (msgboxWrapper != null) {
+  msgboxWrapper.classList.remove("showMsgbox");
+}
 
 // When index page is loaded.
 document.addEventListener("DOMContentLoaded", () => {
@@ -398,7 +403,7 @@ function AuthenticateLogin() {
 }
 
 function ShowMessageAndRedirect() {
-  ShowMessagePopUp("Unable to view the listing. Kindly login first");
+  ShowMessagePopUp("Not Authorized. Kindly login first");
 
   document.getElementById("CloseMsgBox").addEventListener("click", (e) => {
     e.preventDefault();
@@ -468,4 +473,23 @@ function ShowMessagePopUp(msg) {
   document.getElementById("yourMsg").innerHTML = msg;
 
   document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+}
+
+function ShowMessageAndRedirectAfterTimeout(time, msg, redirectPath) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+  setTimeout(function () {
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+    window.location.href = redirectPath;
+  }, time);
+}
+
+function ShowMessageWithTimeout(time, msg) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+  setTimeout(function () {
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+  }, time);
 }
