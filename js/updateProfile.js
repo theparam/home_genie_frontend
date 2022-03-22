@@ -259,3 +259,8 @@ function dataURItoBlob(dataURI) {
 
   return new Blob([ia], { type: mimeString });
 }
+
+
+function myFunction() {
+  document.getElementById("default-img").style.display = "none";
+}
