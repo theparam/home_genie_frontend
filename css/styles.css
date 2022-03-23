@@ -164,7 +164,7 @@ a {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   transform-origin: left top;
   transform: scaleY(0);
 }
@@ -183,6 +183,7 @@ a {
   letter-spacing: 1px;
   color: var(--primary_BlueShade_1);
   font-weight: bold;
+  margin: 0.2rem;
 }
 
 .messageboxWrapper.showMsgbox {
@@ -1120,7 +1121,7 @@ a {
 
 .login-grid h2 {
   font-size: 2.25rem;
-  font-weight:bold !important;
+  font-weight: bold !important;
 }
 
 .icon_input_wrapper {
@@ -1554,8 +1555,8 @@ a {
 }
 
 .about-team img {
-  width:150px;
-  height:200px;
+  width: 150px;
+  height: 200px;
 }
 
 .about-content2 h2 {
@@ -1571,9 +1572,9 @@ a {
 }
 
 .about-content2 p {
- padding:4rem 2rem;
- line-height: 1.5;
- font-size: 1.25rem;
+  padding: 4rem 2rem;
+  line-height: 1.5;
+  font-size: 1.25rem;
 }
 
 .about-choose h2 {
@@ -1585,21 +1586,20 @@ a {
 } */
 
 @media screen and (min-width: 1200px) {
-
-.about-choose-item1,
-.about-choose-item2,
-.about-choose-item3,
-.about-choose-item4 { 
-  margin-left: 4rem;
-  margin-right: 0;
-}
+  .about-choose-item1,
+  .about-choose-item2,
+  .about-choose-item3,
+  .about-choose-item4 {
+    margin-left: 4rem;
+    margin-right: 0;
+  }
 
   .about-content2 h2 {
     background-color: var(--about_us_BlueShade_4);
     padding-bottom: 0;
   }
 
-  .about-content2 p{
+  .about-content2 p {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -1629,10 +1629,11 @@ a {
   }
 
   .about-content1-wrapper,
-  .about-content1, .about-content2 {
+  .about-content1,
+  .about-content2 {
     padding: 0;
   }
-  
+
   .about-content2 p {
     margin: 0;
     padding-left: 2rem;
@@ -1697,10 +1698,10 @@ a {
   }
 
   .about-designers,
-.about-developers {
-  padding-left:4rem;
-  grid-column-gap: 0 ;
-}
+  .about-developers {
+    padding-left: 4rem;
+    grid-column-gap: 0;
+  }
 }
 
 /*#endregion About Us*/
