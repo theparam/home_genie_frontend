@@ -2665,14 +2665,16 @@ form .form-class {
   padding: 1rem 2%;
 }
 .half-form .area {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-flow: row wrap;
   gap: 2rem;
   line-height: 1.5;
+  width: 100%;
 }
 .area .area-city,
 .area-province {
   display: grid;
+  width: 100%;
 }
 .ListingSite-main .postal {
   display: flex;
@@ -2710,6 +2712,12 @@ form label span {
 .postal {
   margin-top: 1rem;
 }
+#address {
+  width: 100%;
+}
+.address-class{
+  width: 100%;
+}
 
 .MapsContainer {
   margin-top: 2rem;
@@ -2719,6 +2727,15 @@ form label span {
   .create-user-form {
     max-width: 1000px;
     margin: 0 auto;
+  }
+
+  #address {
+    width: 100%;
+  }
+
+  .area .area-city,
+  .area-province {
+    width: unset;
   }
 
   .ListingSite-main .heading {
