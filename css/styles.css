@@ -10,6 +10,8 @@
   --primary_BlueShade_3: #c6d0d5;
   /* semi  Blue */
   --primary_BlueShade_3: #c6d0d5;
+  /* Light Blue for About us page */
+  --about_us_BlueShade_4: #c7dce6;
   /* Dark Pink */
   --secondary_PinkShade_1: #ebbec0;
   /* Light Pink */
@@ -1118,6 +1120,7 @@ a {
 
 .login-grid h2 {
   font-size: 2.25rem;
+  font-weight:bold;
 }
 
 .icon_input_wrapper {
@@ -1215,7 +1218,7 @@ a {
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  padding: 0.25rem 2rem;
+  padding: 0.5rem 1.5rem;
   width: max-content;
   margin-left: auto;
   margin-right: auto;
@@ -1335,7 +1338,7 @@ a {
 .about-choose-item2,
 .about-choose-item3,
 .about-choose-item4 {
-  background-color: var(--primary_BlueShade_3);
+  background-color: var(--about_us_BlueShade_4);
   padding: 1rem;
 }
 
@@ -1361,7 +1364,6 @@ a {
   width: 100%;
   height: auto;
   place-self: center;
-  padding-left: 2rem;
 }
 
 .about-wrapper h2 {
@@ -1538,6 +1540,11 @@ a {
   margin-bottom: 1rem;
 }
 
+.about-team img {
+  width:150px;
+  height:200px;
+}
+
 /* .about-content1-content a {
   place-self: center;
 } */
@@ -1551,9 +1558,11 @@ a {
   }
 
   .about-content1 img {
-    width: 80%;
+    width: 50%;
     height: auto;
     padding-left: 0;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
   }
 
   .about-content1-wrapper,
@@ -1720,7 +1729,7 @@ a {
   color: white;
   border: 1px solid var(--primary_BlueShade_1);
   border-radius: 5px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
 }
 .icon-size {
   font-size: 22px;
