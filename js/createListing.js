@@ -1,7 +1,9 @@
 let submitBtn = document.getElementById("create-btn");
+let long;
+let lat;
 
 const url = "http://localhost:8080/home/genie/listing/create";
-
+let locationURL = "https://nominatim.openstreetmap.org/reverse?format=json";
 class Listing {
   constructor(
     title,
@@ -34,6 +36,66 @@ class Listing {
     this.postalCode = PostalCode;
     this.ownerUserId = ownerUserId;
   }
+}
+
+class StopWatch {
+  constructor() {}
+  async start() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // success callback
+          long = position.coords.longitude;
+          lat = position.coords.latitude;
+        },
+        (error) => {
+          // failure callback
+          console.log(error);
+          if (error.code == error.PERMISSION_DENIED) {
+            window.alert("geolocation permission denied");
+          }
+        }
+      );
+    } else {
+      // no geolocation in navigator. in the case of old browsers
+      console.log("Geolocation is not supported by this browser.");
+    }
+
+    var id, target, options;
+    function success(pos) {
+      var crd = pos.coords;
+
+      if (
+        target.latitude === crd.latitude &&
+        target.longitude === crd.longitude
+      ) {
+        console.log("Congratulations, you reached the target");
+        navigator.geolocation.clearWatch(id);
+      }
+    }
+
+    function error(err) {
+      console.warn("ERROR(" + err.code + "): " + err.message);
+    }
+
+    target = {
+      latitude: 0,
+      longitude: 0,
+    };
+
+    options = {
+      enableHighAccuracy: false,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+
+    id = navigator.geolocation.watchPosition(success, error, options);
+    console.log(id + " ID");
+    console.log(JSON.stringify(target) + " TARGET");
+    console.log(JSON.stringify(options) + " OPTIONS");
+  }
+  stop() {}
+  rest() {}
 }
 
 document.querySelector(".ViewListing").addEventListener("click", (e) => {
@@ -149,7 +211,8 @@ submitBtn.addEventListener("click", (e) => {
         let logInUser = JSON.stringify(userData);
         console.log("Data: " + logInUser);
 
-        document.querySelector(".msgwrapper").style.border = "2px solid #006c84";
+        document.querySelector(".msgwrapper").style.border =
+          "2px solid #006c84";
         ShowMessageAndRedirectAfterTimeout(
           2000,
           "Congratulation!! Listing created.",
@@ -165,6 +228,39 @@ submitBtn.addEventListener("click", (e) => {
         console.log("Error occured while creating listing: " + err);
       });
   }
+});
+
+let fillAddress = (fetchedAddress) => {
+  console.log(
+    "fetch house ",
+    fetchedAddress.address.house_number + "," + fetchedAddress.address.road
+  );
+
+  document.getElementById("address").value =
+    fetchedAddress.address.house_number + "," + fetchedAddress.address.road;
+
+  document.getElementById("city").value = fetchedAddress.address.city;
+  document.getElementById("province").value = fetchedAddress.address.state;
+  document.getElementById("code").value = fetchedAddress.address.postcode;
+
+  document.getElementById(
+    "liveMap"
+  ).src = `https://www.openstreetmap.org/export/embed.html?bbox=${long}%2C${lat}%2C${long}%2C${lat}&amp;layer=mapnik`;
+};
+
+let locatnWatch = new StopWatch();
+locationbtn.addEventListener("click", async (e) => {
+  await locatnWatch.start();
+
+  setTimeout(() => {
+    GetLocation()
+      .then((locData) => {
+        fillAddress(locData);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, 1000);
 });
 
 document.getElementById("myFile").addEventListener("change", (e) => {
@@ -188,4 +284,23 @@ async function postData(url = "", data) {
     method: "POST",
   });
   return response.json(); // parses JSON response into native JavaScript objects
+}
+
+async function GetLocation() {
+  locationURL =
+    locationURL + `&lat=${lat}&lon=${long}&zoom=18&addressdetails=1`;
+  // Default options are marked with *
+  const response = await fetch(locationURL, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "GET",
+      "Access-Control-Allow-Origin": "*",
+    },
+    method: "GET",
+  }).catch((err) => {
+    return err;
+  });
+  return response.json();
 }
