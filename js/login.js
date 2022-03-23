@@ -46,7 +46,8 @@ loginBtn.addEventListener("click", (e) => {
       } else {
         UpdateStorageSessions(UserSessionStorageKey, logInUser);
 
-        document.querySelector(".msgwrapper").style.border = "2px solid #006c84";
+        document.querySelector(".msgwrapper").style.border =
+          "2px solid #006c84";
         ShowMessageAndRedirectAfterTimeout(
           2000,
           "Login Successful",
@@ -57,6 +58,7 @@ loginBtn.addEventListener("click", (e) => {
       }
     })
     .catch((err) => {
+      document.querySelector(".msgwrapper").style.border = "2px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log("Error occured while Login: " + err);
     });
@@ -154,4 +156,13 @@ function ShowMessageWithTimeout(time, msg) {
   setTimeout(function () {
     document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
   }, time);
+}
+// Close the notification on cross click
+let closeMsgBox = document.getElementById("CloseMsgBox");
+if (closeMsgBox != null) {
+  document.getElementById("CloseMsgBox").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+  });
 }
