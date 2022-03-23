@@ -20,12 +20,23 @@ if (loggedInUser != null) {
   loggdInUser = JSON.parse(loggedInUser);
 }
 
+//hides the message box
+
+let msgboxWrapper = document.querySelector(".messageboxWrapper");
+
+if (msgboxWrapper != null) {
+  msgboxWrapper.classList.remove("showMsgbox");
+}
+
 // When index page is loaded.
 document.addEventListener("DOMContentLoaded", () => {
   let lg_userName = document.querySelectorAll(".loggedUserName");
   if (lg_userName != null) {
     lg_userName.forEach((element) => {
-      element.innerHTML = loggdInUser.firstName;
+      element.innerHTML =
+        loggdInUser.firstName != null || undefined
+          ? loggdInUser.firstName
+          : "Guest";
     });
   }
 
@@ -217,6 +228,7 @@ async function UpdateNotificationTable(url) {
 
 function AuthenticateAndRedirect(listingID) {
   if (!AuthenticateLogin()) {
+    document.querySelector(".msgwrapper").style.border = "2px solid red";
     ShowMessageAndRedirect();
   } else {
     window.location.href = "SpecificListing.html?ListingId=" + listingID;
@@ -249,24 +261,31 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-document.getElementById("ShowMenu").addEventListener("click", () => {
-  document.getElementById("showHideMenu").classList.toggle("menu_active");
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.remove("popUPActive");
-});
+let ShowMenubtn = document.getElementById("ShowMenu");
 
-bellIcon.addEventListener("click", () => {
-  toggleNotification();
-});
+if (ShowMenubtn != null) {
+  document.getElementById("ShowMenu").addEventListener("click", () => {
+    document.getElementById("showHideMenu").classList.toggle("menu_active");
+    document
+      .querySelector(".NotificationPopUpContainer")
+      .classList.remove("popUPActive");
+  });
+}
 
-dk_bellIcom.addEventListener("click", () => {
-  toggleNotification();
-  document
-    .querySelector(".subProfileMenu")
-    .classList.remove("activeProfileMenu");
-});
+if (bellIcon != null) {
+  bellIcon.addEventListener("click", () => {
+    toggleNotification();
+  });
+}
 
+if (dk_bellIcom != null) {
+  dk_bellIcom.addEventListener("click", () => {
+    toggleNotification();
+    document
+      .querySelector(".subProfileMenu")
+      .classList.remove("activeProfileMenu");
+  });
+}
 const toggleNotification = () => {
   document
     .querySelector(".NotificationPopUpContainer")
@@ -274,20 +293,22 @@ const toggleNotification = () => {
   document.getElementById("showHideMenu").classList.remove("menu_active");
 };
 
-document.querySelector(".ProfileIcon").addEventListener("click", (e) => {
-  e.preventDefault();
-  let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
-  if (loggedInUser != null) {
+let profileBtn = document.querySelector(".ProfileIcon");
+if (profileBtn != null) {
+  profileBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
+    if (loggedInUser != null) {
+      document
+        .querySelector(".subProfileMenu")
+        .classList.toggle("activeProfileMenu");
+    }
+
     document
-      .querySelector(".subProfileMenu")
-      .classList.toggle("activeProfileMenu");
-  }
-
-  document
-    .querySelector(".NotificationPopUpContainer")
-    .classList.remove("popUPActive");
-});
-
+      .querySelector(".NotificationPopUpContainer")
+      .classList.remove("popUPActive");
+  });
+}
 // #region Open the Category to another page.
 
 let personalCategoryElement = document.getElementById("PersonalCategory");
@@ -329,6 +350,7 @@ document.querySelectorAll(".ViewListing").forEach((btn) => {
     if (AuthenticateLogin()) {
       window.location.href = "Listing.html?view=getListings";
     } else {
+      document.querySelector(".msgwrapper").style.border = "2px solid red";
       ShowMessageAndRedirect();
     }
   });
@@ -383,7 +405,8 @@ function AuthenticateLogin() {
 }
 
 function ShowMessageAndRedirect() {
-  // ShowMessagePopUp("Unable to view the listing. Kindly login first");
+  document.querySelector(".msgwrapper").style.border = "2px solid red";
+  ShowMessagePopUp("Not Authorized. Kindly login first");
 
   document.getElementById("CloseMsgBox").addEventListener("click", (e) => {
     e.preventDefault();
@@ -452,5 +475,24 @@ async function getData(url = "") {
 function ShowMessagePopUp(msg) {
   document.getElementById("yourMsg").innerHTML = msg;
 
-  document.querySelector(".messageboxWrapper").classList.toggle("showMsgbox");
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+}
+
+function ShowMessageAndRedirectAfterTimeout(time, msg, redirectPath) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+  setTimeout(function () {
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+    window.location.href = redirectPath;
+  }, time);
+}
+
+function ShowMessageWithTimeout(time, msg) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+  setTimeout(function () {
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+  }, time);
 }

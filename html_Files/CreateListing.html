@@ -78,34 +78,53 @@
         <!-- <div class="mb-nav_wrapper"></div> -->
         <nav class="mb-menu" id="showHideMenu">
             <ul>
-              <!-- Add Links to the Pages when created -->
-              <li>
-                <a  href="index.html"><span class="iconify" data-icon="ant-design:home-outlined" style="font-size: 20px;"></span>
-                  </a><p class="mb-menu-text">Home</p>
-              </li>
-              <li>
-                <a href="CreateListing.html"><span class="iconify" data-icon="fluent:text-bullet-list-add-20-regular"
-                    style="font-size: 20px;"></span></a><p class="mb-menu-text">Create</p>
-              </li>
-              <li>
-                <a class="ViewListing"> <span class="iconify" data-icon="carbon:data-view" style="font-size: 20px;"></span></a><p class="mb-menu-text">View
-                  Listing</p>
-              </li>
-              <li>
-                <a href="AboutUs.html"> <span class="iconify" data-icon="clarity:users-line"
-                    style="font-size: 20px;"></span></span></a><p class="mb-menu-text">About Us</p>
-              </li>
-              <li>
-                <a href="UpdateProfile.html">
-                  <span class="iconify" data-icon="carbon:user-profile" style="font-size: 20px;"></span></a>
-                  <p class="mb-menu-text" >Profile</p>
-              </li>
-              <li>
-                <a class="logoutBtn" href="Login.html"><strong><span class="iconify" data-icon="ri:logout-circle-line"
-                      style="font-size: 20px;"></span> </a><p class="mb-menu-text">Logout?</p></strong>
-              </li>
+                <!-- Add Links to the Pages when created -->
+                <li>
+                    <a class="mb-menuAnchor" href="index.html"><span class="iconify"
+                            data-icon="ant-design:home-outlined" style="font-size: 20px;"></span>
+                        <p class="mb-menu-text">Home</p>
+                    </a>
+
+                </li>
+                <li>
+                    <a class="mb-menuAnchor" href="CreateListing.html"><span class="iconify"
+                            data-icon="fluent:text-bullet-list-add-20-regular" style="font-size: 20px;"></span>
+                        <p class="mb-menu-text">Create</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="ViewListing mb-menuAnchor" class="ViewListing"> <span class="iconify"
+                            data-icon="carbon:data-view" style="font-size: 20px;"></span>
+                        <p class="mb-menu-text">View
+                            Listing</p>
+                    </a>
+
+                </li>
+                <li>
+                    <a class="mb-menuAnchor" href="AboutUs.html"> <span class="iconify" data-icon="clarity:users-line"
+                            style="font-size: 20px;"></span></span>
+                        <p class="mb-menu-text">About Us</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="mb-menuAnchor" href="UpdateProfile.html">
+                        <span class="iconify" data-icon="carbon:user-profile" style="font-size: 20px;"></span>
+                        <p class="mb-menu-text">Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="logoutBtn mb-menuAnchor" href="Login.html">
+                        <strong>
+                            <span class="iconify" data-icon="ri:logout-circle-line" style="font-size: 20px;">
+                            </span>
+                        </strong>
+                        <strong>
+                            <p class="mb-menu-text">Logout?</p>
+                        </strong>
+                    </a>
+                </li>
             </ul>
-          </nav>
+        </nav>
         <div class="Notification_wrapper">
             <div class="NotificationPopUpContainer">
                 <div class="text_btn_wrapper">
@@ -132,6 +151,18 @@
                 </div> -->
                 </div>
                 <div class="triangle"></div>
+            </div>
+        </div>
+        <div class="messageboxWrapper">
+            <div class="msgwrapper">
+                <div class="crossIconContainer">
+                    <a id="CloseMsgBox">
+                        <i class="far fa-times-circle"></i>
+                    </a>
+                </div>
+                <div class="msgContainer">
+                    <p id="yourMsg">Some Message</p>
+                </div>
             </div>
         </div>
 
@@ -228,9 +259,11 @@
                         </div>
                     </div>
                     <div class="MapsContainer">
-                        <iframe id="inlineFrameExample" title="Inline Frame Example" width="100%" height="100%"
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
-                        </iframe>
+                        <a id="locationbtn">AutoFill Address</a>
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
+                            marginwidth="0" id="liveMap"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-52.931488%2C49.2023454582315%2C-122.931488%2C49.23486167234926&amp;layer=mapnik"
+                            style="border: 1px solid black"></iframe>
                     </div>
                 </div>
                 <div class="Create_Button">

@@ -2785,12 +2785,24 @@ form label span {
 #address {
   width: 100%;
 }
-.address-class{
+.address-class {
   width: 100%;
 }
 
 .MapsContainer {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#locationbtn {
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  background-color: var(--primary_BlueShade_1);
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  width: max-content;
 }
 
 @media screen and (min-width: 1000px) {

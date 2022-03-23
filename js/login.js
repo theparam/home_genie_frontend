@@ -9,7 +9,13 @@ loginBtn.addEventListener("click", (e) => {
   let paswd = document.getElementById("login-password").value;
 
   if (emailId === "" || paswd === "") {
-    alert("Field(s) cannot be left blank");
+    document.querySelector(".msgwrapper").style.border = "2px solid red";
+    ShowMessagePopUp("Field(s) cannot be left blank");
+    setTimeout(() => {
+      document
+        .querySelector(".messageboxWrapper")
+        .classList.remove("showMsgbox");
+    }, 2000);
     return;
   }
 
@@ -28,15 +34,31 @@ loginBtn.addEventListener("click", (e) => {
       console.log(logInUser.hasOwnProperty("message"));
       console.log("message" in userData);
       if ("message" in userData) {
-        alert("Login Failed");
+        ShowMessagePopUp("Login Failed");
+
+        document.querySelector(".msgwrapper").style.border = "2px solid red";
+        setTimeout(() => {
+          document
+            .querySelector(".messageboxWrapper")
+            .classList.remove("showMsgbox");
+          return;
+        }, 2000);
       } else {
-        alert("Login Successful");
         UpdateStorageSessions(UserSessionStorageKey, logInUser);
-        window.location.href = "/html_Files/index.html";
+
+        document.querySelector(".msgwrapper").style.border = "2px solid #006c84";
+        ShowMessageAndRedirectAfterTimeout(
+          2000,
+          "Login Successful",
+          "index.html"
+        );
+
+        // window.location.href = "/html_Files/index.html";
       }
     })
     .catch((err) => {
-      console.log("ERROR:" + err);
+      ShowMessagePopUp(`Error occured. Kindly check console.`);
+      console.log("Error occured while Login: " + err);
     });
 });
 
@@ -108,3 +130,28 @@ const UpdateStorageSessions = (key, value) => {
     myStorage.setItem(key, value);
   }
 };
+
+function ShowMessagePopUp(msg) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+}
+
+function ShowMessageAndRedirectAfterTimeout(time, msg, redirectPath) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+  setTimeout(function () {
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+    window.location.href = redirectPath;
+  }, time);
+}
+
+function ShowMessageWithTimeout(time, msg) {
+  document.getElementById("yourMsg").innerHTML = msg;
+
+  document.querySelector(".messageboxWrapper").classList.add("showMsgbox");
+  setTimeout(function () {
+    document.querySelector(".messageboxWrapper").classList.remove("showMsgbox");
+  }, time);
+}
