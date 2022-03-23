@@ -60,7 +60,7 @@ window.addEventListener("load", (e) => {
       }
     })
     .catch((err) => {
-      document.querySelector(".msgwrapper").style.border = "1px solid red";
+      document.querySelector(".msgwrapper").style.border = "2px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log("Error occured while searching the listing: " + err);
     });
@@ -68,7 +68,7 @@ window.addEventListener("load", (e) => {
 
 let ViewListing = (btnObject) => {
   if (!AuthenticateLogin()) {
-    document.querySelector(".msgwrapper").style.border = "1px solid red";
+    document.querySelector(".msgwrapper").style.border = "2px solid red";
     ShowMessageAndRedirect();
   } else {
     console.log("SpecificListing.html?ListingId=" + btnObject.id);
@@ -97,7 +97,7 @@ document.querySelectorAll(".ViewListing").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     if (!AuthenticateLogin()) {
-      document.querySelector(".msgwrapper").style.border = "1px solid red";
+      document.querySelector(".msgwrapper").style.border = "2px solid red";
       ShowMessageLoginAndRedirect();
     } else {
       window.location.href = "Listing.html?view=getListings";

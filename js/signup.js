@@ -28,7 +28,7 @@ signUpBtn.addEventListener("click", (e) => {
     cpwd.toString() === ""
   ) {
     ShowMessagePopUp("Field(s) cannot be left blank");
-    document.querySelector(".msgwrapper").style.border = "1px solid red";
+    document.querySelector(".msgwrapper").style.border = "2px solid red";
     setTimeout(() => {
       document
         .querySelector(".messageboxWrapper")
@@ -49,7 +49,7 @@ signUpBtn.addEventListener("click", (e) => {
 
         UpdateStorageSessions(UserSessionStorageKey, logInUser);
 
-        document.querySelector(".msgwrapper").style.border = "1px solid green";
+        document.querySelector(".msgwrapper").style.border = "2px solid #006c84";
         ShowMessageAndRedirectAfterTimeout(
           2000,
           "Signed up Successfully",

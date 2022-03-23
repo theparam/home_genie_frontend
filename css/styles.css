@@ -930,8 +930,8 @@ a {
   margin: 1rem auto;
 }
 
-.ConfirmBtn{
-  margin-top: 1rem ;
+.ConfirmBtn {
+  margin-top: 1rem;
 }
 
 .fg-Password-buttons.hiddenBtn {
@@ -1033,7 +1033,8 @@ a {
   color: var(--primary_BlueShade_1);
   text-align: center;
   margin: 0.5rem;
-  font-size: 2.1rem;
+  letter-spacing: 2px;
+  font-size: 1.7rem;
 }
 
 .progressbar {
@@ -1132,7 +1133,7 @@ a {
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
-
+  padding: 0rem 2rem;
   border-radius: 1.5rem;
   background-color: white;
   box-shadow: var(--primary_box_shadow);
@@ -1169,15 +1170,12 @@ a {
 /* Aligning main heading*/
 .login-wrapper h1 {
   margin-bottom: 3rem;
-  padding-top: 1rem;
 }
 
 /*Aligning email input field*/
 .login-email,
 .login-password {
   margin-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .login-password {
@@ -1206,7 +1204,7 @@ a {
 /* Aligns forgot password link to right*/
 .login-buttons span:first-of-type {
   align-self: flex-end;
-  padding-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 /*Styling login button*/

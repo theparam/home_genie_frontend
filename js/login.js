@@ -9,7 +9,7 @@ loginBtn.addEventListener("click", (e) => {
   let paswd = document.getElementById("login-password").value;
 
   if (emailId === "" || paswd === "") {
-    document.querySelector(".msgwrapper").style.border = "1px solid red";
+    document.querySelector(".msgwrapper").style.border = "2px solid red";
     ShowMessagePopUp("Field(s) cannot be left blank");
     setTimeout(() => {
       document
@@ -36,7 +36,7 @@ loginBtn.addEventListener("click", (e) => {
       if ("message" in userData) {
         ShowMessagePopUp("Login Failed");
 
-        document.querySelector(".msgwrapper").style.border = "1px solid red";
+        document.querySelector(".msgwrapper").style.border = "2px solid red";
         setTimeout(() => {
           document
             .querySelector(".messageboxWrapper")
@@ -46,7 +46,7 @@ loginBtn.addEventListener("click", (e) => {
       } else {
         UpdateStorageSessions(UserSessionStorageKey, logInUser);
 
-        document.querySelector(".msgwrapper").style.border = "1px solid green";
+        document.querySelector(".msgwrapper").style.border = "2px solid #006c84";
         ShowMessageAndRedirectAfterTimeout(
           2000,
           "Login Successful",

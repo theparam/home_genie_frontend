@@ -228,7 +228,7 @@ async function UpdateNotificationTable(url) {
 
 function AuthenticateAndRedirect(listingID) {
   if (!AuthenticateLogin()) {
-    document.querySelector(".msgwrapper").style.border = "1px solid red";
+    document.querySelector(".msgwrapper").style.border = "2px solid red";
     ShowMessageAndRedirect();
   } else {
     window.location.href = "SpecificListing.html?ListingId=" + listingID;
@@ -350,7 +350,7 @@ document.querySelectorAll(".ViewListing").forEach((btn) => {
     if (AuthenticateLogin()) {
       window.location.href = "Listing.html?view=getListings";
     } else {
-      document.querySelector(".msgwrapper").style.border = "1px solid red";
+      document.querySelector(".msgwrapper").style.border = "2px solid red";
       ShowMessageAndRedirect();
     }
   });
@@ -405,7 +405,7 @@ function AuthenticateLogin() {
 }
 
 function ShowMessageAndRedirect() {
-  document.querySelector(".msgwrapper").style.border = "1px solid red";
+  document.querySelector(".msgwrapper").style.border = "2px solid red";
   ShowMessagePopUp("Not Authorized. Kindly login first");
 
   document.getElementById("CloseMsgBox").addEventListener("click", (e) => {

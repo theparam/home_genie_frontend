@@ -37,7 +37,7 @@ document.querySelectorAll(".ViewListing").forEach((btn) => {
     e.preventDefault();
 
     if (!AuthenticateLogin()) {
-      document.querySelector(".msgwrapper").style.border = "1px solid red";
+      document.querySelector(".msgwrapper").style.border = "2px solid red";
       ShowMessageAndRedirect();
     } else {
       window.location.href = "Listing.html?view=getListings";
@@ -75,7 +75,7 @@ let getListingOfUser = () => {
       }
     })
     .catch((err) => {
-      document.querySelector(".msgwrapper").style.border = "1px solid red";
+      document.querySelector(".msgwrapper").style.border = "2px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log("Error occured while getting listing of user: " + err);
     });
@@ -111,7 +111,7 @@ let getListingForCategory = (CategoryValue) => {
       }
     })
     .catch((err) => {
-      document.querySelector(".msgwrapper").style.border = "1px solid red";
+      document.querySelector(".msgwrapper").style.border = "2px solid red";
       ShowMessagePopUp(`Error occured. Kindly check console.`);
       console.log(
         "Error occured while getting listing of specific category: " + err
@@ -121,7 +121,7 @@ let getListingForCategory = (CategoryValue) => {
 
 let ViewListing = (btnObject) => {
   if (!AuthenticateLogin()) {
-    document.querySelector(".msgwrapper").style.border = "1px solid red";
+    document.querySelector(".msgwrapper").style.border = "2px solid red";
     ShowMessageAndRedirect();
   } else {
     console.log("SpecificListing.html?ListingId=" + btnObject.id);
