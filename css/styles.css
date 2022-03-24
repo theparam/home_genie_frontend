@@ -88,6 +88,9 @@ a {
 .heroImageContainer {
   display: none;
 }
+.ProfileIcon img{
+  height: 40px;
+}
 
 .mb-UserGreetingContainer {
   padding: 0 1rem;
@@ -823,7 +826,7 @@ a {
     display: none;
   }
   .NotificationPopUpContainer {
-    right: 35px;
+    right: 55px;
     z-index: -1;
   }
   .dk-menu {
