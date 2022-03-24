@@ -15,7 +15,6 @@ const urlsToCache = [
   "/html_Files/SpecificListing.html",
   "/html_Files/SplashScreen.html",
   "/html_Files/UpdateProfile.html",
-  "/js/script.js",
   "/js/createListing.js",
   "/js/forget_password.js",
   "/js/listing_script.js",

@@ -8,12 +8,12 @@
       "type": "image/png"
     },
     {
-      "src": "../img/Home_Genie_192x192.png",
+      "src": "../img/Home_Genie_512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": "/html_Files/SplashScreen.html",
+  "start_url": "../html_Files/Login.html",
   "display": "fullscreen",
   "background_color": "#ebbec0",
   "theme_color": "#006c84"

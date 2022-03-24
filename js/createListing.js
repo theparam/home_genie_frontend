@@ -42,11 +42,11 @@ class StopWatch {
   constructor() {}
   async start() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+       navigator.geolocation.getCurrentPosition(
         (position) => {
           // success callback
-          long = position.coords.longitude;
-          lat = position.coords.latitude;
+           long = position.coords.longitude;
+           lat = position.coords.latitude;
         },
         (error) => {
           // failure callback
@@ -64,7 +64,7 @@ class StopWatch {
     var id, target, options;
     function success(pos) {
       var crd = pos.coords;
-
+      
       if (
         target.latitude === crd.latitude &&
         target.longitude === crd.longitude
@@ -250,7 +250,12 @@ let fillAddress = (fetchedAddress) => {
 
 let locatnWatch = new StopWatch();
 locationbtn.addEventListener("click", async (e) => {
-  await locatnWatch.start();
+  let result = await locatnWatch.start();
+  console.log("long: " + JSON.stringify(result));
+
+  // ((result) => {
+  //   console.log("long: " + JSON.stringify(result));
+  // });
 
   setTimeout(() => {
     GetLocation()
