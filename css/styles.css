@@ -617,6 +617,17 @@ a {
   border-bottom-left-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
 }
+#ShowMore {
+  width: 100px;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: var(--primary_BlueShade_1);
+  border-radius: 0.5rem;
+  box-shadow: var(--primary_box_shadow);
+  cursor: pointer;
+  text-align: center;
+}
 
 .ownerNotification,
 .customerNotification {
@@ -2402,6 +2413,7 @@ a {
   display: flex;
   align-items: center;
   bottom: -25px;
+  z-index: 1;
   left: 0;
 }
 

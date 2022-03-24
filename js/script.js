@@ -29,7 +29,7 @@ if (msgboxWrapper != null) {
 }
 
 // When index page is loaded.
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   let lg_userName = document.querySelectorAll(".loggedUserName");
   if (lg_userName != null) {
     lg_userName.forEach((element) => {
@@ -40,28 +40,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  GetNotification("Owner");
-  GetNotification("Customer");
+  await GetNotification("Owner");
+  await GetNotification("Customer");
 
-  // Some code require async await
-  // if (notificationArray.length > 3) {
-  //   for (let a = 0; a < notificationArray.length; a++) {
-  //     if (a > 2) {
-  //       break;
-  //     } else {
-  //       document.querySelector(".NotificationPopUp").innerHTML +=
-  //         notificationArray[a];
-  //     }
-  //   }
-  // } else {
-  //   for (let a = 0; a < notificationArray.length; a++) {
-  //     document.querySelector(".NotificationPopUp").innerHTML +=
-  //       notificationArray[a];
-  //   }
-  // }
+  // //  Some code require async await
+  if (notificationArray.length > 3) {
+    for (let a = 0; a < notificationArray.length; a++) {
+      if (a > 3) {
+        break;
+      } else {
+        document.querySelector(".NotificationPopUp").innerHTML +=
+          notificationArray[a];
+      }
+    }
+    document.querySelector(
+      ".NotificationPopUp"
+    ).innerHTML += `<a onclick="LoadAllNotifications()" id="ShowMore">Show More</a>`;
+  } else {
+    LoadAllNotifications();
+  }
 });
 
-function GetNotification(user) {
+function LoadAllNotifications() {
+  document.querySelector(".NotificationPopUp").innerHTML = "";
+  for (let a = 0; a < notificationArray.length; a++) {
+    document.querySelector(".NotificationPopUp").innerHTML +=
+      notificationArray[a];
+  }
+  document.getElementById("ShowMore").style.display = "none";
+}
+
+async function GetNotification(user) {
   let userId = loggdInUser.id;
   let iconFlag = false;
   let url = "";
@@ -71,17 +80,17 @@ function GetNotification(user) {
     url = fetchNotificationUrl + "getCustomerNotifications/" + userId;
   }
 
-  fetchNotificationForUser(url)
-    .then((data) => {
+  await fetchNotificationForUser(url)
+    .then(async (data) => {
+      console.log("here firs");
       for (let n = 0; n < data.length; n++) {
         if (data[n].status == "unread") {
           iconFlag = true;
-          console.log(iconFlag);
         }
         if (user == "Owner") {
-          GenerateNoticationforUserAsOwner(data[n]);
+          await GenerateNoticationforUserAsOwner(data[n]);
         } else {
-          GenerateNoticationforUserAsCustomer(data[n]);
+          await GenerateNoticationforUserAsCustomer(data[n]);
         }
       }
 
@@ -97,11 +106,10 @@ function GetNotification(user) {
 }
 
 // Generate notification contaiers for the Owner
-function GenerateNoticationforUserAsOwner(notificationData) {
+async function GenerateNoticationforUserAsOwner(notificationData) {
   let urlListing = listingURL + notificationData.listingId;
 
-  console.log("Owner url " + urlListing);
-  getData(urlListing)
+  await getData(urlListing)
     .then((listingRes) => {
       getBidOfferDataForUser(notificationData.bidOfferId)
         .then((bidRes) => {
@@ -111,9 +119,9 @@ function GenerateNoticationforUserAsOwner(notificationData) {
             bidRes
           );
 
-          // notificationArray.push(ownerNotification);
-          document.querySelector(".NotificationPopUp").innerHTML +=
-            ownerNotification;
+          notificationArray.push(ownerNotification);
+          // document.querySelector(".NotificationPopUp").innerHTML +=
+          //   ownerNotification;
         })
         .catch((err) => {
           console.log("Error: " + err);
@@ -125,12 +133,11 @@ function GenerateNoticationforUserAsOwner(notificationData) {
 }
 
 // Generate notification contaiers for the Owner
-function GenerateNoticationforUserAsCustomer(notificationData) {
+async function GenerateNoticationforUserAsCustomer(notificationData) {
   let urlListing = listingURL + notificationData.listingId;
 
-  getData(urlListing)
+  await getData(urlListing)
     .then((listingRes) => {
-      console.log("listingRes: " + listingRes.ownerUserId);
       getData(fetchNotificationUrl + listingRes.ownerUserId)
         .then((owner) => {
           let customerNotification = getCustomerNotificationContainer(
@@ -138,9 +145,9 @@ function GenerateNoticationforUserAsCustomer(notificationData) {
             listingRes,
             owner
           );
-          // notificationArray.push(customerNotification);
-          document.querySelector(".NotificationPopUp").innerHTML +=
-            customerNotification;
+          notificationArray.push(customerNotification);
+          // document.querySelector(".NotificationPopUp").innerHTML +=
+          customerNotification;
         })
         .catch((err) => {
           console.log("Error: " + err);
@@ -194,8 +201,9 @@ async function UpdateOwnerNotifationViewListing(btn) {
   let updateOwnerURL =
     fetchNotificationUrl + `owner-notification/${notificationID}?status="read"`;
 
+  console.log("notif", +notificationID);
   await UpdateNotificationTable(updateOwnerURL);
-  // AuthenticateAndRedirect(listingID);
+  AuthenticateAndRedirect(listingID);
 }
 
 async function UpdateCustomerNotifationViewListing(btn) {
@@ -208,8 +216,9 @@ async function UpdateCustomerNotifationViewListing(btn) {
     fetchNotificationUrl +
     `customer-notification/${notificationID}?status="read"`;
 
+  console.log("notif", +notificationID);
   await UpdateNotificationTable(updateOwnerURL);
-  // AuthenticateAndRedirect(listingID);
+  AuthenticateAndRedirect(listingID);
 }
 
 async function UpdateNotificationTable(url) {
