@@ -88,7 +88,7 @@ a {
 .heroImageContainer {
   display: none;
 }
-.ProfileIcon img{
+.ProfileIcon img {
   height: 40px;
 }
 
@@ -265,11 +265,11 @@ a {
   display: flex;
   justify-content: center;
   margin: 1rem 0;
-  padding: 0.5rem;
+  padding: 0.3rem;
   align-items: center;
   gap: 1rem;
-  border-top: 1px solid darkgrey;
-  border-bottom: 1px solid darkgrey;
+  border-top: 2px solid var(--primary_BlueShade_2);
+  border-bottom: 2px solid var(--primary_BlueShade_2);
 }
 .Search_field_Icon_Container input {
   border: 0;
@@ -304,13 +304,13 @@ a {
   box-shadow: 0 0 15px black;
 }
 
-.search-bar-container {
-  background-color: var(--primary_BlueShade_2);
-}
 .Search_field_Icon_Container input[type="text"] {
   color: black;
   text-align: left;
   border-bottom: 2px var(--primary_BlueShade_1);
+}
+.searchlink {
+  color: var(--primary_BlueShade_1);
 }
 #SearchInputField::placeholder {
   color: black;
@@ -483,8 +483,8 @@ a {
   margin: 1rem 0;
   align-items: center;
   gap: 1rem;
-  border-top: 1px solid darkgrey;
-  border-bottom: 1px solid darkgrey;
+  border-top: 2px solid var(--primary_BlueShade_2);
+  border-bottom: 2px solid var(--primary_BlueShade_2);
 }
 
 #categories {
@@ -529,9 +529,6 @@ a {
     gap: 1rem;
     margin-top: 0;
     padding: 1rem;
-  }
-  .search-bar-container {
-    background-color: var(--primary_BlueShade_2);
   }
 
   #categories {
@@ -1237,7 +1234,7 @@ a {
   margin-right: auto;
 }
 .link-icon {
-  color: white;
+  color: var(--primary_BlueShade_1);
 }
 .visually-hidden {
   clip: rect(0 0 0 0);
