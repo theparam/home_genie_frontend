@@ -120,6 +120,7 @@ async function GenerateNoticationforUserAsOwner(notificationData) {
           );
 
           notificationArray.push(ownerNotification);
+          notificationArray.reverse();
           // document.querySelector(".NotificationPopUp").innerHTML +=
           //   ownerNotification;
         })
@@ -147,7 +148,7 @@ async function GenerateNoticationforUserAsCustomer(notificationData) {
           );
           notificationArray.push(customerNotification);
           // document.querySelector(".NotificationPopUp").innerHTML +=
-          customerNotification;
+          // customerNotification;
         })
         .catch((err) => {
           console.log("Error: " + err);

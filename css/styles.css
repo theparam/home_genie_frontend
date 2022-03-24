@@ -89,9 +89,6 @@ a {
   display: none;
 }
 
-.heroImageContainer {
-  display: none;
-}
 .mb-UserGreetingContainer {
   padding: 0 1rem;
 }
@@ -210,7 +207,7 @@ a {
 
 .hero_Image {
   width: 100%;
-  height: 400px;
+  height: 450px;
   margin: 0 1rem;
   object-fit: cover;
 }

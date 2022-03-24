@@ -302,19 +302,33 @@ async function getBidOfferData(bidOfferId) {
 let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
   let ownerContainer = `<div class="specific-bid3">
    <div class="specific-bid-grid">
-       <img src="https://picsum.photos/300/200?random=11" alt="">
+       <img src="../img/default_User.png" alt="defaultuser Image">
        <div class="specific-bid-info">
-           <p><strong>Bidded Price: </strong><span class="specific-red">$${bidOffer.biddingOffer}</span></p>
-           <p><strong>Name: </strong>${bidOffer.bidUserName}</p>
-           <p><strong>Email: </strong>${bidOffer.bidUserEmail}</p>
-           <p><strong>Phone Number: </strong>${bidOffer.bidUserPhone}</p>
+           <p><strong>Bidded Price: </strong><span class="specific-red">$${
+             bidOffer.biddingOffer != null ? bidOffer.biddingOffer : ""
+           }</span></p>
+           <p><strong>Name: </strong>${
+             bidOffer.bidUserName != null ? bidOffer.bidUserName : ""
+           }</p>
+           <p><strong>Email: </strong>${
+             bidOffer.bidUserEmail != null ? bidOffer.bidUserEmail : ""
+           }</p>
+           <p><strong>Phone Number: </strong>${
+             bidOffer.bidUserPhone != null ? bidOffer.bidUserPhone : ""
+           }</p>
        </div>
-       <p><strong>Description: </strong>${bidOffer.bidUserBio}</p>
+       <p><strong>Bio: </strong>${
+         bidOffer.bidUserBio != null ? bidOffer.bidUserBio : "No info yet"
+       }</p>
    </div>
     <div class="specific-button-grid">
    
-       <button type="button" id=${bidOffer.id} onclick="DeclineOfferFn(this)">Decline</button>
-       <button type="button" id=${bidOffer.id} onclick="AcceptOfferFn(this)">Accept</button>
+       <button type="button" id=${
+         bidOffer.id
+       } onclick="DeclineOfferFn(this)">Decline</button>
+       <button type="button" id=${
+         bidOffer.id
+       } onclick="AcceptOfferFn(this)">Accept</button>
    </div>
  </div>`;
 
@@ -322,12 +336,28 @@ let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
    <div class="specific-bid-grid">
        <img src="https://picsum.photos/300/200?random=11" alt="">
        <div class="specific-bid-info">
-           <p><strong>Bidded Price: </strong><span class="specific-red">$${bidOffer.biddingOffer}</span></p>
-           <p><strong>Name: </strong>${bidOffer.bidUserName}</p>
-           <p><strong>Email: </strong>${bidOffer.bidUserEmail}</p>
-           <p><strong>Phone Number: </strong>${bidOffer.bidUserPhone}</p>
+           <p><strong>Bidded Price: </strong><span class="specific-red">$${
+             bidOffer.biddingOffer != null
+               ? bidOffer.biddingOffer
+               : "No info yet"
+           }</span></p>
+           <p><strong>Name: </strong>${
+             bidOffer.bidUserName != null ? bidOffer.bidUserName : "No info yet"
+           }</p>
+           <p><strong>Email: </strong>${
+             bidOffer.bidUserEmail != null
+               ? bidOffer.bidUserEmail
+               : "No info yet"
+           }</p>
+           <p><strong>Phone Number: </strong>${
+             bidOffer.bidUserPhone != null
+               ? bidOffer.bidUserPhone
+               : "No info yet"
+           }</p>
        </div>
-       <p><strong>Description: </strong>${bidOffer.bidUserBio}</p>
+       <p><strong>bidOffer: </strong>${
+         bidOffer.bidUserBio != null ? bidOffer.bidUserBio : "No info yet"
+       }</p>
    </div>
  </div>`;
 
@@ -344,7 +374,8 @@ function AcceptOfferFn(acceptBtn) {
       .then((response) => {
         let res = JSON.stringify(response);
         console.log("res Data: " + res);
-        document.querySelector(".msgwrapper").style.border = "2px solid #006c84";
+        document.querySelector(".msgwrapper").style.border =
+          "2px solid #006c84";
         ShowMessageWithTimeout(2000, "Congratulation on accepting the offer.");
 
         setTimeout(() => {
