@@ -86,7 +86,9 @@ async function GetNotification(user) {
     .then(async (data) => {
       for (let n = 0; n < data.length; n++) {
         if (data[n].status == "unread") {
-          iconFlag = true;
+          document.getElementById("dk_NotificationGenie").src =
+            document.getElementById("mb_NotificationGenie").src =
+              "../img/New_Notification_Genie.png";
         }
         if (user == "Owner") {
           await GenerateNoticationforUserAsOwner(data[n]);

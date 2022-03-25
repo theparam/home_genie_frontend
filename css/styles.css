@@ -2351,7 +2351,7 @@ a {
 .specific-bid3 {
   background-color: var(--primary_BlueShade_3);
   margin: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 20px;
   position: relative;
   box-shadow: var(--box_shadow_Bottom);
@@ -2379,9 +2379,11 @@ a {
 }
 
 .specific-bid-info {
-  padding-left: 2rem;
+  padding-left: 0.5rem;
 }
-
+.specific-bid-info p {
+  margin: 0.8rem;
+}
 .specific-button-grid {
   position: absolute;
   width: 100%;

@@ -300,6 +300,7 @@ async function getBidOfferData(bidOfferId) {
 }
 
 let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
+  console.log("bid Offer", bidOffer);
   let ownerContainer = `<div class="specific-bid3">
    <div class="specific-bid-grid">
        <img src="../img/default_User.png" alt="defaultuser Image">
@@ -318,7 +319,9 @@ let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
            }</p>
        </div>
        <p><strong>Bio: </strong>${
-         bidOffer.bidUserBio != null ? bidOffer.bidUserBio : "No info yet"
+         bidOffer.bidUserBio != null
+           ? DecodeBioForUser(bidOffer.bidUserBio)
+           : "No info yet"
        }</p>
    </div>
     <div class="specific-button-grid">
@@ -334,7 +337,7 @@ let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
 
   let customerContainer = `<div class="specific-bid3">
    <div class="specific-bid-grid">
-       <img src="https://picsum.photos/300/200?random=11" alt="">
+       <img src="../img/default_User.png" alt="">
        <div class="specific-bid-info">
            <p><strong>Bidded Price: </strong><span class="specific-red">$${
              bidOffer.biddingOffer != null
@@ -355,8 +358,10 @@ let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
                : "No info yet"
            }</p>
        </div>
-       <p><strong>bidOffer: </strong>${
-         bidOffer.bidUserBio != null ? bidOffer.bidUserBio : "No info yet"
+       <p><strong>Bio: </strong>${
+         bidOffer.bidUserBio != null
+           ? DecodeBioForUser(bidOffer.bidUserBio)
+           : "No info yet"
        }</p>
    </div>
  </div>`;
@@ -366,6 +371,17 @@ let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
   } else {
     return customerContainer;
   }
+};
+
+let DecodeBioForUser = (bio) => {
+  let arr = bio.split(",");
+  let site = arr[0];
+  let dob = arr[1];
+  let gender = arr[2];
+  let language = arr[3];
+  let educationBackground = arr[4];
+  let previousJobExp = arr[5];
+  return `${gender}, Born on ${dob}. I have completed ${educationBackground} and worked as ${previousJobExp} also I am comfortable to speak ${language}. Make sure you checkout my profile ${site}`;
 };
 
 function AcceptOfferFn(acceptBtn) {
