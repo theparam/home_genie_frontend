@@ -735,6 +735,7 @@ a {
 .dk-menu {
   display: none;
 }
+
 .ProfileIcon {
   font-size: 1.5rem;
 }
@@ -1950,170 +1951,148 @@ a {
 /* ************************************************************************************ */
 
 /*  #region Update Profile */
-.UpdateProfilePageWrapper {
+.UpdateProfileWrapper {
   display: grid;
-}
-
-.upd_parent_wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-  align-items: center;
-  padding: 1rem;
   justify-content: center;
+  padding: 2rem;
 }
-
-.upd_profile_wrapper {
-  text-align: center;
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 1.5rem;
-  background-color: white;
-  padding: 1rem;
-  box-shadow: var(--primary_box_shadow);
-}
-.dk_layoutWrapper {
-  display: none;
-  height: 100vh;
-  text-align: center;
-}
-.dk_layoutWrapper h1 {
-  margin-bottom: 0;
-}
-
-#Home_GenieDKLogo {
-  width: 100px;
-  margin: 0 auto;
-}
-
-.text_logoWrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-}
-
-#homeGenieBigLogo {
-  width: 250px;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-#Text_Logo {
-  margin: 0 auto;
-  width: 500px;
-}
-
-.profile_photo_Wrapper i {
+.styleHeader {
+  color: grey;
   font-size: 2rem;
+  font-weight: normal;
 }
-
-.Camera_Icon_Container {
-  position: absolute;
-  bottom: -5px;
+.profileLblInputWrapper {
+  margin: 1rem 0;
 }
-
-#video,
-#canvas {
-  border: none;
-  outline: none;
-  border-radius: 50%;
-  width: 0;
-  height: 0;
-}
-
-.upd_profile_wrapper form {
-  display: flex;
-  text-align: left;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-  width: 310px;
-}
-
-.upd_profile_wrapper form .label_input_wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  text-align: left;
-  margin-top: 0.5rem;
-}
-
-/*Style the input fields*/
-.upd_profile_wrapper input {
-  border: none;
-  text-align: left;
-  border-bottom: 1px solid var(--primary_BlueShade_1);
-  outline: none;
-}
-
-.upd_profile_wrapper i {
-  border-bottom: 1px solid var(--primary_BlueShade_1);
-  padding: 2px;
-  color: var(--primary_BlueShade_1);
-}
-.profileImage {
-  border: none;
-  outline: none;
-  display: flex;
-  justify-content: center;
-}
-
-#canvas,
-#video {
-  border: 2px solid var(--primary_BlueShade_1);
-}
-
-.profileImage a {
-  font-size: 2rem;
-}
-
-#updBtn {
-  background-color: var(--primary_BlueShade_1);
-  color: white;
-  border: 1px solid var(--primary_BlueShade_1);
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-
-.login-password-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  text-align: left;
-  align-items: center;
-  margin-top: 0.5rem;
-}
-#Open_Camera i {
-  border-bottom: none;
+.profileLblInputWrapper label {
   font-size: 1.2rem;
 }
 
-@media screen and (min-width: 1000px) {
-  .dk_layoutWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #homeLink {
-    padding: 1rem;
-    width: 150px;
-    border-radius: 5px;
-    box-shadow: var(--box_shadow_Bottom);
-    text-transform: uppercase;
-    margin: 0 auto;
-    background-color: var(--primary_BlueShade_1);
-    color: white;
-  }
-  .UpdateProfilePageWrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .upd_parent_wrapper {
-    background-color: var(--primary_BlueShade_1);
-  }
+.profileLblInputWrapper input {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--primary_BlueShade_2);
+  padding: 0.2rem 0.2rem 0.2rem 0;
+  margin: 0.2rem 0;
+}
+#updateBtn {
+  padding: 1rem;
+  color: white;
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 1rem auto;
+  background-color: var(--primary_BlueShade_1);
+}
+.titleConatiner {
+  text-align: center;
+  color: var(--primary_BlueShade_1);
+}
+.titleConatiner h2 {
+  font-size: 2.2rem;
+}
+.videoCanvasControls {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.videoCanvasControls a {
+  padding: 0.8rem 1rem;
+  color: white;
+  background-color: var(--primary_BlueShade_1);
+  box-shadow: var(--primary_box_shadow);
+  border-radius: 5px;
+  width: 100px;
+  margin: 0 auto;
+}
+.videoCanvasControls a:last-of-type {
+  grid-column: 1/-1;
+}
+#userName {
+  color: var(--primary_BlueShade_1);
+  font-size: 2.2rem;
+}
+.Section_1_Wrapper {
+  grid-row: 1/-1;
+}
+.Section_3_Wrapper {
+  grid-row: 1;
+  grid-column: 2/3;
+}
+.Section_1_Wrapper h2,
+.Section_2_Wrapper h2,
+.Section_3_Wrapper h2 {
+  color: var(--primary_BlueShade_1);
 }
 
+#defaultUserImage {
+  display: none;
+  width: 400px;
+}
+
+.videoCanvasContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.chooseFileBtn,
+.OpenCameraBtn,
+.CloseCameraBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chooseFileContainer {
+  background-color: var(--primary_BlueShade_1);
+  box-shadow: var(--primary_box_shadow);
+  border-radius: 5px;
+  position: relative;
+  color: white;
+  border-radius: 2px;
+  float: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 0.8rem 1rem;
+}
+.fileOriginalBtn {
+  position: absolute;
+  z-index: 1000;
+  opacity: 0;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+  font-size: 24px;
+  width: 100px;
+}
+
+@media screen and (min-width: 900px) {
+  .UpdateProfileWrapper {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 40% 60%;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .UserInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  #updateBtn {
+    grid-column: 1/-1;
+  }
+}
 /* #endregion Update Profile */
 
 /* ************************************************************************************ */

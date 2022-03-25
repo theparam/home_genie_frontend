@@ -67,7 +67,9 @@ function LoadAllNotifications() {
     document.querySelector(".NotificationPopUp").innerHTML +=
       notificationArray[a];
   }
-  document.getElementById("ShowMore").style.display = "none";
+  if (document.getElementById("ShowMore") != null) {
+    document.getElementById("ShowMore").style.display = "none";
+  }
 }
 
 async function GetNotification(user) {
@@ -82,7 +84,6 @@ async function GetNotification(user) {
 
   await fetchNotificationForUser(url)
     .then(async (data) => {
-      console.log("here firs");
       for (let n = 0; n < data.length; n++) {
         if (data[n].status == "unread") {
           iconFlag = true;
@@ -255,6 +256,38 @@ if (crossIconElement != null) {
       .classList.remove("popUPActive");
   });
 }
+
+// #region This is for getting and setting User Bio
+
+function EncodeBio() {
+  let site =
+    document.getElementById("Site") != null
+      ? document.getElementById("Site").value
+      : "";
+  let dob =
+    document.getElementById("dob") != null
+      ? document.getElementById("dob").value
+      : "";
+  let gender =
+    document.getElementById("gender") != null
+      ? document.getElementById("gender").value
+      : "";
+  let language =
+    document.getElementById("Language") != null
+      ? document.getElementById("Language").value
+      : "";
+  let educationBackground =
+    document.getElementById("educationBackground") != null
+      ? document.getElementById("educationBackground").value
+      : "";
+  let previousJobExp =
+    document.getElementById("previousJobExp") != null
+      ? document.getElementById("previousJobExp").value
+      : "";
+
+  return `${site},${dob},${gender},${language},${educationBackground},${previousJobExp}`;
+}
+// #endregion
 
 // Clase all open divs on escape button
 document.addEventListener("keydown", (e) => {

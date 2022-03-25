@@ -21,76 +21,286 @@
 </head>
 
 <body>
-    <main>
-        <div class="UpdateProfilePageWrapper">
-            <div class="dk_layoutWrapper">
-                <div class="text_logoWrapper">
-                    <img id="homeGenieBigLogo" src="../img/Home_Genie_Logo_Profile.png" alt="Home Genie Full logo">
-                    <img id="Text_Logo" src="../img/Home_Genie_Text_UpdateProfile.png" alt="Home Genie Text logo">
-                    <h1>Add More to you profile?</h1>
-                    <img id="Home_GenieDKLogo" src="../img/Home_Genie_DK_Logo.png" alt="Home Genie dk Logo">
-                    <a id="homeLink" href="index.html">Back to home</a>
-                </div>
-            </div>
-            <div class="upd_parent_wrapper">
-                <div class="upd_profile_wrapper">
-                    <div class="profile_photo_Wrapper">
-                        <div class="profileImage">
-                            <video id="video" autoplay></video>
-                            <canvas id="canvas"></canvas>
+    <header class="HomePage_header">
+        <div class="LogoContainer">
+            <a href="index.html">
+                <img src="../img/Home_Genie_DK_Logo.png" alt="Home Genie Logo">
+            </a>
+        </div>
+        <div class="Menu_BellIconContainer">
+            <a href="#" id="ShowNotificationPopUp">
+                <img id="mb_NotificationGenie" src="../img/Notification_Genie.png" alt="Notification Genie">
+            </a>
+            <a href="#" id="ShowMenu">
+                <span class="iconify" data-icon="charm:menu-hamburger" style="font-size: 25px;"></span>
+            </a>
+        </div>
+        <div class="dk-menu">
+            <ul>
+                <li>
+                    <a href="CreateListing.html">Create</a>
+                </li>
+                <li>
+                    <a class="ViewListing">View listings</a>
+                </li>
+                <li>
+                    <a href="AboutUs.html">About Us</a>
+                </li>
+                <li>
+                    <a href="#" id="dk-ShowNotificationPopUp">
+                        <img id="dk_NotificationGenie" src="../img/Notification_Genie.png" alt="Notification Genie">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="ProfileIcon">
+                        <img src="../img/default_User.png" alt="Default User">
+                    </a>
+                    <div id="ProfileContainer">
+                        <div class="subProfileMenu">
+                            <ul>
+                                <li>
+                                    <p class="dk-WelcomeUser">Hello, <span class="loggedUserName"></span></p>
+                                </li>
+
+                                <li>
+                                    <a href="UpdateProfile.html">Profile</a>
+                                </li>
+                                <li>
+                                    <a class="logoutBtn">Logout</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <a id="Open_Camera" onclick="myFunction()">
-                        <i class="fas fa-camera"></i>
-                    </a>
-                    <a href="SnapPicture" id="Stop_Camera" onclick="myFunction()">
-                        Stop
-                    </a>
-                    <form>
-                        <img id="default-img" src="../img/default_User.png" alt="">
-                        <div class="label_input_wrapper upd-fName">
-                            <label for="upd-fName">User Name </label>
-                            <input type="text" id="upd-fName" name="upd-fName" placeholder="First Name" required>
-                        </div>
-                        <div class="label_input_wrapper upd-lName">
-                            <label for="upd-lName">Last Name</label>
-                            <input type="text" id="upd-lName" name="upd-lName" placeholder="Last Name" required>
-                        </div>
-                        <div class="label_input_wrapper upd-email">
-                            <label for="upd-email">Email</label>
-                            <input type="email" id="upd-email" name="upd-email" placeholder="Email" required>
-                        </div>
-                        <div class="label_input_wrapper upd-pNumber">
-                            <label for="upd-fName"> Phone Number </label>
-                            <input type="text" id="upd-pNumber" name="upd-pNumber" placeholder="Phone Number" required>
-                        </div>
-                        <div class="label_input_wrapper upd-Address">
-                            <label for="upd-fName"> Address </label>
-                            <input type="text" id="upd-Address" name="upd-Address" placeholder="Address" required>
-                        </div>
-                        <div class="label_input_wrapper upd-Bio">
-                            <label for="upd-fName"> Professional <br> Information</label>
-                            <input type="text" id="upd-Bio" name="upd-Bio" placeholder="About yourself" required>
-                        </div>
-                        <div class="login-password-wrapper">
-                            <label for="upd-password">Password</label>
-                            <div class="icon_input_wrapper">
-                                <span class="iconify" data-icon="bx:lock"></span>
-                                <input class="upd-password" type="password" id="upd-password" name="login-password"
-                                    placeholder="Password" required>
-                            </div>
-                        </div>
-                        <div class="upd-buttons">
-                            <button type="submit" id="updBtn">UPDATE PROFILE</button><br>
-                        </div>
-                    </form>
+                </li>
+            </ul>
+        </div>
+    </header>
 
-                </div>
+    <!-- <div class="mb-nav_wrapper"></div> -->
+    <nav class="mb-menu" id="showHideMenu">
+        <ul>
+            <!-- Add Links to the Pages when created -->
+            <li>
+                <a class="mb-menuAnchor" href="index.html"><span class="iconify" data-icon="ant-design:home-outlined"
+                        style="font-size: 20px;"></span>
+                    <p class="mb-menu-text">Home</p>
+                </a>
+
+            </li>
+            <li>
+                <a class="mb-menuAnchor" href="CreateListing.html"><span class="iconify"
+                        data-icon="fluent:text-bullet-list-add-20-regular" style="font-size: 20px;"></span>
+                    <p class="mb-menu-text">Create</p>
+                </a>
+            </li>
+            <li>
+                <a class="ViewListing mb-menuAnchor"> <span class="iconify" data-icon="carbon:data-view"
+                        style="font-size: 20px;"></span>
+                    <p class="mb-menu-text">View
+                        Listing</p>
+                </a>
+
+            </li>
+            <li>
+                <a class="mb-menuAnchor" href="AboutUs.html"> <span class="iconify" data-icon="clarity:users-line"
+                        style="font-size: 20px;"></span></span>
+                    <p class="mb-menu-text">About Us</p>
+                </a>
+            </li>
+            <li>
+                <a class="mb-menuAnchor" href="UpdateProfile.html">
+                    <span class="iconify" data-icon="carbon:user-profile" style="font-size: 20px;"></span>
+                    <p class="mb-menu-text">Profile</p>
+                </a>
+            </li>
+            <li>
+                <a class="logoutBtn mb-menuAnchor" href="Login.html">
+                    <strong>
+                        <span class="iconify" data-icon="ri:logout-circle-line" style="font-size: 20px;">
+                        </span>
+                    </strong>
+                    <strong>
+                        <p class="mb-menu-text">Logout?</p>
+                    </strong>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="Notification_wrapper">
+        <div class="NotificationPopUpContainer">
+            <div class="text_btn_wrapper">
+                <h3>Notifications </h3>
+                <a id="CrossIcon">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
+            <div class="NotificationPopUp">
+
+            </div>
+            <div class="triangle"></div>
+        </div>
+    </div>
+    <div class="messageboxWrapper">
+        <div class="msgwrapper">
+            <div class="crossIconContainer">
+                <a id="CloseMsgBox">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
+            <div class="msgContainer">
+                <p id="yourMsg">Some Message</p>
             </div>
         </div>
+    </div>
+    <!-- Till here -->
+
+    <main>
+        <div class="UpdateProfileWrapper">
+            <div class="profileImageContainer">
+                <div class="titleConatiner">
+                    <h2>Update Profile</h2>
+                </div>
+                <div class="videoCanvasContainer">
+                    <img src="../img/default_User.png" id="defaultUserImage" alt="User Images">
+                    <video id="video" autoplay></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div class="videoCanvasControls">
+                    <div class="chooseFileContainer">
+                        Choose File
+                        <input type="file" id="fileBtn" name="chooseFileBtn" class="fileOriginalBtn">
+                    </div>
+                    <a id="Open_Camera" class="OpenCameraBtn">Open Camera</a>
+                    <a id="Stop_Camera" class="CloseCameraBtn">Close Camera</a>
+                </div>
+            </div>
+            <div class="UserProfileContainer">
+                <div class="userNameContainer">
+                    <h2 id="userName">Test UserName</h2>
+                </div>
+                <div class="UserInfo">
+                    <div class="Section_1_Wrapper">
+                        <h2>About</h2>
+                        <div class="AboutWrapper">
+                            <h3 class="styleHeader">Contact Information</h3>
+                            <div class="profileLblInputWrapper">
+                                <label for="upd-pNumber">Phone Number:
+                                </label>
+                                <input type="text" name="upd-pNumber" placeholder="Phone Number" id="upd-pNumber">
+                            </div>
+                            <div class="profileLblInputWrapper">
+                                <label for="upd-email">Email:
+                                </label>
+                                <input type="text" name="upd-email" placeholder="Email" id="upd-email">
+                            </div>
+                            <div class="profileLblInputWrapper">
+                                <label for="upd-Address">Address:
+                                </label>
+                                <input type="text" name="upd-Address" placeholder="Address" id="upd-Address">
+                            </div>
+                            <div class="profileLblInputWrapper">
+                                <label for="Site">Site:
+                                </label>
+                                <input type="text" name="Site" placeholder="Site" id="Site">
+                            </div>
+                            <div class="section_1_1_wrapper">
+                                <h3 class="styleHeader">Basic Information</h3>
+                                <div class="profileLblInputWrapper">
+                                    <label for="dob">Date of birth:
+                                    </label>
+                                    <input type="text" name="dob" placeholder="D.O.B" id="dob">
+                                </div>
+                                <div class="profileLblInputWrapper">
+                                    <label for="gender">Gender:
+                                    </label>
+                                    <input type="text" name="gender" placeholder="Gender" id="gender">
+                                </div>
+                                <div class="profileLblInputWrapper">
+                                    <label for="Language">Language:
+                                    </label>
+                                    <input type="text" name="Language" placeholder="Language" id="Language">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section2_3_wraper">
+                        <div class="Section_2_Wrapper">
+                            <h2>Professional Information</h2>
+                            <div class="professionalInfoWrapper">
+                                <h3 class="styleHeader">Education and Background</h3>
+                                <div class="profileLblInputWrapper">
+                                    <label for="educationBackground">
+                                        Edu. Background:
+                                    </label>
+                                    <input type="text" name="educationBackground" placeholder="Education Background"
+                                        id="educationBackground">
+                                </div>
+                                <div class="profileLblInputWrapper">
+                                    <label for="previousJobExp">
+                                        Prof. Experience:
+                                    </label>
+                                    <input type="text" name="previousJobExp" placeholder="Previous Job Experience"
+                                        id="previousJobExp">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Section_3_Wrapper">
+                            <h2>Security and Privacy</h2>
+                            <div class="profileLblInputWrapper">
+                                <label for="upd-password">Update Password:
+                                </label>
+                                <input type="text" name="upd-password" placeholder="Enter new password"
+                                    id="upd-password">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <a id="updateBtn">Update Profile</a>
+        </div>
     </main>
+    <footer class="footer_Area">
+        <div class="mb_footer">
+            <p> &copy; Geniques 2022 </p>
+        </div>
+        <div class="dk_footer">
+            <div class="about-logo">
+                <img src="../img/Home_Genie_Logo_Footer.png" alt="Home Genie logo">
+            </div>
+            <div class="about-footer-nav1">
+                <nav>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="CreateListing.html">Create </a></li>
+                        <li><a class="ViewListing">View Listings</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav2">
+                <nav>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav3">
+                <nav>
+                    <ul>
+                        <li><a href="#">Let's Get Connected !!</a></li>
+                        <li><a href="tel:+1123-456-7890">+1 1234567890</a></li>
+                        <li><a href="mailto:abc@homegenie.ca">abc@homegenie.ca</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
     <script src="../js/script.js"></script>
     <script src="../js/updateProfile.js" defer></script>
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 </body>
 
 </html>
