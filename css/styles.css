@@ -2671,16 +2671,16 @@ form .form-class {
 .img-payment .img-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 1rem 2%;
   gap: 2rem;
 }
+
 .img-payment .img-clicked-info {
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem;
 }
+
 .img-payment .img-title {
   font-weight: bold;
 }

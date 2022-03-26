@@ -116,7 +116,6 @@ async function GenerateNoticationforUserAsOwner(notificationData) {
     .then((listingRes) => {
       getBidOfferDataForUser(notificationData.bidOfferId)
         .then((bidRes) => {
-          console.log("bud" + JSON.stringify(bidRes));
           let ownerNotification = getOwnerNotificationContainer(
             notificationData,
             listingRes,
@@ -492,7 +491,6 @@ async function fetchNotificationData(url = "") {
 
 async function getBidOfferDataForUser(bidOfferId) {
   let url = fetchBidOffers + bidOfferId;
-  console.log("ursa" + bidOfferId);
   return await getData(url)
     .then((bidOffer) => {
       return bidOffer;
