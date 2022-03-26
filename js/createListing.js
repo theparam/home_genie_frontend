@@ -41,27 +41,6 @@ class Listing {
 class StopWatch {
   constructor() {}
   async start() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          // success callback
-          long = position.coords.longitude;
-          lat = position.coords.latitude;
-          console.log(long + " " + lat);
-        },
-        (error) => {
-          // failure callback
-          console.log(error);
-          if (error.code == error.PERMISSION_DENIED) {
-            window.alert("geolocation permission denied");
-          }
-        }
-      );
-    } else {
-      // no geolocation in navigator. in the case of old browsers
-      console.log("Geolocation is not supported by this browser.");
-    }
-
     var id, target, options;
     function success(pos) {
       var crd = pos.coords;
@@ -104,6 +83,31 @@ document.querySelector(".ViewListing").addEventListener("click", (e) => {
 
   window.location.href = "Listing.html?view=getListings";
 });
+function GetLiveLocation() {
+  if (navigator.geolocation) {
+    return new Promise((resolve) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // success callback
+          long = position.coords.longitude;
+          lat = position.coords.latitude;
+          let obj = { longitute: long, latitude: lat };
+          resolve(obj);
+        },
+        (error) => {
+          // failure callback
+          console.log(error);
+          if (error.code == error.PERMISSION_DENIED) {
+            window.alert("geolocation permission denied");
+          }
+        }
+      );
+    });
+  } else {
+    // no geolocation in navigator. in the case of old browsers
+    console.log("Geolocation is not supported by this browser.");
+  }
+}
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -236,10 +240,15 @@ let fillAddress = (fetchedAddress) => {
     "fetch house ",
     fetchedAddress.address.house_number + "," + fetchedAddress.address.road
   );
-
-  document.getElementById("address").value =
-    fetchedAddress.address.house_number + "," + fetchedAddress.address.road;
-
+  if (
+    fetchedAddress.address.house_number != null &&
+    fetchedAddress.address.house_number != undefined
+  ) {
+    document.getElementById("address").value =
+      fetchedAddress.address.house_number + "," + fetchedAddress.address.road;
+  } else {
+    document.getElementById("address").value = fetchedAddress.address.road;
+  }
   document.getElementById("city").value = fetchedAddress.address.city;
   document.getElementById("province").value = fetchedAddress.address.state;
   document.getElementById("code").value = fetchedAddress.address.postcode;
@@ -251,9 +260,8 @@ let fillAddress = (fetchedAddress) => {
 
 let locatnWatch = new StopWatch();
 locationbtn.addEventListener("click", async (e) => {
-  await locatnWatch.start();
-
-  setTimeout(() => {
+  console.log("asda");
+  GetLiveLocation().then((result) => {
     GetLocation()
       .then((locData) => {
         fillAddress(locData);
@@ -261,7 +269,9 @@ locationbtn.addEventListener("click", async (e) => {
       .catch((err) => {
         alert(err);
       });
-  }, 1000);
+  });
+
+  setTimeout(() => {}, 1000);
 });
 
 document.getElementById("myFile").addEventListener("change", (e) => {
