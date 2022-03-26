@@ -277,7 +277,6 @@ a {
   height: 20px;
   border: none;
   outline: none;
-  padding: 0.5rem;
   width: 80px;
   margin-right: 0.2rem;
   background-color: transparent;
@@ -306,14 +305,13 @@ a {
 
 .Search_field_Icon_Container input[type="text"] {
   color: black;
-  text-align: left;
-  border-bottom: 2px var(--primary_BlueShade_1);
+  border-bottom: 1px var(--primary_BlueShade_1);
 }
 .searchlink {
   color: var(--primary_BlueShade_1);
 }
 #SearchInputField::placeholder {
-  color: black;
+  color: rgb(88, 88, 88);
   opacity: 1;
   font-weight: bold;
 }
@@ -502,7 +500,9 @@ a {
   box-shadow: 0 0 15px black;
 }
 .Search_field_Icon_Container input[type="text"] {
-  border-bottom: 4px solid var(--primary_BlueShade_1);
+  border-bottom: 3px solid var(--primary_BlueShade_1);
+  width: 170px;
+  margin-top: 12px;
 }
 
 @media screen and (min-width: 600px) {
@@ -1097,7 +1097,7 @@ a {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .ProgressBarWrapper {
     background: url("../img/Home_Genie_Splash_Screen.png");
     background-repeat: no-repeat;
@@ -2549,7 +2549,6 @@ a {
   }
 
   .specific-color-top {
-    background-color: var(--secondary_PinkShade_2);
     margin-bottom: 3rem;
   }
 
