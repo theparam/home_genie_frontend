@@ -47,6 +47,7 @@ class StopWatch {
           // success callback
           long = position.coords.longitude;
           lat = position.coords.latitude;
+          console.log(long + " " + lat);
         },
         (error) => {
           // failure callback
