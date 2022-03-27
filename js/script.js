@@ -41,19 +41,19 @@ document.addEventListener("DOMContentLoaded", async () => {
           : "Guest";
     });
   }
-
+  // Get Notification for the OWNER
   await GetNotification("Owner");
+  // Get Notification for the Customer
   await GetNotification("Customer");
 
-  // sortedArray = tempArray.sort(
-  //   (a, b) => new Date(a.publishDate) - new Date(b.publishDate)
-  // );
+  // Get all notfication from both side and sort it acoording to date and according to descending order
   sortedArray = tempArray.sort(
     (a, b) =>
       new Date(a.notifyData.publishDate) - new Date(b.notifyData.publishDate)
   );
   sortedArray.reverse();
-  console.log(sortedArray);
+
+  // Generate Containers accordingly.
   for (let arrayidx = 0; arrayidx < sortedArray.length; arrayidx++) {
     if (sortedArray[arrayidx].usertype == "Owner") {
       await GenerateNoticationforUserAsOwner(sortedArray[arrayidx].notifyData);
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
+  // Show Notification according to length
   if (notificationArray.length > 3) {
     for (let a = 0; a < notificationArray.length; a++) {
       if (a > 3) {
@@ -77,6 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       ".NotificationPopUp"
     ).innerHTML += `<a onclick="LoadAllNotifications()" id="ShowMore">Show More</a>`;
   } else {
+    console.log(notificationArray);
     LoadAllNotifications();
   }
 });
@@ -130,8 +132,8 @@ async function GenerateNoticationforUserAsOwner(notificationData) {
 
   console.log("url" + urlListing);
   await getData(urlListing)
-    .then((listingRes) => {
-      getBidOfferDataForUser(notificationData.bidOfferId)
+    .then(async (listingRes) => {
+      await getBidOfferDataForUser(notificationData.bidOfferId)
         .then((bidRes) => {
           let ownerNotification = getOwnerNotificationContainer(
             notificationData,
@@ -156,15 +158,15 @@ async function GenerateNoticationforUserAsCustomer(notificationData) {
 
     console.log("asd" + urlListing);
     await getData(urlListing)
-      .then((listingRes) => {
-        getData(fetchNotificationUrl + listingRes.ownerUserId)
+      .then(async (listingRes) => {
+        await getData(fetchNotificationUrl + listingRes.ownerUserId)
           .then((owner) => {
             let customerNotification = getCustomerNotificationContainer(
               notificationData,
               listingRes,
               owner
             );
-            tempArray.push(notificationData);
+            console.log(customerNotification);
             notificationArray.push(customerNotification);
             // document.querySelector(".NotificationPopUp").innerHTML +=
             // customerNotification;
