@@ -331,7 +331,7 @@ function EncodeBio() {
       ? document.getElementById("previousJobExp").value
       : "";
 
-  return `${site},${dob},${gender},${language},${educationBackground},${previousJobExp}`;
+  return `${site}:${dob}:${gender}:${language}:${educationBackground}:${previousJobExp}`;
 }
 // #endregion
 

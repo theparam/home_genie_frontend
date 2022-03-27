@@ -39,6 +39,7 @@ window.addEventListener("load", (e) => {
       loggedInUser.password != null ? loggedInUser.password : "";
 
     if (loggedInUser.image != null || loggedInUser.image != undefined) {
+
       video.style.display = "none";
       canvas.style.width = "100%";
       canvas.style.height = "350px";
@@ -51,6 +52,7 @@ window.addEventListener("load", (e) => {
       };
       img.src = `data:image/jpeg;base64,${loggedInUser.image.data}`;
       canvas.style.display = "grid";
+      console.log(canvas.style.display);
     } else {
       defaultUserImage.style.display = "block";
       video.style.display = "none";
@@ -61,8 +63,8 @@ window.addEventListener("load", (e) => {
 
 function setBioData() {
   let loggedInUser = JSON.parse(window.sessionStorage.getItem("LoggedInUser"));
-  if (loggedInUser != null) {
-    let arr = loggedInUser.bio.split(",");
+  if (loggedInUser != null && loggedInUser.bio !=null) {
+    let arr = loggedInUser.bio.split(":");
 
     let site = arr[0];
     let dob = arr[1];

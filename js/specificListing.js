@@ -374,7 +374,7 @@ let getBiddingOfferForOwner = (bidOffer, isOwner = true) => {
 };
 
 let DecodeBioForUser = (bio) => {
-  let arr = bio.split(",");
+  let arr = bio.split(":");
   let site = arr[0];
   let dob = arr[1];
   let gender = arr[2];
