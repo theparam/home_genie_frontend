@@ -11,6 +11,8 @@ let fetchBidOffers = "http://localhost:8080/home/genie/user/bid/";
 let fetchNotificationUrl = "http://localhost:8080/home/genie/user/";
 
 let notificationArray = [];
+let tempArray = [];
+let sortedArray = [];
 let loggdInUser = "";
 let bellIcon = document.getElementById("ShowNotificationPopUp");
 let dk_bellIcom = document.getElementById("dk-ShowNotificationPopUp");
@@ -43,7 +45,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   await GetNotification("Owner");
   await GetNotification("Customer");
 
-  // //  Some code require async await
+  // sortedArray = tempArray.sort(
+  //   (a, b) => new Date(a.publishDate) - new Date(b.publishDate)
+  // );
+  sortedArray = tempArray.sort(
+    (a, b) =>
+      new Date(a.notifyData.publishDate) - new Date(b.notifyData.publishDate)
+  );
+  sortedArray.reverse();
+  console.log(sortedArray);
+  for (let arrayidx = 0; arrayidx < sortedArray.length; arrayidx++) {
+    if (sortedArray[arrayidx].usertype == "Owner") {
+      await GenerateNoticationforUserAsOwner(sortedArray[arrayidx].notifyData);
+    } else {
+      await GenerateNoticationforUserAsCustomer(
+        sortedArray[arrayidx].notifyData
+      );
+    }
+  }
+
   if (notificationArray.length > 3) {
     for (let a = 0; a < notificationArray.length; a++) {
       if (a > 3) {
@@ -86,22 +106,18 @@ async function GetNotification(user) {
     .then(async (data) => {
       for (let n = 0; n < data.length; n++) {
         if (data[n].status == "unread") {
-          document.getElementById("dk_NotificationGenie").src =
-            document.getElementById("mb_NotificationGenie").src =
-              "../img/New_Notification_Genie.png";
-        }
-        if (user == "Owner") {
-          await GenerateNoticationforUserAsOwner(data[n]);
-        } else {
-          await GenerateNoticationforUserAsCustomer(data[n]);
+          tempArray.push({ usertype: user, notifyData: data[n] });
+          // document.getElementById("dk_NotificationGenie").src =
+          //   document.getElementById("mb_NotificationGenie").src =
+          //     "../img/New_Notification_Genie.png";
         }
       }
 
-      if (iconFlag) {
-        document.getElementById("dk_NotificationGenie").src =
-          document.getElementById("mb_NotificationGenie").src =
-            "../img/New_Notification_Genie.png";
-      }
+      // if (iconFlag) {
+      //   document.getElementById("dk_NotificationGenie").src =
+      //     document.getElementById("mb_NotificationGenie").src =
+      //       "../img/New_Notification_Genie.png";
+      // }
     })
     .catch((err) => {
       console.log("error: " + err);
@@ -112,6 +128,7 @@ async function GetNotification(user) {
 async function GenerateNoticationforUserAsOwner(notificationData) {
   let urlListing = listingURL + notificationData.listingId;
 
+  console.log("url" + urlListing);
   await getData(urlListing)
     .then((listingRes) => {
       getBidOfferDataForUser(notificationData.bidOfferId)
@@ -121,11 +138,7 @@ async function GenerateNoticationforUserAsOwner(notificationData) {
             listingRes,
             bidRes
           );
-
           notificationArray.push(ownerNotification);
-          notificationArray.reverse();
-          // document.querySelector(".NotificationPopUp").innerHTML +=
-          //   ownerNotification;
         })
         .catch((err) => {
           console.log("Error: " + err);
@@ -138,28 +151,32 @@ async function GenerateNoticationforUserAsOwner(notificationData) {
 
 // Generate notification contaiers for the Owner
 async function GenerateNoticationforUserAsCustomer(notificationData) {
-  let urlListing = listingURL + notificationData.listingId;
+  if (notificationData != null && notificationData != undefined) {
+    let urlListing = listingURL + notificationData.listingId;
 
-  await getData(urlListing)
-    .then((listingRes) => {
-      getData(fetchNotificationUrl + listingRes.ownerUserId)
-        .then((owner) => {
-          let customerNotification = getCustomerNotificationContainer(
-            notificationData,
-            listingRes,
-            owner
-          );
-          notificationArray.push(customerNotification);
-          // document.querySelector(".NotificationPopUp").innerHTML +=
-          // customerNotification;
-        })
-        .catch((err) => {
-          console.log("Error: " + err);
-        });
-    })
-    .catch((err) => {
-      console.log("Error: " + err);
-    });
+    console.log("asd" + urlListing);
+    await getData(urlListing)
+      .then((listingRes) => {
+        getData(fetchNotificationUrl + listingRes.ownerUserId)
+          .then((owner) => {
+            let customerNotification = getCustomerNotificationContainer(
+              notificationData,
+              listingRes,
+              owner
+            );
+            tempArray.push(notificationData);
+            notificationArray.push(customerNotification);
+            // document.querySelector(".NotificationPopUp").innerHTML +=
+            // customerNotification;
+          })
+          .catch((err) => {
+            console.log("Error: " + err);
+          });
+      })
+      .catch((err) => {
+        console.log("Error: " + err);
+      });
+  }
 }
 
 function getOwnerNotificationContainer(
@@ -167,12 +184,27 @@ function getOwnerNotificationContainer(
   listing,
   biddingOffer
 ) {
+  let dbDate = new Date(notificationData.publishDate);
+  let formattedDate =
+    dbDate.getDay() +
+    "-" +
+    dbDate.getMonth() +
+    "-" +
+    dbDate.getFullYear() +
+    "  " +
+    dbDate.getHours() +
+    ":" +
+    dbDate.getMinutes() +
+    ":" +
+    dbDate.getSeconds();
+
   let container = ` <div class="ownerNotification">
      <h3 class="listingTitle">${listing.title}</h1>
        <p>You have received a new offer by <span id="custonerName">${
          biddingOffer.bidUserName
        }</span></p>
        <div class="viewbtnWrapper">
+       <p class="offerDate">${formattedDate}</p>
          <a class="viewlisting" onclick="UpdateOwnerNotifationViewListing(this)" id="${
            listing.id + "_" + notificationData.id
          }">View Listing</a>
@@ -182,12 +214,27 @@ function getOwnerNotificationContainer(
 }
 
 function getCustomerNotificationContainer(notificationData, listing, owner) {
+  let dbDate = new Date(notificationData.publishDate);
+  let formattedDate =
+    dbDate.getDay() +
+    "-" +
+    dbDate.getMonth() +
+    "-" +
+    dbDate.getFullYear() +
+    "  " +
+    dbDate.getHours() +
+    ":" +
+    dbDate.getMinutes() +
+    ":" +
+    dbDate.getSeconds();
+
   let container = `<div class="customerNotification">
   <h3 class="listingTitle">${listing.title}</h1>
     <p>Horray!! <span id="ownerName">${
       owner.firstName
     }</span> accepted your offer</p>
     <div class="viewbtnWrapper">
+    <p class="offerDate">${formattedDate}</p>
     <a class="viewlisting" onclick="UpdateCustomerNotifationViewListing(this)" id="${
       listing.id + "_" + notificationData.id
     }">View Listing</a>

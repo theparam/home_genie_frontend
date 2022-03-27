@@ -217,6 +217,12 @@ a {
 }
 .ViewListing {
   cursor: pointer;
+  margin: 0;
+}
+.offerDate {
+  display: inline;
+  margin: 0;
+  font-size: 0.8rem;
 }
 
 .img_info_container {
@@ -635,7 +641,9 @@ a {
 }
 
 .viewbtnWrapper {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .viewbtnWrapper a {
@@ -643,7 +651,6 @@ a {
   cursor: pointer;
   background-color: var(--primary_BlueShade_1);
   color: white;
-  margin: 1rem 0;
   border-radius: 0.25rem;
 }
 
