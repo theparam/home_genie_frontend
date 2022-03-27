@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
   sortedArray.reverse();
 
+  console.log(tempArray);
   // Generate Containers accordingly.
   for (let arrayidx = 0; arrayidx < sortedArray.length; arrayidx++) {
     if (sortedArray[arrayidx].usertype == "Owner") {
@@ -109,17 +110,11 @@ async function GetNotification(user) {
       for (let n = 0; n < data.length; n++) {
         if (data[n].status == "unread") {
           tempArray.push({ usertype: user, notifyData: data[n] });
-          // document.getElementById("dk_NotificationGenie").src =
-          //   document.getElementById("mb_NotificationGenie").src =
-          //     "../img/New_Notification_Genie.png";
+          document.getElementById("dk_NotificationGenie").src =
+            document.getElementById("mb_NotificationGenie").src =
+              "../img/New_Notification_Genie.png";
         }
       }
-
-      // if (iconFlag) {
-      //   document.getElementById("dk_NotificationGenie").src =
-      //     document.getElementById("mb_NotificationGenie").src =
-      //       "../img/New_Notification_Genie.png";
-      // }
     })
     .catch((err) => {
       console.log("error: " + err);
