@@ -108,8 +108,8 @@ async function GetNotification(user) {
   await fetchNotificationForUser(url)
     .then(async (data) => {
       for (let n = 0; n < data.length; n++) {
+        tempArray.push({ usertype: user, notifyData: data[n] });
         if (data[n].status == "unread") {
-          tempArray.push({ usertype: user, notifyData: data[n] });
           document.getElementById("dk_NotificationGenie").src =
             document.getElementById("mb_NotificationGenie").src =
               "../img/New_Notification_Genie.png";
