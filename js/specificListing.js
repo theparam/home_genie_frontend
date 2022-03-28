@@ -414,8 +414,6 @@ function DeclineOfferFn(declineBtn) {
 
     postBidData(declineBidUrl, JSON.stringify(bidOffer))
       .then((response) => {
-        console.log("response Offer:" + response);
-        console.log(response.status);
         document.querySelector(".msgwrapper").style.border = "2px solid red";
         ShowMessageWithTimeout(2000, "Offer Declined.");
 
@@ -427,7 +425,7 @@ function DeclineOfferFn(declineBtn) {
         document.querySelector(".msgwrapper").style.border = "2px solid red";
         ShowMessagePopUp(`Error occured. Kindly check console.`);
         console.log(
-          "In Fn (DeclineOfferFn) Error occured while declining offer: " + err
+          "In Fn (DeclineOfferFn) Error occured while declining offer: " + error
         );
       });
   });

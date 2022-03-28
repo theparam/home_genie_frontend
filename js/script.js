@@ -109,11 +109,6 @@ async function GetNotification(user) {
     .then(async (data) => {
       for (let n = 0; n < data.length; n++) {
         tempArray.push({ usertype: user, notifyData: data[n] });
-        if (data[n].status == "unread") {
-          document.getElementById("dk_NotificationGenie").src =
-            document.getElementById("mb_NotificationGenie").src =
-              "../img/New_Notification_Genie.png";
-        }
       }
     })
     .catch((err) => {
@@ -135,6 +130,11 @@ async function GenerateNoticationforUserAsOwner(notificationData) {
             listingRes,
             bidRes
           );
+          if (notificationData.status == "unread") {
+            document.getElementById("dk_NotificationGenie").src =
+              document.getElementById("mb_NotificationGenie").src =
+                "../img/New_Notification_Genie.png";
+          }
           notificationArray.push(ownerNotification);
         })
         .catch((err) => {
@@ -164,6 +164,11 @@ async function GenerateNoticationforUserAsCustomer(notificationData) {
               listingRes,
               owner
             );
+            if (notificationData.status == "unread") {
+              document.getElementById("dk_NotificationGenie").src =
+                document.getElementById("mb_NotificationGenie").src =
+                  "../img/New_Notification_Genie.png";
+            }
             console.log(customerNotification);
             notificationArray.push(customerNotification);
             // document.querySelector(".NotificationPopUp").innerHTML +=
