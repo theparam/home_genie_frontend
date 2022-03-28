@@ -154,6 +154,9 @@ async function GenerateNoticationforUserAsCustomer(notificationData) {
     console.log("asd" + urlListing);
     await getData(urlListing)
       .then(async (listingRes) => {
+        if (!listingRes.isOfferAccepted) {
+          return;
+        }
         await getData(fetchNotificationUrl + listingRes.ownerUserId)
           .then((owner) => {
             let customerNotification = getCustomerNotificationContainer(
