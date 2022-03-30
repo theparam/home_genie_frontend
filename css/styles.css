@@ -35,7 +35,6 @@ body { background-color: var(--primary_Color); } */
 /*#region Elements Style*/
 html {
   scroll-behavior: smooth;
-  overflow-y: scroll;
 }
 
 body {
@@ -1934,7 +1933,7 @@ a {
     margin: 0 auto;
   }
   #SignUpBtn {
-    width: 100px;
+    width: 120px;
     margin: 0 auto;
   }
 
