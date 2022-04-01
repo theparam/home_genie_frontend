@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
   sortedArray.reverse();
 
-  console.log(tempArray);
   // Generate Containers accordingly.
   for (let arrayidx = 0; arrayidx < sortedArray.length; arrayidx++) {
     if (sortedArray[arrayidx].usertype == "Owner") {
@@ -63,6 +62,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         sortedArray[arrayidx].notifyData
       );
     }
+  }
+
+  if (notificationArray.length == 0) {
+    document.querySelector(
+      ".NotificationPopUp"
+    ).innerHTML = ` <div class="ownerNotification">
+     <h3 class="listingTitle">No new notification yet</h3>
+   </div>`;
   }
 
   // Show Notification according to length
@@ -204,7 +211,7 @@ function getOwnerNotificationContainer(
     dbDate.getSeconds();
 
   let container = ` <div class="ownerNotification">
-     <h3 class="listingTitle">${listing.title}</h1>
+     <h3 class="listingTitle">${listing.title}</h3>
        <p>You have received a new offer by <span id="custonerName">${
          biddingOffer.bidUserName
        }</span></p>
@@ -234,7 +241,7 @@ function getCustomerNotificationContainer(notificationData, listing, owner) {
     dbDate.getSeconds();
 
   let container = `<div class="customerNotification">
-  <h3 class="listingTitle">${listing.title}</h1>
+  <h3 class="listingTitle">${listing.title}</h3>
     <p>Horray!! <span id="ownerName">${
       owner.firstName
     }</span> accepted your offer</p>
