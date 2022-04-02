@@ -2893,3 +2893,46 @@ form label span {
 
 /* ************************************************************************************ */
 /* ************************************************************************************ */
+
+/* #region Fallback Page */
+
+.fallbackContainer {
+  height: 79.81vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .fallbackContainer {
+    height: 75.8vh;
+  }
+}
+
+.offlineWrapper {
+  width: max-content;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-shadow: var(--primary_box_shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quote {
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.quoteAuthor {
+  font-weight: bold;
+  text-align: right;
+  width: 100%;
+  margin: 0.5rem;
+}
+
+/* #endregion Fallback Page  */

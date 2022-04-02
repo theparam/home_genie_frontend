@@ -7,24 +7,188 @@
     <meta name="description" content="A Bidding platform for the people to bid on the home services of other people">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="../app.webmanifest">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css"
+        integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
-
     <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
+    <!-- For the Developer Copy Start from here  line 148-->
+    <header class="HomePage_header">
+        <div class="LogoContainer">
+            <a href="index.html">
+                <img src="../img/Home_Genie_DK_Logo.png" alt="Home Genie Logo">
+            </a>
+        </div>
+        <div class="Menu_BellIconContainer">
+            <a href="#" id="ShowNotificationPopUp">
+                <img id="mb_NotificationGenie" src="../img/Notification_Genie.png" alt="Notification Genie">
+            </a>
+            <a href="#" id="ShowMenu">
+                <i title="Show Menu" class="fas fa-bars"></i>
+            </a>
+        </div>
+        <div class="dk-menu">
+            <ul>
+                <li>
+                    <a href="CreateListing.html">Create</a>
+                </li>
+                <li>
+                    <a class="ViewListing">View listings</a>
+                </li>
+                <li>
+                    <a href="AboutUs.html">About Us</a>
+                </li>
+                <li>
+                    <a href="#" id="dk-ShowNotificationPopUp">
+                        <img id="dk_NotificationGenie" src="../img/Notification_Genie.png" alt="Notification Genie">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="ProfileIcon">
+                        <img src="../img/default_User.png" alt="Default User">
+                    </a>
+                    <div id="ProfileContainer">
+                        <div class="subProfileMenu">
+                            <ul>
+                                <li>
+                                    <p class="dk-WelcomeUser">Hello, <span class="loggedUserName"></span></p>
+                                </li>
 
-    <header>
-        <h1>Home Genie</h1>
+                                <li>
+                                    <a href="UpdateProfile.html">Profile</a>
+                                </li>
+                                <li>
+                                    <a class="logoutBtn">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </header>
-    <main>
-        <p>This is a fallback Page</p>
-    </main>
-    <footer></footer>
 
+    <!-- <div class="mb-nav_wrapper"></div> -->
+    <nav class="mb-menu" id="showHideMenu">
+        <ul>
+            <!-- Add Links to the Pages when created -->
+            <li>
+                <a class="mb-menuAnchor" href="index.html"><span class="iconify" data-icon="ant-design:home-outlined"
+                        style="font-size: 20px;"></span>
+                    <p class="mb-menu-text">Home</p>
+                </a>
+
+            </li>
+            <li>
+                <a class="mb-menuAnchor" href="CreateListing.html"><span class="iconify"
+                        data-icon="fluent:text-bullet-list-add-20-regular" style="font-size: 20px;"></span>
+                    <p class="mb-menu-text">Create</p>
+                </a>
+            </li>
+            <li>
+                <a class="ViewListing mb-menuAnchor"> <span class="iconify" data-icon="carbon:data-view"
+                        style="font-size: 20px;"></span>
+                    <p class="mb-menu-text">View
+                        Listing</p>
+                </a>
+
+            </li>
+            <li>
+                <a class="mb-menuAnchor" href="AboutUs.html"> <span class="iconify" data-icon="clarity:users-line"
+                        style="font-size: 20px;"></span></span>
+                    <p class="mb-menu-text">About Us</p>
+                </a>
+            </li>
+            <li>
+                <a class="mb-menuAnchor" href="UpdateProfile.html">
+                    <span class="iconify" data-icon="carbon:user-profile" style="font-size: 20px;"></span>
+                    <p class="mb-menu-text">Profile</p>
+                </a>
+            </li>
+            <li>
+                <a class="logoutBtn mb-menuAnchor" href="Login.html">
+                    <strong>
+                        <span class="iconify" data-icon="ri:logout-circle-line" style="font-size: 20px;">
+                        </span>
+                    </strong>
+                    <strong>
+                        <p class="mb-menu-text">Logout?</p>
+                    </strong>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="Notification_wrapper">
+        <div class="NotificationPopUpContainer">
+            <div class="text_btn_wrapper">
+                <h3>Notifications </h3>
+                <a id="CrossIcon">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
+            <div class="NotificationPopUp">
+            </div>
+            <div class="triangle"></div>
+        </div>
+    </div>
+    <!-- Till here -->
+    <main>
+        <div class="fallbackContainer">
+            <div class="offlineWrapper">
+                <h1>No Internet Connection</h1>
+                <h2>Whoppss... Seems like we lost you in the process</h2>
+                <p>Make sure your internet connection is working</p>
+
+                <h3 class="quote">"My home is in Heaven. I'm just traveling through this world."</h3>
+                <p class="quoteAuthor">By Billy Graham</p>
+
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer_Area">
+        <div class="mb_footer">
+            <p> &copy; Geniques 2022 </p>
+        </div>
+        <div class="dk_footer">
+            <div class="about-logo">
+                <img src="../img/Home_Genie_Logo_Footer.png" alt="Home Genie logo">
+            </div>
+            <div class="about-footer-nav1">
+                <nav>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="CreateListing.html">Create </a></li>
+                        <li><a class="ViewListing">View Listings</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav2">
+                <nav>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about-footer-nav3">
+                <nav>
+                    <ul>
+                        <li><a href="#">Let's Get Connected !!</a></li>
+                        <li><a href="tel:+1123-456-7890">+1 1234567890</a></li>
+                        <li><a href="mailto:abc@homegenie.ca">abc@homegenie.ca</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
     <script src="../js/script.js" defer></script>
 </body>
 

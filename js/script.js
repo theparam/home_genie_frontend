@@ -70,10 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     ).innerHTML = ` <div class="ownerNotification">
      <h3 class="listingTitle">No new notification yet</h3>
    </div>`;
-  }
-
-  // Show Notification according to length
-  if (notificationArray.length > 3) {
+  } else if (notificationArray.length > 3) {
     for (let a = 0; a < notificationArray.length; a++) {
       if (a > 3) {
         break;
