@@ -41,6 +41,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           : "Guest";
     });
   }
+
+  // We can show it but right now too much space
+  // let profileImage = document.getElementById("profileImage");
+  // if (profileImage != null && loggdInUser.image != null) {
+  //   profileImage.src = `data:image/jpeg;base64,${loggdInUser.image.data}`;
+  // }
   // Get Notification for the OWNER
   await GetNotification("Owner");
   // Get Notification for the Customer
