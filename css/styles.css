@@ -2709,6 +2709,7 @@ form .form-class {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  margin: 1rem;
 }
 
 .img-payment .img-clicked-info {
@@ -2851,6 +2852,10 @@ form label span {
   .create-user-form {
     max-width: 1000px;
     margin: 0 auto;
+  }
+
+  .img-payment .img-info {
+    margin: 0;
   }
 
   #address {
