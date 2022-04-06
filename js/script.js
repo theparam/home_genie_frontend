@@ -373,6 +373,17 @@ let ShowMenubtn = document.getElementById("ShowMenu");
 if (ShowMenubtn != null) {
   document.getElementById("ShowMenu").addEventListener("click", () => {
     document.getElementById("showHideMenu").classList.toggle("menu_active");
+
+    let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
+    if (loggedInUser != null) {
+      document.querySelectorAll(".ShowLoginControls").forEach((ele) => {
+        ele.classList.toggle("activeLoginControls");
+      });
+
+      document.querySelectorAll(".listLoginBtn").forEach((ele) => {
+        ele.style.display = "none";
+      });
+    }
     document
       .querySelector(".NotificationPopUpContainer")
       .classList.remove("popUPActive");
@@ -406,10 +417,16 @@ if (profileBtn != null) {
     e.preventDefault();
     let loggedInUser = window.sessionStorage.getItem("LoggedInUser");
     if (loggedInUser != null) {
-      document
-        .querySelector(".subProfileMenu")
-        .classList.toggle("activeProfileMenu");
+      document.querySelectorAll(".ShowLoginControls").forEach((ele) => {
+        ele.classList.toggle("activeLoginControls");
+      });
+
+      document.getElementById("listLoginBtn").style.display = "none";
     }
+
+    document
+      .querySelector(".subProfileMenu")
+      .classList.toggle("activeProfileMenu");
 
     document
       .querySelector(".NotificationPopUpContainer")

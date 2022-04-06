@@ -61,12 +61,18 @@
                                         <p class="dk-WelcomeUser">Hello, <span class="loggedUserName"></span></p>
                                     </li>
 
-                                    <li>
-                                        <a href="UpdateProfile.html">Profile</a>
+                                    <li class="listLoginBtn">
+                                        <a class="LoginBtn" href="Login.html">Login</a>
                                     </li>
-                                    <li>
-                                        <a class="logoutBtn">Logout</a>
-                                    </li>
+
+                                    <ul class="ShowLoginControls">
+                                        <li>
+                                            <a href="UpdateProfile.html">Profile</a>
+                                        </li>
+                                        <li>
+                                            <a class="logoutBtn">Logout</a>
+                                        </li>
+                                    </ul>
                                 </ul>
                             </div>
                         </div>
@@ -106,23 +112,32 @@
                         <p class="mb-menu-text">About Us</p>
                     </a>
                 </li>
-                <li>
-                    <a class="mb-menuAnchor" href="UpdateProfile.html">
-                        <span class="iconify" data-icon="carbon:user-profile" style="font-size: 20px;"></span>
-                        <p class="mb-menu-text">Profile</p>
+                <li class="listLoginBtn">
+                    <a class="mb-menuAnchor" href="Login.html"><span class="iconify"
+                            data-icon="ant-design:login-outlined"></span>
+                        <p class="mb-menu-text">Login</p>
                     </a>
                 </li>
-                <li>
-                    <a class="logoutBtn mb-menuAnchor" href="Login.html">
-                        <strong>
-                            <span class="iconify" data-icon="ri:logout-circle-line" style="font-size: 20px;">
-                            </span>
-                        </strong>
-                        <strong>
-                            <p class="mb-menu-text">Logout?</p>
-                        </strong>
-                    </a>
-                </li>
+
+                <ul class="ShowLoginControls">
+                    <li>
+                        <a class="mb-menuAnchor" href="UpdateProfile.html">
+                            <span class="iconify" data-icon="carbon:user-profile" style="font-size: 20px;"></span>
+                            <p class="mb-menu-text">Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="logoutBtn mb-menuAnchor" href="Login.html">
+                            <strong>
+                                <span class="iconify" data-icon="ri:logout-circle-line" style="font-size: 20px;">
+                                </span>
+                            </strong>
+                            <strong>
+                                <p class="mb-menu-text">Logout?</p>
+                            </strong>
+                        </a>
+                    </li>
+                </ul>
             </ul>
         </nav>
         <div class="Notification_wrapper">
