@@ -22,7 +22,10 @@ class User {
 
 window.addEventListener("load", (e) => {
   let loggedInUser = JSON.parse(window.sessionStorage.getItem("LoggedInUser"));
+  defaultUserImage.style.display = "block";
 
+  video.style.display = "none";
+  canvas.style.display = "none";
   if (loggedInUser != null) {
     let fName = loggedInUser.firstName;
     let lName = loggedInUser.lastName;
@@ -39,7 +42,6 @@ window.addEventListener("load", (e) => {
       loggedInUser.password != null ? loggedInUser.password : "";
 
     if (loggedInUser.image != null || loggedInUser.image != undefined) {
-
       video.style.display = "none";
       canvas.style.width = "100%";
       canvas.style.height = "350px";
@@ -53,17 +55,13 @@ window.addEventListener("load", (e) => {
       img.src = `data:image/jpeg;base64,${loggedInUser.image.data}`;
       canvas.style.display = "grid";
       console.log(canvas.style.display);
-    } else {
-      defaultUserImage.style.display = "block";
-      video.style.display = "none";
-      canvas.style.display = "none";
     }
   }
 });
 
 function setBioData() {
   let loggedInUser = JSON.parse(window.sessionStorage.getItem("LoggedInUser"));
-  if (loggedInUser != null && loggedInUser.bio !=null) {
+  if (loggedInUser != null && loggedInUser.bio != null) {
     let arr = loggedInUser.bio.split(":");
 
     let site = arr[0];
@@ -200,6 +198,12 @@ document.getElementById("Open_Camera").addEventListener("click", (e) => {
 });
 
 document.getElementById("Stop_Camera").addEventListener("click", (e) => {
+  let loggedInUser = JSON.parse(window.sessionStorage.getItem("LoggedInUser"));
+  if (loggedInUser == null) {
+    ShowMessageAndRedirect();
+    return;
+  }
+
   defaultUserImage.style.display = "none";
   e.preventDefault();
   canvas.style.width = "100%";

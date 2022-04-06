@@ -1984,8 +1984,12 @@ a {
 .UpdateProfileWrapper {
   display: grid;
   justify-content: center;
-  padding: 2rem;
 }
+
+.UserProfileContainer {
+  padding: 1rem;
+}
+
 .styleHeader {
   color: grey;
   font-size: 2rem;
@@ -2058,7 +2062,7 @@ a {
 
 #defaultUserImage {
   display: none;
-  width: 400px;
+  width: 300px;
 }
 
 .videoCanvasContainer {
