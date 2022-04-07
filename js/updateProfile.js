@@ -22,10 +22,7 @@ class User {
 
 window.addEventListener("load", (e) => {
   let loggedInUser = JSON.parse(window.sessionStorage.getItem("LoggedInUser"));
-  defaultUserImage.style.display = "block";
 
-  video.style.display = "none";
-  canvas.style.display = "none";
   if (loggedInUser != null) {
     let fName = loggedInUser.firstName;
     let lName = loggedInUser.lastName;
@@ -55,6 +52,12 @@ window.addEventListener("load", (e) => {
       img.src = `data:image/jpeg;base64,${loggedInUser.image.data}`;
       canvas.style.display = "grid";
       console.log(canvas.style.display);
+    }
+    else {
+      defaultUserImage.style.display = "block";
+
+      video.style.display = "none";
+      canvas.style.display = "none";
     }
   }
 });
