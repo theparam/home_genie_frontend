@@ -421,7 +421,15 @@ if (profileBtn != null) {
         ele.classList.toggle("activeLoginControls");
       });
 
-      document.getElementById("listLoginBtn").style.display = "none";
+      let loginBtns = document.querySelectorAll(".listLoginBtn");
+
+      if (loginBtns.length > 0) {
+        loginBtns.forEach((element) => {
+          if (element != null) {
+            element.style.display = "none";
+          }
+        });
+      }
     }
 
     document
